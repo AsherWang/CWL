@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 class notices extends CI_Controller {
 
   public function __construct()
@@ -10,7 +10,7 @@ class notices extends CI_Controller {
   }
 
   //notices/index
-  public function index()
+  public function index()        
   {
     $data['news'] = $this->news_model->get_news();
     $data['title'] = 'News archive';
