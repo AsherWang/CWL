@@ -40,10 +40,25 @@
 
 $route['default_controller'] = "IndexPage"; 
 $route['IndexPage/Login'] = "IndexPage/Login";
-$route['IndexPage/(:any)'] = "IndexPage";
+//$route['IndexPage/(:any)'] = "IndexPage";
 
-$route['NoticePage'] = "NoticePage/Index";
 
+$route['NoticePage'] = "NoticePage";
+//$route['NoticePage/(:any)'] = "NoticePage/Index";
+
+
+$route['RegUserPage'] = "RegUserPage";
+//$route['RegUserPage/(:any)'] = "RegUserPage/Index";
+
+
+$route['RegOfficePage'] = "RegOfficePage";
+//$route['RegOfficePage/(:any)'] = "RegOfficePage/Index";
+
+$route['HospitalManangerPage'] = "HospitalManangerPage";
+//$route['HospitalManangerPage/(:any)'] = "HospitalManangerPage/Index";
+
+$route['SuperManager'] = "SuperManager";
+//$route['SuperManager/(:any)'] = "SuperManager/Index";
 
 
 

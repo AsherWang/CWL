@@ -1,11 +1,12 @@
 <?php
 /**
  * @Author: Asher
- * @Date:   2014-12-01 08:45:44
+ * @Date:   2014-12-01 16:24:47
  * @Last Modified by:   Asher
- * @Last Modified time: 2014-12-01 16:28:20
+ * @Last Modified time: 2014-12-01 16:32:39
  */
-class RegUserPage extends CI_Controller {
+
+class SuperManagerPage extends CI_Controller {
   public function __construct()
   {
     parent::__construct();
@@ -15,13 +16,13 @@ class RegUserPage extends CI_Controller {
    //$this->load->model('notice_model');
   }
 
-  //RegUserPage/Index
+  //SuperManagerPage/index
   public function Index()
   {
    // $data['news'] = $this->news_model->get_news();
-    $data['title'] = 'RegUserPage';
+    $data['title'] = 'SuperManagerPage';
    // $this->load->view('templates/header', $data);
-    $this->load->view('RegUserPage/Index', $data);
+    $this->load->view('SuperManagerPage/Index', $data);
   //  $this->load->view('templates/footer');
   }
 

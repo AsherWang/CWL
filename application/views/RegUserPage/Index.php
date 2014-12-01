@@ -3,19 +3,16 @@
  * @Author: Asher
  * @Date:   2014-12-01 08:54:25
  * @Last Modified by:   Asher
- * @Last Modified time: 2014-12-01 16:50:38
+ * @Last Modified time: 2014-12-01 16:51:11
  */
 //这里将是首页的位置了
 function PagesFunctions()
 {
-    date_default_timezone_set('Asia/Shanghai'); 
+     date_default_timezone_set('Asia/Shanghai'); 
     return "<div style='border:1px solid #00f'>".
             date('l dS \of F Y h:i:s A').
-            "<br>Hi~this ia the homepage of our system".
-            '<br>嗯是的这就是我们项目的首页，前端赶紧干活了'.
+            "<br>Hi~this ia the RegUserPage of our system".
             "<br>页面要实现的功能:<br>".
-            "1.基本的跳转链接(到其他页面)<br>".
-            "2.最近公告的显示<br>".
             "3.想起来再说<br>".
             "</div>";
 }
@@ -31,10 +28,5 @@ function PagesFunctions()
          echo PagesFunctions();
     ?>
     <br>
-    <div  style='border:1px solid #f00'>
-    测试用链接<br>
-    <a href="IndexPage/Login">到登陆页面</a><br>
-    <a href="NoticePage">到公告页面</a>
-    </div>
     </body>
 </html>

@@ -3,7 +3,7 @@
  * @Author: Asher
  * @Date:   2014-12-01 10:01:54
  * @Last Modified by:   Asher
- * @Last Modified time: 2014-12-01 10:17:02
+ * @Last Modified time: 2014-12-01 16:38:30
  */
 function PagesFunctions()
 {
@@ -28,6 +28,15 @@ function PagesFunctions()
     <?php
          echo PagesFunctions();
     ?>
+        <br>
+    <div  style='border:1px solid #f00'>
+    测试用链接<br>
+     <a href="../HospitalManangerPage">到院方管理页面</a><br>
+     <a href="../RegOfficePage">到院方挂号处页面</a><br>
+     <a href="../RegUserPage">到挂号用户页面</a><br>
+     <a href="../SuperManagerPage">到第三方管理员(超级管理员)页面</a><br>
+    </div>
+
     </body>
 </html>
 
