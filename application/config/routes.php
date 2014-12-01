@@ -38,13 +38,14 @@
 |
 */
 
-$route['default_controller'] = "pages"; //如此设定之后
-$route['pages/(:any)'] = "pages/view/$1";
+$route['default_controller'] = "IndexPage"; 
+$route['IndexPage/Login'] = "IndexPage/Login";
+$route['IndexPage/(:any)'] = "IndexPage";
 
-$route['notices'] = 'notices';
-$route['notices/create'] = 'notices/create';
-$route['notices/success'] = 'notices/success';
-$route['notices/(:any)'] = 'notices/view/$1';
+$route['NoticePage'] = "NoticePage/Index";
+
+
+
 
 //$route['404_override'] = '';
 /* End of file routes.php */
