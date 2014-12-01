@@ -3,7 +3,7 @@
  * @Author: Asher
  * @Date:   2014-12-01 08:45:30
  * @Last Modified by:   Asher
- * @Last Modified time: 2014-12-01 10:13:58
+ * @Last Modified time: 2014-12-01 15:18:23
  *
  * 控制器描述：主要控制对首页的访问
  */
@@ -14,7 +14,7 @@ class IndexPage extends CI_Controller {
     
     //构造函数时载入数据的model类，对应models目录下的news_model.php
     //首页上会包括功公告，所以会有
-    //
+    //s 
    //$this->load->model('notice_model');
   }
 
