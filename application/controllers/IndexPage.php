@@ -3,7 +3,7 @@
  * @Author: Asher
  * @Date:   2014-12-01 08:45:30
  * @Last Modified by:   Asher
- * @Last Modified time: 2014-12-03 20:21:26
+ * @Last Modified time: 2014-12-03 21:49:09
  *
  * 控制器描述：主要控制对首页的访问
  */
@@ -24,9 +24,9 @@ class IndexPage extends CI_Controller {
   {
    // $data['news'] = $this->news_model->get_news();
     $data['title'] = 'Our System';
-   // $this->load->view('templates/header', $data);
+    $this->load->view('templates/header', $data);
     $this->load->view('IndexPage/Index', $data);
-  //  $this->load->view('templates/footer');
+    $this->load->view('templates/footer');
   }
 
   //IndexPage/login
