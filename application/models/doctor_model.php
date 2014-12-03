@@ -13,5 +13,44 @@
 		{
 			parent::_construct();
 		}
+
+		function get_doctor($sql)
+		{
+			$query=$this->db->query($sql);
+			if($query->num_rows()>0)
+			{
+				echo $row->ID;
+				echo $row->Name;
+				echo $row->Department;
+				echo $row->Hospital;
+				echo $row->Info;
+				echo $row->Expert;
+				echo $row->Schedule_ID;
+			}	
+			else
+				echo "no result!";
+		}
+
+		function insert_doctor($data)
+		{
+			$query=$this->db->where($data);
+			if($query->result()==NULL)
+			{
+				$this->db->insert('doctor',$data);
+			}
+			else
+				echo "This doctor  already exists";
+		}
+
+		function delete_doctor($data);
+		{
+			$this->db->delete('doctor',$data);
+		}
+
+		function update_doctor($ID,$data)
+		{
+			$this->db->where('ID'=$ID);
+			$this->db->update('doctor',$data);
+		}
 	}
 ?>
