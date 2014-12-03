@@ -1,11 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title><?php echo $title; ?></title>
+    </head>
+    <body>
 <?php
-/**
- * @Author: Asher
- * @Date:   2014-12-03 15:33:24
- * @Last Modified by:   Asher
- * @Last Modified time: 2014-12-03 15:33:55
- */
-
-echo "test";
-
+print_r($value);
 ?>
+    </body>
+</html>
