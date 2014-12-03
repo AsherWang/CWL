@@ -56,7 +56,7 @@
 		{
 			/*
 				$data=array(
-					'ID'=$ID
+					'ID'=>$ID
 				);
 			*/
 			//删除是以ID删除的
@@ -68,9 +68,9 @@
 		{
 			/*
 				$data=array(
-					'Name'=$Name;
-					'Info'=$Info;
-					'Hospital_ID'=$Hospital_ID;
+					'Name'=>$Name;
+					'Info'=>$Info;
+					'Hospital_ID'=>$Hospital_ID;
 				);
 			*/
 			$this->db->where('ID',$ID);
