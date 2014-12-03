@@ -3,7 +3,7 @@
  * @Author: Asher
  * @Date:   2014-12-01 08:45:30
  * @Last Modified by:   Asher
- * @Last Modified time: 2014-12-01 15:18:23
+ * @Last Modified time: 2014-12-03 20:21:26
  *
  * 控制器描述：主要控制对首页的访问
  */
@@ -16,6 +16,7 @@ class IndexPage extends CI_Controller {
     //首页上会包括功公告，所以会有
     //s 
    //$this->load->model('notice_model');
+   $this->load->helper('url');
   }
 
   //IndexPage/index

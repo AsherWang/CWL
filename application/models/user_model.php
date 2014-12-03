@@ -29,6 +29,10 @@
 		//用户封禁
 		//public function 
 
+
+
+
+
 		//查找、插入、删除、更新user表函数，$data为查询条件（数组形式）
 		function get_user($data='')
 		{
@@ -64,10 +68,20 @@
 		}
 
 
-
-		function insert_user($data)//传入数组或者对象均可$data||$object
+		//参数data数组应该包括除了id之外的所有字段
+		function insert_user($data)
 		{
-			$this->db->insert_batch('User',$data);
+			$str = $this->db->insert_string('user', $data);
+			$this->db->query($str);
+			if($this->db->affected_rows()!=1)
+			{
+				return -1;
+			}
+			else
+			{
+			  	return $this->db->insert_id();
+			}  
+			
 		}
 
 		function delete_user($data)

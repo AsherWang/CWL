@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title><?php echo $title; ?></title>
+        <title><?php echo base_url(); ?></title>
     </head>
     <body>
 <?php
