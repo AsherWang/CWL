@@ -61,6 +61,8 @@ $route['SuperManager'] = "SuperManager";
 //$route['SuperManager/(:any)'] = "SuperManager/Index";
 
 
+$route['Test'] = "TestControl";
+$route['Test/(:any)'] = "TestControl/Index";
 
 //$route['404_override'] = '';
 /* End of file routes.php */
