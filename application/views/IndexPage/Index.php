@@ -3,13 +3,13 @@
  * @Author: Asher
  * @Date:   2014-12-01 08:54:25
  * @Last Modified by:   Asher
- * @Last Modified time: 2014-12-01 16:50:38
+ * @Last Modified time: 2014-12-03 20:23:27
  */
 //这里将是首页的位置了
 function PagesFunctions()
 {
     date_default_timezone_set('Asia/Shanghai'); 
-    return "<div style='border:1px solid #00f'>".
+    return "<div class='Dborder'>".
             date('l dS \of F Y h:i:s A').
             "<br>Hi~this ia the homepage of our system".
             '<br>嗯是的这就是我们项目的首页，前端赶紧干活了'.
@@ -25,6 +25,7 @@ function PagesFunctions()
     <head>
         <meta charset="utf-8">
         <title><?php echo $title; ?></title>
+        <link rel="stylesheet" href="<?php echo base_url();?>res/css/TestIndex.css" />
     </head>
     <body>
     <?php
