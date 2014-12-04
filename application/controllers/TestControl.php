@@ -3,7 +3,7 @@
  * @Author: Asher
  * @Date:   2014-12-03 15:31:08
  * @Last Modified by:   Asher
- * @Last Modified time: 2014-12-03 20:11:29
+ * @Last Modified time: 2014-12-04 14:36:49
  */
 class TestControl extends CI_Controller {
   public function __construct()
@@ -18,7 +18,11 @@ class TestControl extends CI_Controller {
   {
    // $data['news'] = $this->news_model->get_news();
     $data['title'] = 'testpage';
-    $data["value"]=$this->user_model->user_login("小李","lovelive");
+    //$this->user_model->MakeUnvalid(1,-1);
+    $as=array('Ext_ID' => 1 ,'ID_number' => 546415446327841541, 'Password' => 'lovelive' ,'Name' => '小李' ,'Autority' => 1, 'Credit_Rate' => 1, 'Max_Order_Sum' => 0);
+
+    $data["value"]=$this->user_model->insert_user($as);
+
     $this->load->view('TestPage/Index', $data);
       
   }

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 	class User_model extends CI_Model{
 		
 		//变量（表字段，对象属性）
@@ -19,17 +19,60 @@
 
 		}
 
+        //checked
 		//获取用户的总数量
 		public function get_user_sum()
 		{
 			return $this->db->count_all('user');
 		}
 
+        //checked
+		//确认用户是否被封禁,出错（比如没有此用户等）返回-1,没出错则返回true，false
+	   public function isValid($userId)
+       {
+            $validdate=$this->getValidDateTime($userId);
+            if($validdate==-1)return -1;
+            $currentdate=date("y-m-d h:i:s");
+            return strtotime($currentdate)>=strtotime($validdate);
+       }
 
-		//用户封禁
-		//public function 
+       //checked
+       //获得封禁到期时间返回一个日期的字符串比如2010-11-29 21:07:00
+       public function getValidDateTime($userId)
+       {
+            $sql = "SELECT Valid_Date FROM User WHERE ID = ?;"; 
+            $query=$this->db->query($sql, array($userId)); 
+            if($query->num_rows()!=1)
+                return -1;
+            return $query->row()->Valid_Date;
+       }
 
+       //checked
+        //用户封禁,参数要求(用户id，封禁时长/天),出错返回-1
+        public function MakeUnvalid($userId,$day)
+       {
+         // $currentdate=date("y-m-d h:i:s");
+          $newValidDate=date('Y-m-d H:i:s',strtotime("+".$day." day")); 
+          return $this->setUserValidDateTime($userId,$newValidDate);
+       }
 
+       //checked
+        //用户解封禁,参数要求(用户id)
+        public function MakeValid($userId)
+       {
+           return $this->setUserValidDateTime($userId,"1000-1-1 0:0:0");
+       }
+        
+       //checked
+       //设定封禁日期，(id,日期('2010-11-29 21:07:00'))
+       public function setUserValidDateTime($userId,$validDateTime)
+       {
+         $data = array('Valid_Date' => $validDateTime);
+         $where = "ID = $userId"; 
+         $sql = $this->db->update_string('user', $data, $where); 
+         $query=$this->db->query($sql); 
+         return $this->db->affected_rows()!=1;
+       }
 
 
 
@@ -55,7 +98,17 @@
 				echo "no result!";
 		}
 
+        //测试用函数
+        public function getUser($userId)
+        {
+            $sql = "SELECT * FROM User WHERE ID = ?;"; 
+            $query=$this->db->query($sql, array($userId)); 
+            if($query->num_rows()!=1)
+                return -1;
+            return $query->row();
+        }
 
+        //checked
 		//若用户名密码正确那么返回一个对象，据此对象可以获得用户表的所有数据，反之返回-1
 		public function user_login($user,$paswd)
 		{
@@ -67,8 +120,8 @@
 			else return -1;
 		}
 
-
-		//参数data数组应该包括除了id之外的所有字段
+        //unchecked
+		//参数data数组应该包括除了id之外的所有字段,嗯不包括validtime，返回值是-1
 		function insert_user($data)
 		{
 			$str = $this->db->insert_string('user', $data);

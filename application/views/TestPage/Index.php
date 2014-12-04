@@ -6,7 +6,10 @@
     </head>
     <body>
 <?php
-print_r($value);
+//$datetime = new DateTime($value->Valid_Date);
+// echo $value->Valid_Date->format('jS, F Y') . "/n";
+//echo $datetime->format('jS, F Y') . "/n";
+print_r ($value);
 ?>
     </body>
 </html>
