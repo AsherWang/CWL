@@ -19,13 +19,11 @@
 			$query=$this->db->query($sql);
 			if($query->num_rows()>0)
 			{
-				echo $row->ID;
-				echo $row->Name;
-				echo $row->Department;
-				echo $row->Hospital;
-				echo $row->Info;
-				echo $row->Expert;
-				echo $row->Schedule_ID;
+				foreach($query->result() as $row)
+				{
+					$doctor[$i]=$row;
+				}
+				return json_encode($doctor);
 			}	
 			else
 				echo "no result!";

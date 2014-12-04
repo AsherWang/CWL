@@ -20,17 +20,12 @@
 			$query=$this->db->query($sql);
 			if($quey->num_rows()>0)
 			{
+				$i=0;
 				foreach($quey->result() as $row)
 				{
-					echo $row->ID;
-					echo $row->Name;
-					echo $row->level;
-					echo $row->Address;
-					echo $row->Phone;
-					echo $row->Info;
-					echo $row->Website;
-					echo $row->Type;
+					$hospital[$i]=$row;
 				}
+				return json_encode($hospital);
 			}
 			else
 				echo "no result!";

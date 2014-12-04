@@ -17,14 +17,13 @@
 			$query=$this->db->query($sql);
 			if($query->num_rows()>0)//$query->num_rows()返回当前行数
 			{
+				$i=0;
 				foreach($query->result() as $row)//输出形式具体根据需要
 				{
-					$ID = $row->ID;
-					echo $row->Name;
-					echo $row->Info;
-					echo $row->Hospital_ID;
-
+					/*返回JSON格式*/
+					$department[$i]=$row;
 				}
+				return json_encode($department);
 			}
 			else
 				echo "no result!";

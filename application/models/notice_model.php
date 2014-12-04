@@ -17,14 +17,12 @@
 			$query=$this->db->query($sql);
 			if($query->num_rows()>0)
 			{
+				$i=0;
 				foreach($query->result() as $row)
 				{
-					echo $row->ID;
-					echo $row->Title;
-					echo $row->Content;
-					echo $row->Data;
-					echo $row->Author_ID;
+					$notice[$i]=$row;
 				}
+				return json_encode($notice);
 			}	
 			else
 				echo "no result!";
