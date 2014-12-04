@@ -118,6 +118,8 @@
 		{
 			if($user==null||$paswd==null)return-1;
 
+                        $sql = "SELECT * FROM User WHERE ID = ?;"; 
+            $query=$this->db->query($sql, array($userId)); 
 
 			$query = $this->db->query("SELECT * FROM user where Name='$user' and Password='$paswd' limit 1;");
 			if($query->num_rows()!=0)
@@ -143,14 +145,25 @@
 		}
 
         //这个.....
-		function delete_user($data)
+		function delete_user($userId)
 		{
-			$this->db->delete('User',$data);
+            $this->db->where('ID', $userId);
+            $this->db->delete('user');
+            if($this->db->affected_rows()!=1)
+                return -1;
+            return true;
 		}
 
-		function update_user($data)
+
+        //$data  是一个数组，array("filedname"=>value,"filedname"=>value...)
+		function update_user($userId,$data)
 		{
-			$this->db->delete_batch('User',$data);
+            $where = "ID = $userId"; 
+            $str = $this->db->update_string('user', $data, $where); 
+			$this->db->query($str);
+            if($this->db->affected_rows()!=1)
+                return -1;
+            return true;
 		}
 	}
 
