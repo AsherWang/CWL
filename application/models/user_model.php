@@ -51,7 +51,6 @@
         //用户封禁,参数要求(用户id，封禁时长/天),出错返回-1
         public function MakeUnvalid($userId,$day)
        {
-         // $currentdate=date("y-m-d h:i:s");
           $newValidDate=date('Y-m-d H:i:s',strtotime("+".$day." day")); 
           return $this->setUserValidDateTime($userId,$newValidDate);
        }
@@ -67,13 +66,18 @@
        //设定封禁日期，(id,日期('2010-11-29 21:07:00'))
        public function setUserValidDateTime($userId,$validDateTime)
        {
-         $data = array('Valid_Date' => $validDateTime);
+         return $this->updateFileds($userId,array("Valid_Date"=>$validDateTime));
+       }
+
+       //checked
+       //某些字段的更新
+       private function updateFileds($userId,$data)
+       {
          $where = "ID = $userId"; 
          $sql = $this->db->update_string('user', $data, $where); 
          $query=$this->db->query($sql); 
          return $this->db->affected_rows()!=1;
        }
-
 
 
 		//查找、插入、删除、更新user表函数，$data为查询条件（数组形式）
@@ -98,7 +102,7 @@
 				echo "no result!";
 		}
 
-        //测试用函数
+        //测试用函数,用来看user更新结果
         public function getUser($userId)
         {
             $sql = "SELECT * FROM User WHERE ID = ?;"; 
@@ -112,7 +116,8 @@
 		//若用户名密码正确那么返回一个对象，据此对象可以获得用户表的所有数据，反之返回-1
 		public function user_login($user,$paswd)
 		{
-			if($user==null||$paswd==null)return-2;
+			if($user==null||$paswd==null)return-1;
+
 
 			$query = $this->db->query("SELECT * FROM user where Name='$user' and Password='$paswd' limit 1;");
 			if($query->num_rows()!=0)
@@ -120,7 +125,7 @@
 			else return -1;
 		}
 
-        //unchecked
+        //checked
 		//参数data数组应该包括除了id之外的所有字段,嗯不包括validtime，返回值是-1
 		function insert_user($data)
 		{
@@ -137,6 +142,7 @@
 			
 		}
 
+        //这个.....
 		function delete_user($data)
 		{
 			$this->db->delete('User',$data);
