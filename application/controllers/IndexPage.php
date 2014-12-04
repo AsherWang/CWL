@@ -24,20 +24,20 @@ class IndexPage extends CI_Controller {
   {
    // $data['news'] = $this->news_model->get_news();
     $data['title'] = 'Our System';
-    $this->load->view('templates/header', $data);
+   // $this->load->view('templates/header', $data);
     $this->load->view('IndexPage/Index', $data);
-    $this->load->view('templates/footer');
+    //$this->load->view('templates/footer');
   }
 
   //IndexPage/login
-  public function Login()
-  {
+  //public function Login()
+  //{
    // $data['news'] = $this->news_model->get_news();
-    $data['title'] = 'login';
+    //$data['title'] = 'login';
    // $this->load->view('templates/header', $data);
-    $this->load->view('IndexPage/Login', $data);
+    //$this->load->view('IndexPage/Login', $data);
   //  $this->load->view('templates/footer');
-  }
+  //}
 
   // //对应路径IndexPage/view/$1
   // public function view($slug)
