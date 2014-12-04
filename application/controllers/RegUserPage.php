@@ -13,6 +13,7 @@ class RegUserPage extends CI_Controller {
     //构造函数时载入数据的model类，对应models目录下的news_model
     //s 
    //$this->load->model('notice_model');
+   $this->load->helper('url');
   }
 
   //RegUserPage/Index
