@@ -15,7 +15,7 @@
 		function _construct()
 		{
 			parent::_construct();
-			$this->load->database();
+			
 
 		}
         //public 函数
