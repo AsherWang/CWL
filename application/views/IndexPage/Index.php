@@ -3,10 +3,10 @@
  <title>全国统一预约平台</title>
  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 
- <link rel="stylesheet" type="text/css" href='<?=base_url().'res/css/bootstrap.min.css'?>'>
- <link href='<?=base_url().'/res/css/mainpagestyle.css'?>' rel="stylesheet" type="text/css" />
- <script src='<?=base_url().'/res/js/jquery.js'?>'></script>
- <script src='<?=base_url().'res/js/bootstrap.min.js'?>'></script>
+ <link rel="stylesheet" type="text/css" href='<?php echo base_url().'res/css/bootstrap.min.css'?>'>
+ <link href='<?php echo base_url().'/res/css/mainpagestyle.css'?>' rel="stylesheet" type="text/css" />
+ <script src='<?php echo base_url().'/res/js/jquery.js'?>'></script>
+ <script src='<?php echo base_url().'res/js/bootstrap.min.js'?>'></script>
 </head>
 
 <body>
@@ -148,7 +148,7 @@
                   </div>
 
                   <div class="col-xs-offset-1">
-                  <a href="#" onclick="document.form.submit();"><img src="<?=base_url().'res/images/login.png'?>" /></a>
+                  <a href="#" onclick="document.form.submit();"><img src="<?php echo base_url().'res/images/login.png'?>" /></a>
                   </div>
 
                 </div>
@@ -164,14 +164,14 @@
              <input type="text" id="searchcontent" class="form-control" placeholder="医院/科室/医生">
            </div>
 
-           <input type="image" src="<?=base_url().'res/images/button.png'?>" id="clicksearch" ></input>
+           <input type="image" src="<?php echo base_url().'res/images/button.png'?>" id="clicksearch" ></input>
            <div id="selects">
 
            </div>
 
          </div>
          <div id="visit">
-          <div id="vtitle"><img src="<?=base_url().'res/images/query.png'?>"></div>
+          <div id="vtitle"><img src="<?php echo base_url().'res/images/query.png'?>"></div>
           <table id="Querylist">
             <tr>
 
@@ -232,7 +232,7 @@
               <div id="startquery">
                 <div class="start"><span>我要</span></div>
                 <div class="go"><span>预约</span></div>
-                <div id="queryArrow"><a href="#" onclick="document.form.submit();"><img src="<?=base_url().'res/images/arrow.png'?>" /></a></div>
+                <div id="queryArrow"><a href="#" onclick="document.form.submit();"><img src="<?php echo base_url().'res/images/arrow.png'?>" /></a></div>
               </div>
 
 
@@ -246,15 +246,15 @@
       <div id="news">
 
        <div id="nmore"><a href="#">more..</a></div>
-       <div class="hotnews" id="firsthotnews" onmouseover="this.style.background='url(<?=base_url().'res/images/hotlable.png'?>)'" onmouseout="this.style.background='none'">
+       <div class="hotnews" id="firsthotnews" onmouseover="this.style.background='url(<?php echo base_url().'res/images/hotlable.png'?>)'" onmouseout="this.style.background='none'">
         <div class="new">
           <a href="#" target="_blank"><span class="words">北医三院，功在千秋<span></a>
         </div>
       </div>
-      <div class="hotnews" onmouseover="this.style.background='url(<?=base_url().'res/images/hotlable.png'?>)'" onmouseout="this.style.background='none'"><div class="new"><a target="_blank" href="#"><span class="words">热血澎湃，解放军陆军医院 </span></a></div></div>
-      <div class="hotnews" onmouseover="this.style.background='url(<?=base_url().'res/images/hotlable.png'?>)'" onmouseout="this.style.background='none'"><div class="new"><a target="_blank" href="#"><span class="words">什么都能治，来就看好</span></a></div></div>
-      <div class="hotnews" onmouseover="this.style.background='url(<?=base_url().'res/images/hotlable.png'?>)'" onmouseout="this.style.background='none'"><div class="new"><a target="_blank" href="#"><span class="words">悬壶济世，妙手回春 </span></a></div></div>
-      <div class="hotnews" onmouseover="this.style.background='url(<?=base_url().'res/images/hotlable.png'?>)'" onmouseout="this.style.background='none'"><div class="new"><a target="_blank" href="#"><span class="words">活死人，肉白骨，想死先出院</span></a></div></div>
+      <div class="hotnews" onmouseover="this.style.background='url(<?php echo base_url().'res/images/hotlable.png'?>)'" onmouseout="this.style.background='none'"><div class="new"><a target="_blank" href="#"><span class="words">热血澎湃，解放军陆军医院 </span></a></div></div>
+      <div class="hotnews" onmouseover="this.style.background='url(<?php echo base_url().'res/images/hotlable.png'?>)'" onmouseout="this.style.background='none'"><div class="new"><a target="_blank" href="#"><span class="words">什么都能治，来就看好</span></a></div></div>
+      <div class="hotnews" onmouseover="this.style.background='url(<?php echo base_url().'res/images/hotlable.png'?>)'" onmouseout="this.style.background='none'"><div class="new"><a target="_blank" href="#"><span class="words">悬壶济世，妙手回春 </span></a></div></div>
+      <div class="hotnews" onmouseover="this.style.background='url(<?php echo base_url().'res/images/hotlable.png'?>)'" onmouseout="this.style.background='none'"><div class="new"><a target="_blank" href="#"><span class="words">活死人，肉白骨，想死先出院</span></a></div></div>
 
 
     </div>
