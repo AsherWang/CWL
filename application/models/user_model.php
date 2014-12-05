@@ -1,6 +1,6 @@
 <?php
-	class User_model extends CI_Model{
-		
+	require_once("base_model.php");
+	class User_model extends MyBase_model{
 		//变量（表字段，对象属性）
 		var $ID='';
 		var $Ext_ID='';
@@ -11,42 +11,52 @@
 		var $Credit_Rate='';
 		var $Max_Order_Sum='';
 
-		//构造函数继承自CI_Model
 		function _construct()
 		{
 			parent::_construct();
-			
-
 		}
-        //public 函数
-
-        //checked
 		//获取用户的总数量
 		public function get_user_sum()
 		{
-			return $this->db->count_all('user');
+			return $this->getTableSum("user");
 		}
-
-        //这个.....删除
+		//获取扩展表的id，-1表示没有或者出错
+		public function getExtId($userId)
+		{
+			$extId=$this->getAFiledByNameOfATable($userId,"Ext_ID",'user');
+			if($extId=="")return -1;
+			$temp=$this->getAFiledByNameOfATable($extId,"ID","user_ext");
+			if($temp!=$extId)return -1;
+			return $extId;
+		}
+		
+        //这个.....删除，checked
         public function delete_user($userId)
         {
-            $this->db->where('ID',$this->getAfiledByName($userId,"Ext_ID"));
-            $this->db->delete('user_ext');
-            $this->db->where('ID', $userId);
-            $this->db->delete('user');
+            //删除扩展信息(如果有)
+            $user_ext_id=$this->getExtId($userId);
+            if($user_ext_id!=-1)
+            {
+                $this->deleteATable($user_ext_id,'user_ext');
+            }
+            //删除用户基本信息
+            //
+            $this->deleteATable($userId,'user');
         }
 
-        //更新.
+        //更新.checked
         //$data  是一个数组，array("filedname"=>value,"filedname"=>value...)
-        public function update_user($userId,$data)
-        {
-            $where = "ID = $userId"; 
-            $str = $this->db->update_string('user', $data, $where); 
-            $this->db->query($str);
-            if($this->db->affected_rows()!=1)
-                return -1;
-            return true;
-        }
+	public function update_user($userId,$data)
+	{
+		return $this->updateTable($userId,$data,"user");
+	}
+
+       //checked
+       //设定封禁日期，(id,日期('2010-11-29 21:07:00'))
+       private function setUserValidDateTime($userId,$validDateTime)
+       {
+         return $this->updateTable($userId,array("Valid_Date"=>$validDateTime),'user');
+       }
 
         //checked
 		//确认用户是否被封禁,出错（比如没有此用户等）返回-1,没出错则返回true，false
@@ -62,11 +72,7 @@
        //获得封禁到期时间返回一个日期的字符串比如2010-11-29 21:07:00
        public function getValidDateTime($userId)
        {
-            $sql = "SELECT Valid_Date FROM User WHERE ID = ?;"; 
-            $query=$this->db->query($sql, array($userId)); 
-            if($query->num_rows()!=1)
-                return -1;
-            return $query->row()->Valid_Date;
+           return $this->getAFiledByNameOfATable($userId,"Valid_Date","user");
        }
 
        //checked
@@ -83,23 +89,21 @@
        {
            return $this->setUserValidDateTime($userId,"1000-1-1 0:0:0");
        }
-
-
         //checked
         //若用户名密码正确那么返回一个对象，据此对象可以获得用户表的所有数据，反之返回-1
-        public function user_login($user,$paswd)
+        public function user_login($ID_number,$paswd)
         {
             if($user==null||$paswd==null)return-1;
-            $sql = "SELECT * FROM User WHERE ID = ?;"; 
-            $query=$this->db->query($sql, array($userId)); 
-            $query = $this->db->query("SELECT * FROM user where Name='$user' and Password='$paswd' limit 1;");
-            if($query->num_rows()!=0)
-                return $query->row();
-            else return -1;
+			return $this->getTable("user",array("ID_number"=>$ID_number,"Password"=>$paswd));
         }
-
-        
-                //测试用函数,用来看user更新结果
+		
+		//checked,身份证号是否已注册
+		public function IsIDnumberExist($ID_number)
+		{
+			$re=$this->getTable("user",array("ID_number"=>$ID_number));
+			return is_object($re);
+		}
+         //测试用函数,用来看user更新结果
         public function getUser($userId)
         {
             $sql = "SELECT * FROM User WHERE ID = ?;"; 
@@ -108,81 +112,27 @@
                 return -1;
             return $query->row();
         }
-
-
-
-       //checked
-       //设定封禁日期，(id,日期('2010-11-29 21:07:00'))
-       private function setUserValidDateTime($userId,$validDateTime)
-       {
-         return $this->updateFileds($userId,array("Valid_Date"=>$validDateTime));
-       }
-
-       //checked
-       //某些字段的更新
-       private function updateFileds($Id,$data,$tablename="user")
-       {
-         $where = "ID = $Id"; 
-         $sql = $this->db->update_string($tablename, $data, $where); 
-         $query=$this->db->query($sql); 
-         return $this->db->affected_rows()!=1;
-       }
-
-
-        //根据id返回某一个字段
-        private function getAfiledByName($id,$filedname,$tablename='user')
-        {
-            $sql = "SELECT * FROM $tablename WHERE ID = ?"; 
-            $query=$this->db->query($sql,array($id)); 
-            if($query->num_rows()!=1)
-                return -1;
-            return $query->row()->$filedname;
-        }
-
-        //checked
-		//参数data数组应该包括除了id之外的所有字段,
-        //嗯不包括validtime，user_ext，出错的返回值是-1
-		private function insertToTable($data,$tablename="user")
-		{
-			$str = $this->db->insert($tablename, $data);
-			if($this->db->affected_rows()!=1)
-			{
-				return -1;
-			}
-			else
-			{
-			  	return $this->db->insert_id();
-			}  
-			
-		}
-
-
-
-
         //-------------------
         //下边是关于用户扩展信息的部分
         //没必要分开写了
         //checked
         public function setUserExtInfo($userId,$data)
         {
-            $userExtInfoId=$this->getAfiledByName($userId,"Ext_ID");
-            if($userExtInfoId!=null&&$this->isUserExtInfoExist($userExtInfoId))
+            $userExtInfoId=$this->getExtId($userId);
+            if($userExtInfoId!=-1)
             {
                 //已存在那就更新
-                $this->updateFileds($userExtInfoId,$data,"user_ext");
+                $this->updateTable($userExtInfoId,$data,"user_ext");
             }
             else
             {
                 //不存在那就插入
                 $userExtInfoId=$this->insertToTable($data,'user_ext');
-                $this->updateFileds($userId,array("Ext_ID"=> $userExtInfoId));
+                $this->updateTable($userId,array("Ext_ID"=> $userExtInfoId),"user");
             }
         }
 
-       private function isUserExtInfoExist($userExtId)
-        {
-            return $this->getAfiledByName($userExtId,"ID","user_ext")!="";
-        }
+
 	}
 
 ?>

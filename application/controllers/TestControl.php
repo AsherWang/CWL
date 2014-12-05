@@ -19,10 +19,10 @@ class TestControl extends CI_Controller {
    // $data['news'] = $this->news_model->get_news();
     $data['title'] = 'testpage';
     //$this->user_model->MakeUnvalid(1,-1);
-    $as=array('Ext_ID' => 1 ,'ID_number' => '546415446327841541', 'Password' => 'lovelive' ,'Name' => '小李' ,'Autority' => 1, 'Credit_Rate' => 1, 'Max_Order_Sum' => 0);
+    $as=array('ID_number' => '546415446327841541', 'Password' => 'lovelive' ,'Name' => '小2李' ,'Autority' => 1, 'Credit_Rate' => 1, 'Max_Order_Sum' => 0);
 
     //$data["value"]=$this->user_model->setUserExtInfo(4,array("Phone"=>"12qwe3123"));
-     $data["value"]=$this->user_model->getValidDateTime(1);
+     $data["value"]=$this->user_model->delete_user(1);
     $this->load->view('TestPage/Index', $data);
       
   }
