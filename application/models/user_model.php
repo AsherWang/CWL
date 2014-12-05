@@ -1,16 +1,6 @@
 <?php
 	require_once("base_model.php");
 	class User_model extends MyBase_model{
-		//变量（表字段，对象属性）
-		var $ID='';
-		var $Ext_ID='';
-		var $ID_number='';
-		var $Password='';
-		var $Name='';
-		var $Authority='';
-		var $Credit_Rate='';
-		var $Max_Order_Sum='';
-
 		function _construct()
 		{
 			parent::_construct();
@@ -30,7 +20,7 @@
 			return $extId;
 		}
 		
-        //这个.....删除，checked
+        //这个.....删号，checked
         public function delete_user($userId)
         {
             //删除扩展信息(如果有)
