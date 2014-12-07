@@ -28,6 +28,7 @@ body{
 	
 	width: 100%;
 	height: 1450px;
+	background-color: #daf0fb;
 }
 
 
@@ -199,7 +200,7 @@ body{
 	position: absolute;
     top: 520px;
     left: 150px;
-	background-color: #d7ecf5;
+	background-color: #FFDEAD;
 	width: 700px;
 	height: 350px;
 	border:none;
@@ -208,7 +209,7 @@ body{
 #vtitle{
 	height: 40px;
 	width: 700px;
-	background-color: #d7ecf5;
+	background-color: #FFDEAD;
 	font-family: "微软雅黑";
 	font-size: 25px;
 	padding-left: 5px;
@@ -263,7 +264,7 @@ body{
 .querystyle{
 	width:195px;
 	height:115px;
-	background-color:#b1ddf8;
+	background-color:#9d99f0;
 	}
     .querystyle span {
         color:#000;
@@ -355,25 +356,131 @@ body{
 /*公告*/
 
 /*热点医院*/
-
-#hots{
+#activehot{
 	position: absolute;
-    top: 890px;
-    left: 150px;
-	background-color:#71c7a2 ;
 	width: 1040px;
-	height: 500px;
+	height: 520px;
+	top: 890px;
+    left: 150px;
+    overflow: hidden;
+    
+}
+#hots1{
+	
+	
+	background-color:#DCDCDC;
+	width: 1040px;
+	height: 520px;
+	display: block;
+	position: relative;
+
 
 }
-#htitle{
-	height: 35px;
+#htitle1{
+	height: 50px;
 	width: 1040px;
-	background-color: #3e4e8c;
+	background-color: #DCDCDC;
 	font-family: "微软雅黑";
 	font-size: 25px;
-	padding-left: 5px;
+	padding-left: 25px;
 	color: white;
 	
+}
+
+#hots2{
+	z-index: 5px;
+
+	position: absolute;
+	top: 0px;
+	left: 1040px;
+    display: block;
+   
+	background-color:#DCDCDC;
+	width: 1040px;
+	height: 520px;
+	
+
+}
+#htitle2{
+	height: 50px;
+	width: 1040px;
+	background-color: #DCDCDC;
+	font-family: "微软雅黑";
+	font-size: 25px;
+	padding-left: 25px;
+	color: white;
+	
+}
+
+.hothospital{
+	width: 463px;
+	height: 130px;
+	border: 1px black transparent;
+	padding-top: 11px;
+	padding-left: 20px;
+	background-color: #FFF5EE;
+}
+
+.hots li{
+	list-style: none;
+	float: left;
+    overflow: hidden;
+    width: 463px;
+    margin: 10px;
+}
+.hots li img{
+	float: left;
+    overflow: hidden;
+    width: 136px;
+    height: 104px;
+    border: 1px #CCCCCC solid;
+    padding: 4px;
+}
+.hots li strong{
+	float: left;
+    overflow: hidden;
+    width: 280px;
+    margin-left: 10px;
+    color: #035B9E;
+    font-family: 微软雅黑;
+    font-size: 14px;
+   font-weight: bold;
+   font-style: normal;
+   line-height: 24px;
+   text-align: left;
+}
+.hots li p{
+	float: left;
+	overflow: hidden;
+	width: 280px;
+	margin-left: 10px;
+	color: #565656;
+	font-family: 微软雅黑;
+	font-size: 13px;
+	font-weight: normal;
+	font-style: normal;
+	line-height: 20px;
+	text-align: left;
+}
+
+#hleft{
+	position: absolute;
+	top: 900px;
+	left: 1040px;
+	width: 30px;
+	height: 30px;
+	background-color: black;
+	border-radius: 36;
+
+}
+#hright{
+	position: absolute;
+	top: 900px;
+	left: 1080px;
+	width: 30px;
+	height: 30px;
+	background-color: white;
+	border-radius:36;
 }
 /*热点医院*/
 

@@ -148,7 +148,7 @@
                   </div>
 
                   <div class="col-xs-offset-1">
-                  <a href="#" onclick="document.form.submit();"><img src="<?php echo base_url().'res/images/login.png'?>" /></a>
+                    <a href="#" onclick="document.form.submit();"><img src="<?php echo base_url().'res/images/login.png'?>" /></a>
                   </div>
 
                 </div>
@@ -258,16 +258,201 @@
 
 
     </div>
-    <div id="hots">
-     <div id="htitle"></div>
+    <div id="activehot">
+      <div id="hots1" class="hots">
+      <div id="htitle1"><img src="<?php echo base_url().'res/images/hos.png'?>"></div>
+       <ul>
+         <li>
+          <div class="hothospital">
+            <img src="<?php echo base_url().'res/images/hop1.jpg'?>" width="128" height="96" /> 
+            <strong>
+              <a href="#">北医三院叼叼叼
+                [三级甲等]</a></strong>
+                <p>电话:<abbr title="hhh">80082089</abbr><br />
+                  地址:<abbr title="北京市海淀区北大医学部">北京市海淀区北大医学部</abbr><br />
+                  所属城市：北京
+                  <div class="clear"></div>
+                </p>
+              </div>
+            </li>
+            <li>
+              <div class="hothospital">
+                <img src="<?php echo base_url().'res/images/hop2.jpg'?>" width="128" height="96" /> <strong><a
+                href="#">上海颈复康医院
+                [三级甲等]</a></strong>
+                <p>电话:<abbr title="fff">454567</abbr><br />
+                  地址:<abbr title="上海">上海某不知名小街区</abbr><br />
+                  所属城市:上海市
+                  <div class="clear"></div>
+                </p>
+              </div>
+            </li>
+            <li>
+              <div class="hothospital"> <img src="<?php echo base_url().'res/images/hop3.jpg'?>" width="128" height="96" /> <strong><a
+                href="#">五四一急救特工队
+                [三级甲等]</a></strong>
+                <p>电话:<abbr title="武汉">000014556</abbr><br />
+                  地址:<abbr title="武汉">武汉小花园广场街36路</abbr><br />
+                  所属城市：武汉
+                  <div class="clear"></div>
+                </p>
+              </div>
+            </li>
+            <li>
+              <div class="hothospital">
+                <img src="<?php echo base_url().'res/images/hop4.jpg'?>" width="128" height="96" /> <strong><a
+                href="#">北京同仁医院
+                [三级甲等 ]</a></strong>
+                <p>电话:<abbr title="sdsdsd">010-58266699</abbr><br />
+                  地址:<abbr title="">北京市东城区东交民巷1号(西区)</abbr><br />
+                  所属城市:北京
+                  <div class="clear"></div>
+                </p>
+              </div>
+            </li>
+            <li>
+              <div class="hothospital">
+                <img src="<?php echo base_url().'res/images/hop5.jpg'?>" width="128" height="96" /> <strong><a
+                href="#">天津精神病疗护医院
+                [三级甲等 ]</a></strong>
+                <p>电话:<abbr title="sdsdsd">010-59718686</abbr><br />
+                  地址:<abbr title="">天津城郊贫民窟</abbr><br />
+                  所属城市:天津
+                  <div class="clear"></div>
+                </p>
+              </div>
+            </li>
+            <li>
+              <div class="hothospital">
+                <img src="<?php echo base_url().'res/images/hop6.jpg'?>" width="128" height="96" /> <strong><a
+                href="#">空军总医院
+                [三级甲等]</a></strong>
+                <p>电话:<abbr title="06654646456">04564564</abbr><br />
+                  地址:<abbr title="北京市海淀区阜成路30号">北京市海淀区阜成路30号</abbr><br />
+                  所属城市:北京
+                  <div class="clear"></div>
+                </p>
+              </div>
+            </li>
+          </ul>
+
+        </div>
+
+        <div id="hots2" class="hots">
+         <div id="htitle2"><img src="<?php echo base_url().'res/images/dep.png'?>"></div>
+         <ul>
+           <li>
+            <div class="hothospital">
+              <img src="<?php echo base_url().'res/images/hop1.jpg'?>" width="128" height="96" /> 
+              <strong>
+                <a href="#">北医三院叼叼叼
+                  [三级甲等]</a></strong>
+                  <p>电话:<abbr title="hhh">80082089</abbr><br />
+                    地址:<abbr title="北京市海淀区北大医学部">北京市海淀区北大医学部</abbr><br />
+                    所属城市：北京
+                    <div class="clear"></div>
+                  </p>
+                </div>
+              </li>
+              <li>
+                <div class="hothospital">
+                  <img src="<?php echo base_url().'res/images/hop2.jpg'?>" width="128" height="96" /> <strong><a
+                  href="#">上海颈复康医院
+                  [三级甲等]</a></strong>
+                  <p>电话:<abbr title="fff">454567</abbr><br />
+                    地址:<abbr title="上海">上海某不知名小街区</abbr><br />
+                    所属城市:上海市
+                    <div class="clear"></div>
+                  </p>
+                </div>
+              </li>
+              <li>
+                <div class="hothospital"> <img src="<?php echo base_url().'res/images/hop3.jpg'?>" width="128" height="96" /> <strong><a
+                  href="#">五四一急救特工队
+                  [三级甲等]</a></strong>
+                  <p>电话:<abbr title="武汉">000014556</abbr><br />
+                    地址:<abbr title="武汉">武汉小花园广场街36路</abbr><br />
+                    所属城市：武汉
+                    <div class="clear"></div>
+                  </p>
+                </div>
+              </li>
+              <li>
+                <div class="hothospital">
+                  <img src="<?php echo base_url().'res/images/hop4.jpg'?>" width="128" height="96" /> <strong><a
+                  href="#">北京同仁医院
+                  [三级甲等 ]</a></strong>
+                  <p>电话:<abbr title="sdsdsd">010-58266699</abbr><br />
+                    地址:<abbr title="">北京市东城区东交民巷1号(西区)</abbr><br />
+                    所属城市:北京
+                    <div class="clear"></div>
+                  </p>
+                </div>
+              </li>
+              <li>
+                <div class="hothospital">
+                  <img src="<?php echo base_url().'res/images/hop5.jpg'?>" width="128" height="96" /> <strong><a
+                  href="#">天津精神病疗护医院
+                  [三级甲等 ]</a></strong>
+                  <p>电话:<abbr title="sdsdsd">010-59718686</abbr><br />
+                    地址:<abbr title="">天津城郊贫民窟</abbr><br />
+                    所属城市:天津
+                    <div class="clear"></div>
+                  </p>
+                </div>
+              </li>
+              <li>
+                <div class="hothospital">
+                  <img src="<?php echo base_url().'res/images/hop6.jpg'?>" width="128" height="96" /> <strong><a
+                  href="#">空军总医院
+                  [三级甲等]</a></strong>
+                  <p>电话:<abbr title="06654646456">04564564</abbr><br />
+                    地址:<abbr title="北京市海淀区阜成路30号">北京市海淀区阜成路30号</abbr><br />
+                    所属城市:北京
+                    <div class="clear"></div>
+                  </p>
+                </div>
+              </li>
+            </ul>
 
 
-   </div>
+
+          </div>
+        </div>
 
 
- </div>
- <div id="footer">
+        <div id="hleft"></div>
+        <div id="hright"></div>
+        <script type="text/javascript">
+          $(document).ready(function() {
+            $('#hright').mouseover(function() {
+              $("#hots1").stop().animate({
+                left: '-1040px'
+              }, 350);
+              $("#hots2").stop().animate({
+                left: '0px'
+              }, 350);
+              $(this).css("background-color","black");
+              $("#hleft").css("background-color","white");
+            })
+            $('#hleft').mouseover(function() {
+              $("#hots1").stop().animate({
+                left: '0px'
+              }, 350);
+              $("#hots2").stop().animate({
+               left: '1040px'
+             }, 350);
+              $(this).css("background-color","black");
+              $("#hright").css("background-color","white");
+            })
+          })
+        </script>
 
- </div>
-</body>
-</html>
+
+
+      </div>
+      <div id="footer">
+
+      </div>
+    </body>
+    </html>
