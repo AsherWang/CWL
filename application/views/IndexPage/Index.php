@@ -445,6 +445,17 @@
               $(this).css("background-color","black");
               $("#hright").css("background-color","white");
             })
+            var style1={
+                'background-color':'#E0FFFF',
+                'border':'2px #ff0069 solid'
+              };
+              var style2={'background-color':'#FFF5EE',
+              'border':'0px'
+              };
+              
+              $(".hothospital").mouseover(function(){$(this).css(style1);})
+
+              $(".hothospital").mouseout(function(){$(this).css(style2);})
           })
         </script>
 
