@@ -51,7 +51,7 @@
           </div>
           <div class="banner-control" id="js_ban_button_box">
             <a href="javascript:;" class="left">左</a>
-            <a href="javascript:;" class="right">右</a> 
+            <a href="javascript:;" class="right">右</a>
           </div>
           <script type="text/javascript">
             ;(function(){
@@ -202,9 +202,9 @@
                       <option value="卫生部直属">卫生部直属医院</option>
                     </select>
                   </div>
-                  
+
                 </div>
-                
+
               </td>
               <td>
 
@@ -264,7 +264,7 @@
        <ul>
          <li>
           <div class="hothospital">
-            <img src="<?php echo base_url().'res/images/hop1.jpg'?>" width="128" height="96" /> 
+            <img src="<?php echo base_url().'res/images/hop1.jpg'?>" width="128" height="96" />
             <strong>
               <a href="#">北医三院叼叼叼
                 [三级甲等]</a></strong>
@@ -343,7 +343,7 @@
          <ul>
            <li>
             <div class="hothospital">
-              <img src="<?php echo base_url().'res/images/hop1.jpg'?>" width="128" height="96" /> 
+              <img src="<?php echo base_url().'res/images/hop1.jpg'?>" width="128" height="96" />
               <strong>
                 <a href="#">北医三院叼叼叼
                   [三级甲等]</a></strong>
@@ -452,7 +452,7 @@
               var style2={'background-color':'#FFF5EE',
               'border':'0px'
               };
-              
+
               $(".hothospital").mouseover(function(){$(this).css(style1);})
 
               $(".hothospital").mouseout(function(){$(this).css(style2);})
