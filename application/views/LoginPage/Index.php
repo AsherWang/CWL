@@ -4,9 +4,8 @@
     <title><?php echo $title; ?></title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 
-    <link rel="stylesheet" type="text/css" href='<?=base_url().'res/css/RegUser.css'?>'>
-    <script src='<?=base_url().'res/css/RegUser.js'?>'> </script>
-    <script src='<?=base_url().'res/css/RegUser.js'?>'> </script>
+    <link rel="stylesheet" type="text/css" href='<?=base_url().'res/css/Login.css'?>'>
+    <script src='<?=base_url().'res/css/Login.js'?>'> </script>
 
 </head>
 <body>
