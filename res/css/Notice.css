@@ -5,8 +5,8 @@
     top:50px;
     width:640px;
     height:310px;
-    overflow-x: visible;
-    overflow-y:visible;
+    overflow-x: hidden;
+    overflow-y:hidden;
     border:1px solid black;
     background: transparent;
     resize: none;
@@ -19,8 +19,8 @@
     top:-2px;
     width:640px;
     height:20px;
-    overflow-x: visible;
-    overflow-y:visible;
+    overflow-x: hidden;
+    overflow-y:hidden
     border:1px solid black;
     background: transparent;
     resize: none;
