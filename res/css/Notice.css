@@ -20,7 +20,7 @@
     width:640px;
     height:20px;
     overflow-x: hidden;
-    overflow-y:hidden
+    overflow-y:hidden;
     border:1px solid black;
     background: transparent;
     resize: none;
