@@ -83,20 +83,20 @@ class MyBase_model extends CI_Model {
 //
 //分页部分
 //没写完
-//比如 获得某一页的内容，参数是表名，第几页，每页多少项目，怎么排序，blabla
-protected function getPageContent($table,$pageIndex,$pagesum)
+//比如 从$tablename表取出符合array $data中的条件的数据，从第$firstindex(可以是0)开始返回$length个
+protected function getPageContent($tablename,$data,$firstindex,$length)
 {
-    $this->db->select('url','name','clientid','people.surname AS client');
+    $this->db->select('*');
     //将data数组遍历，取出名字和值,加进where中
     foreach ($data as $key => $value) 
     { 
         $this->db->where($key,$value);
     }
-    //$this->db->limit(5);
+    $this->db->limit($length,$firstindex);
     $this->db->from($tablename);
     //$this->db->join('people', 'sites.clientid = people.id'); ///联表暂时不用
     //$this->db->orderby("name", "desc");
-    $query = $this->db->get();
+    return $query = $this->db->get()->result_array();
 }
 }
 ?>
