@@ -1,5 +1,5 @@
 <?php
-class Login extends CI_Controller {
+class LoginPage extends CI_Controller {
   public function __construct()
   {
     parent::__construct();
@@ -7,16 +7,16 @@ class Login extends CI_Controller {
     //构造函数时载入数据的model类，对应models目录下的news_model
     //s
    //$this->load->model('notice_model');
+   $this->load->helper('url');
   }
 
   //RegOfficePage/index
   public function Index()
   {
-    $this->load->helper('url');
-    $data['title'] = 'Login';
+;
+    $data['title'] = 'LoginPage';
   //  $this->load->view('templates/header', $data);
-    $this->load->view('Login/Index', $data);
-    $this->load->view('templates/footer');
+    $this->load->view('LoginPage/Index', $data);
   }
 
 }?>
