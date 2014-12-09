@@ -61,7 +61,7 @@ class base_model extends CI_Model {
   }
 
   //$data ，data表示筛选条件，返回array，各条件之间是&&连接,返回的是数组的数组array([0]=>array("ID"=>"value",..),[1]=>...)
-  public function getTable($tablename,$data)
+  protected function getTable($tablename,$data)
   {
     //将data数组遍历，取出名字和值,加进where中
     // if(!empty($data))
