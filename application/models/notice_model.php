@@ -1,34 +1,31 @@
 <?php
-	class Notice_model extends CI_Model{
 
-		var $ID='';
-		var $Title='';
-		var $Content='';
-		var $Date='';
-		var $Author_ID='';
+	class Notice_model extends CI_Model{
 		
-		function _construct()
+		public function __construct()
 		{
-			parent::_construct();
+			parent::__construct();
 		}
 
-		function get_notice($sql)
+		//公告总数目
+		public function get_notice_num()
 		{
-			$query=$this->db->query($sql);
+			return $this->db->count_all("notice");
+		}
+
+
+		public function get_notice($data)
+		{
+			$query=$this->db->query($data);
 			if($query->num_rows()>0)
 			{
-				$i=0;
-				foreach($query->result() as $row)
-				{
-					$notice[$i]=$row;
-				}
-				return json_encode($notice);
+				return $query->result_array();
 			}	
 			else
-				echo "no result!";
+				return NULL;
 		}
 
-		function insert_notice($data)
+		public function insert_notice($data)
 		{
 			$query=$this->db->where($data);
 			if($query->result()==NULL)
@@ -40,12 +37,12 @@
 			$this->db->insert('notice',$data);
 		}
 
-		function delete_notice($data)
+		public function delete_notice($data)
 		{
 			$this->db->delete($data);
 		}
 
-		function update_notice($ID,$data)
+		public function update_notice($ID,$data)
 		{
 			$this->db->where('ID',$ID);
 			$this->db->update('notice',$data);
