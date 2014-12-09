@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * @Author: Asher
  * @Date:   2014-12-01 08:45:30
@@ -15,17 +15,36 @@ class IndexPage extends CI_Controller {
     //构造函数时载入数据的model类，对应models目录下的news_model.php
     //首页上会包括功公告，所以会有
     //s 
-   //$this->load->model('notice_model');
+   $this->load->model('notice_model');
+   $this->load->model('department_model');
+   $this->load->model('hospital_model'); 
    $this->load->helper('url');
   }
 
   //IndexPage/index
   public function Index()
-  {
-   // $data['news'] = $this->news_model->get_news();
+  { //需要一个 get_notices(int x)的函数，作用是获得最新的x个公告
+    //返回一个有x个元素的notices对象的数组
+    //两个属性cwldb/notice的  公告编号/ID  和  公告标题/Title
+
+    $x=5;//暂定为5
+    $data['notices'] = $this->news_model->get_notices($x);
     $data['title'] = 'Our System';
-   // $this->load->view('templates/header', $data);
+    //$this->load->view('templates/header', $data);
+    //需要一个 get_departments(int x)函数，作用是获得最热的x个科室的信息
+    //返回值为一个有x个元素的department对象的数组
+    //六个属性cwldb/department的  科室名称/Name   科室简介/Info 
+    //cwldb/hospital的   医院名称/Name  ,医院电话/Phone  ,医院网址/Website  ,医院等级/Level
+    $x=6;//暂定为6
+    $data['departments']= $this->department_model->get_departments($x);
+    //需要一个 get_hospital(int x)函数，作用是获得最热的x个医院的信息
+    //返回值为一个有x个元素的hospital对象的数组
+    //六个属性 cwldb/hospital的   医院名称/Name  ,医院电话/Phone  ,医院等级/Level
+    //医院地址Address,   医院简介/Info,   医院网址/Website  
+    $x=6;//暂定为6
+    $data['hospital']= $this->hospital_model->get_hospitals($x);
     $this->load->view('IndexPage/Index', $data);
+
     //$this->load->view('templates/footer');
   }
 
