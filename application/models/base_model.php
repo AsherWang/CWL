@@ -1,5 +1,5 @@
 <?php
-class MyBase_model extends CI_Model {
+class Base_model extends CI_Model {
    var $tablename;  //表名字，貌似没必要呢
 
   public function __construct()
@@ -60,10 +60,11 @@ class MyBase_model extends CI_Model {
     return $query->row()->$filedname;
   }
 
-  //$data ，data表示筛选条件，返回array，各条件之间是&&连接
+  //$data ，data表示筛选条件，返回array，各条件之间是&&连接,返回的是数组的数组array([0]=>array("ID"=>"value",..),[1]=>...)
   protected function getTable($tablename,$data)
   {
     //将data数组遍历，取出名字和值,加进where中
+    // if(!empty($data))
     foreach ($data as $key => $value) 
     { 
         $this->db->where($key,$value);
@@ -72,9 +73,9 @@ class MyBase_model extends CI_Model {
     $this->db->from($tablename);
     //$this->db->join('people', 'sites.clientid = people.id'); ///联表暂时不用
     //$this->db->orderby("name", "desc");
-    $query = $this->db->get();
-	if($query->num_rows()!=1)return -1;
-	return $query->row();
+  $query = $this->db->get();
+  if($query->num_rows()<=0)return -1;
+  return $query->result_array();
   }
 
 
@@ -83,20 +84,20 @@ class MyBase_model extends CI_Model {
 //
 //分页部分
 //没写完
-//比如 获得某一页的内容，参数是表名，第几页，每页多少项目，怎么排序，blabla
-protected function getPageContent($table,$pageIndex,$pagesum)
+//比如 从$tablename表取出符合array $data中的条件的数据，从第$firstindex(可以是0)开始返回$length个
+protected function getPageContent($tablename,$data,$firstindex,$length)
 {
-    $this->db->select('url','name','clientid','people.surname AS client');
+    $this->db->select('*');
     //将data数组遍历，取出名字和值,加进where中
     foreach ($data as $key => $value) 
     { 
         $this->db->where($key,$value);
     }
-    //$this->db->limit(5);
+    $this->db->limit($length,$firstindex);
     $this->db->from($tablename);
     //$this->db->join('people', 'sites.clientid = people.id'); ///联表暂时不用
     //$this->db->orderby("name", "desc");
-    $query = $this->db->get();
+    return $query = $this->db->get()->result_array();
 }
 }
 ?>
