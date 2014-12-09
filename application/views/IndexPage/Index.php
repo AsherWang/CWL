@@ -246,6 +246,7 @@
       <div id="news">
 
        <div id="nmore"><a href="#">more..</a></div>
+       <!--
        <div class="hotnews" id="firsthotnews" onmouseover="this.style.background='url(<?php echo base_url().'res/images/hotlable.png'?>)'" onmouseout="this.style.background='none'">
         <div class="new">
           <a href="#" target="_blank"><span class="words">北医三院，功在千秋<span></a>
@@ -255,13 +256,24 @@
       <div class="hotnews" onmouseover="this.style.background='url(<?php echo base_url().'res/images/hotlable.png'?>)'" onmouseout="this.style.background='none'"><div class="new"><a target="_blank" href="#"><span class="words">什么都能治，来就看好</span></a></div></div>
       <div class="hotnews" onmouseover="this.style.background='url(<?php echo base_url().'res/images/hotlable.png'?>)'" onmouseout="this.style.background='none'"><div class="new"><a target="_blank" href="#"><span class="words">悬壶济世，妙手回春 </span></a></div></div>
       <div class="hotnews" onmouseover="this.style.background='url(<?php echo base_url().'res/images/hotlable.png'?>)'" onmouseout="this.style.background='none'"><div class="new"><a target="_blank" href="#"><span class="words">活死人，肉白骨，想死先出院</span></a></div></div>
+      -->
+      <div id="firsthotnews">
+      <?php foreach ($notices as $notice_item): ?>
+        <div class="hotnews" onmouseover="this.style.background='url(<?php echo base_url().'res/images/hotlable.png'?>)'" onmouseout="this.style.background='none'">
+        <div class="new">
+          <a href="?id=<?php echo $notice_item['ID'] ?>" target="_blank"><span class="words"><?php echo $notice_item['title'] ?><span></a>
+        </div>
+      </div>
 
+      <?php endforeach ?>
 
+      </div>
     </div>
     <div id="activehot">
       <div id="hots1" class="hots">
-      <div id="htitle1"><img src="<?php echo base_url().'res/images/hos.png'?>"></div>
-       <ul>
+        <div id="htitle1"><img src="<?php echo base_url().'res/images/hos.png'?>"></div>
+        <ul>
+
          <li>
           <div class="hothospital">
             <img src="<?php echo base_url().'res/images/hop1.jpg'?>" width="128" height="96" /> 
@@ -341,6 +353,7 @@
         <div id="hots2" class="hots">
          <div id="htitle2"><img src="<?php echo base_url().'res/images/dep.png'?>"></div>
          <ul>
+        
            <li>
             <div class="hothospital">
               <img src="<?php echo base_url().'res/images/hop1.jpg'?>" width="128" height="96" /> 
@@ -446,24 +459,24 @@
               $("#hright").css("background-color","white");
             })
             var style1={
-                'background-color':'#E0FFFF',
-                'border':'2px #ff0069 solid'
-              };
-              var style2={'background-color':'#FFF5EE',
-              'border':'0px'
-              };
-              
-              $(".hothospital").mouseover(function(){$(this).css(style1);})
+              'background-color':'#E0FFFF',
+              'border':'2px #ff0069 solid'
+            };
+            var style2={'background-color':'#FFF5EE',
+            'border':'0px'
+          };
 
-              $(".hothospital").mouseout(function(){$(this).css(style2);})
-          })
-        </script>
+          $(".hothospital").mouseover(function(){$(this).css(style1);})
+
+          $(".hothospital").mouseout(function(){$(this).css(style2);})
+        })
+</script>
 
 
 
-      </div>
-      <div id="footer">
+</div>
+<div id="footer">
 
-      </div>
-    </body>
-    </html>
+</div>
+</body>
+</html>
