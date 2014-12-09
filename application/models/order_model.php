@@ -14,7 +14,25 @@
 		}
 		
 		
-	
+		//根据id获得Order的详细信息
+		function getOrderInfoById($id)
+		{
+			return $this->getTable("order",array("ID"=>$id));
+		}
+		
+		//参照表中的数据日期相关的不用填
+		function AddNewOrder()
+		{
+			
+				
+		}
+		
+		
+		function getUserOrderList()
+		{
+				
+		}
+		
 		
 	}
 	

@@ -1,5 +1,5 @@
 <?php
-class MyBase_model extends CI_Model {
+class base_model extends CI_Model {
    var $tablename;  //表名字，貌似没必要呢
 
   public function __construct()
@@ -60,10 +60,11 @@ class MyBase_model extends CI_Model {
     return $query->row()->$filedname;
   }
 
-  //$data ，data表示筛选条件，返回array，各条件之间是&&连接
+  //$data ，data表示筛选条件，返回array，各条件之间是&&连接,返回的是数组的数组array([0]=>array("ID"=>"value",..),[1]=>...)
   protected function getTable($tablename,$data)
   {
     //将data数组遍历，取出名字和值,加进where中
+    // if(!empty($data))
     foreach ($data as $key => $value) 
     { 
         $this->db->where($key,$value);
@@ -72,9 +73,9 @@ class MyBase_model extends CI_Model {
     $this->db->from($tablename);
     //$this->db->join('people', 'sites.clientid = people.id'); ///联表暂时不用
     //$this->db->orderby("name", "desc");
-    $query = $this->db->get();
-	if($query->num_rows()!=1)return -1;
-	return $query->row();
+  $query = $this->db->get();
+  if($query->num_rows()<=0)return -1;
+  return $query->result_array();
   }
 
 

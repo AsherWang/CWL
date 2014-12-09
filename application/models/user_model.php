@@ -1,6 +1,6 @@
 <?php
 	require_once("base_model.php");
-	class User_model extends MyBase_model{
+	class User_model extends base_model{
 		function _construct()
 		{
 			parent::_construct();
