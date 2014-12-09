@@ -1,5 +1,5 @@
 <?php
-class MyBase_model extends CI_Model {
+class base_model extends CI_Model {
    var $tablename;  //表名字，貌似没必要呢
 
   public function __construct()
