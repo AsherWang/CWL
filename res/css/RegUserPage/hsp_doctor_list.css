@@ -1,0 +1,107 @@
+.hsp_name{
+	margin-top:25px;
+}
+
+.hsp_name_text{
+	font-size:30px;
+	font-family:"Microsoft YaHei";
+	font-weight:400;
+}
+
+.hsp_label_locate{
+	margin-left:20px;
+}
+.hsp_label_font{
+	font-size:12px;
+}
+
+.hsp_nav{
+	width:100%;
+	background-color:#FFF;
+	font-size:18px;
+	height:20px;
+	margin-top:15px;
+}
+
+.active{
+	color:#5BC0DE;
+}
+
+.dep_table{
+	width:83%;
+	margin-left:8.5%
+}
+.dep_table_choose{
+	width:8%;
+	text-align:center;
+	background-color:#EEF6F6;
+	font-family:Arial;
+	font-size:14px;
+}
+.dep_table_text{
+	margin-left:15px;
+	font-size:14px;
+	font-family:'Microsoft YaHei';
+}
+
+.doctor_list{
+	width:83%;
+	margin-left:8.5%;
+}
+
+.doctor_img{
+	width:140px;
+}
+
+.doctor_intro{
+	margin-top:15px;
+}
+
+.doctor_name{
+	color:#5BC0DE;
+	margin-left:3px;
+}
+
+.doctor_intro_1{
+	color:#9696B3;
+	margin-top:6px;
+}
+
+.doctor_intro_2{
+	color:#9696B3;
+	margin-top:3px;
+}
+
+.doctor_expert{
+	margin-left:20px;
+	font-family:'Microsoft YaHei';
+}
+
+.doctor_expert_title{
+	font-size:15px;
+	margin-top:15px;
+}
+
+.doctor_expert_text{
+	margin-top:10px;
+	font-size:14px;
+	color:#9696B3;
+}
+
+.go_next_link{
+	width:100px;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	background-color:#7BC3FF;
+	cursor:pointer;
+	margin-top:30px;
+	margin-left:80px;
+	font-family:'Microsoft YaHei';
+}
+.go_next_link:hover{
+	background-color:#377BEE;
+}
+.go_next_link a:hover{
+	color:#fff;
+}

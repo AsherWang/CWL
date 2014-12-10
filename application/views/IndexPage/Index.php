@@ -258,10 +258,10 @@
       <div class="hotnews" onmouseover="this.style.background='url(<?php echo base_url().'res/images/hotlable.png'?>)'" onmouseout="this.style.background='none'"><div class="new"><a target="_blank" href="#"><span class="words">活死人，肉白骨，想死先出院</span></a></div></div>
       -->
       <div id="firsthotnews">
-      <?php foreach ($notices as $notice_item): ?>
+      <?php foreach ($latest_notice as $notice_item): ?>
         <div class="hotnews" onmouseover="this.style.background='url(<?php echo base_url().'res/images/hotlable.png'?>)'" onmouseout="this.style.background='none'">
         <div class="new">
-          <a href="?id=<?php echo $notice_item['ID'] ?>" target="_blank"><span class="words"><?php echo $notice_item['title'] ?><span></a>
+          <a href="?id=<?php echo $notice_item['ID'] ?>" target="_blank"><span class="words"><?php echo $notice_item['Title'] ?><span></a>
         </div>
       </div>
 

@@ -50,7 +50,7 @@
 
 		function update_hospital($ID,$data)
 		{
-			$this->db->where('ID'=$ID);
+			$this->db->where('ID',$ID);
 			$this->db->update('hospital',$data);
 		}
 	}
