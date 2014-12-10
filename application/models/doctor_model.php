@@ -48,7 +48,7 @@
 
 		function update_doctor($ID,$data)
 		{
-			$this->db->where('ID'=$ID);
+			$this->db->where('ID',$ID);
 			$this->db->update('doctor',$data);
 		}
 	}

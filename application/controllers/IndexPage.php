@@ -27,22 +27,22 @@ class IndexPage extends CI_Controller {
     //返回一个有x个元素的notices对象的数组
     //两个属性cwldb/notice的  公告编号/ID  和  公告标题/Title
 
-    $x=5;//暂定为5
-    $data['notices'] = $this->news_model->get_notices($x);
+    //$x=5;//暂定为5
+    $data['latest_notices'] = $this->notice_model->get_notice("SELECT * FROM Notice  ORDER BY Date DESC LIMIT 5");
     $data['title'] = 'Our System';
     //$this->load->view('templates/header', $data);
     //需要一个 get_departments(int x)函数，作用是获得最热的x个科室的信息
     //返回值为一个有x个元素的department对象的数组
     //六个属性cwldb/department的  科室名称/Name   科室简介/Info 
     //cwldb/hospital的   医院名称/Name  ,医院电话/Phone  ,医院网址/Website  ,医院等级/Level
-    $x=6;//暂定为6
-    $data['departments']= $this->department_model->get_departments($x);
+    //$x=6;//暂定为6
+    //$data['departments']= $this->department_model->get_departments($x);
     //需要一个 get_hospital(int x)函数，作用是获得最热的x个医院的信息
     //返回值为一个有x个元素的hospital对象的数组
     //六个属性 cwldb/hospital的   医院名称/Name  ,医院电话/Phone  ,医院等级/Level
     //医院地址Address,   医院简介/Info,   医院网址/Website  
-    $x=6;//暂定为6
-    $data['hospital']= $this->hospital_model->get_hospitals($x);
+    //$x=6;//暂定为6
+    $data['hospitals']= $this->hospital_model->get_hospital("SELECT * FROM Hospital  ORDER BY ID LIMIT 6");
     $this->load->view('IndexPage/Index', $data);
 
     //$this->load->view('templates/footer');

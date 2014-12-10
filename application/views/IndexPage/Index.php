@@ -258,7 +258,7 @@
       <div class="hotnews" onmouseover="this.style.background='url(<?php echo base_url().'res/images/hotlable.png'?>)'" onmouseout="this.style.background='none'"><div class="new"><a target="_blank" href="#"><span class="words">活死人，肉白骨，想死先出院</span></a></div></div>
       -->
       <div id="firsthotnews">
-      <?php foreach ($latest_notice as $notice_item): ?>
+      <?php foreach ($latest_notices as $notice_item): ?>
         <div class="hotnews" onmouseover="this.style.background='url(<?php echo base_url().'res/images/hotlable.png'?>)'" onmouseout="this.style.background='none'">
         <div class="new">
           <a href="?id=<?php echo $notice_item['ID'] ?>" target="_blank"><span class="words"><?php echo $notice_item['Title'] ?><span></a>
@@ -273,79 +273,24 @@
       <div id="hots1" class="hots">
         <div id="htitle1"><img src="<?php echo base_url().'res/images/hos.png'?>"></div>
         <ul>
-
-         <li>
+        <?php foreach ($hospitals as $hospital_item): ?>
+          <li>
           <div class="hothospital">
-            <img src="<?php echo base_url().'res/images/hop1.jpg'?>" width="128" height="96" />
+            <img src="<?php echo base_url().'res/images/hop1.jpg'?>" width="128" height="96" /> 
             <strong>
-              <a href="#">北医三院叼叼叼
-                [三级甲等]</a></strong>
-                <p>电话:<abbr title="hhh">80082089</abbr><br />
-                  地址:<abbr title="北京市海淀区北大医学部">北京市海淀区北大医学部</abbr><br />
-                  所属城市：北京
+              <a href="#"><?php echo $hospital_item['Name'] ?>
+                [<?php echo $hospital_item['Level'] ?>]</a></strong>
+                <p>电话:<abbr title="hhh"><?php echo $hospital_item['Phone'] ?></abbr><br />
+                  地址:<abbr title="<?php echo $hospital_item['Address'] ?>"><?php echo $hospital_item['Address'] ?></abbr><br />
+                  所属城市：<?php echo $hospital_item['Type'] ?>
                   <div class="clear"></div>
                 </p>
               </div>
             </li>
-            <li>
-              <div class="hothospital">
-                <img src="<?php echo base_url().'res/images/hop2.jpg'?>" width="128" height="96" /> <strong><a
-                href="#">上海颈复康医院
-                [三级甲等]</a></strong>
-                <p>电话:<abbr title="fff">454567</abbr><br />
-                  地址:<abbr title="上海">上海某不知名小街区</abbr><br />
-                  所属城市:上海市
-                  <div class="clear"></div>
-                </p>
-              </div>
-            </li>
-            <li>
-              <div class="hothospital"> <img src="<?php echo base_url().'res/images/hop3.jpg'?>" width="128" height="96" /> <strong><a
-                href="#">五四一急救特工队
-                [三级甲等]</a></strong>
-                <p>电话:<abbr title="武汉">000014556</abbr><br />
-                  地址:<abbr title="武汉">武汉小花园广场街36路</abbr><br />
-                  所属城市：武汉
-                  <div class="clear"></div>
-                </p>
-              </div>
-            </li>
-            <li>
-              <div class="hothospital">
-                <img src="<?php echo base_url().'res/images/hop4.jpg'?>" width="128" height="96" /> <strong><a
-                href="#">北京同仁医院
-                [三级甲等 ]</a></strong>
-                <p>电话:<abbr title="sdsdsd">010-58266699</abbr><br />
-                  地址:<abbr title="">北京市东城区东交民巷1号(西区)</abbr><br />
-                  所属城市:北京
-                  <div class="clear"></div>
-                </p>
-              </div>
-            </li>
-            <li>
-              <div class="hothospital">
-                <img src="<?php echo base_url().'res/images/hop5.jpg'?>" width="128" height="96" /> <strong><a
-                href="#">天津精神病疗护医院
-                [三级甲等 ]</a></strong>
-                <p>电话:<abbr title="sdsdsd">010-59718686</abbr><br />
-                  地址:<abbr title="">天津城郊贫民窟</abbr><br />
-                  所属城市:天津
-                  <div class="clear"></div>
-                </p>
-              </div>
-            </li>
-            <li>
-              <div class="hothospital">
-                <img src="<?php echo base_url().'res/images/hop6.jpg'?>" width="128" height="96" /> <strong><a
-                href="#">空军总医院
-                [三级甲等]</a></strong>
-                <p>电话:<abbr title="06654646456">04564564</abbr><br />
-                  地址:<abbr title="北京市海淀区阜成路30号">北京市海淀区阜成路30号</abbr><br />
-                  所属城市:北京
-                  <div class="clear"></div>
-                </p>
-              </div>
-            </li>
+            
+        <?php endforeach ?>
+
+        
           </ul>
 
         </div>
