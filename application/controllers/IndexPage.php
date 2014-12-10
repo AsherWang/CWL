@@ -7,6 +7,7 @@
  *
  * 控制器描述：主要控制对首页的访问
  */
+require_once('notice.php');
 class IndexPage extends CI_Controller {
   public function __construct()
   {
