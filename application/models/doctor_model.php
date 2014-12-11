@@ -1,6 +1,7 @@
 <?php
 	class Doctor_model extends CI_Model{
 
+		/*
 		var $ID='';
 		var $Name='';
 		var $Department='';
@@ -8,26 +9,22 @@
 		var $Info='';
 		var $Expert='';
 		var Schedule_ID='';
+		*/
 		
-		function _construct()
+		function __construct()
 		{
-			parent::_construct();
+			parent::__construct();
 		}
 
-		function get_doctor($sql)
+		function get_doctor($hospital,$department)
 		{
-			$query=$this->db->query($sql);
+			$query=$this->db->query("SELECT * FROM Doctor WHERE Hospital=$hospital AND $Department=$department");
 			if($query->num_rows()>0)
 			{
-				$i=0;
-				foreach($query->result() as $row)
-				{
-					$doctor[$i]=$row;
-				}
-				return json_encode($doctor);
+				return $query->result_array();
 			}	
 			else
-				echo "no result!";
+				return NULL;
 		}
 
 		function insert_doctor($data)
