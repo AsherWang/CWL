@@ -27,5 +27,13 @@ class RegUserPage extends CI_Controller {
     $this->load->view('RegUserPage/Hsp_doctor_list', $data);
     $this->load->view('templates/footer');
   }
+  public function Confirm()
+  {
+   // $data['news'] = $this->news_model->get_news();
+    $data['title'] = 'RegUserPage';
+   // $this->load->view('templates/header', $data);
+    $this->load->view('RegUserPage/Confirm', $data);
+    $this->load->view('templates/footer');
+  }
 
 }?>
