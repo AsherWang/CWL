@@ -35,7 +35,7 @@ class TestControl extends CI_Controller {
     //
 	$as=array("Doctor_ID"=>$Doctor_ID,"Month"=>$Month,"Note"=>$Note,"Time_Table"=>$TimeTable);
 	print_r($as);
-     $data["value"]=$this->schedule_model->update_schedule($as);
+     $data["value"]=$this->user_model->getOrderIdArray(1);
 
     $this->load->view('TestPage/Index', $data);
       

@@ -120,7 +120,13 @@
                 $userExtInfoId=$this->insertToTable($data,'user_ext');
                 $this->updateTable($userId,array("Ext_ID"=> $userExtInfoId),"user");
             }
-        }
+        }		
+		
+		//获得该用户的所有订单
+		public function getOrderIdArray($userId)
+		{
+			return $this->getTable("order",array("User_ID"=>$userId));
+		}
 
 
 	}
