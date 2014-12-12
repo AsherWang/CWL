@@ -1,32 +1,41 @@
 <?php
 	class Department_model extends CI_Model{
 
-		var $ID='';
-		var $Name='';
-		var $Info='';
-		var $Hospital_ID='';
-		
-		function _construct()
+		function __construct()
 		{
-			parent::_construct();
+			parent::__construct();
 		}
 
-		//$sql表示传入的查询条件
-		function get_department($sql)
+		//科室数目
+		function department_num()
 		{
-			$query=$this->db->query($sql);
+			return $this->db->count_all('department');
+		}
+		
+		//查找所有科室
+		function get_department($data)
+		{
+			$query=$this->db->query($data);
 			if($query->num_rows()>0)//$query->num_rows()返回当前行数
 			{
-				$i=0;
-				foreach($query->result() as $row)//输出形式具体根据需要
-				{
-					/*返回JSON格式*/
-					$department[$i]=$row;
-				}
-				return json_encode($department);
+				return $query->result_array();
 			}
 			else
-				echo "no result!";
+				return NULL;
+		}
+
+		//根据科室返回包含此科室的所有医院信息
+		function get_department_hs($Name)
+		{
+			//使用模糊查询
+			$Hospital_ID=$this->db->query("SELECT Hospital_ID FROM Department WHERE Name LIKE $Name");
+			$query=$this->db->query("SELECT * FROM Hospital WHERE ID=$Hospital_ID");
+			if($query->num_rows()>0)
+			{
+				return $query->result_array();
+			}
+			else
+				return NULL;
 		}
 
 		function insert_department($data)//$data是以数组形式传入

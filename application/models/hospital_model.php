@@ -3,17 +3,23 @@
 
 		
 		
-		function _construct()
+		function __construct()
 		{
-			parent::_construct();
+			parent::__construct();
 		}
 
-		function get_hospital($sql)
+		//医院总数
+		function hospital_num()
 		{
-			$query=$this->db->query($sql);
+			return $this->db->count_all('hospital');
+		}
+
+		function get_hospital($data)
+		{
+			$query=$this->db->query($data);
 			if($query->num_rows()>0)
 			{
-				return $query->result_array();
+				return $query->result_array();//返回的是一个数组用foreach遍历即可
 			}
 			else
 				return NULL;
