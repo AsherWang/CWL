@@ -1,0 +1,61 @@
+.hsp_name{
+	margin-top:25px;
+}
+
+.hsp_name_text{
+	font-size:30px;
+	font-family:"Microsoft YaHei";
+	font-weight:400;
+}
+
+.hsp_label_locate{
+	margin-left:20px;
+}
+.hsp_label_font{
+	font-size:12px;
+}
+
+.hsp_nav{
+	width:100%;
+	background-color:#FFF;
+	font-size:18px;
+	height:20px;
+	margin-top:15px;
+}
+
+.hsp_intro_main{
+	 border:1px groove #777777;
+}
+
+.hsp_intro_name{
+	margin-top:10px;
+	font-size:22px;
+	font-family:"Microsoft YaHei";
+	font-weight:400;
+}
+
+.hr_sty_1{
+	margin-top:5px;
+	margin-bottom:5px;
+	border-color:#5BC0DE;
+}
+
+.hsp_intro_text{
+	font-size:15px;
+	font-family:"Microsoft YaHei";
+}
+
+.appo_rule_title{
+	margin-top:50px;
+	font-size:22px;
+	font-family:"Microsoft YaHei";
+	font-weight:400;
+}
+
+.appo_rule_text{
+	font-size:15px;
+	font-family:"Microsoft YaHei";
+	font-weight:400;
+	margin-left:20px;
+	margin-bottom:80px;
+}
