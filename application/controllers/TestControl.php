@@ -11,6 +11,8 @@ class TestControl extends CI_Controller {
     parent::__construct();
     $this->load->model('base_model');
     $this->load->helper('url');
+	$this->load->model('schedule_model');
+	
   }
 
   //SuperManagerPage/index
@@ -26,8 +28,14 @@ class TestControl extends CI_Controller {
 
     //$data["value"]=$this->user_model->setUserExtInfo(4,array("Phone"=>"12qwe3123"));
     //
+	$Doctor_ID=1;
+	$Month=201506;
+	$Note="呃s";
+	$TimeTable=array(0,1,2,3,4,5,6,7,8,9);
     //
-     $data["value"]=$this->base_model->getTable("user",array("ID"=>2));
+	$as=array("Doctor_ID"=>$Doctor_ID,"Month"=>$Month,"Note"=>$Note,"Time_Table"=>$TimeTable);
+	print_r($as);
+     $data["value"]=$this->schedule_model->update_schedule($as);
 
     $this->load->view('TestPage/Index', $data);
       

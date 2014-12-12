@@ -123,7 +123,7 @@
           </script>
           <div id="quicklogin">
             <div id="title">快速登录</div>
-            <form role="form">
+            <form role="form" action="RegUserPage/Login" method='post'>
               <div class="container-fluid">
                 <div class="row">
 
@@ -148,7 +148,7 @@
                   </div>
 
                   <div class="col-xs-offset-1">
-                    <a href="#" onclick="document.form.submit();"><img src="<?php echo base_url().'res/images/login.png'?>" /></a>
+                    <a href="#" onClick="document.form.submit();"><img src="<?php echo base_url().'res/images/login.png'?>" /></a>
                   </div>
 
                 </div>
@@ -232,7 +232,7 @@
               <div id="startquery">
                 <div class="start"><span>我要</span></div>
                 <div class="go"><span>预约</span></div>
-                <div id="queryArrow"><a href="#" onclick="document.form.submit();"><img src="<?php echo base_url().'res/images/arrow.png'?>" /></a></div>
+                <div id="queryArrow"><a href="#" onClick="document.form.submit();"><img src="<?php echo base_url().'res/images/arrow.png'?>" /></a></div>
               </div>
 
 
@@ -259,7 +259,7 @@
       -->
       <div id="firsthotnews">
       <?php foreach ($latest_notices as $notice_item): ?>
-        <div class="hotnews" onmouseover="this.style.background='url(<?php echo base_url().'res/images/hotlable.png'?>)'" onmouseout="this.style.background='none'">
+        <div class="hotnews" onMouseOver="this.style.background='url(<?php echo base_url().'res/images/hotlable.png'?>)'" onMouseOut="this.style.background='none'">
         <div class="new">
           <a href="?id=<?php echo $notice_item['ID'] ?>" target="_blank"><span class="words"><?php echo $notice_item['Title'] ?><span></a>
         </div>
