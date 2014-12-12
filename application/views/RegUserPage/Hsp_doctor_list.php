@@ -52,6 +52,9 @@
             <a class="col-md-1 guide_text_2" href="########">
                 按病症查询
             </a>
+            <a class="col-md-1 guide_text_2" href="########">
+                快速预约
+            </a>
         </div>
         <!--导航条-->
         <!--医院名称-->

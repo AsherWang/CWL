@@ -1,0 +1,102 @@
+.main_container{
+	background-color:#FDFDFD;
+	margin-top:50px;
+}
+
+.left_container{
+	margin-top:10px;
+	width:25%;	
+	margin-left:1%;
+	background-color:#CCFFFF;
+	font-family:'Microsoft YaHei';
+}
+
+.right_container{
+	margin-top:10px;
+	background-color:#CCFFFF;
+	width:70%;
+	margin-left:3%;
+	font-family:'Microsoft YaHei';
+}
+
+.user_img{
+	width:55%;
+	margin-left:25%;
+	margin-top:30px;
+}
+
+.user_name{
+	font-size:18px;
+	text-align:center;
+	margin-top:13px;
+}
+
+.left_hr_1{
+	border-color:#0066CC;
+	margin:0;
+	margin-bottom:10px;
+}
+
+.left_hr_2{
+	border-color:#6666CC;
+	margin:0;
+	border-style:dotted;
+}
+
+.user_mes{
+	font-size:17px;
+	margin-left:3%;
+}
+
+.change_mes{
+	font-size:14px;
+	margin-left:50%;
+}
+
+.detail_mes{
+	font-size:15px;
+	margin-left:15px;
+	margin-top:5px;
+}
+
+.appointment_title{
+	font-size:25px;
+	margin-left:30px;
+	margin-top:10px;
+}
+
+.hr_right{
+	margin-top:3px;
+	margin-bottom:5px;
+	border-color:#467EE0;
+}
+
+.appointment_main{
+	margin-left:10px;
+	width:98%;
+	margin-top:10px;
+	background-color:#fff;
+	font-size:18px;
+}
+
+.locate_sty_1{
+	margin-left:30%;
+}
+.locate_sty_2{
+	margin-left:35%;
+}
+.locate_sty_3{
+	margin-left:36%;
+}
+
+.operation_choice{
+	margin-top:10px;
+	font-size:16px;
+}
+.operation_text{
+	margin-left:15px;
+}
+
+.interval_sty{
+	background-color:#CCFFFF;
+}
