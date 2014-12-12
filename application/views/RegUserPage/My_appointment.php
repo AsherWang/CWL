@@ -5,7 +5,7 @@
  * @Last Modified by:   2205
  * @Last Modified time: 2014-12-10
  */
-//这里将是寻医首页的位置了
+//这里将是查看我的预约单位置了
 ?>
 
 <!DOCTYPE html>
@@ -49,11 +49,11 @@
             <a class="col-md-1 guide_text_2" href="####">
                 按科室查询
             </a>
-            <a class="col-md-1 guide_text_2" href="########">
-                按病症查询
-            </a>
-            <a class="col-md-1 guide_text_2" href="########">
+            <a class="col-md-1 guide_text_2 guide_text_3" href="########">
                 快速预约
+            </a>
+            <a class="col-md-2 guide_text_2" href="########">
+                预约流程介绍
             </a>
         </div>
         <!--导航条-->
