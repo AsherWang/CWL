@@ -35,7 +35,7 @@ class TestControl extends CI_Controller {
     //
 	$as=array("Doctor_ID"=>$Doctor_ID,"Month"=>$Month,"Note"=>$Note,"Time_Table"=>$TimeTable);
 	//print_r($as);
-     $data["value"]=$this->user_model->getOrderArray(2);
+     $data["value"]=$this->user_model->user_login("546415446327841541","lovelive");
 
     $this->load->view('TestPage/Index', $data);
       
