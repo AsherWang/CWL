@@ -64,6 +64,9 @@ $route['SuperManager'] = "SuperManager";
 $route['Test'] = "TestControl";
 $route['Test/(:any)'] = "TestControl/Index";
 
+//用于测试发布公告
+$route['notice/create']='notice/create';
+$route['notice/(:any)']='notice/view/$1';
 //$route['404_override'] = '';
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
