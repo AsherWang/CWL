@@ -61,8 +61,8 @@ $route['SuperManager'] = "SuperManager";
 //$route['SuperManager/(:any)'] = "SuperManager/Index";
 
 
-$route['Test'] = "TestControl";
-$route['Test/(:any)'] = "TestControl/Index";
+$route['Test'] = "TestControl";     
+$route['Test/Index'] = "TestControl/Index";
 
 //用于测试发布公告
 $route['notice/create']='notice/create';

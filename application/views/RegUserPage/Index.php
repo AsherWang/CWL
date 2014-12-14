@@ -48,8 +48,11 @@
             <a class="col-md-1 guide_text_2" href="####">
                 按科室查询
             </a>
-            <a class="col-md-1 guide_text_2" href="########">
-                按病症查询
+            <a class="col-md-1 guide_text_2 guide_text_3" href="########">
+                快速预约
+            </a>
+            <a class="col-md-2 guide_text_2" href="########">
+                预约流程介绍
             </a>
         </div>
         <!--导航条-->
