@@ -11,20 +11,34 @@
 		public function index()
 		{
 			$this->load->helper('url');
-			$data['notice']=$this->notice_model->get_notice("SELECT * FROM Notice");
-			//暂时将最新公告放置此处
-			$data['latest_notice']=$this->notice_model->get_notice("SELECT * FROM Notice  ORDER BY Date DESC LIMIT 5");
-			$this->load->view('IndexPage/index',$data);
+			$data['notice']=$this->notice_model->get_notice("SELECT * FROM Notice ORDER BY Date DESC");
+
+			$this->load->view('notice/index',$data);
 		}
 
-		//最新公告,暂时有bug未改正
-		/*
-		public function latest_notice()
+		//发布公告
+		public function create()
 		{
-			$this->load->helper('url');
-			$data['latest_notice']=$this->notice_model->get_notice("SELECT * FROM Notice  ORDER BY Date DESC LIMIT 5");
-			$this->load->view('notice/l',$data);
-		}*/
+			//表单辅助函数和表单验证库
+			$this->load->helper('form');
+			$this->load->library('form_validation');
+
+			//验证规则：不为空
+			$this->form_validation->set_rules('title','标题不能为空','required');
+			$this->form_validation->set_rules('content','内容不能为空','required');
+
+			if($this->form_validation->run()===FALSE)
+			{
+				//如果表单不符合，重新载入
+				$this->load->view('notice/create');
+			}
+			else
+			{
+				$this->notice_model->insert_notice();
+				//显示插入成功
+				$this->load->view('notice/success');
+			}
+		}
 
 	}
 
