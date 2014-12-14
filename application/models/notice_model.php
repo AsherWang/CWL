@@ -25,16 +25,19 @@
 				return NULL;
 		}
 
-		public function insert_notice($data)
+		public function insert_notice()
 		{
-			$query=$this->db->where($data);
-			if($query->result()==NULL)
-			{
-				$this->db->insert('notice',$data);
-			}
-			else
-				echo "This notice  already exists";
-			$this->db->insert('notice',$data);
+			$this->load->helper('url');
+
+			$data=array(
+				'Title'=>$this->input->post('title'),
+				'Content'=>$this->input->post('content'),
+				'Date'=>date('Y-m-d H:i:s',time())
+				//获取发布方hospital
+
+				);
+
+			return $this->db->insert('notice',$data);
 		}
 
 		public function delete_notice($data)
