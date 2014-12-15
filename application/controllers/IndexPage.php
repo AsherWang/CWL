@@ -19,7 +19,7 @@ class IndexPage extends CI_Controller {
    $this->load->model('department_model');
    $this->load->model('hospital_model'); 
    $this->load->model('user_model'); 
-   
+   $this->load->library('session');
    $this->load->helper('url');
   }
 
@@ -41,6 +41,14 @@ class IndexPage extends CI_Controller {
 				//登陆成功
 				$data["login_result"]=1;
 				$data["user"]=$logresult;
+				$sessionDate=array(
+					'user_Name'=>$logresult["Name"],
+					'user_Autority'=>$logresult["Autority"],
+					'user_Credit_Rate'=>$logresult["Credit_Rate"],
+					'user_is_valid'=>()
+				);
+				$this->session->set_userdata($sessionDate);
+				
 			}
 		}
   
@@ -53,7 +61,7 @@ class IndexPage extends CI_Controller {
     $data['title'] = 'Our System';
     //$this->load->view('templates/header', $data);
     //需要一个 get_departments(int x)函数，作用是获得最热的x个科室的信息
-    //返回值为一个有x个元素的department对象的数组
+    //返回值为一个有x个元素的department对象的数组                                                                                                                        
     //六个属性cwldb/department的  科室名称/Name   科室简介/Info 
     //cwldb/hospital的   医院名称/Name  ,医院电话/Phone  ,医院网址/Website  ,医院等级/Level
     //$x=6;//暂定为6
