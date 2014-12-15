@@ -55,7 +55,7 @@ $route['RegOfficePage'] = "RegOfficePage";
 //$route['RegOfficePage/(:any)'] = "RegOfficePage/Index";
 
 $route['HospitalManangerPage'] = "HospitalManangerPage";
-//$route['HospitalManangerPage/(:any)'] = "HospitalManangerPage/Index";
+$route['HospitalManangerPage/Index'] = "HospitalManangerPage/Index";
 
 $route['SuperManager'] = "SuperManager";
 //$route['SuperManager/(:any)'] = "SuperManager/Index";

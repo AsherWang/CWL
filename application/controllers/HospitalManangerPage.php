@@ -16,6 +16,7 @@ class HospitalManangerPage extends CI_Controller {
     //首页上会包括功公告，所以会有
     //
    //$this->load->model('notice_model');
+      $this->load->helper('url');
   }
 
   public function Index()
