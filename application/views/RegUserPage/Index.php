@@ -98,7 +98,7 @@
 
         <!--主体医院列表-->
         <table class="table table-striped table-hover hsp_table">
-            <tr><td class="row">
+            <!-- <tr><td class="row">
                 <img class="col-md-2" src="<?php echo base_url()?>res/images/hsp_picture.png"/>
                 <div class="col-md-8">
                     <span class="row">小红帽成人医院</span>
@@ -133,18 +133,19 @@
                     <a href="<?php echo base_url()?>RegUserPage/Hsp_doctor_list
                     ">查看号源</a>
                 </div>
-            </td><tr>
+            </td><tr> -->
+            <?php foreach ($hospitals as $hospital_item): ?>
             <tr><td class="row">
                 <img class="col-md-2" src="<?php echo base_url()?>res/images/hsp_picture.png"/>
                 <div class="col-md-8">
-                    <span class="row">小红帽成人医院</span>
+                    <span class="row"><?php echo $hospital_item['Name']?></span>
                     <div class="row">
                         <span>电话：</span>
-                        <span>000-00000000</span>
+                        <span><?php echo $hospital_item['Phone']?></span>
                     </div>
                     <div class="row">
                         <span>地址：</span>
-                        <span>Please guess</span>
+                        <span><?php echo $hospital_item['Address']?></span>
                     </div>
                 </div>
                 <div class="col-md-2 hsp_link">
@@ -152,96 +153,7 @@
                     ">查看号源</a>
                 </div>
             </td><tr>
-            <tr><td class="row">
-                <img class="col-md-2" src="<?php echo base_url()?>res/images/hsp_picture.png"/>
-                <div class="col-md-8">
-                    <span class="row">小红帽成人医院</span>
-                    <div class="row">
-                        <span>电话：</span>
-                        <span>000-00000000</span>
-                    </div>
-                    <div class="row">
-                        <span>地址：</span>
-                        <span>Please guess</span>
-                    </div>
-                </div>
-                <div class="col-md-2 hsp_link">
-                    <a href="<?php echo base_url()?>RegUserPage/Hsp_doctor_list
-                    ">查看号源</a>
-                </div>
-            </td><tr>
-            <tr><td class="row">
-                <img class="col-md-2" src="<?php echo base_url()?>res/images/hsp_picture.png"/>
-                <div class="col-md-8">
-                    <span class="row">小红帽成人医院</span>
-                    <div class="row">
-                        <span>电话：</span>
-                        <span>000-00000000</span>
-                    </div>
-                    <div class="row">
-                        <span>地址：</span>
-                        <span>Please guess</span>
-                    </div>
-                </div>
-                <div class="col-md-2 hsp_link">
-                    <a href="<?php echo base_url()?>RegUserPage/Hsp_doctor_list
-                    ">查看号源</a>
-                </div>
-            </td><tr>
-            <tr><td class="row">
-                <img class="col-md-2" src="<?php echo base_url()?>res/images/hsp_picture.png"/>
-                <div class="col-md-8">
-                    <span class="row">小红帽成人医院</span>
-                    <div class="row">
-                        <span>电话：</span>
-                        <span>000-00000000</span>
-                    </div>
-                    <div class="row">
-                        <span>地址：</span>
-                        <span>Please guess</span>
-                    </div>
-                </div>
-                <div class="col-md-2 hsp_link">
-                    <a href="<?php echo base_url()?>RegUserPage/Hsp_doctor_list
-                    ">查看号源</a>
-                </div>
-            </td><tr>
-            <tr><td class="row">
-                <img class="col-md-2" src="<?php echo base_url()?>res/images/hsp_picture.png"/>
-                <div class="col-md-8">
-                    <span class="row">小红帽成人医院</span>
-                    <div class="row">
-                        <span>电话：</span>
-                        <span>000-00000000</span>
-                    </div>
-                    <div class="row">
-                        <span>地址：</span>
-                        <span>Please guess</span>
-                    </div>
-                </div>
-                <div class="col-md-2 hsp_link">
-                    <a href="<?php echo base_url()?>RegUserPage/Hsp_doctor_list
-                    ">查看号源</a>
-                </div>
-            </td><tr>
-            <tr><td class="row">
-                <img class="col-md-2" src="<?php echo base_url()?>res/images/hsp_picture.png"/>
-                <div class="col-md-8">
-                    <span class="row">小红帽成人医院</span>
-                    <div class="row">
-                        <span>电话：</span>
-                        <span>000-00000000</span>
-                    </div>
-                    <div class="row">
-                        <span>地址：</span>
-                        <span>Please guess</span>
-                    </div>
-                </div>
-                <div class="col-md-2 hsp_link">
-                    <a href="<?php echo base_url()?>RegUserPage/Hsp_doctor_list
-                    ">查看号源</a>
-                </div>
-            </td><tr>
+            <?php endforeach ?>
         </table>
         <!--直接套用的bootstrap的组件-->
         <nav>
