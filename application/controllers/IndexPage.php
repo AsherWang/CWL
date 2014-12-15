@@ -18,12 +18,33 @@ class IndexPage extends CI_Controller {
    $this->load->model('notice_model');
    $this->load->model('department_model');
    $this->load->model('hospital_model'); 
+   $this->load->model('user_model'); 
+   
    $this->load->helper('url');
   }
 
   //IndexPage/index
   public function Index()
-  { //需要一个 get_notices(int x)的函数，作用是获得最新的x个公告
+  { 
+  		$data["login_result"]=0;
+  		if($_POST["id_number"]!=""&&$_POST["password"]!="")
+		{
+			//登陆
+			$logresult=$this->user_model->user_login($_POST["id_number"],$_POST["password"]);
+			if($logresult==-1)
+			{
+				//登陆失败
+				$data["login_result"]=-1;
+			}
+			else
+			{	
+				//登陆成功
+				$data["login_result"]=1;
+				$data["user"]=$logresult;
+			}
+		}
+  
+ 	 //需要一个 get_notices(int x)的函数，作用是获得最新的x个公告
     //返回一个有x个元素的notices对象的数组
     //两个属性cwldb/notice的  公告编号/ID  和  公告标题/Title
 
