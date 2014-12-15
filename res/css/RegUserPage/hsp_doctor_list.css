@@ -102,6 +102,10 @@
 .go_next_link:hover{
 	background-color:#377BEE;
 }
+.go_next_link a{
+		color:#fff;
+}
 .go_next_link a:hover{
 	color:#fff;
+	text-decoration:none;
 }

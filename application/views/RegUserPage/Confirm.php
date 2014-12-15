@@ -17,7 +17,6 @@
         <title><?php echo $title; ?></title>
     </head>
     <body>
-    	<div class="header">页眉</div>
     	<div class="container">
     		<div class="title">确认预约订单信息</div>
     		<hr class="dividing_line"/>
@@ -124,10 +123,8 @@
                 </div>
             <!--确认预约-->
                 <div class="confirm_all">
-                    <span>确认预约</span>
+                    <a href="<?php echo base_url()?>RegUserPage/my_appointment">确认预约</a>
                 </div>
             <!--确认预约-->
-
-            <div class="choose_date">话说能不能把页脚设计得和这个确认比较匹配一点。。。</div>
     	</div>
     </body>

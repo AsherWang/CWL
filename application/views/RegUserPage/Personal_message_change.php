@@ -18,13 +18,6 @@
         <title><?php echo $title; ?></title>
     </head>
     <body>
-
-        <!--待替换的页眉部分-->
-        <div class="header">
-        页眉
-        </div>
-        <!--待替换的页眉部分-->
-
         <!--引用的bootstrap的输入框，有待更改调整-->
         <div class="row">
         <div class="col-md-offset-3 col-md-6 main_search">
@@ -43,13 +36,13 @@
             <span class="col-md-offset-1 col-md-1 guide_text_1">
                 寻医：
             </span>
-            <a class="col-md-1 guide_text_2" href="###">
+            <a class="col-md-1 guide_text_2" href="<?php echo base_url()?>RegUserPage/index">
                 按医院查询
             </a>
-            <a class="col-md-1 guide_text_2" href="####">
+            <a class="col-md-1 guide_text_2" href="<?php echo base_url()?>RegUserPage/search_by_dep">
                 按科室查询
             </a>
-            <a class="col-md-1 guide_text_2 guide_text_3" href="########">
+            <a class="col-md-1 guide_text_2 guide_text_3" href="<?php echo base_url()?>RegUserPage/appointment_quickly">
                 快速预约
             </a>
             <a class="col-md-2 guide_text_2" href="########">
@@ -74,13 +67,13 @@
             <!--二级导航条-->
             <div class="row sec_guide">
                 <div class="col-md-2 sec_guide_text active">
-                    <a href="###">个人信息</a>
+                    <a href="<?php echo base_url()?>RegUserPage/personal_message_change">个人信息</a>
                 </div>
                 <div class="col-md-2 sec_guide_text">
-                    <a href="###">修改密码</a>
+                    <a href="<?php echo base_url()?>RegUserPage/password_change">修改密码</a>
                 </div>
                 <div class="col-md-2 sec_guide_text">
-                    <a href="###">头像设置</a>
+                    <a href="<?php echo base_url()?>RegUserPage/head_show">头像设置</a>
                 </div>
             </div>
             <!--二级导航条-->

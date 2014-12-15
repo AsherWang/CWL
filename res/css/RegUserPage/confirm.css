@@ -136,7 +136,6 @@ input[type=checkbox]{
 	margin-right:5px;
 }
 
-
 .confirm_all{
 	margin-left:8%;
 	margin-top:10px;
@@ -148,5 +147,7 @@ input[type=checkbox]{
 	background-color:#74B52F;
 	text-align:center;
 	cursor:pointer;
+}
+.confirm_all a{
 	color:#fff;
 }
