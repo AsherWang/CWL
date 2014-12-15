@@ -61,6 +61,12 @@ body{
 #ckx{
 	color: white;
 }
+#hint{
+	color: red;
+	font-size: 30px;
+	margin-left: 40px;
+	
+}
 /*快速登录*/
 /*欢迎页面*/
 #welcome{
@@ -70,8 +76,8 @@ body{
 	position: absolute;
     top: 40px;
 	left: 870px;
-	z-index:3;
-	display: none;
+	z-index:1;
+	
 	font-family: "微软雅黑";
 }
 #wtitle{
@@ -296,8 +302,8 @@ body{
 	line-height:50px;
 	}
 #queryArrow{
-	margin-top:-85px;
-	margin-left:80px;
+	margin-top:-90px;
+	margin-left:85px;
 	}
 .querystyle{
 	width:195px;
@@ -307,6 +313,32 @@ body{
     .querystyle span {
         color:#000;
     }
+#helpframe{
+	width:195px;
+	height:115px;
+    background-color:#DC143C;
+	cursor:pointer;
+}
+    #helpframe:hover{
+	background:#F69;
+}
+#helpinfo{
+	margin-top:-90px;
+	margin-left:85px;
+}
+#noticeframe{
+	width:195px;
+	height:115px;
+    background-color:#FF6347;
+	cursor:pointer;
+}
+    #noticeframe:hover{
+	background:#F69;
+}
+#noticeinfo{
+	margin-top:-90px;
+	margin-left:85px;
+}
 #startquery{
 	width:195px;
 	height:115px;

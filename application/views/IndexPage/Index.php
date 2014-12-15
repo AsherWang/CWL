@@ -121,6 +121,18 @@
 
             })();
           </script>
+
+          <?php if($login_result==1)  {?>
+            <div id="welcome">
+           <div id="wtitle">欢迎回来!</div>
+           <div id="wname">X先生/女士</div>
+           <div id="wimg"><img style="width:180px;height:180px;" class="img-circle" src="<?php echo base_url().'/res/images/wimg.jpg'?>"></div>
+           <div id="wlog"><button id="wbut" type="button" class="btn btn-primary btn-lg">退出登录</button></div>
+          </div>
+          <?php } else {?>
+
+
+          
           <div id="quicklogin">
             <div id="title">快速登录</div>
             <form id="loginform" role="form" action="" method="post">
@@ -164,16 +176,12 @@
               </div>
 
             </form>
-
-
-
+            <?php if($login_result==-1) {?>
+            <div id="hint">登录失败,密码错误</div>
+            <?php } ?>
           </div>
-          <div id="welcome">
-           <div id="wtitle">欢迎回来!</div>
-           <div id="wname">X先生/女士</div>
-           <div id="wimg"><img style="width:180px;height:180px;" class="img-circle" src="<?php echo base_url().'/res/images/wimg.jpg'?>"></div>
-           <div id="wlog"><button id="wbut" type="button" class="btn btn-primary btn-lg">退出登录</button></div>
-          </div>
+          <?php } ?>
+        
           <script type="text/javascript">
             $(document).ready(function() {
               $("#userid").blur(function(){
@@ -220,7 +228,7 @@
             <tr>
 
               <td>
-                <!--品牌-->
+               
                 <div class="querystyle">
                   <span class="querytitle2">地区</span>
                   <div id="area">
@@ -232,10 +240,10 @@
                     </select>
                   </div>
                 </div>
-                <!--品牌-->
+                
               </td>
               <td>
-                <!--车系-->
+                
                 <div class="querystyle">
                   <span class="querytitle2">类型</span>
                   <div id="type">
@@ -269,14 +277,35 @@
           </tr>
           <tr>
 
+             <td>
 
+              <div id="noticeframe">
+                 <div class="start"><span>近期</span></div>
+                  <div class="go"><span>公告</span></div>
+                <div id="noticeinfo"><a href="#"><img src="<?php echo base_url().'res/images/noticefree.png'?>" style="width:90px"/></a></div>
+              </div>
+
+
+            </td>
 
             <td>
 
               <div id="startquery">
                 <div class="start"><span>我要</span></div>
                 <div class="go"><span>预约</span></div>
-                <div id="queryArrow"><a href="#" onClick="document.form.submit();"><img src="<?php echo base_url().'res/images/arrow.png'?>" /></a></div>
+                <div id="queryArrow"><a href="#" onClick="document.form.submit();"><img src="<?php echo base_url().'res/images/arrowone.png'?>" style="width:90px"/></a></div>
+              </div>
+
+
+            </td>
+
+           
+            <td>
+
+              <div id="helpframe">
+              <div class="start"><span>预约</span></div>
+                <div class="go"><span>流程</span></div>
+                 <div id="helpinfo"><a href="#"><img src="<?php echo base_url().'res/images/help.png'?>" style="width:90px" /></a></div>
               </div>
 
 
@@ -290,17 +319,7 @@
       <div id="news">
 
        <div id="nmore"><a href="#">more..</a></div>
-       <!--
-       <div class="hotnews" id="firsthotnews" onmouseover="this.style.background='url(<?php echo base_url().'res/images/hotlable.png'?>)'" onmouseout="this.style.background='none'">
-        <div class="new">
-          <a href="#" target="_blank"><span class="words">北医三院，功在千秋<span></a>
-        </div>
-      </div>
-      <div class="hotnews" onmouseover="this.style.background='url(<?php echo base_url().'res/images/hotlable.png'?>)'" onmouseout="this.style.background='none'"><div class="new"><a target="_blank" href="#"><span class="words">热血澎湃，解放军陆军医院 </span></a></div></div>
-      <div class="hotnews" onmouseover="this.style.background='url(<?php echo base_url().'res/images/hotlable.png'?>)'" onmouseout="this.style.background='none'"><div class="new"><a target="_blank" href="#"><span class="words">什么都能治，来就看好</span></a></div></div>
-      <div class="hotnews" onmouseover="this.style.background='url(<?php echo base_url().'res/images/hotlable.png'?>)'" onmouseout="this.style.background='none'"><div class="new"><a target="_blank" href="#"><span class="words">悬壶济世，妙手回春 </span></a></div></div>
-      <div class="hotnews" onmouseover="this.style.background='url(<?php echo base_url().'res/images/hotlable.png'?>)'" onmouseout="this.style.background='none'"><div class="new"><a target="_blank" href="#"><span class="words">活死人，肉白骨，想死先出院</span></a></div></div>
-    -->
+     
     <div id="firsthotnews">
       <?php foreach ($latest_notices as $notice_item): ?>
 
