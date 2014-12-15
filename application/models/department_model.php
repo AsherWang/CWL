@@ -38,26 +38,19 @@
 				return NULL;
 		}
 
-		function insert_department($data)//$data是以数组形式传入
+		function insert_department()//$data是以数组形式传入
 		{
-			/*
-				数组形式如下
-				$data=array(
-					'ID'=>$ID,
-					'Name'=>$Name,
-					'Info'=>$Info,
-					'Hospital_ID'=>$Hospital_ID
+			$this->load->helper('url');
+
+			$data=array(
+				'Type'=>$this->input->post('type'),
+				'Name'=>$this->input->post('name'),
+				'Info'=>$this->input->post('info')
+				//获取发布Hospital_ID
+				
 				);
 
-			*/
-			//插入前需要判断是否已经存在
-			$query=$this->db->where($data);
-			if($query->result()==NULL)
-			{
-				$this->db->insert('departmendt',$data);
-			}
-			else
-				echo "This department  already exists";
+			return $this->db->insert('department',$data);
 		}
 
 		function delete_department($data)

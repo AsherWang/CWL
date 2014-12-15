@@ -1,16 +1,6 @@
 <?php
 	class Doctor_model extends CI_Model{
-
-		/*
-		var $ID='';
-		var $Name='';
-		var $Department='';
-		var $Hospital='';
-		var $Info='';
-		var $Expert='';
-		var Schedule_ID='';
-		*/
-		
+	
 		function __construct()
 		{
 			parent::__construct();
@@ -27,15 +17,20 @@
 				return NULL;
 		}
 
-		function insert_doctor($data)
+		function insert_doctor()
 		{
-			$query=$this->db->where($data);
-			if($query->result()==NULL)
-			{
-				$this->db->insert('doctor',$data);
-			}
-			else
-				echo "This doctor  already exists";
+			$this->load->helper('url');
+
+			$data=array(
+				'Name'=>$this->input->post('name'),
+				'Hospital'=>$this->input->post('hospital'),
+				'Info'=>$this->input->post('info'),
+				'Expert'=>$this->input->post('expert')
+				//获取科室Department_ID;
+
+				);
+
+			return $this->db->insert('doctor',$data);
 		}
 
 		function delete_doctor($data);

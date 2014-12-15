@@ -1,8 +1,6 @@
 <?php
 	class Hospital_model extends CI_Model{
 
-		
-		
 		function __construct()
 		{
 			parent::__construct();
@@ -26,15 +24,21 @@
 
 		}
 
-		function insert_hospital($data)
+		function insert_hospital()
 		{
-			$query=$this->db->where($data);
-			if($query->result()==NULL)
-			{
-				$this->db->insert('hospital',$data);
-			}
-			else
-				echo "This hospital  already exists";
+			$this->load->helper('url');
+
+			$data=array(
+				'Name'=>$this->input->post('name'),
+				'Level'=>$this->input->post('level'),
+				'Address'=>$this->input->post('address'),
+				'Phone'=>$this->input->post('phone'),
+				'Info'=>$this->input->post('info'),
+				'Website'=>$this->input->post('website'),
+				'Type'=>$this->input->post('type')
+				);
+
+			return $this->db->insert('hospital',$data);
 		}
 
 		function delete_hospital($data)
