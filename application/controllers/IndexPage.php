@@ -3,7 +3,7 @@
  * @Author: Asher
  * @Date:   2014-12-01 08:45:30
  * @Last Modified by:   Asher
- * @Last Modified time: 2014-12-03 21:49:09
+ * @Last Modified time: 2014-12-15 20:52:28
  *
  * 控制器描述：主要控制对首页的访问
  */
@@ -27,7 +27,7 @@ class IndexPage extends CI_Controller {
   public function Index()
   { 
   		$data["login_result"]=0;
-  		if($_POST["id_number"]!=""&&$_POST["password"]!="")
+  		if(isset($_POST["id_number"])&&isset($_POST["password"]))
 		{
 			//登陆
 			$logresult=$this->user_model->user_login($_POST["id_number"],$_POST["password"]);
@@ -41,14 +41,15 @@ class IndexPage extends CI_Controller {
 				//登陆成功
 				$data["login_result"]=1;
 				$data["user"]=$logresult;
+				$currentdate=date("y-m-d h:i:s");
+			 	$validdate=$logresult["Valid_Date"];
 				$sessionDate=array(
 					'user_Name'=>$logresult["Name"],
 					'user_Autority'=>$logresult["Autority"],
 					'user_Credit_Rate'=>$logresult["Credit_Rate"],
-					'user_is_valid'=>()
+					'user_is_valid'=> strtotime($currentdate)>=strtotime($validdate)
 				);
 				$this->session->set_userdata($sessionDate);
-				
 			}
 		}
   
