@@ -5,7 +5,7 @@
  * @Last Modified by:   2205
  * @Last Modified time: 2014-12-10
  */
-//这里将是寻医首页的位置了
+//这里将是医院内寻医的位置了
 ?>
 
 <!DOCTYPE html>
