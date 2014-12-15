@@ -3,7 +3,7 @@
  * @Author: Asher
  * @Date:   2014-12-01 08:45:30
  * @Last Modified by:   Asher
- * @Last Modified time: 2014-12-03 21:49:09
+ * @Last Modified time: 2014-12-15 20:52:28
  *
  * 控制器描述：主要控制对首页的访问
  */
@@ -18,12 +18,42 @@ class IndexPage extends CI_Controller {
    $this->load->model('notice_model');
    $this->load->model('department_model');
    $this->load->model('hospital_model'); 
+   $this->load->model('user_model'); 
+   $this->load->library('session');
    $this->load->helper('url');
   }
 
   //IndexPage/index
   public function Index()
-  { //需要一个 get_notices(int x)的函数，作用是获得最新的x个公告
+  { 
+  		$data["login_result"]=0;
+  		if(isset($_POST["id_number"])&&isset($_POST["password"]))
+		{
+			//登陆
+			$logresult=$this->user_model->user_login($_POST["id_number"],$_POST["password"]);
+			if($logresult==-1)
+			{
+				//登陆失败
+				$data["login_result"]=-1;
+			}
+			else
+			{	
+				//登陆成功
+				$data["login_result"]=1;
+				$data["user"]=$logresult;
+				$currentdate=date("y-m-d h:i:s");
+			 	$validdate=$logresult["Valid_Date"];
+				$sessionDate=array(
+					'user_Name'=>$logresult["Name"],
+					'user_Autority'=>$logresult["Autority"],
+					'user_Credit_Rate'=>$logresult["Credit_Rate"],
+					'user_is_valid'=> strtotime($currentdate)>=strtotime($validdate)
+				);
+				$this->session->set_userdata($sessionDate);
+			}
+		}
+  
+ 	 //需要一个 get_notices(int x)的函数，作用是获得最新的x个公告
     //返回一个有x个元素的notices对象的数组
     //两个属性cwldb/notice的  公告编号/ID  和  公告标题/Title
 
@@ -32,7 +62,7 @@ class IndexPage extends CI_Controller {
     $data['title'] = 'Our System';
     //$this->load->view('templates/header', $data);
     //需要一个 get_departments(int x)函数，作用是获得最热的x个科室的信息
-    //返回值为一个有x个元素的department对象的数组
+    //返回值为一个有x个元素的department对象的数组                                                                                                                        
     //六个属性cwldb/department的  科室名称/Name   科室简介/Info 
     //cwldb/hospital的   医院名称/Name  ,医院电话/Phone  ,医院网址/Website  ,医院等级/Level
     //$x=6;//暂定为6

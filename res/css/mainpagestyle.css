@@ -44,6 +44,7 @@ body{
 	z-index:2;
 	font-family: "微软雅黑";
 	
+	
 }
 #title{
 	position: relative;
@@ -54,15 +55,58 @@ body{
 	color: white;
 	font-size: 30px;
 	border:2px #303a40 solid;
-
-	
+	display: ;
 	z-index: 1;
 }
 #ckx{
 	color: white;
 }
+#hint{
+	color: red;
+	font-size: 30px;
+	margin-left: 40px;
+	
+}
 /*快速登录*/
+/*欢迎页面*/
+#welcome{
+	width: 320px;
+	height: 320px;
+	background-color:rgba(48,58,64,0.9) ;
+	position: absolute;
+    top: 40px;
+	left: 870px;
+	z-index:1;
+	
+	font-family: "微软雅黑";
+}
+#wtitle{
+	font-family: "YueHei";
+	font-size: 35px;
+	color: white;
+	margin-left: 85px;
+}
+#wname{
+	font-family: "YueHei";
+	font-size: 20px;
+	color: white;
+	margin-left: 110px;
+}
+#wimg{
+	
+	margin-left: 70px;
 
+
+}
+#wlog{
+	width: 100px;
+	height: 20px;
+	background-color: gray;
+	margin-top: 10px;
+	margin-left: 105px;
+}
+
+/*欢迎页面*/
 /*图片切换*/
 .wrap {
 	position:relative;
@@ -258,8 +302,8 @@ body{
 	line-height:50px;
 	}
 #queryArrow{
-	margin-top:-85px;
-	margin-left:80px;
+	margin-top:-90px;
+	margin-left:85px;
 	}
 .querystyle{
 	width:195px;
@@ -269,6 +313,32 @@ body{
     .querystyle span {
         color:#000;
     }
+#helpframe{
+	width:195px;
+	height:115px;
+    background-color:#DC143C;
+	cursor:pointer;
+}
+    #helpframe:hover{
+	background:#F69;
+}
+#helpinfo{
+	margin-top:-90px;
+	margin-left:85px;
+}
+#noticeframe{
+	width:195px;
+	height:115px;
+    background-color:#FF6347;
+	cursor:pointer;
+}
+    #noticeframe:hover{
+	background:#F69;
+}
+#noticeinfo{
+	margin-top:-90px;
+	margin-left:85px;
+}
 #startquery{
 	width:195px;
 	height:115px;

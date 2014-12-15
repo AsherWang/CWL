@@ -19,12 +19,6 @@
             <label>公</label><br>
             <label>告</label><br>
         </div>
-        <div class="div_in_css" style="visibility: hidden" id="docu">
-            <textarea class="notice_title_css" id="title" disabled="disabled"></textarea>
-            <hr style="position:absolute;top:22px;width:640px;border:1px dashed #87cefa;">
-            <textarea class="notice_css" id="concrete" disabled="disabled"></textarea>
-            <input type="button" class="back_css" value="返回公告" onclick="back()"/>
-        </div>
         <div class="div_in_css" id="notice">
             <a class="survey" onclick="surveyclick()">北医一院</a>
             <hr style="border:1px dashed #87cefa">
@@ -44,10 +38,10 @@
     <div class="div_publish" id="publish_notice">
         <form>
             标题
-            <input type="text" name="notice_title"/><br>
+            <input type="text" name="notice_title" id="title"/><br>
             内容
-            <textarea name="notice_docu"></textarea>
-            <input type="button" value="返回"/>
+            <textarea name="notice_docu" id="document"></textarea>
+            <input type="button" id="back" onclick="backto()" value="返回"/>
             <input type="submit"/>
         </form>
     </div>

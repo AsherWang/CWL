@@ -55,7 +55,7 @@ $route['RegOfficePage'] = "RegOfficePage";
 //$route['RegOfficePage/(:any)'] = "RegOfficePage/Index";
 
 $route['HospitalManangerPage'] = "HospitalManangerPage";
-//$route['HospitalManangerPage/(:any)'] = "HospitalManangerPage/Index";
+$route['HospitalManangerPage/Index'] = "HospitalManangerPage/Index";
 
 $route['SuperManager'] = "SuperManager";
 //$route['SuperManager/(:any)'] = "SuperManager/Index";
@@ -67,6 +67,9 @@ $route['Test/Index'] = "TestControl/Index";
 //用于测试发布公告
 $route['notice/create']='notice/create';
 $route['notice/(:any)']='notice/view/$1';
+//$route['(:any)'] = 'pages/view/$1';
+//$route['default_controller'] = 'pages/view';
+
 //$route['404_override'] = '';
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
