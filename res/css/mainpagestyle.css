@@ -44,6 +44,7 @@ body{
 	z-index:2;
 	font-family: "微软雅黑";
 	
+	
 }
 #title{
 	position: relative;
@@ -54,15 +55,52 @@ body{
 	color: white;
 	font-size: 30px;
 	border:2px #303a40 solid;
-
-	
+	display: ;
 	z-index: 1;
 }
 #ckx{
 	color: white;
 }
 /*快速登录*/
+/*欢迎页面*/
+#welcome{
+	width: 320px;
+	height: 320px;
+	background-color:rgba(48,58,64,0.9) ;
+	position: absolute;
+    top: 40px;
+	left: 870px;
+	z-index:3;
+	display: none;
+	font-family: "微软雅黑";
+}
+#wtitle{
+	font-family: "YueHei";
+	font-size: 35px;
+	color: white;
+	margin-left: 85px;
+}
+#wname{
+	font-family: "YueHei";
+	font-size: 20px;
+	color: white;
+	margin-left: 110px;
+}
+#wimg{
+	
+	margin-left: 70px;
 
+
+}
+#wlog{
+	width: 100px;
+	height: 20px;
+	background-color: gray;
+	margin-top: 10px;
+	margin-left: 105px;
+}
+
+/*欢迎页面*/
 /*图片切换*/
 .wrap {
 	position:relative;
