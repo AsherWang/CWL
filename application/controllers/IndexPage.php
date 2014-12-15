@@ -41,14 +41,15 @@ class IndexPage extends CI_Controller {
 				//登陆成功
 				$data["login_result"]=1;
 				$data["user"]=$logresult;
+				$currentdate=date("y-m-d h:i:s");
+			 	$validdate=$logresult["Valid_Date"];
 				$sessionDate=array(
 					'user_Name'=>$logresult["Name"],
 					'user_Autority'=>$logresult["Autority"],
 					'user_Credit_Rate'=>$logresult["Credit_Rate"],
-					'user_is_valid'=>()
+					'user_is_valid'=> strtotime($currentdate)>=strtotime($validdate)
 				);
 				$this->session->set_userdata($sessionDate);
-				
 			}
 		}
   
