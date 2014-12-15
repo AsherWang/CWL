@@ -1,0 +1,152 @@
+.header{
+	height:80px;
+	background-color:#3385FF;
+	font-size:25px;
+}
+
+.title{
+	margin-left:12%;
+	margin-top:20px;
+	font-family:'Microsoft YaHei';
+	font-size:24px;
+	font-weight:300;
+}
+
+.dividing_line{
+	width:90%;
+	border-width:1px;
+	border-color:#3385FF;
+	margin-top:7px;
+}
+
+.doc_mes_tab{
+	width:90%;
+	margin-left:5%;
+	color:#467EE0;
+}
+
+.doc_mes_thead{
+	padding-left:14px;
+	
+}
+
+.doc_mes_text{
+	color:black;
+	font-weight:300;
+	font-family:'Microsoft YaHei';
+}
+
+.doc_intro{
+	margin-top:10px;
+}
+
+.doc_name{
+	padding-left:5px;
+}
+
+.doc_intro_text{
+	margin-top:3px;
+}
+
+.cost{
+	color:orange;
+}
+
+.choose_date{
+	margin-top:15px;
+	margin-left:5%;
+	font-size:20px;
+	font-family:'Microsoft YaHei';
+}
+
+.choose_date_text{
+	font-size:15px;
+	font-family:'Microsoft YaHei';
+	margin-left:8%;
+	margin-top:15px;
+	color:#888888;
+}
+
+.choose_year{
+	width:65px;
+	height:25px;
+	margin-right:10px;
+}
+.choose_month{
+	margin-left:10px;
+	margin-right:10px;
+	width:45px;
+	height:25px;
+}
+
+input[type=radio]{
+	margin-left:100px;
+	margin-right:5px;
+}
+
+.choose_time_radio{
+	margin-top:10px;
+	font-size:14px;
+	color:#888888;
+}
+
+.patient_message{
+	margin-top:10px;
+	margin-left:8%;
+	font-family:'Microsoft YaHei';
+	font-size:14px;
+	color:#888888;
+}
+
+.patient_name{
+	font-size:20px;
+	font-weight:300;
+}
+
+.patient_id_sty{
+	margin-top:5px;
+}
+
+.choose_another_patient{
+	margin-left:-20px;
+	font-size:15px;
+	margin-top:20px;
+	font-weight:500;
+}
+
+.ver_code{
+	margin-left:8%;
+	margin-top:10px;
+}
+
+.ver_text{
+	width:100px;
+	font-size:20px;
+	line-height:20px;
+	font-family:'Microsoft YaHei';
+}
+
+.know_confirm{
+	margin-left:5%;
+	margin-top:50px;
+	font-size:14px;
+	font-family:'Microsoft YaHei';
+}
+input[type=checkbox]{
+	margin-right:5px;
+}
+
+
+.confirm_all{
+	margin-left:8%;
+	margin-top:10px;
+	width:200px;
+	height:50px;
+	font-size:22px;
+	font-family:'Microsoft YaHei';
+	line-height:50px;
+	background-color:#74B52F;
+	text-align:center;
+	cursor:pointer;
+	color:#fff;
+}

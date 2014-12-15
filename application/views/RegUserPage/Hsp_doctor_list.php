@@ -5,7 +5,7 @@
  * @Last Modified by:   2205
  * @Last Modified time: 2014-12-10
  */
-//这里将是寻医首页的位置了
+//这里将是医院内寻医的位置了
 ?>
 
 <!DOCTYPE html>
@@ -49,8 +49,11 @@
             <a class="col-md-1 guide_text_2" href="####">
                 按科室查询
             </a>
-            <a class="col-md-1 guide_text_2" href="########">
-                按病症查询
+            <a class="col-md-1 guide_text_2 guide_text_3" href="########">
+                快速预约
+            </a>
+            <a class="col-md-2 guide_text_2" href="########">
+                预约流程介绍
             </a>
         </div>
         <!--导航条-->
@@ -115,6 +118,9 @@
                     <div class="row">
                         <a class="dep_table_text">主任医师</a>
                         <a class="dep_table_text">副主任医师</a>
+                        <a class="dep_table_text">教授</a>
+                        <a class="dep_table_text">副教授</a>
+                        <a class="dep_table_text">专家</a>
                         <a class="dep_table_text">其他(会有人点这个吗)</a>
                     </div>
                     <div class="row">

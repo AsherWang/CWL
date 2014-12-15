@@ -28,6 +28,17 @@ a.guide_text_2:hover{
 	color:#fff;
 }
 
+.guide_text_3{
+	width:120px;
+	height:35px;
+	line-height:40px;
+	text-align:center;
+	margin-top:2.5px;
+	border-color:#fff;
+	border-left:solid 1px;
+	border-right:solid 1px;
+}
+
 .hsp_choose_table{
 	width:80%;
 	margin-top:25px;

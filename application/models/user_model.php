@@ -83,8 +83,13 @@
         //若用户名密码正确那么返回一个对象，据此对象可以获得用户表的所有数据，反之返回-1
         public function user_login($ID_number,$paswd)
         {
-            if($user==null||$paswd==null)return-1;
-			return $this->getTable("user",array("ID_number"=>$ID_number,"Password"=>$paswd));
+            if($ID_number==null||$paswd==null)return-1;
+			$re= $this->getTable("user",array("ID_number"=>$ID_number,"Password"=>$paswd));
+			if($re==-1)
+			{
+				return -1;
+			}
+			return $re[0];
         }
 		
 		//checked,身份证号是否已注册
@@ -120,7 +125,13 @@
                 $userExtInfoId=$this->insertToTable($data,'user_ext');
                 $this->updateTable($userId,array("Ext_ID"=> $userExtInfoId),"user");
             }
-        }
+        }		
+		
+		//获得该用户的所有订单
+		public function getOrderArray($userId)
+		{
+			return $this->getTable("order",array("User_ID"=>$userId));
+		}
 
 
 	}

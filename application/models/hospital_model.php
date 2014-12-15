@@ -1,34 +1,44 @@
 <?php
 	class Hospital_model extends CI_Model{
 
-		
-		
-		function _construct()
+		function __construct()
 		{
-			parent::_construct();
+			parent::__construct();
 		}
 
-		function get_hospital($sql)
+		//医院总数
+		function hospital_num()
 		{
-			$query=$this->db->query($sql);
+			return $this->db->count_all('hospital');
+		}
+
+		function get_hospital($data)
+		{
+			$query=$this->db->query($data);
 			if($query->num_rows()>0)
 			{
-				return $query->result_array();
+				return $query->result_array();//返回的是一个数组用foreach遍历即可
 			}
 			else
 				return NULL;
 
 		}
 
-		function insert_hospital($data)
+		function insert_hospital()
 		{
-			$query=$this->db->where($data);
-			if($query->result()==NULL)
-			{
-				$this->db->insert('hospital',$data);
-			}
-			else
-				echo "This hospital  already exists";
+			$this->load->helper('url');
+
+			$data=array(
+				'Name'=>$this->input->post('name'),
+				'Level'=>$this->input->post('level'),
+				'Address'=>$this->input->post('address'),
+				'Phone'=>$this->input->post('phone'),
+				'Info'=>$this->input->post('info'),
+				'Website'=>$this->input->post('website'),
+				'Type'=>$this->input->post('type')
+				);
+
+			return $this->db->insert('hospital',$data);
 		}
 
 		function delete_hospital($data)
