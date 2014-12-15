@@ -16,6 +16,19 @@
 			$this->load->view('notice/index',$data);
 		}
 
+		//显示单条详细公告
+		public function view($ID)
+		{
+			$this->load->helper('url');
+
+			$data['notice_item']=$this->notice_model->get_notice("SELECT * FROM Notice WHERE ID=$ID");
+  			if (empty($data['notice_item']))
+  			{
+    			show_404();
+  			}
+  			$this->load->view('notice/view', $data);
+		}
+
 		//发布公告
 		public function create()
 		{
