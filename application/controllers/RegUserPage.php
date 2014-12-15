@@ -19,6 +19,14 @@ class RegUserPage extends CI_Controller {
     $this->load->view('RegUserPage/Index', $data);
     $this->load->view('templates/footer');
   }
+  public function Search_by_dep()
+  {
+   // $data['news'] = $this->news_model->get_news();
+    $data['title'] = 'RegUserPage';
+   // $this->load->view('templates/header', $data);
+    $this->load->view('RegUserPage/search_by_dep', $data);
+    $this->load->view('templates/footer');
+  }
   public function Hsp_doctor_list()
   {
    // $data['news'] = $this->news_model->get_news();
@@ -72,4 +80,28 @@ else
     $this->load->view('templates/footer');
   }
 
+  public function Personal_message_change()
+  {
+   // $data['news'] = $this->news_model->get_news();
+    $data['title'] = 'RegUserPage';
+   // $this->load->view('templates/header', $data);
+    $this->load->view('RegUserPage/personal_message_change', $data);
+    $this->load->view('templates/footer');
+  }
+  public function Password_change()
+  {
+   // $data['news'] = $this->news_model->get_news();
+    $data['title'] = 'RegUserPage';
+   // $this->load->view('templates/header', $data);
+    $this->load->view('RegUserPage/password_change', $data);
+    $this->load->view('templates/footer');
+  }
+  public function Head_show()
+  {
+   // $data['news'] = $this->news_model->get_news();
+    $data['title'] = 'RegUserPage';
+   // $this->load->view('templates/header', $data);
+    $this->load->view('RegUserPage/head_show', $data);
+    $this->load->view('templates/footer');
+  }
 }?>

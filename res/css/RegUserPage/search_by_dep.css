@@ -1,0 +1,21 @@
+.main_container{
+	background-color:#F0F8FE;
+	margin-top:10px;
+	width:80%;
+}
+
+.dep_list{
+	background-color:#fff;
+	margin-top:25px;
+	width:90%;
+	margin-left:5%;
+
+}
+
+.dep_title{
+	text-align:left;
+	padding-left:30px;
+	font-size:18px;
+	line-height:35px;
+	background-color:#F4F4F4;
+}
