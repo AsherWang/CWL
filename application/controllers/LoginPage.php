@@ -13,10 +13,14 @@ class LoginPage extends CI_Controller {
   //RegOfficePage/index
   public function Index()
   {
-;
+
     $data['title'] = 'LoginPage';
-  //  $this->load->view('templates/header', $data);
-    $this->load->view('LoginPage/Index', $data);
+    //$this->load->view('templates/header', $data);
+    $this->load->view('LoginPage/index',$data);
+  }
+  public function Regist(){
+    $this->load->view('LoginPage/regist');
+
   }
 
 }?>

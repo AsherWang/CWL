@@ -1,0 +1,68 @@
+body{
+	overflow-x: hidden; 
+	background: url(../images/regist.jpg) repeat-y top fixed;
+	background-size: 100%;
+	z-index:0;
+	
+}
+
+/*页头*/
+#header{
+	width: 100%;
+	height: 50px;
+	background-color: #303a40;
+	z-index: 1
+
+}
+#logo{
+	padding-left: 150px;
+	font-family: "微软雅黑";
+	font-size: 20px;
+}
+#logo1{
+	padding-right: 170px;
+	font-family: "微软雅黑";
+	font-size: 16px;
+}
+#maincontainer{
+	position: relative;
+	margin-top: 80px;
+	width: 600px;
+	height: 500px;
+	margin-left: 28%;
+	background:rgba(255, 255, 255,0.9);
+	padding: 10px;
+	border-radius: 9px;
+}
+#regist-form {
+	
+	
+	background:transparent;
+	border:none;box-shadow:none;
+	font-family:"微软雅黑";
+	font-size:18px;
+}
+
+#regist-form input {
+	margin:auto;
+	font-size: 18px;
+	height: 180%;
+	color: #000;}
+#maincontainer .form-group{
+    	margin-top: 25px;
+   }
+#agree1{
+	height: 15px;
+}
+#agree1 a{
+	color: #191970;
+
+}
+#agree1 a:hover{
+	color:black;
+}
+#hint{
+	color: red;
+	margin-left: 30%;
+	font-family: '微软雅黑';
+}

@@ -160,6 +160,7 @@
                       </label>
 
                     </div>
+                      
 
                   </div>
 
@@ -224,6 +225,7 @@
          </div>
          <div id="visit">
           <div id="vtitle"><img src="<?php echo base_url().'/res/images/query.png'?>"></div>
+          <form method="post" action="<?php echo base_url().'/RegUserPage'?>" id="quickvisit">
           <table id="Querylist">
             <tr>
 
@@ -293,7 +295,7 @@
               <div id="startquery">
                 <div class="start"><span>我要</span></div>
                 <div class="go"><span>预约</span></div>
-                <div id="queryArrow"><a href="#" onClick="document.form.submit();"><img src="<?php echo base_url().'res/images/arrowone.png'?>" style="width:90px"/></a></div>
+                <div id="queryArrow"><a href="<?php echo base_url().'/RegUserPage'?>" onClick="document.form.submit();"><img src="<?php echo base_url().'res/images/arrowone.png'?>" style="width:90px"/></a></div>
               </div>
 
 
@@ -313,6 +315,7 @@
           </tr>
 
         </table>
+        </form>
 
 
       </div>
