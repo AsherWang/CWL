@@ -111,6 +111,22 @@
                   $("#hintinfo").text('');
                 }
               });
+              $("#truename").blur(function(){
+                var tname=$("#truename").val();
+                var tnamelen=tname.length;
+                if(tnamelen>10){
+                  
+                  $("#truename").val('');
+                  
+                  $("#hintinfo").text('姓名长度不符，请重新输入');
+                 
+                  return false;
+                }
+                else{
+                  $("#hintinfo").text('');
+                }
+                  
+              }); 
               $("#phonenumber").blur(function(){
                 var phone=$("#phonenumber").val();
                 var phonelen=phone.length;
