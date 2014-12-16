@@ -18,13 +18,6 @@
         <title><?php echo $title; ?></title>
     </head>
     <body>
-
-        <!--待替换的页眉部分-->
-        <div class="header">
-        页眉
-        </div>
-        <!--待替换的页眉部分-->
-
         <!--引用的bootstrap的输入框，有待更改调整-->
         <div class="row">
         <div class="col-md-offset-3 col-md-6 main_search">
@@ -43,13 +36,13 @@
             <span class="col-md-offset-1 col-md-1 guide_text_1">
                 寻医：
             </span>
-            <a class="col-md-1 guide_text_2" href="###">
+            <a class="col-md-1 guide_text_2" href="<?php echo base_url()?>RegUserPage/index">
                 按医院查询
             </a>
-            <a class="col-md-1 guide_text_2" href="####">
+            <a class="col-md-1 guide_text_2" href="<?php echo base_url()?>RegUserPage/search_by_dep">
                 按科室查询
             </a>
-            <a class="col-md-1 guide_text_2 guide_text_3" href="########">
+            <a class="col-md-1 guide_text_2 guide_text_3" href="<?php echo base_url()?>RegUserPage/appointment_quickly">
                 快速预约
             </a>
             <a class="col-md-2 guide_text_2" href="########">
@@ -107,7 +100,7 @@
                         </select>
                     </div>
                     <div class="confirm_link">
-                        <span>预约挂号</span>
+                        <a href="###">预约挂号</a>
                     </div>
                 </div>
 
@@ -150,7 +143,7 @@
                         </select>
                     </div>
                     <div class="confirm_link">
-                        <span>预约挂号</span>
+                        <a href="###">预约挂号</a>
                     </div>
                 </div>
             </div>

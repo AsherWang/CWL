@@ -1,12 +1,19 @@
 .main_container{
-	background-color:#F0F8FE;
+	background-color:#CCFFFF;
+	font-family:'Microsoft YaHei';
 	margin-top:10px;
-	width:80%;
+	width:85%;
+}
+
+.tip{
+	margin-top:15px;
+	font-size:18px;
+	margin-left:5px;
 }
 
 .dep_list{
 	background-color:#fff;
-	margin-top:25px;
+	margin-top:15px;
 	width:90%;
 	margin-left:5%;
 
@@ -15,7 +22,47 @@
 .dep_title{
 	text-align:left;
 	padding-left:30px;
-	font-size:18px;
+	font-size:17px;
 	line-height:35px;
-	background-color:#F4F4F4;
+	background-color:#6699FF;
+	opacity:0.9;
+	color:#fff;
+}
+
+.down_sym{
+	float:right;
+	margin-right:15px;
+	line-height:14px;
+	width:14px;
+	padding-left:0.5px;
+	padding-bottom:1px;
+	margin-top:10px;
+	background-color:#FFFF99;
+	color:black;
+	cursor:pointer;
+}
+.up_sym{
+	float:right;
+	margin-right:15px;
+	line-height:14px;
+	width:14px;
+	padding-left:3px;
+	padding-bottom:1px;
+	margin-top:10px;
+	background-color:#FFFF99;
+	color:black;
+	cursor:pointer;
+}
+
+.hidde{
+	display:none;
+}
+.show{
+	padding-left:20px;
+	padding-top:15px;
+	padding-bottom:15px;
+}
+.dep_name{
+	width:150px;
+	line-height:25px;
 }

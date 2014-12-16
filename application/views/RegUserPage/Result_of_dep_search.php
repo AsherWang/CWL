@@ -5,7 +5,7 @@
  * @Last Modified by:   2205
  * @Last Modified time: 2014-12-10
  */
-//这里将是医院内寻医的位置了
+//这里将是按科室查询结果的位置了
 ?>
 
 <!DOCTYPE html>
@@ -50,58 +50,40 @@
             </a>
         </div>
         <!--导航条-->
-        <!--医院名称-->
+        <!--科室名称-->
         <div class="container">
-        <div class="row hsp_name">
-            <span class="hsp_name_text">小红帽成人医院</span>
-            <span class="label label-primary hsp_label_locate hsp_label_font">三级甲等</span>
-            <span class="label label-info hsp_label_font">专业的</span>
-            <span class="label label-default hsp_label_font">你懂的</span>
+        <div class="row hsp_name" style="margin-bottom:10px;margin-left:5%;">
+            <span class="hsp_name_text" style="font-size:25px;font-weight:400;">小儿麻痹科</span>
         </div>
-        <!--医院名称-->
-
-        <!--医院内部导航条-->
-        <nav class="navbar navbar-default hsp_nav" role="navigation">
-                <ul class="nav navbar-nav">
-                <li><a class="navbar-brand" href="<?php echo base_url()?>RegUserPage/hsp_introduction">医院简介</a></li>
-                <li class="active"><a href="<?php echo base_url()?>RegUserPage/hsp_doctor_list">预约挂号</a></li>
-                <li><a href="#">就医经验</a></li>
-                </div>
-        </nav>
-        <!--医院内部导航条-->
+        <!--科室名称-->
         <!--医院内部医生筛选-->
+        <div style="margin-left:-5%;">
         <table class="table table-bordered dep_table">
             <tr>
-                <td class="dep_table_choose">科室筛选</td>
+                <td class="dep_table_choose">医院位置</td>
                 <td>
                     <div class="row">
-                        <a class="dep_table_text">心脑外科</a>
-                        <a class="dep_table_text">小儿麻痹</a>
-                        <a class="dep_table_text">普通外科</a>
-                        <a class="dep_table_text">肿瘤内科</a>
-                        <a class="dep_table_text">神经病科</a>
-                        <a class="dep_table_text">**科</a>
-                        <a class="dep_table_text">神经病科</a>
-                        <a class="dep_table_text">肿瘤内科</a>
-                        <a class="dep_table_text">普通外科</a>
-                        <a class="dep_table_text">小儿麻痹</a>
-                        <a class="dep_table_text">心脑外科</a>
+                        <a class="dep_table_text">北京</a>
+                        <a class="dep_table_text">上海</a>
+                        <a class="dep_table_text">广州</a>
+                        <a class="dep_table_text">东莞</a>
+                        <a class="dep_table_text">东莞</a>
+                        <a class="dep_table_text">广州</a>
+                        <a class="dep_table_text">上海</a>
+                        <a class="dep_table_text">北京</a>
                     </div>
                     <div class="row">
-                        <a class="dep_table_text">心脑外科</a>
-                        <a class="dep_table_text">小儿麻痹</a>
-                        <a class="dep_table_text">普通外科</a>
-                        <a class="dep_table_text">肿瘤内科</a>
-                        <a class="dep_table_text">神经病科</a>
-                        <a class="dep_table_text">**科</a>
-                        <a class="dep_table_text">神经病科</a>
-                        <a class="dep_table_text">肿瘤内科</a>
-                        <a class="dep_table_text">普通外科</a>
-                        <a class="dep_table_text">小儿麻痹</a>
-                        <a class="dep_table_text">心脑外科</a>
+                         <a class="dep_table_text">北京</a>
+                        <a class="dep_table_text">上海</a>
+                        <a class="dep_table_text">广州</a>
+                        <a class="dep_table_text">东莞</a>
+                        <a class="dep_table_text">东莞</a>
+                        <a class="dep_table_text">广州</a>
+                        <a class="dep_table_text">上海</a>
+                        <a class="dep_table_text">北京</a>
                     </div>
                     <div class="row">
-                        <span class="dep_table_text">一个医院这么多科室应该够了</span>
+                        <span class="dep_table_text">凑合着用，需要修改再说</span>
                     </div>
                 </td>
             </tr>
@@ -124,14 +106,14 @@
         </table>
         <!--医院内部医生筛选-->
         <!--医生列表-->
-        <table class="table table-bordered table-hover doctor_list">
+        <table class="table table-bordered table-hover doctor_list" style="width:90%">
             <tr>
                 <td>
                     <div class="row">
                     <img src="<?php echo base_url()?>res/images/doctor_1.jpg" class="col-md-2 img-circle doctor_img" />
                     <div class="col-md-2 doctor_intro">
                         <div class="doctor_name">XXX(不告诉你)</div>
-                        <div class="doctor_intro_1">**科</div>
+                        <div class="doctor_intro_1">小红帽成人医院</div>
                         <div class="doctor_intro_2">主治医师</div>
                     </div>
                     <div class="col-md-6 doctor_expert">
@@ -139,7 +121,7 @@
                         <div class="doctor_expert_text">**************************************************************************************此处全部省略(你猜啊，猜啊)</div>
                     </div>
                     <div class="col-md-2 go_next_link">
-                        <a href="###">去挂号</a>
+                        <a href="<?php echo base_url()?>RegUserPage/confirm">去挂号</a>
                 </div>
                 </td>
             </tr>
@@ -149,7 +131,7 @@
                     <img src="<?php echo base_url()?>res/images/doctor_1.jpg" class="col-md-2 img-circle doctor_img" />
                     <div class="col-md-2 doctor_intro">
                         <div class="doctor_name">XXX(不告诉你)</div>
-                        <div class="doctor_intro_1">**科</div>
+                        <div class="doctor_intro_1">小红帽成人医院</div>
                         <div class="doctor_intro_2">主治医师</div>
                     </div>
                     <div class="col-md-6 doctor_expert">
@@ -157,7 +139,7 @@
                         <div class="doctor_expert_text">**************************************************************************************此处全部省略(你猜啊，猜啊)</div>
                     </div>
                     <div class="col-md-2 go_next_link">
-                        <a href="###">去挂号</a>
+                        <a href="<?php echo base_url()?>RegUserPage/confirm">去挂号</a>
                 </div>
                 </td>
             </tr>
@@ -167,7 +149,7 @@
                     <img src="<?php echo base_url()?>res/images/doctor_1.jpg" class="col-md-2 img-circle doctor_img" />
                     <div class="col-md-2 doctor_intro">
                         <div class="doctor_name">XXX(不告诉你)</div>
-                        <div class="doctor_intro_1">**科</div>
+                        <div class="doctor_intro_1">小红帽成人医院</div>
                         <div class="doctor_intro_2">主治医师</div>
                     </div>
                     <div class="col-md-6 doctor_expert">
@@ -175,7 +157,7 @@
                         <div class="doctor_expert_text">**************************************************************************************此处全部省略(你猜啊，猜啊)</div>
                     </div>
                     <div class="col-md-2 go_next_link">
-                        <a href="###">去挂号</a>
+                        <a href="<?php echo base_url()?>RegUserPage/confirm">去挂号</a>
                 </div>
                 </td>
             </tr>
@@ -185,7 +167,7 @@
                     <img src="<?php echo base_url()?>res/images/doctor_1.jpg" class="col-md-2 img-circle doctor_img" />
                     <div class="col-md-2 doctor_intro">
                         <div class="doctor_name">XXX(不告诉你)</div>
-                        <div class="doctor_intro_1">**科</div>
+                        <div class="doctor_intro_1">小红帽成人医院</div>
                         <div class="doctor_intro_2">主治医师</div>
                     </div>
                     <div class="col-md-6 doctor_expert">
@@ -193,7 +175,7 @@
                         <div class="doctor_expert_text">**************************************************************************************此处全部省略(你猜啊，猜啊)</div>
                     </div>
                     <div class="col-md-2 go_next_link">
-                        <a href="###">去挂号</a>
+                        <a href="<?php echo base_url()?>RegUserPage/confirm">去挂号</a>
                 </div>
                 </td>
             </tr>
@@ -203,7 +185,7 @@
                     <img src="<?php echo base_url()?>res/images/doctor_1.jpg" class="col-md-2 img-circle doctor_img" />
                     <div class="col-md-2 doctor_intro">
                         <div class="doctor_name">XXX(不告诉你)</div>
-                        <div class="doctor_intro_1">**科</div>
+                        <div class="doctor_intro_1">小红帽成人医院</div>
                         <div class="doctor_intro_2">主治医师</div>
                     </div>
                     <div class="col-md-6 doctor_expert">
@@ -211,7 +193,7 @@
                         <div class="doctor_expert_text">**************************************************************************************此处全部省略(你猜啊，猜啊)</div>
                     </div>
                     <div class="col-md-2 go_next_link">
-                        <a href="###">去挂号</a>
+                        <a href="<?php echo base_url()?>RegUserPage/confirm">去挂号</a>
                 </div>
                 </td>
             </tr>
@@ -221,7 +203,7 @@
                     <img src="<?php echo base_url()?>res/images/doctor_1.jpg" class="col-md-2 img-circle doctor_img" />
                     <div class="col-md-2 doctor_intro">
                         <div class="doctor_name">XXX(不告诉你)</div>
-                        <div class="doctor_intro_1">**科</div>
+                        <div class="doctor_intro_1">小红帽成人医院</div>
                         <div class="doctor_intro_2">主治医师</div>
                     </div>
                     <div class="col-md-6 doctor_expert">
@@ -229,7 +211,7 @@
                         <div class="doctor_expert_text">**************************************************************************************此处全部省略(你猜啊，猜啊)</div>
                     </div>
                     <div class="col-md-2 go_next_link">
-                        <a href="###">去挂号</a>
+                        <a href="<?php echo base_url()?>RegUserPage/confirm">去挂号</a>
                 </div>
                 </td>
             </tr>
@@ -239,7 +221,7 @@
                     <img src="<?php echo base_url()?>res/images/doctor_1.jpg" class="col-md-2 img-circle doctor_img" />
                     <div class="col-md-2 doctor_intro">
                         <div class="doctor_name">XXX(不告诉你)</div>
-                        <div class="doctor_intro_1">**科</div>
+                        <div class="doctor_intro_1">小红帽成人医院</div>
                         <div class="doctor_intro_2">主治医师</div>
                     </div>
                     <div class="col-md-6 doctor_expert">
@@ -247,7 +229,7 @@
                         <div class="doctor_expert_text">**************************************************************************************此处全部省略(你猜啊，猜啊)</div>
                     </div>
                     <div class="col-md-2 go_next_link">
-                        <a href="###">去挂号</a>
+                        <a href="<?php echo base_url()?>RegUserPage/confirm">去挂号</a>
                 </div>
                 </td>
             </tr>
@@ -268,4 +250,5 @@
             <li><a href="#">&raquo;</a></li>
         </nav>
         <!--医生列表-->
+    </div>
     </div>
