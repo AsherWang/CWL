@@ -12,6 +12,8 @@ class TestControl extends CI_Controller {
     $this->load->model('user_model');
     $this->load->helper('url');
 	$this->load->model('schedule_model');
+	$this->load->model('order_model');
+	
 	
   }
 
@@ -35,8 +37,7 @@ class TestControl extends CI_Controller {
     //
 	$as=array("Doctor_ID"=>$Doctor_ID,"Month"=>$Month,"Note"=>$Note,"Time_Table"=>$TimeTable);
 	//print_r($as);
-     $data["value"]=$this->user_model->user_login("546415446327841541","lovelive");
-
+     $data["value"]=$this->order_model->get_order_source_by_id(3);
     $this->load->view('TestPage/Index', $data);
       
   }
