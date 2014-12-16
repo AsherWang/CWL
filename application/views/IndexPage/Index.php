@@ -18,13 +18,11 @@
      <div>
        <ul class="nav navbar-nav">
          <li class="active"><a >首页</a></li>
-         <li><a href="RegUserPage">预约挂号</a></li>
+         <li><a href="<?php echo base_url();?>RegUserPage">预约挂号</a></li>
          <li><a href="NoticePage">查看公告</a></li>
-
-
        </ul>
        <ul class="nav navbar-nav navbar-right" id="logo1">
-        <li><a href="LoginPage/regist">注册</a></li>
+        <li><a href="<?php echo base_url();?>LoginPage/regist">注册</a></li>
         <li><a href="#">用户中心</a></li>
       </ul>
     </div>
@@ -284,7 +282,7 @@
               <div id="noticeframe">
                  <div class="start"><span>近期</span></div>
                   <div class="go"><span>公告</span></div>
-                <div id="noticeinfo"><a href="#"><img src="<?php echo base_url().'res/images/noticefree.png'?>" style="width:90px"/></a></div>
+                <div id="noticeinfo"><a href="<?php echo base_url();?>NoticePage"><img src="<?php echo base_url().'res/images/noticefree.png'?>" style="width:90px"/></a></div>
               </div>
 
 
@@ -307,7 +305,7 @@
               <div id="helpframe">
               <div class="start"><span>预约</span></div>
                 <div class="go"><span>流程</span></div>
-                 <div id="helpinfo"><a href="#"><img src="<?php echo base_url().'res/images/help.png'?>" style="width:90px" /></a></div>
+                 <div id="helpinfo"><a href="<?php echo base_url();?>RegUserPage"><img src="<?php echo base_url().'res/images/help.png'?>" style="width:90px" /></a></div>
               </div>
 
 
@@ -328,7 +326,7 @@
 
         <div class="hotnews" onMouseOver="this.style.background='url(<?php echo base_url().'/res/images/hotlable.png'?>)'" onMouseOut="this.style.background='none'">
           <div class="new">
-            <a href="NoticePage/<?php echo $notice_item['ID'] ?>" target="_blank"><span class="words"><?php echo $notice_item['Title'] ?><span></a>
+            <a href="<?php echo base_url()."NoticePage/".$notice_item['ID'] ?>" target="_blank"><span class="words"><?php echo $notice_item['Title'] ?><span></a>
           </div>
 
         </div>
@@ -488,7 +486,7 @@
 </script>
 </div>
 <div id="footer">
-
+	<a href="<?php echo base_url();?>LoginPage">后台登陆</a>&nbsp;&nbsp;&nbsp;<a>关于我们</a>
 </div>
 </body>
 </html>

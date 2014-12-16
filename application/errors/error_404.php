@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <title>404 Page Not Found</title>
+<meta charset="utf-8" />
 <style type="text/css">
 
 ::selection{ background-color: #E13300; color: white; }
@@ -56,7 +57,7 @@ p {
 <body>
 	<div id="container">
 		<h1><?php echo $heading; ?></h1>
-		<?php echo $message; ?>
+		<?php echo $message; ?>啊哈哈找不到了吧
 	</div>
 </body>
 </html>
