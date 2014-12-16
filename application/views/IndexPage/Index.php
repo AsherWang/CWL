@@ -13,18 +13,18 @@
   <div id="header">
    <nav class="navbar navbar-inverse" role="navigation" id="logo">
      <div class="navbar-header">
-       <a class="navbar-brand" href="#">CWL全国统一预约平台</a>
+       <a class="navbar-brand" href="">CWL全国统一预约平台</a>
      </div>
      <div>
        <ul class="nav navbar-nav">
-         <li class="active"><a href="#">首页</a></li>
-         <li><a href="#">预约挂号</a></li>
-         <li><a href="#">查看公告</a></li>
+         <li class="active"><a >首页</a></li>
+         <li><a href="RegUserPage">预约挂号</a></li>
+         <li><a href="NoticePage">查看公告</a></li>
 
 
        </ul>
        <ul class="nav navbar-nav navbar-right" id="logo1">
-        <li><a href="#">登录/注册</a></li>
+        <li><a href="LoginPage/regist">注册</a></li>
         <li><a href="#">用户中心</a></li>
       </ul>
     </div>
@@ -295,7 +295,7 @@
               <div id="startquery">
                 <div class="start"><span>我要</span></div>
                 <div class="go"><span>预约</span></div>
-                <div id="queryArrow"><a href="<?php echo base_url().'/RegUserPage'?>" onClick="document.form.submit();"><img src="<?php echo base_url().'res/images/arrowone.png'?>" style="width:90px"/></a></div>
+                <div id="queryArrow"><a href="<?php echo base_url().'RegUserPage'?>" onClick="document.form.submit();"><img src="<?php echo base_url().'res/images/arrowone.png'?>" style="width:90px"/></a></div>
               </div>
 
 
@@ -321,14 +321,14 @@
       </div>
       <div id="news">
 
-       <div id="nmore"><a href="#">more..</a></div>
+       <div id="nmore"><a href="NoticePage">more..</a></div>
      
     <div id="firsthotnews">
       <?php foreach ($latest_notices as $notice_item): ?>
 
-        <div class="hotnews" onmouseover="this.style.background='url(<?php echo base_url().'/res/images/hotlable.png'?>)'" onmouseout="this.style.background='none'">
+        <div class="hotnews" onMouseOver="this.style.background='url(<?php echo base_url().'/res/images/hotlable.png'?>)'" onMouseOut="this.style.background='none'">
           <div class="new">
-            <a href="?id=<?php echo $notice_item['ID'] ?>" target="_blank"><span class="words"><?php echo $notice_item['Title'] ?><span></a>
+            <a href="NoticePage/<?php echo $notice_item['ID'] ?>" target="_blank"><span class="words"><?php echo $notice_item['Title'] ?><span></a>
           </div>
 
         </div>
@@ -486,9 +486,6 @@
           $(".hothospital").mouseout(function(){$(this).css(style2);})
         })
 </script>
-
-
-
 </div>
 <div id="footer">
 

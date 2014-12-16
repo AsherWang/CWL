@@ -44,7 +44,7 @@ $route['IndexPage/Login'] = "IndexPage/Login";
 
 
 $route['NoticePage'] = "NoticePage";
-//$route['NoticePage/(:any)'] = "NoticePage/Index";
+$route['NoticePage/(:any)'] = "NoticePage/Detail/$1";
 
 
 $route['RegUserPage'] = "RegUserPage";

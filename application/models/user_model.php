@@ -10,6 +10,16 @@
 		{
 			return $this->getTableSum("user");
 		}
+		
+		public function insert_user($data)
+		{
+			$newId=$this->insertToTable(array_slice($data, 0,3),"user");
+			$extInfo=array_slice($data,3);
+			if(!empty($extInfo))$this->setUserExtInfo($newId,$extInfo);
+			return $newId;
+		}
+		
+		
 		//获取扩展表的id，-1表示没有或者出错
 		public function getExtId($userId)
 		{

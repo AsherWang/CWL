@@ -17,9 +17,9 @@
      </div>
      <div>
        <ul class="nav navbar-nav">
-         <li class="active"><a href="#">首页</a></li>
-         <li><a href="#">预约挂号</a></li>
-         <li><a href="#">查看公告</a></li>
+         <li><a href="../">首页</a></li>
+         <li><a href="../RegUserPage">预约挂号</a></li>
+         <li><a href="../NoticePage">查看公告</a></li>
 
 
        </ul>
@@ -48,7 +48,7 @@
             <div class="form-group">
                 <label for="password" class="col-md-3 control-label">密码</label>
                 <div class="col-md-8">
-                    <input type="password" class="form-control" id="password" placeholder="密码长度为6到16个字符"></div>
+                    <input type="password" name="password" class="form-control" id="password" placeholder="密码长度为6到16个字符"></div>
             </div>
             <div class="form-group">
                 <label for="password1" class="col-md-3 control-label">密码确认</label>
@@ -59,10 +59,10 @@
             <div class="form-group">
                 <label for="phonenumber" class="col-md-3 control-label">手机号</label>
                 <div class="col-md-8">
-                    <input type="text" class="form-control" id="phonenumber" placeholder="不支持170号段"></div>
+                    <input type="text" name="phonenumber" class="form-control" id="phonenumber" placeholder="不支持170号段"></div>
             </div>
             <div class="col-md-offset-2" id="agree1">
-              <input id="agree" type="checkbox" name="agree" />
+              <input id="agree" type="checkbox" />
               <label>我已同意</label>
               <a href="#" target="_blank" style="text-decoration:none">《CWL预约中心用户注册协议》</a>
             </div>
@@ -73,7 +73,7 @@
                     <button type="submit"  class="btn btn-danger btn-lg btn-block">注册并登录</button>
                 </div>
             </div>
-            <div id="hint"><label id="hintinfo"></label></div>
+            <div id="hint"><label id="hintinfo"><?php echo var_dump($reg_result);?></label></div>
 
         </form>
         <script type="text/javascript">
