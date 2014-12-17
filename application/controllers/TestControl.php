@@ -22,7 +22,7 @@ class TestControl extends CI_Controller {
   {
      $data['title'] = '就是用来测试的';
 	 $info=array("ID_number"=>"122331","Password"=>"1111","Name"=>"Miku","Phone"=>"llllll");
-     $data["value"]=$_GET;
+     $data["value"]=$this->user_model->getUser();
 
      $this->load->view('TestPage/Index', $data);
   }
