@@ -1,5 +1,6 @@
 <?php
-	class Hospital_model extends CI_Model{
+	require_once('base_model.php');
+	class Hospital_model extends base_model{
 
 		function __construct()
 		{
@@ -12,18 +13,23 @@
 			return $this->db->count_all('hospital');
 		}
 
-		function get_hospital($data)
+		function hospital_type()
 		{
-			$query=$this->db->query($data);
+			$query=$this->db->query("SELECT Type FROM hospital");
 			if($query->num_rows()>0)
 			{
-				return $query->result_array();//返回的是一个数组用foreach遍历即可
+				return $query->result_array();
 			}
 			else
 				return NULL;
-
+		}
+		//
+		function get_hospital($data)
+		{
+			return $this->getTable('hospital',$data);
 		}
 
+		
 		function insert_hospital()
 		{
 			$this->load->helper('url');

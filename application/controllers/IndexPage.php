@@ -22,7 +22,6 @@ class IndexPage extends CI_Controller {
    $this->load->library('session');
    $this->load->helper('url');
   }
-
   //IndexPage/index
   public function Index()
   { 
@@ -43,9 +42,12 @@ class IndexPage extends CI_Controller {
 				$data["user"]=$logresult;
 				$currentdate=date("y-m-d h:i:s");
 			 	$validdate=$logresult["Valid_Date"];
+				
+				
+				
 				$sessionDate=array(
-					'user_Name'=>$logresult["Name"],
-					'user_Autority'=>$logresult["Autority"],
+					'username'=>$logresult["Name"],
+					'authority'=>$logresult["Autority"],
 					'user_Credit_Rate'=>$logresult["Credit_Rate"],
 					'user_is_valid'=> strtotime($currentdate)>=strtotime($validdate)
 				);
@@ -58,7 +60,10 @@ class IndexPage extends CI_Controller {
     //两个属性cwldb/notice的  公告编号/ID  和  公告标题/Title
 
     //$x=5;//暂定为5
-    $data['latest_notices'] = $this->notice_model->get_notice("SELECT * FROM Notice  ORDER BY Date DESC LIMIT 5");
+   // $data['latest_notices'] = $this->notice_model->get_notice("SELECT * FROM Notice  ORDER BY Date DESC LIMIT 5");
+	$data['latest_notices'] = $this->hospital_model->getTableByOrderLimit("Notice",array(),array("Date"=>"desc"),5);
+	
+	
     $data['title'] = 'Our System';
     //$this->load->view('templates/header', $data);
     //需要一个 get_departments(int x)函数，作用是获得最热的x个科室的信息
@@ -72,9 +77,10 @@ class IndexPage extends CI_Controller {
     //六个属性 cwldb/hospital的   医院名称/Name  ,医院电话/Phone  ,医院等级/Level
     //医院地址Address,   医院简介/Info,   医院网址/Website  
     //$x=6;//暂定为6
-    $data['hospitals']= $this->hospital_model->get_hospital("SELECT * FROM Hospital  ORDER BY ID LIMIT 6");
+   // $data['hospitals']= $this->hospital_model->getResultFromSqlString("select * from hospital limit 3");    
+   $data['hospitals']= $this->hospital_model->getTableByOrderLimit("hospital",array(),array(),3);
     $this->load->view('IndexPage/Index', $data);
-
+	
     //$this->load->view('templates/footer');
   }
 

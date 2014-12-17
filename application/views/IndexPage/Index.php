@@ -4,9 +4,11 @@
  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 
  <link rel="stylesheet" type="text/css" href='<?php echo base_url().'/res/css/bootstrap.min.css'?>'>
- <link href='<?php echo base_url().'/res/css/mainpagestyle.css'?>' rel="stylesheet" type="text/css" />
- <script src='<?php echo base_url().'/res/js/jquery.js'?>'></script>
- <script src='<?php echo base_url().'/res/js/bootstrap.min.js'?>'></script>
+ <link href='<?php echo base_url().'res/css/mainpagestyle.css'?>' rel="stylesheet" type="text/css" />
+ <script src='<?php echo base_url().'res/js/jquery.js'?>'></script>
+ <script type="text/javascript" src="<?php echo base_url().'res/js/jquery-1.4.4.min.js'?>"></script> 
+ <script src='<?php echo base_url().'res/js/bootstrap.min.js'?>'></script>
+ <script type="text/javascript" src="<?php echo base_url().'res/js/jquery.reveal.js'?>"></script>
 </head>
 
 <body>
@@ -234,9 +236,18 @@
                   <div id="area">
                     <select name="area">
                       <option value="null">请选择</option>
-                      <option value="bj">北京</option>
-                      <option value="sh">上海</option>
-                      <option value="tj">天津</option>
+                      <option value="a1">北京市</option>
+                      <option value="a2">上海市</option>
+                      <option value="a3">天津市</option>
+                      <option value="a4">广州省</option>
+                      <option value="a5">河北省</option>
+                      <option value="a6">福建省</option>
+                      <option value="a7">浙江省</option>
+                      <option value="a8">安徽省</option>
+                      <option value="a9">山西省</option>
+                      <option value="a10">甘肃省</option>
+                      <option value="a11">湖南省</option>
+                      <option value="a12">黑龙江省</option>
                     </select>
                   </div>
                 </div>
@@ -265,9 +276,15 @@
                  <div id="class">
                   <select name="class">
                     <option value="null">请选择</option>
-                    <option value="1">一级</option>
-                    <option value="2">二级</option>
-                    <option value="3">三级</option>
+                    <option value="1">一级甲等</option>
+                    <option value="2">二级甲等</option>
+                    <option value="3">三级甲等</option>
+                    <option value="4">一级乙等</option>
+                    <option value="5">二级乙等</option>
+                    <option value="6">三级乙等</option>
+                    <option value="7">一级丙等</option>
+                    <option value="8">二级丙等</option>
+                    <option value="9">三级丙等</option>
                   </select>
                 </div>
 
@@ -305,7 +322,7 @@
               <div id="helpframe">
               <div class="start"><span>预约</span></div>
                 <div class="go"><span>流程</span></div>
-                 <div id="helpinfo"><a href="<?php echo base_url();?>RegUserPage"><img src="<?php echo base_url().'res/images/help.png'?>" style="width:90px" /></a></div>
+                 <div id="helpinfo"><a class="big-link" data-reveal-id="myModal"><img src="<?php echo base_url().'res/images/help.png'?>" style="width:90px" /></a></div>
               </div>
 
 
@@ -317,6 +334,13 @@
 
 
       </div>
+      <div id="myModal" class="reveal-modal">
+          <img src="<?php echo base_url().'res/images/myMtitle.png'?>" style="width:600px;margin-left:90px;padding-bottom:20px;"/>        
+          <img src="<?php echo base_url().'res/images/liucheng.png'?>" style="width:480px;"/>
+          <div style="margin-left:140px;"><label>tips：新用户要先注册呦！</label></div>
+         <a class="close-reveal-modal">&#215;</a>
+       </div>
+
       <div id="news">
 
        <div id="nmore"><a href="NoticePage">more..</a></div>

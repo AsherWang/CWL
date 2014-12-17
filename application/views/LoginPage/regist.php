@@ -25,13 +25,13 @@
        </ul>
        <ul class="nav navbar-nav navbar-right" id="logo1">
         
-        <li><a href="#">欢迎新用户，注册后可以进行预约</a></li>
+        <li class="active"><a href="#">欢迎新用户，注册后可以进行预约</a></li>
       </ul>
     </div>
   </nav>
 </div>
    <div id="maincontainer">
-        <form role="form" action="" method="post" class="form-control form-horizontal" id="regist-form">
+        <form role="form" onsubmit="return check()" action="" method="post" class="form-control form-horizontal" id="regist-form">
             <div class="form-group">
                 <label for="userid" class="col-md-3 control-label">身份证号</label>
                 <div class="col-md-8">
@@ -48,18 +48,22 @@
             <div class="form-group">
                 <label for="password" class="col-md-3 control-label">密码</label>
                 <div class="col-md-8">
+
                     <input type="password" name="password" class="form-control" id="password" placeholder="密码长度为6到16个字符"></div>
+
             </div>
             <div class="form-group">
                 <label for="password1" class="col-md-3 control-label">密码确认</label>
                 <div class="col-md-8">
-                    <input type="password" class="form-control" id="password1" placeholder="再次输入密码"></div>
+                    <input name="password1" type="password" class="form-control" id="password1" placeholder="再次输入密码"></div>
             </div>
 
             <div class="form-group">
                 <label for="phonenumber" class="col-md-3 control-label">手机号</label>
                 <div class="col-md-8">
+
                     <input type="text" name="phonenumber" class="form-control" id="phonenumber" placeholder="不支持170号段"></div>
+
             </div>
             <div class="col-md-offset-2" id="agree1">
               <input id="agree" type="checkbox" />
@@ -70,10 +74,19 @@
             <div class="form-group">
 
                 <div class="col-md-4 col-md-offset-4">
-                    <button type="submit"  class="btn btn-danger btn-lg btn-block">注册并登录</button>
+                    <button type="submit"  class="btn btn-danger btn-lg btn-block" id="registbut">注册并登录</button>
                 </div>
             </div>
-            <div id="hint"><label id="hintinfo"><?php echo var_dump($reg_result);?></label></div>
+            
+            <?php if($reg_result==2){ ?>
+            <div id="hint"><label id="hintinfo">用户名已存在</label></div>
+            <?php} elseif($reg_result==3){ ?>
+            <div id="hint"><label id="hintinfo">未知错误</label></div>
+            <?php } else{ ?>
+            <div id="hint"><label id="hintinfo"></label></div>
+
+            <?php } ?>
+
 
         </form>
         <script type="text/javascript">
@@ -141,7 +154,12 @@
                 else{
                   $("#hintinfo").text('');
                 }
-              });  
+              });
+              function check(){
+                $("#hintinfo").text('不能为空，请重新输入');
+                return true;
+              }
+
 
 
             })
