@@ -109,13 +109,9 @@
 			return is_object($re);
 		}
          //测试用函数,用来看user更新结果
-        public function getUser($userId)
+        public function getUser()
         {
-            $sql = "SELECT * FROM User WHERE ID = ?;"; 
-            $query=$this->db->query($sql, array($userId)); 
-            if($query->num_rows()!=1)
-                return -1;
-            return $query->row();
+			return $this->getTable("user",array());		
         }
         //-------------------
         //下边是关于用户扩展信息的部分
