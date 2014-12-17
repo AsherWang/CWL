@@ -12,7 +12,7 @@ class RegUserPage extends CI_Controller {
   }
 	private function checkSession()
 	{
-			
+		
 	}
 
 
@@ -23,7 +23,7 @@ class RegUserPage extends CI_Controller {
    // $data['news'] = $this->news_model->get_news();
   // checkSession();
    
-   
+   $this->checkSession();
    
    
    //搜索条件
@@ -37,7 +37,7 @@ class RegUserPage extends CI_Controller {
    
     //$data["search_type_list"]=getlist();  //待定
 	$data["search_type_list"]=array("1","2","3","4");  //待定
-	$data["hospitals"]=array();
+	$data["hospitals"]=array();  //这里0.0....
    
    
    
