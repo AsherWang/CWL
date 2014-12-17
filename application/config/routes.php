@@ -39,12 +39,10 @@
 */
 
 $route['default_controller'] = "IndexPage"; 
-$route['IndexPage/Login'] = "IndexPage/Login";
-//$route['IndexPage/(:any)'] = "IndexPage";
-
+$route['IndexPage/Index'] = "IndexPage/Index";
 
 $route['NoticePage'] = "NoticePage";
-//$route['NoticePage/(:any)'] = "NoticePage/Index";
+$route['NoticePage/(:any)'] = "NoticePage/Detail/$1";
 
 
 $route['RegUserPage'] = "RegUserPage";

@@ -27,6 +27,16 @@ class NoticePage extends CI_Controller {
     $this->load->view('NoticePage/Index', $data);
   //  $this->load->view('templates/footer');
   }
+  
+  public function Detail($noticeid)
+  {
+	$id=intval($noticeid);  
+	 $data['title'] = $id;
+	 //应该跳转到其他链接
+	 $this->load->view('NoticePage/Index', $data);
+
+	
+  }
 
 
 }
