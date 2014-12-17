@@ -54,6 +54,7 @@ $route['RegOfficePage'] = "RegOfficePage";
 
 $route['HospitalManangerPage'] = "HospitalManangerPage";
 $route['HospitalManangerPage/Index'] = "HospitalManangerPage/Index";
+$route['HospitalManangerPage/Appointment'] = "HospitalManangerPage/Appointment";
 
 $route['RegUserPage']="hospital";
 
