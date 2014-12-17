@@ -12,6 +12,16 @@
 			return $this->db->count_all('hospital');
 		}
 
+		function hospital_type()
+		{
+			$query=$this->db->query("SELECT Type FROM hospital");
+			if($query->num_rows()>0)
+			{
+				return $query->result_array();
+			}
+			else
+				return NULL;
+		}
 		function get_hospital($data)
 		{
 			$query=$this->db->query($data);
@@ -24,6 +34,7 @@
 
 		}
 
+		
 		function insert_hospital()
 		{
 			$this->load->helper('url');
