@@ -9,10 +9,13 @@ class RegUserPage extends CI_Controller {
    //$this->load->model('notice_model');
    $this->load->helper('url');
    $this->load->model('hospital_model');
+      $this->load->library("session");
   }
 	private function checkSession()
 	{
-			
+        if(!$this->session->userdata('is_logged')){
+            redirect("LoginPage");
+        }
 	}
   //RegUserPage/Index
   public function Index()
