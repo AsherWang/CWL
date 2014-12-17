@@ -64,7 +64,7 @@ class Base_model extends CI_Model {
   protected function getTable($tablename,$data)
   {
     //将data数组遍历，取出名字和值,加进where中
-    // if(!empty($data))
+    if(!empty($data))
     foreach ($data as $key => $value) 
     { 
         $this->db->where($key,$value);
@@ -77,7 +77,22 @@ class Base_model extends CI_Model {
   if($query->num_rows()<=0)return -1;
   return $query->result_array();
   }
-
+  
+  
+  
+  public  function getTableByOrderLimit($tablename,$data,$order,$limit)
+  {
+    //将data数组遍历，取出名字和值,加进where中
+	 $this->db->from($tablename);
+    foreach ($data as $key => $value) 
+        $this->db->where($key,$value);
+	foreach ($order as $key => $value) 
+        $this->db->order_by($key,$value);
+    $this->db->limit($limit);
+ 	 $query = $this->db->get();
+ 	 if($query->num_rows()<=0)return -1;
+ 		 return $query->result_array();
+  }
 
 //-------------------------------
 //
@@ -90,7 +105,7 @@ protected function getPageContent($tablename,$data,$firstindex,$length)
     $this->db->select('*');
     //将data数组遍历，取出名字和值,加进where中
     foreach ($data as $key => $value) 
-    { 
+    {
         $this->db->where($key,$value);
     }
     $this->db->limit($length,$firstindex);
@@ -99,5 +114,14 @@ protected function getPageContent($tablename,$data,$firstindex,$length)
     //$this->db->orderby("name", "desc");
     return $query = $this->db->get()->result_array();
 }
+
+public function getResultFromSqlString($sql)
+{
+	$query=$this->db->query($sql);
+	if($query->num_rows()<=0)return -1;
+  	return $query->result_array();
+}
+
+
 }
 ?>
