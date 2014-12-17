@@ -1,18 +1,17 @@
 function getactionURL()
 {
-    var sub;
+    var a = document.getElementsByName("choose");
     var value="";
-    switch (sub)
-    {
-        case 1:
-            value="RegOfficePage";
-            break;
-        case 2:
-            value="HospitalManangerPage";
-            break;
-        case 3:
-            value="SuperManager";
-    };
-    alert(value)
-    return value;
+    if(a[0].checked)
+        value="RegOfficePage";
+    else if(a[1].checked)
+        value="HospitalManangerPage";
+    else
+        value="SuperManager";
+    document.getElementById("form1").action=value;
+}
+
+function toReg()
+{
+
 }
