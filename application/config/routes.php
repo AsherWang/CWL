@@ -62,9 +62,6 @@ $route['SuperManager'] = "SuperManager";
 //$route['SuperManager/(:any)'] = "SuperManager/Index";
 
 
-$route['Test'] = "TestControl";     
-$route['Test/Index'] = "TestControl/Index";
-
 //用于测试发布公告
 $route['notice/create']='notice/create';
 $route['notice/(:any)']='notice/view/$1';
@@ -74,3 +71,17 @@ $route['hospital/(:any)']='hospital/view/$1';
 //$route['404_override'] = '';
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
+//----------------------测试路由请往下看-------------------
+//这里....
+
+$route['Test'] = "TestControl";     
+$route['Test/Index'] = "TestControl/Index";
+
+
+
+
+
+
+
+
+

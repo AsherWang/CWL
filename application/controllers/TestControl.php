@@ -20,7 +20,9 @@ class TestControl extends CI_Controller {
   //SuperManagerPage/index
   public function Index()
   {
-		redirect("");
+		redirect("NoticePage");
+		
+		 $data["value"]="旧版空间了";
      $this->load->view('TestPage/Index', $data);
   }
 }

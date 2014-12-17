@@ -9,7 +9,7 @@ class RegUserPage extends CI_Controller {
    //$this->load->model('notice_model');
    $this->load->helper('url');
    $this->load->model('hospital_model');
-      $this->load->library("session");
+   $this->load->library("session");
   }
 	private function checkSession()
 	{
@@ -22,7 +22,7 @@ class RegUserPage extends CI_Controller {
   {
    // $data['news'] = $this->news_model->get_news();
   // checkSession();
-   
+   redirect("");
    $this->checkSession();
    //搜索条件
    $data["search_level"]="";  //约定对应规则
