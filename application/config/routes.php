@@ -42,7 +42,6 @@ $route['default_controller'] = "IndexPage";
 $route['IndexPage/Index'] = "IndexPage/Index";
 
 $route['NoticePage'] = "NoticePage";
-$route['NoticePage/(:any)'] = "NoticePage/Detail/$1";
 
 
 $route['RegUserPage'] = "RegUserPage";
@@ -62,9 +61,6 @@ $route['SuperManager'] = "SuperManager";
 $route['Test'] = "TestControl";     
 $route['Test/Index'] = "TestControl/Index";
 
-//用于测试发布公告
-$route['notice/create']='notice/create';
-$route['notice/(:any)']='notice/view/$1';
 //$route['(:any)'] = 'pages/view/$1';
 //$route['default_controller'] = 'pages/view';
 
