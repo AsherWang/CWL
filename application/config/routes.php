@@ -45,8 +45,8 @@ $route['NoticePage'] = "NoticePage";
 $route['NoticePage/(:any)'] = "NoticePage/Detail/$1";
 
 
-$route['RegUserPage'] = "RegUserPage";
-//$route['RegUserPage/(:any)'] = "RegUserPage/Index";
+//$route['RegUserPage'] = "RegUserPage";
+//$route['RegUserPage/(:any)'] = "RegUserPage/view/$1";
 
 
 $route['RegOfficePage'] = "RegOfficePage";
@@ -54,6 +54,8 @@ $route['RegOfficePage'] = "RegOfficePage";
 
 $route['HospitalManangerPage'] = "HospitalManangerPage";
 $route['HospitalManangerPage/Index'] = "HospitalManangerPage/Index";
+
+$route['RegUserPage']="hospital";
 
 $route['SuperManager'] = "SuperManager";
 //$route['SuperManager/(:any)'] = "SuperManager/Index";
@@ -65,9 +67,9 @@ $route['Test/Index'] = "TestControl/Index";
 //用于测试发布公告
 $route['notice/create']='notice/create';
 $route['notice/(:any)']='notice/view/$1';
-//$route['(:any)'] = 'pages/view/$1';
-//$route['default_controller'] = 'pages/view';
 
+$route['hospital']='hospital/index';
+$route['hospital/(:any)']='hospital/view/$1';
 //$route['404_override'] = '';
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

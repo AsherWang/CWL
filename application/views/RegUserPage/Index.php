@@ -35,7 +35,7 @@
             <span class="col-md-offset-1 col-md-1 guide_text_1">
                 寻医：
             </span>
-            <a class="col-md-1 guide_text_2" href="<?php echo base_url()?>RegUserPage/index">
+            <a class="col-md-1 guide_text_2" href="<?php echo base_url()?>RegUserPage/Index">
                 按医院查询
             </a>
             <a class="col-md-1 guide_text_2" href="<?php echo base_url()?>RegUserPage/search_by_dep">
