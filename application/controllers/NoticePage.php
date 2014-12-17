@@ -32,7 +32,7 @@
   			{
     			$data = "None";
   			}
-  			$this->load->header(string)
+  			//$this->load->header(string);
   			$this->load->view('NoticePage/view', $data);
 		}
 

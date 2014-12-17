@@ -55,13 +55,11 @@ $route['HospitalManangerPage'] = "HospitalManangerPage";
 $route['HospitalManangerPage/Index'] = "HospitalManangerPage/Index";
 $route['HospitalManangerPage/Appointment'] = "HospitalManangerPage/Appointment";
 
-$route['RegUserPage']="hospital";
+$route['RegUserPage']="RegUserPage";
 
 $route['SuperManager'] = "SuperManager";
 //$route['SuperManager/(:any)'] = "SuperManager/Index";
 
-$route['Test'] = "TestControl";     
-$route['Test/Index'] = "TestControl/Index";
 
 $route['hospital']='hospital/index';
 $route['hospital/(:any)']='hospital/view/$1';
