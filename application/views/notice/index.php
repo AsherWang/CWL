@@ -30,7 +30,7 @@
         <div class="div_in_css" id="notice">
             <?php foreach ($notice as $notice_item): ?>
                 <div id="main">
-                    <a class="title" style="float:left"  href="http://localhost:8080/CWL/index.php"><?php echo $notice_item['Title'] ?></a>
+                    <a class="title" style="float:left" href="http://localhost:8080/CWL/notice/<?php echo $notice_item['ID'] ?>"><?php echo $notice_item['Title'] ?></a>
                     <p style="float:right;font-size:14px"><?php echo $notice_item['Date']?></p>
                     <br>
                     <hr style="border:1px dashed #87cefa">
