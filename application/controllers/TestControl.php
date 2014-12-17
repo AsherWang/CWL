@@ -14,9 +14,7 @@ class TestControl extends CI_Controller {
 	$this->load->model('schedule_model');
 	$this->load->model('order_model');
 	$this->load->library('session');
-
-	
-	
+	$this->load->model('hospital_model');
   }
 
   //SuperManagerPage/index
@@ -24,7 +22,7 @@ class TestControl extends CI_Controller {
   {
      $data['title'] = '就是用来测试的';
 	 $info=array("ID_number"=>"122331","Password"=>"1111","Name"=>"Miku","Phone"=>"llllll");
-     $data["value"]=$this->user_model->delete_user(11);
+     $data["value"]=$_GET;
 
      $this->load->view('TestPage/Index', $data);
   }

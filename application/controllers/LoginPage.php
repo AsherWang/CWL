@@ -54,7 +54,7 @@ class LoginPage extends CI_Controller {
 			 {
 				//注册成功，添加session，跳转到首页去
 				//session约定不是我设计的，目前不知道详情
-			//	redirect("");  //跳转到首页
+			     //	redirect("");  //跳转到首页
 			 }
 		  }
 	  }

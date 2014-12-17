@@ -57,10 +57,15 @@
                 <td>
                     <div class="row">
                         <a class="hsp_lev hsp_lev_choice" href="###">不限</a>
-                        <a class="hsp_lev" href="###">三级医院</a>
-                        <a class="hsp_lev" href="###">二级医院</a>
-                        <a class="hsp_lev" href="###">一级医院</a>
-                        <a class="hsp_lev" href="###">（这里的页面跳转问题）</a>
+                        <a class="hsp_lev" href="###">三级甲等</a>
+                        <a class="hsp_lev" href="###">三级乙等</a>
+                        <a class="hsp_lev" href="###">三级丙等</a>
+                        <a class="hsp_lev" href="###">二级甲等</a>
+                        <a class="hsp_lev" href="###">二级乙等</a>
+                        <a class="hsp_lev" href="###">二级丙等</a>
+                        <a class="hsp_lev" href="###">一级甲等</a>
+                        <a class="hsp_lev" href="###">一级乙等</a>
+                        <a class="hsp_lev" href="###">一级丙等</a>
                     </div>
                 </td>
             </tr>

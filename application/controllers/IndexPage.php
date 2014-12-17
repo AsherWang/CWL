@@ -22,7 +22,7 @@ class IndexPage extends CI_Controller {
    $this->load->library('session');
    $this->load->helper('url');
   }
-
+/
   //IndexPage/index
   public function Index()
   { 

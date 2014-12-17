@@ -48,18 +48,22 @@
             <div class="form-group">
                 <label for="password" class="col-md-3 control-label">密码</label>
                 <div class="col-md-8">
+
                     <input type="password" name="password" class="form-control" id="password" placeholder="密码长度为6到16个字符"></div>
+
             </div>
             <div class="form-group">
                 <label for="password1" class="col-md-3 control-label">密码确认</label>
                 <div class="col-md-8">
-                    <input type="password" class="form-control" id="password1" placeholder="再次输入密码"></div>
+                    <input name="password1" type="password" class="form-control" id="password1" placeholder="再次输入密码"></div>
             </div>
 
             <div class="form-group">
                 <label for="phonenumber" class="col-md-3 control-label">手机号</label>
                 <div class="col-md-8">
+
                     <input type="text" name="phonenumber" class="form-control" id="phonenumber" placeholder="不支持170号段"></div>
+
             </div>
             <div class="col-md-offset-2" id="agree1">
               <input id="agree" type="checkbox" />
