@@ -2,48 +2,29 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href='<?php echo base_url().'res/css/bootstrap.min.css'?>'>
     <link href='<?php echo base_url().'/res/css/Notice.css'?>' rel="stylesheet" type="text/css" />
     <script src='<?php echo base_url().'/res/js/Notice.js'?>'></script>
     <title></title>
 </head>
 <body>
-    <div id="notice_choice">
-        <input class="button1" type="button" value="发布公告" onclick="publish()"/>
-        <input class="button1" type="button" value="预约挂号"/>
-        <input class="button1" type="button" value="返回首页"/>
+    <div class="row">
+        <div class="col-md-3" id="NoticeHeadImgCol">
+            <img class="" id = "NoticeHeadImg" src= "<?php echo base_url().'res/images/NoticePage/NoticeMark.png'?>">
+        </div>
+        <div class="col-md-8" id="NoticeListCol">
+            <div class="row" id="NoticeList">
+                <?php foreach ($notice as $notice_item): ?>
+                    <div class="row">
+                        <a class="NoticeTitle col-md-4" style="float:left"  href="http://localhost:8080/CWL/NoticePage/view/1"><?php echo $notice_item['Title'] ?></a>
+                        <p class="NoticeDate col-md-3 col-md-offset-3"><?php echo $notice_item['Date']?></p>
+                        <p class="NoticeAuthor col-md-2"><?php echo $notice_item['Name']?></p>
+                    </div>
+                    <hr />
+                <?php endforeach ?>
+            </div>
+        </div>
     </div>
-    <div class="div_out_css" id="new_notice">
-        <div class="div_notice_css">
-            <label>最</label><br>
-            <label>新</label><br>
-            <label>公</label><br>
-            <label>告</label><br>
-        </div>
-        <div class="div_in_css" id="notice">
-            <a class="survey" onclick="surveyclick()">北医一院</a>
-            <hr style="border:1px dashed #87cefa">
-            <a class="survey" onclick="surveyclick()" >北医二院</a>
-            <hr style="border:1px dashed #87cefa">
-            <a class="survey" onclick="surveyclick()">北医三院</a>
-            <hr style="border:1px dashed #87cefa">
-            <a class="survey" onclick="surveyclick()">北医四院</a>
-            <hr style="border:1px dashed #87cefa">
-            <a class="survey" onclick="surveyclick()">北医五院</a>
-            <hr style="border:1px dashed #87cefa">
-            <a class="survey" onclick="surveyclick()">北医六院</a>
-            <hr style="border:1px dashed #87cefa">
-        </div>
 
-    </div>
-    <div class="div_publish" id="publish_notice">
-        <form>
-            标题
-            <input type="text" name="notice_title" id="title"/><br>
-            内容
-            <textarea name="notice_docu" id="document"></textarea>
-            <input type="button" id="back" onclick="backto()" value="返回"/>
-            <input type="submit"/>
-        </form>
-    </div>
 </body>
 </html>
