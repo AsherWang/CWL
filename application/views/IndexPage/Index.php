@@ -135,7 +135,7 @@
           
           <div id="quicklogin">
             <div id="title">快速登录</div>
-            <form id="loginform" onsubmit="return check_login();" role="form" action="" method="post">
+            <form id="loginform"  role="form" action="" method="post">
 
 
               <div class="container-fluid">
@@ -206,11 +206,7 @@
 
             })
             
-            function check_login()
-			{
-				alert("啊你说访问不到？");	
-				return false;
-			}
+         
 
             
           </script>
