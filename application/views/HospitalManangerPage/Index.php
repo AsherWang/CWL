@@ -1,33 +1,4 @@
-﻿<!DOCTYPE html>
-<html>
-  <head>
-    <title>dingdan.html</title>
-	
-    <meta name="keywords" content="keyword1,keyword2,keyword3">
-    <meta name="description" content="this is my page">
-    <meta name="content-type" content="text/html; charset=gbk">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <script  language="javascript" type="text/javascript" src='<?php echo base_url().'res/js/jquery.js'?>'></script>
-      <script  language="javascript" type="text/javascript" src='<?php echo base_url().'res/js/bootstrap.js'?>'></script>
-      <script  language="javascript" type="text/javascript" src='<?php echo base_url().'res/js/bootstrap.min.js'?>'></script>
-
-
-
-
-
-
-      <link rel="stylesheet" href='<?php echo base_url().'res/css/bootstrap-theme.css'?>' type="text/css" />
-      <link rel="stylesheet" href='<?php echo base_url().'res/css/bootstrap.min.css'?>' type="text/css" />
-      <link rel="stylesheet" href='<?php echo base_url().'res/css/bootstrap.css'?>' type="text/css" />
-
-
-
-
-
-  </head>
-  
-  <body>
-  <div class="container">
+﻿  <div class="container">
       <div>
           <h1 class="page-header">北京协和医院挂号管理系统<small>--CWL挂号平台</small>
       </div>
@@ -44,5 +15,4 @@
           </ul>
       </div>
   </div>
-  </body>
-</html>
+
