@@ -23,7 +23,7 @@
          <li><a href="<?php echo base_url();?>RegUserPage">预约挂号</a></li>
          <li><a href="NoticePage">查看公告</a></li>
        </ul>
-       <?php if($login_result==0)  {?>
+       <?php if($login_result==0||$login_result==-1)  {?>
        <ul class="nav navbar-nav navbar-right" id="logo1">
         <li><a>游客欢迎您</a></li>
         <li><a href="<?php echo base_url();?>LoginPage/regist">请先注册</a></li>
@@ -231,9 +231,7 @@
            </div>
 
            <input type="image" src="<?php echo base_url().'/res/images/button.png'?>" id="clicksearch" ></input>
-           <div id="selects">
-
-           </div>
+           
 
          </div>
          <div id="visit">
@@ -377,10 +375,10 @@
       <div id="htitle1"><img src="<?php echo base_url().'/res/images/hos.png'?>"></div>
       <ul>
       
-        <?php foreach ($hospitals as $hospital_item): ?>
+        <?php $i=0; foreach ($hospitals as $hospital_item){ $i++;?>
           <li>
             <div class="hothospital">
-              <img src="<?php echo base_url().'/res/images/hop1.jpg'?>" width="128" height="96" /> 
+              <img src="<?php echo base_url().'/res/images/hop'."$i".'.jpg'?>" width="128" height="96" /> 
               <strong>
                 <a href="#"><?php echo $hospital_item['Name'] ?>
                   [<?php echo $hospital_item['Level'] ?>]</a></strong>
@@ -392,7 +390,7 @@
                 </div>
               </li>
 
-            <?php endforeach ?>
+            <?php } ?>
 
 
           </ul>
@@ -402,22 +400,22 @@
         <div id="hots2" class="hots">
          <div id="htitle2"><img src="<?php echo base_url().'/res/images/dep.png'?>"></div>
          <ul>
-             <?php foreach ($hospitals as $hospital_item): ?>
+             <?php $j=0; foreach ($departments as $department_item){ $j++;?>
           <li>
             <div class="hothospital">
-              <img src="<?php echo base_url().'/res/images/hop1.jpg'?>" width="128" height="96" /> 
+              <img src="<?php echo base_url().'/res/images/hop'."$j".'.jpg'?>" width="128" height="96" /> 
               <strong>
-                <a href="#"><?php echo $hospital_item['Name'] ?>
-                  [<?php echo $hospital_item['Level'] ?>]</a></strong>
-                  <p>电话:<abbr title="hhh"><?php echo $hospital_item['Phone'] ?></abbr><br />
-                    地址:<abbr title="<?php echo $hospital_item['Address'] ?>"><?php echo $hospital_item['Address'] ?></abbr><br />
-                    所属城市：<?php echo $hospital_item['Type'] ?>
+                <a href="#"><?php echo $department_item['Name'] ?>
+                  [<?php echo $department_item['Type'] ?>]</a></strong>
+                  <p>
+                    详细信息:<?php $Info1 = substr($department_item['Info'],0,90); echo $Info1.'。。。';  ?><br />
+                    所属医院：<?php echo $department_item['Type'] ?>
                     <div class="clear"></div>
                   </p>
                 </div>
               </li>
 
-            <?php endforeach ?>
+            <?php } ?>
 
 
            
