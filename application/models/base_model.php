@@ -74,7 +74,7 @@ class Base_model extends CI_Model {
     //$this->db->join('people', 'sites.clientid = people.id'); ///联表暂时不用
     //$this->db->orderby("name", "desc");
   $query = $this->db->get();
-  if($query->num_rows()<=0)return -1;
+  if($query->num_rows()<0)return -1;
   return $query->result_array();
   }
   

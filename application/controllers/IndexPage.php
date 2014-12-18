@@ -54,7 +54,7 @@ class IndexPage extends base_controller {
 
     //$x=5;//暂定为5
    // $data['latest_notices'] = $this->notice_model->get_notice("SELECT * FROM Notice  ORDER BY Date DESC LIMIT 5");
-	//$data['latest_notices'] = $this->hospital_model->getTableByOrderLimit("Notice",array(),array("Date"=>"desc"),5);
+	$data['latest_notices'] = $this->hospital_model->getTableByOrderLimit("Notice",array(),array("Date"=>"desc"),5);
 	
 	
     $data['title'] = 'Our System';
