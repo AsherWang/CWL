@@ -1,5 +1,6 @@
 <?php
-	class Department_model extends CI_Model{
+	require_once('base_model.php');
+	class Department_model extends base_model{
 
 		function __construct()
 		{
@@ -15,20 +16,12 @@
 		//查找所有科室
 		function get_department($data)
 		{
-			$query=$this->db->query($data);
-			if($query->num_rows()>0)//$query->num_rows()返回当前行数
-			{
-				return $query->result_array();
-			}
-			else
-				return NULL;
+			return $this->getTable('department',$data);
 		}
 
 		//根据科室返回包含此科室的所有医院信息
-		function get_department_hs($Name)
+		function get_department_hs($Hospital_ID)
 		{
-			//使用模糊查询
-			$Hospital_ID=$this->db->query("SELECT Hospital_ID FROM Department WHERE Name LIKE $Name");
 			$query=$this->db->query("SELECT * FROM Hospital WHERE ID=$Hospital_ID");
 			if($query->num_rows()>0)
 			{
