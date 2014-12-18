@@ -30,7 +30,7 @@ class HospitalManangerPage extends CI_Controller {
    // $this->load->view('templates/header', $data);
     $this->load->view('HospitalManangerPage/Index', $data);
   //  $this->load->view('templates/footer');
-  
+
   }
 
 
