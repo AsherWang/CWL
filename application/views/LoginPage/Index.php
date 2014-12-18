@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <title><?php echo $title; ?></title>
@@ -19,11 +19,11 @@
             <label style="position:absolute;top:122px;left:3px;font-family: '华文隶书';font-size:21px">密&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp码</label>
                 <input style="position:absolute;top:119px;left:133px;" name="password" type="password" class="frame" maxlength="20"/>
             <label style="position:absolute;top:169px;left:3px;font-family: '华文隶书';font-size:21px">客户类型</label>
-                <input style="position:absolute;top:160px;left:124px;" type="radio" value="1" name="choose" checked>
+                <input style="position:absolute;top:160px;left:124px;" type="radio" value="3" name="choose" checked>
                     <label style="position:absolute;top:160px;left:164px;font-family: '华文隶书';font-size:18px">院方挂号处</label>
                 <input style="position:absolute;top:180px;left:124px;" type="radio" value="2" name="choose">
                     <label style="position:absolute;top:180px;left:164px;font-family: '华文隶书';font-size:18px">院方管理员</label>
-                <input style="position:absolute;top:200px;left:124px;" type="radio" value="3" name="choose">
+                <input style="position:absolute;top:200px;left:124px;" type="radio" value="1" name="choose">
                     <label style="position:absolute;top:200px;left:164px;font-family: '华文隶书';font-size:18px">超级管理员</label>
             <input type="submit" value="登录→" style="position:absolute;top:163px;left:284px;color:red;" class="Login" onclick="getactionURL()"/>
         </div>
