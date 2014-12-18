@@ -14,9 +14,11 @@
 <body>
   <div id="header">
    <nav class="navbar navbar-inverse" role="navigation" id="logo">
+   
      <div class="navbar-header">
        <a class="navbar-brand" href="">CWL全国统一预约平台</a>
      </div>
+     
      <div>
        <ul class="nav navbar-nav">
          <li class="active"><a >首页</a></li>
@@ -135,10 +137,12 @@
            <div id="wtitle">欢迎回来!</div>
            <div id="wname">X先生/女士</div>
            <div id="wimg"><img style="width:180px;height:180px;" class="img-circle" src="<?php echo base_url().'res/images/user.jpg'?>"></div>
+
            <div id="wlog"><button id="wbut" onclick="window.location.href='<?php echo base_url();?>?do=exit'" type="button" class="btn btn-primary btn-lg">退出登录</button>
            </div>
          </div>
          <?php } else {?>
+
 
 
 
@@ -334,6 +338,7 @@
   </form>
 
 
+
 </div>
 <div id="myModal" class="reveal-modal">
   <img src="<?php echo base_url().'res/images/myMtitle.png'?>" style="width:600px;margin-left:90px;padding-bottom:20px;"/>        
@@ -443,5 +448,6 @@
 <div id="footer">
 	<a href="<?php echo base_url();?>LoginPage">后台登陆</a>&nbsp;&nbsp;&nbsp;<a>关于我们</a>
 </div>
+
 </body>
 </html>

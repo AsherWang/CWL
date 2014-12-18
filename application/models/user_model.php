@@ -95,7 +95,7 @@
         {
             if($ID_number==null||$paswd==null)return-1;
 			$re= $this->getTable("user",array("ID_number"=>$ID_number,"Password"=>$paswd));
-			if($re==-1)
+			if($re==-1||count($re)==0)
 			{
 				return -1;
 			}
