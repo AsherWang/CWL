@@ -1,23 +1,24 @@
 <?php
 	class NoticePage extends CI_Controller{
 
-		public $sessionInfo;
+		public $PageInfo;
 
 		public function __construct()
 		{
 			parent::__construct();
+			$this->load->library('session');
 			$this->load->model('notice_model');
 
-			//$sessionInfo[""]
+			$this->PageInfo["title"] = "公告页面";
 		}
 
 		//显示所有公告
 		public function index()
 		{
 			$this->load->helper('url');
-			$data['notice']=$this->notice_model->get_notice("SELECT * FROM Notice INNER JOIN USER ON Notice.Author_ID = User.ID ORDER BY Date DESC");
+			$data['notice']=$this->notice_model->get_notice("SELECT Notice.ID, Notice.Title, Notice.Date, Author_ID, User.Name FROM Notice INNER JOIN USER ON Notice.Author_ID = User.ID ORDER BY Date DESC");
 
-			$this->load->view("templates/header", $sessionInfo);
+			$this->load->view("templates/header", $this->PageInfo);
 			$this->load->view('NoticePage/index',$data);
 			$this->load->view("templates/footer");
 		}
@@ -27,13 +28,15 @@
 		{
 			$this->load->helper('url');
 
-			$data['notice_item']=$this->notice_model->get_notice("SELECT * FROM Notice INNER JOIN USER ON Notice.Author_ID = User.ID WHERE Notice.ID=$ID");
+			$data['notice_item']=$this->notice_model->get_notice("SELECT Notice.*, User.Name FROM Notice INNER JOIN USER ON Notice.Author_ID = User.ID WHERE Notice.ID=$ID");
   			if (empty($data['notice_item']))
   			{
     			$data = "None";
   			}
   			//$this->load->header(string);
+  			$this->load->view("templates/header", $this->sessionInfo);
   			$this->load->view('NoticePage/view', $data);
+  			$this->load->view("templates/footer");
 		}
 
 		//发布公告

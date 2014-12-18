@@ -28,7 +28,7 @@ class base_controller extends CI_Controller {
 	//如果已经登录那么就自动跳转到响应界面，如果没有session记录就返回false，根据需要调整重定向的位置
 	protected function checkSession()
 	{
-        if($this->session->userdata('is_logged'))
+        if($this->session->userdata('is_logged')==false)
 		{
 			$type=$this->session->userdata('user_type');
             if($type==3)//医院挂号处
@@ -56,6 +56,8 @@ class base_controller extends CI_Controller {
 	
 	protected function destroySession()
 	{
+		
+		$this->session->unset_userdata('is_logged');
 		$this->session->sess_destroy();
 			redirect("");
 	}

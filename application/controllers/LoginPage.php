@@ -45,17 +45,8 @@ class LoginPage extends base_controller {
 
 	  */
 	  //如果有session，那么跳转到他该去的页面，根据用户类型
-	  if( ! $this->checkSession())//如果检查后没有session
-	  {
-		$data['title'] = 'LoginPage';
-    	$this->load->view('LoginPage/index',$data);
-	  }
-	  
-	if($this->session->userdata('item')!="")
-	{
-		redirect("");
-	}
-	  $data["reg_result"]=$_POST;  
+	   $data["reg_result"]=1; 
+	   $this->checkSession();
 	  if(isset($_POST["id_number"])&&isset($_POST["name"])&&isset($_POST["password"])&&isset($_POST["phonenumber"]))
 	  {
 		  if($this->user_model->IsIDnumberExist($_POST["id_number"]))
@@ -68,16 +59,14 @@ class LoginPage extends base_controller {
 			  				"Password"=>$_POST["name"],
 							"Name"=>$_POST["password"],
 							"Phone"=>$_POST["phonenumber"]);
-			// $newId=$this->user_model->insert_user($info);
-			$newId=0;
+			$newId=$this->user_model->insert_user($info);
 			 if($newId==-1){
 				 $data["reg_result"]=3;
 			 }
 			 else
 			 {
-				//注册成功，添加session，跳转到首页去
-				//session约定不是我设计的，目前不知道详情
-			     //	redirect("");  //跳转到首页
+				$this->putSession($this->user_model->user_login($_POST["id_number"],$_POST["password"]));
+				 $this->checkSession();
 			 }
 		  }
 	  }
