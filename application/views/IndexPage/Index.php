@@ -339,6 +339,7 @@
     <div id="hots1" class="hots">
       <div id="htitle1"><img src="<?php echo base_url().'/res/images/hos.png'?>"></div>
       <ul>
+      
         <?php foreach ($hospitals as $hospital_item): ?>
           <li>
             <div class="hothospital">
