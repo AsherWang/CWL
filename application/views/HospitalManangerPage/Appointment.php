@@ -1,28 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Appointment.html</title>
-      <script src='<?php echo base_url().'res/js/bootstrap.min.js'?>'></script>
-      <script src='<?php echo base_url().'res/js/bootstrap-theme.js'?>'></script>
-      <script src='<?php echo base_url().'res/css/bootstrap.min.css'?>'></script>
-      <script src='<?php echo base_url().'/res/js/jquery.js'?>'></script>
-      <script src='<?php echo base_url().'/res/css/bootstrap.css'?>'></script>
-    <meta name="keywords" content="keyword1,keyword2,keyword3">
-    <meta name="description" content="this is my page">
-    <meta name="content-type" content="text/html; charset=gbk">
-
-
-
-
-
-
-    
-    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
-
-  </head>
-  
-  <body>
-    <div class="container">
+﻿    <div class="container">
     <div>
      <h1 class="page-header">北京协和医院挂号单</h1>
      <table  class="table table-condensed table-bordered table-striped">

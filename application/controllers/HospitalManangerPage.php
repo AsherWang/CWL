@@ -28,6 +28,8 @@ class HospitalManangerPage extends CI_Controller {
   //  $data['orders']=$this->order_model->get_orders();
    // $this->load->view('templates/header', $data);
     $this->load->view('HospitalManangerPage/Index', $data);
+   $this->load->view('HospitalManangerPage/usermanage', $data);
+
   //  $this->load->view('templates/footer');
 //aaaa
   }
