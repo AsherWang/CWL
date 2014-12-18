@@ -13,22 +13,17 @@
 			return $this->db->count_all('department');
 		}
 		//返回科室类型
-		function department_type($data)
+		function department_type($Hospital_ID)
 		{
-			if($data=='')
+			
+			$query=$this->db->query("SELECT DISTINCT (Type) FROM department WHERE Hospital_ID=$Hospital_ID");
+			if($query->num_rows()>0)
 			{
-				$query=$this->db->query("SELECT DISTINCT (Type) FROM department");
-				if($query->num_rows()>0)
-				{
-					return $query->result_array();
-				}
-				else
-					return NULL;
+				return $query->result_array();
 			}
 			else
-			{
-				return $this->getTable('department',$data);
-			}
+				return NULL;
+			
 		}
 		//查找所有科室信息
 		function get_department($data)
