@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 	class Notice_model extends CI_Model{
 		

@@ -17,6 +17,7 @@ class HospitalManangerPage extends base_controller {
     //
    $this->load->model('notice_model');
    $this->load->model('order_model');
+   $this->load->model('user_model');
    $this->load->helper('url');
   }
 
@@ -28,7 +29,7 @@ class HospitalManangerPage extends base_controller {
   //  $data['orders']=$this->order_model->get_orders();
    // $this->load->view('templates/header', $data);
 
-
+   //$data['users']= $this->user_model->get_users3();
 
 
     $this->load->view('HospitalManangerPage/Index', $data);
