@@ -80,7 +80,7 @@ class Base_model extends CI_Model {
   
   
   
-  public  function getTableByOrderLimit($tablename,$data,$order,$limit)
+  public  function getTableByOrderLimit($tablename,$data,$order,$index,$length)
   {
     //将data数组遍历，取出名字和值,加进where中
 	 $this->db->from($tablename);
@@ -88,7 +88,7 @@ class Base_model extends CI_Model {
         $this->db->where($key,$value);
 	foreach ($order as $key => $value) 
         $this->db->order_by($key,$value);
-    $this->db->limit($limit);
+    $this->db->limit($length,$index);
  	 $query = $this->db->get();
  	 if($query->num_rows()<=0)return -1;
  		 return $query->result_array();

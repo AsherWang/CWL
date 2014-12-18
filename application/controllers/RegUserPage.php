@@ -57,6 +57,10 @@ class RegUserPage extends CI_Controller {
   public function Hsp_doctor_list()
   {
    // $data['news'] = $this->news_model->get_news();
+    $data['department_list'] = $this->hospital_model->get_hospital($search_data);
+   
+   
+   
     $data['title'] = 'Hsp_doctor_list';
     $this->load->view('templates/header', $data);
     $this->load->view('RegUserPage/Hsp_doctor_list', $data);
