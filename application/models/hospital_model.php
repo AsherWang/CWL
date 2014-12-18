@@ -15,7 +15,7 @@
 		//返回所有医院类型
 		function hospital_type()
 		{
-			$query=$this->db->query("SELECT DISTNICT Type FROM hospital");
+			$query=$this->db->query("SELECT DISTNICT (Type) FROM hospital");
 			if($query->num_rows()>0)
 			{
 				return $query->result_array();
