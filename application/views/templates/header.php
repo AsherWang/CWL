@@ -11,6 +11,10 @@
 <head>
   <title><?php echo $title ?></title>
   <meta charset="utf-8">
+  <script src='<?php echo base_url().'/res/js/jquery.js'?>'></script>
+  <script src='<?php echo base_url().'res/js/bootstrap.min.js'?>'></script>
+  <script src='<?php echo base_url().'res/js/bootstrap-theme.js'?>'></script>
+  <link rel="stylesheet" type="text/css" href='<?php echo base_url().'res/css/bootstrap.min.css'?>'>
 </head>
 <body>
   <div style="font-family:'Microsoft YaHei';margin-top:5px;">
@@ -22,7 +26,7 @@
   		<a href="<?php echo base_url()?>IndexPage" style="margin-left:20%;">首页</a>
   		<a href="<?php echo base_url()?>RegUserPage/Personal_message_change" style="margin-left:5px">个人中心</a>
   		<a href="<?php echo base_url()?>RegUserPage/My_appointment" style="margin-left:5px">我的预约单</a>
-      <a href="<?php echo base_url()?>notice/index" style="margin-left:5px">查看公告</a>
+      <a href="<?php echo base_url()?>NoticePage/index" style="margin-left:5px">查看公告</a>
   	</div>
   	<hr style="border:#86BC4C 1px dotted;margin-top:10px;"/>
   </div>
