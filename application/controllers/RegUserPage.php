@@ -25,7 +25,7 @@ class RegUserPage extends CI_Controller {
   // $this->checkSession();
    //搜索条件
    $data["search_level"]="";  //约定对应规则
-   $data["search_type"]="1";
+   $data["search_type"]="";
    
    if(isset($_GET["search_level"])&&$_GET["search_level"]!="") 
    	$data["search_level"]=$_GET["search_level"];
@@ -33,9 +33,15 @@ class RegUserPage extends CI_Controller {
    	$data["search_type"]=$_GET["search_type"];
    
     //$data["search_type_list"]=getlist();  //待定
-	//$data["search_type_list"]=$this->hospital_model->hospital_type();
-	$data["hospitals"]=array("1","2","3","4");  //这里0.0....
+	$data["search_type_list"]=$this->hospital_model->hospital_type();
+	
+	$search_data=array();
+	if(	$data["search_type"]!="")$search_data["Type"]=$data["search_type"];
+	if(	$data["search_level"]!="")$search_data["Level"]=$data["search_level"];
+	//按条件搜索....
+	$data["hospitals"]=$this->hospital_model->get_hospital($search_data);
     $data['title'] = 'Index';
+	
     $this->load->view('templates/header', $data); 
     $this->load->view('RegUserPage/Index', $data);
     $this->load->view('templates/footer');
@@ -51,6 +57,10 @@ class RegUserPage extends CI_Controller {
   public function Hsp_doctor_list()
   {
    // $data['news'] = $this->news_model->get_news();
+    $data['department_list'] = $this->hospital_model->get_hospital($search_data);
+   
+   
+   
     $data['title'] = 'Hsp_doctor_list';
     $this->load->view('templates/header', $data);
     $this->load->view('RegUserPage/Hsp_doctor_list', $data);
@@ -67,6 +77,9 @@ class RegUserPage extends CI_Controller {
   public function Appointment_quickly()
   {
    // $data['news'] = $this->news_model->get_news();
+   
+   
+   
     $data['title'] = 'Appointment_quickly';
     $this->load->view('templates/header', $data);
     $this->load->view('RegUserPage/Appointment_quickly', $data);

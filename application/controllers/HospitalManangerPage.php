@@ -5,9 +5,9 @@
  * @Last Modified by:   Asher
  * @Last Modified time: 2014-12-01 16:40:10
  */
+ require_once("base_controller.php");
 
-
-class HospitalManangerPage extends CI_Controller {
+class HospitalManangerPage extends base_controller {
   public function __construct()
   {
     parent::__construct();
@@ -22,20 +22,43 @@ class HospitalManangerPage extends CI_Controller {
 
   public function Index()
   {
-    $data['title'] = 'HospitalManangerPage';
+    $data['title'] = '医院管理员-用户管理';
    // $data['orders_from_patient']= $this->order_model->get_orders_from_patient();
   //  $data['orders_from_doctor']= $this->order_model->get_orders_from_doctor();
   //  $data['orders']=$this->order_model->get_orders();
    // $this->load->view('templates/header', $data);
+
+
+
+
     $this->load->view('HospitalManangerPage/Index', $data);
+   $this->load->view('HospitalManangerPage/usermanage', $data);
+
   //  $this->load->view('templates/footer');
-  
+//aaaa
   }
   public function Appointment()
   {
-	  
+	  $data['title'] = '医院管理员-订单管理';
+	$this->load->view('HospitalManangerPage/Index', $data);
 	   $this->load->view('HospitalManangerPage/Appointment');
   }
-
-
+  public function nummanger()
+  {
+	  $data['title'] = '医院管理员-xx管理';
+	$this->load->view('HospitalManangerPage/Index', $data);
+	   $this->load->view('HospitalManangerPage/nummanger');
+  }
+  public function notice()
+  {
+	  $data['title'] = '医院管理员-公告管理';
+	$this->load->view('HospitalManangerPage/Index', $data);
+	   $this->load->view('HospitalManangerPage/notice');
+  }
+  public function doctorinfo()
+  {
+	  $data['title'] = '医院管理员-医生管理';
+	$this->load->view('HospitalManangerPage/Index', $data);
+	   $this->load->view('HospitalManangerPage/doctorinfo');
+  }
 }
