@@ -48,7 +48,7 @@ class base_controller extends CI_Controller {
 			}
 			else  //不知道是什么
 			{
-				destroySession();
+				$this->destroySession();
 			}
         }
 		return false;
