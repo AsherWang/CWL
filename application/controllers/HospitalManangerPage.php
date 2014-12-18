@@ -43,11 +43,11 @@ class HospitalManangerPage extends base_controller {
 	$this->load->view('HospitalManangerPage/Index', $data);
 	   $this->load->view('HospitalManangerPage/Appointment');
   }
-  public function nummanger()
+  public function nummanage()
   {
-	  $data['title'] = '医院管理员-xx管理';
+	  $data['title'] = '医院管理员-号源管理';
 	$this->load->view('HospitalManangerPage/Index', $data);
-	   $this->load->view('HospitalManangerPage/nummanger');
+	   $this->load->view('HospitalManangerPage/nummanage');
   }
   public function notice()
   {
@@ -58,7 +58,7 @@ class HospitalManangerPage extends base_controller {
   public function doctorinfo()
   {
 	  $data['title'] = '医院管理员-医生管理';
-	$this->load->view('HospitalManangerPage/Index', $data);
-	   $this->load->view('HospitalManangerPage/doctorinfo');
+	  $this->load->view('HospitalManangerPage/Index', $data);
+	  $this->load->view('HospitalManangerPage/doctorinfo');
   }
 }
