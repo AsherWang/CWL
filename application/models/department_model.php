@@ -12,7 +12,7 @@
 		{
 			return $this->db->count_all('department');
 		}
-		//返回科室类型
+		//根据医院ID返回本医院所有科室类型
 		function department_type($Hospital_ID)
 		{
 			
@@ -25,7 +25,7 @@
 				return NULL;
 			
 		}
-		//查找所有科室信息
+		//$data数组查找所有科室信息
 		function get_department($data)
 		{
 			return $this->getTable('department',$data);

@@ -23,7 +23,18 @@
 			else
 				return NULL;
 		}
-		//获取医院（$data数组）
+		//获取所有医院地址
+		function hospital_address()
+		{
+			$query=$this->db->query("SELECT DISTINCT (Address) FROM hospital");
+			if($query->num_rows()>0)
+			{
+				return $query->result_array();
+			}
+			else
+				return NULL;
+		}
+		//根据$data数组返回医院所有信息
 		function get_hospital($data)
 		{
 			return $this->getTable('hospital',$data);
