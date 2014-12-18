@@ -48,9 +48,9 @@ class IndexPage extends base_controller {
 	$data['latest_notices']=$this->hospital_model->getTableByOrderLimit("Notice",array(),array("Date"=>"desc"),0,5); //拉取公告
    $data['hospitals']= $this->hospital_model->getTableByOrderLimit("hospital",array(),array(),0,6);//拉取热门医院，= =
    $data['departments']= $this->hospital_model->getTableByOrderLimit("department",array(),array(),0,6);  //拉取科室，  = =
-   //$temp=$this->hospital_model->hospital_type();
-   //$data["type_list"]=$this->hospital_model->hospital_type();//拉取类型列表
-  // $data["area_list"]=$this->hospital_model->hospital_address();//拉取地区列表
+   $temp=$this->hospital_model->hospital_type();
+   $data["type_list"]=$temp[0];//拉取类型列表
+   $data["area_list"]=$temp[0];//拉取地区列表
 
    
    //载入页面模块

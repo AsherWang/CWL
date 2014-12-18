@@ -56,8 +56,8 @@ class LoginPage extends base_controller {
 		  else
 		  {
 			  $info=array("ID_number"=>$_POST["id_number"],
-			  				"Password"=>$_POST["name"],
-							"Name"=>$_POST["password"],
+			  				"Password"=>$_POST["password"],
+							"Name"=>$_POST["name"],
 							"Phone"=>$_POST["phonenumber"]);
 			$newId=$this->user_model->insert_user($info);
 			 if($newId==-1){
@@ -66,7 +66,7 @@ class LoginPage extends base_controller {
 			 else
 			 {
 				$this->putSession($this->user_model->user_login($_POST["id_number"],$_POST["password"]));
-				 $this->checkSession();
+				// $this->checkSession();
 			 }
 		  }
 	  }
