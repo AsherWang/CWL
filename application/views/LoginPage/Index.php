@@ -25,7 +25,7 @@
                     <label style="position:absolute;top:180px;left:164px;font-family: '华文隶书';font-size:18px">院方管理员</label>
                 <input style="position:absolute;top:200px;left:124px;" type="radio" value="1" name="choose">
                     <label style="position:absolute;top:200px;left:164px;font-family: '华文隶书';font-size:18px">超级管理员</label>
-            <input type="submit" value="登录→" style="position:absolute;top:163px;left:284px;color:red;" class="Login" onclick="getactionURL()"/>
+            <input type="submit" value="登录→" style="position:absolute;top:163px;left:284px;color:red;" class="Login"/>
         </div>
     </form>
 </body>
