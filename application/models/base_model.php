@@ -121,7 +121,5 @@ public function getResultFromSqlString($sql)
 	if($query->num_rows()<=0)return -1;
   	return $query->result_array();
 }
-
-
 }
 ?>

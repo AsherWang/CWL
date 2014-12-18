@@ -36,6 +36,7 @@ class RegUserPage extends CI_Controller {
 	//$data["search_type_list"]=$this->hospital_model->hospital_type();
 	$data["hospitals"]=array("1","2","3","4");  //这里0.0....
     $data['title'] = 'Index';
+	
     $this->load->view('templates/header', $data); 
     $this->load->view('RegUserPage/Index', $data);
     $this->load->view('templates/footer');
@@ -67,6 +68,9 @@ class RegUserPage extends CI_Controller {
   public function Appointment_quickly()
   {
    // $data['news'] = $this->news_model->get_news();
+   
+   
+   
     $data['title'] = 'Appointment_quickly';
     $this->load->view('templates/header', $data);
     $this->load->view('RegUserPage/Appointment_quickly', $data);
