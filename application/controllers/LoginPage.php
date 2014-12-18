@@ -1,23 +1,40 @@
 <?php
-class LoginPage extends CI_Controller {
+require_once("base_controller.php");
+class LoginPage extends base_controller {
   public function __construct()
   {
     parent::__construct();
-	
-    //构造函数时载入数据的model类，对应models目录下的news_model
-    //s
-	$this->load->library('session');
-   $this->load->model('user_model');
-   $this->load->helper('url');
+    $this->load->model('user_model');
   }
-
-  //RegOfficePage/index
   public function Index()
   {
-
-    $data['title'] = 'LoginPage';
-    //$this->load->view('templates/header', $data);
-    $this->load->view('LoginPage/index',$data);
+	  $this->checkSession();
+	  if(isset($_POST["ID"])&&$_POST["ID"]!=""
+	   &&isset($_POST["password"])&&$_POST["password"]!=""
+	   &&isset($_POST["choose"])&&$_POST["choose"]!="")
+	   {
+			//登陆
+			$result=$this->user_model->user_login($_POST["ID"],$_POST["password"]);
+			if($result==-1)
+			{
+				//登陆失败
+				$data["error"]="用户名密码错误";		
+			}
+			else
+			{
+				if($result["Autority"]!=$_POST["choose"])
+				{
+					$data["error"]="用户类型不匹配";
+				}
+				else
+				{
+					$this->putSession($result);
+					redirect("LoginPage");
+				}
+			}
+	   }
+	  $data['title'] = 'LoginPage';
+      $this->load->view('LoginPage/index',$data);
   }
   public function Regist(){
 	  /*返回值约定
@@ -28,6 +45,12 @@ class LoginPage extends CI_Controller {
 
 	  */
 	  //如果有session，那么跳转到他该去的页面，根据用户类型
+	  if( ! $this->checkSession())//如果检查后没有session
+	  {
+		$data['title'] = 'LoginPage';
+    	$this->load->view('LoginPage/index',$data);
+	  }
+	  
 	if($this->session->userdata('item')!="")
 	{
 		redirect("");

@@ -12,7 +12,7 @@
 <body>
   
    <div id="maincontainer">
-        <form role="form" onsubmit="return check_regist()" action="" method="post" class="form-control form-horizontal" id="regist-form">
+        <form role="form" onSubmit="return check_regist()" action="" method="post" class="form-control form-horizontal" id="regist-form">
             <div class="form-group">
                 <label for="userid" class="col-md-3 control-label">身份证号</label>
                 <div class="col-md-8">
@@ -61,7 +61,7 @@
             
             <?php if($reg_result==2){ ?>
             <div id="hint"><label id="hintinfo">用户名已存在</label></div>
-            <?php} elseif($reg_result==3){ ?>
+            <?php } elseif($reg_result==3){ ?>
             <div id="hint"><label id="hintinfo">未知错误</label></div>
             <?php } else{ ?>
             <div id="hint"><label id="hintinfo"></label></div>
@@ -136,10 +136,6 @@
                   $("#hintinfo").text('');
                 }
               });
-
-
-
-
             })
             function check_regist(){
               var inp1=$("#userid").val();

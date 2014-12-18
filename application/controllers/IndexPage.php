@@ -7,7 +7,8 @@
  *
  * 控制器描述：主要控制对首页的访问
  */
-class IndexPage extends CI_Controller {
+ require_once("base_controller.php");
+class IndexPage extends base_controller {
   public function __construct()
   {
     parent::__construct();
@@ -19,8 +20,6 @@ class IndexPage extends CI_Controller {
    $this->load->model('department_model');
    $this->load->model('hospital_model'); 
    $this->load->model('user_model'); 
-   $this->load->library('session');
-   $this->load->helper('url');
   }
   //IndexPage/index
   public function Index()
@@ -40,18 +39,7 @@ class IndexPage extends CI_Controller {
 				//登陆成功
 				$data["login_result"]=1;
 				$data["user"]=$logresult;
-				$currentdate=date("y-m-d h:i:s");
-			 	$validdate=$logresult["Valid_Date"];
-				
-				
-				
-				$sessionDate=array(
-					'username'=>$logresult["Name"],
-					'authority'=>$logresult["Autority"],
-					'user_Credit_Rate'=>$logresult["Credit_Rate"],
-					'user_is_valid'=> strtotime($currentdate)>=strtotime($validdate)
-				);
-				$this->session->set_userdata($sessionDate);
+				$this->putSession($logresult);
 			}
 		}
   
