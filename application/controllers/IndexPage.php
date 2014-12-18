@@ -25,19 +25,14 @@ class IndexPage extends base_controller {
   //IndexPage/index
   public function Index()
   { 
-  		if(isset($_POST["do"])&&$_POST["do"]=="exit")
+  		if(isset($_POST["do"])&&$_POST["do"]=="exit")$this->destroySession();
+  		$data["login_result"]=0; //初始化登陆结果
+  		if(isset($_POST["id_number"])&&isset($_POST["password"]))//登陆
 		{
-				$this->destroySession();
-		}
-  		$data["login_result"]=0;
-  		if(isset($_POST["id_number"])&&isset($_POST["password"]))
-		{
-			//登陆
 			$logresult=$this->user_model->user_login($_POST["id_number"],$_POST["password"]);
 			if($logresult==-1)
 			{
-				//登陆失败
-				$data["login_result"]=-1;
+				$data["login_result"]=-1;//登陆失败
 			}
 			else
 			{	
@@ -47,37 +42,20 @@ class IndexPage extends base_controller {
 				$this->putSession($logresult);
 			}
 		}
-  
- 	 //需要一个 get_notices(int x)的函数，作用是获得最新的x个公告
-    //返回一个有x个元素的notices对象的数组
-    //两个属性cwldb/notice的  公告编号/ID  和  公告标题/Title
+		
+		
+	$data['title'] = 'Our System'; //页面标题
+	$data['latest_notices']=$this->hospital_model->getTableByOrderLimit("Notice",array(),array("Date"=>"desc"),0,5); //拉取公告
+   $data['hospitals']= $this->hospital_model->getTableByOrderLimit("hospital",array(),array(),0,6);//拉取热门医院，= =
+   $data['departments']= $this->hospital_model->getTableByOrderLimit("department",array(),array(),0,6);  //拉取科室，  = =
+   $temp=$this->hospital_model->hospital_type();
+   $data["type_list"]=$this->hospital_model->hospital_type();//拉取类型列表
+   $data["area_list"]=$this->hospital_model->hospital_address();//拉取地区列表
 
-    //$x=5;//暂定为5
-   // $data['latest_notices'] = $this->notice_model->get_notice("SELECT * FROM Notice  ORDER BY Date DESC LIMIT 5");
-	$data['latest_notices'] = $this->hospital_model->getTableByOrderLimit("Notice",array(),array("Date"=>"desc"),0,5);
-	
-	
-    $data['title'] = 'Our System';
-    //$this->load->view('templates/header', $data);
-    //需要一个 get_departments(int x)函数，作用是获得最热的x个科室的信息
-    //返回值为一个有x个元素的department对象的数组                                                                                                                        
-    //六个属性cwldb/department的  科室名称/Name   科室简介/Info 
-    //cwldb/hospital的   医院名称/Name  ,医院电话/Phone  ,医院网址/Website  ,医院等级/Level
-    //$x=6;//暂定为6
-    //$data['departments']= $this->department_model->get_departments($x);
-    //需要一个 get_hospital(int x)函数，作用是获得最热的x个医院的信息
-    //返回值为一个有x个元素的hospital对象的数组
-    //六个属性 cwldb/hospital的   医院名称/Name  ,医院电话/Phone  ,医院等级/Level
-    //医院地址Address,   医院简介/Info,   医院网址/Website  
-    //$x=6;//暂定为6
-   // $data['hospitals']= $this->hospital_model->getResultFromSqlString("select * from hospital limit 3");    
-   $data['hospitals']= $this->hospital_model->getTableByOrderLimit("hospital",array(),array(),0,6);
-   $data['departments']= $this->hospital_model->getTableByOrderLimit("department",array(),array(),0,6);
    
-   
+   //载入页面模块
     $this->load->view('IndexPage/Index', $data);
-	
-    //$this->load->view('templates/footer');
+   // $this->load->view('templates/footer');
   }
 
   //IndexPage/login
@@ -121,7 +99,6 @@ class IndexPage extends base_controller {
   //   $this->load->view('templates/header', $data);  
   //   $this->load->view('notices/create');
   //   $this->load->view('notices/success');
-    
   //   $this->load->view('templates/footer');
     
   // }

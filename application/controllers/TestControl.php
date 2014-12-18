@@ -14,15 +14,16 @@ class TestControl extends CI_Controller {
 //	$this->load->model('schedule_model');
 //	$this->load->model('order_model');
 //	$this->load->library('session');
-//	$this->load->model('hospital_model');
+	$this->load->model('hospital_model');
   }
 
   //SuperManagerPage/index
   public function Index()
   {
-		redirect("NoticePage");
-		
-		 $data["value"]="旧版空间了";
+	  
+	$temp=$this->hospital_model->hospital_address();
+	
+	$data["value"]=$temp[0];
      $this->load->view('TestPage/Index', $data);
   }
 }
