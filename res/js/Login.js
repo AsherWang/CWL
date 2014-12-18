@@ -10,8 +10,3 @@ function getactionURL()
         value="SuperManager";
     document.getElementById("form1").action=value;
 }
-
-function toReg()
-{
-
-}

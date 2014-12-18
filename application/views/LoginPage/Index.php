@@ -25,9 +25,7 @@
                     <label style="position:absolute;top:180px;left:164px;font-family: '华文隶书';font-size:18px">院方管理员</label>
                 <input style="position:absolute;top:200px;left:124px;" type="radio" value="3" name="choose">
                     <label style="position:absolute;top:200px;left:164px;font-family: '华文隶书';font-size:18px">超级管理员</label>
-            <input type="button" value="忘记密码" style="position:absolute;top:227px;left:34px;" class="Other"/>
-            <input type="button" value="用户注册" style="position:absolute;top:227px;left:182px;" class="Other" onclick="toReg()"/>
-            <input type="submit" value="登录→" style="position:absolute;top:163px;left:282px;color:red;" class="Login" onclick="getactionURL()"/>
+            <input type="submit" value="登录→" style="position:absolute;top:163px;left:284px;color:red;" class="Login" onclick="getactionURL()"/>
         </div>
     </form>
 </body>
