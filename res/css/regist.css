@@ -47,7 +47,9 @@ body{
 	margin:auto;
 	font-size: 18px;
 	height: 180%;
-	color: #000;}
+	color: #000;
+	max-height: 39px;
+}
 #maincontainer .form-group{
     	margin-top: 25px;
    }

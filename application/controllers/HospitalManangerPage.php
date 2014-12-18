@@ -17,20 +17,24 @@ class HospitalManangerPage extends CI_Controller {
     //
    $this->load->model('notice_model');
    $this->load->model('order_model');
-      $this->load->helper('url');
+   $this->load->helper('url');
   }
 
   public function Index()
   {
-    $data['latest_notices'] = $this->notice_model->get_notice("SELECT * FROM Notice  ORDER BY Date DESC LIMIT 4");
     $data['title'] = 'HospitalManangerPage';
-    $data['orders_from_patient']= $this->order_model->get_orders_from_patient();
-    $data['orders_from_doctor']= $this->order_model->get_orders_from_doctor();
-    $data['orders']=$this->order_model->get_orders();
+   // $data['orders_from_patient']= $this->order_model->get_orders_from_patient();
+  //  $data['orders_from_doctor']= $this->order_model->get_orders_from_doctor();
+  //  $data['orders']=$this->order_model->get_orders();
    // $this->load->view('templates/header', $data);
     $this->load->view('HospitalManangerPage/Index', $data);
   //  $this->load->view('templates/footer');
   
+  }
+  public function Appointment()
+  {
+	  
+	   $this->load->view('HospitalManangerPage/Appointment');
   }
 
 

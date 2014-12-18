@@ -1,42 +1,66 @@
 <?php
-/**
- * @Author: Asher
- * @Date:   2014-12-01 08:45:44
- * @Last Modified by:   Asher
- * @Last Modified time: 2014-12-01 10:20:59
- */
+	class NoticePage extends CI_Controller{
+
+		public $sessionInfo;
+
+		public function __construct()
+		{
+			parent::__construct();
+			$this->load->model('notice_model');
+
+			//$sessionInfo[""]
+		}
+
+		//显示所有公告
+		public function index()
+		{
+			$this->load->helper('url');
+			$data['notice']=$this->notice_model->get_notice("SELECT * FROM Notice INNER JOIN USER ON Notice.Author_ID = User.ID ORDER BY Date DESC");
+
+			$this->load->view("templates/header", $sessionInfo);
+			$this->load->view('NoticePage/index',$data);
+			$this->load->view("templates/footer");
+		}
+
+		//显示单条详细公告
+		public function view($ID)
+		{
+			$this->load->helper('url');
+
+			$data['notice_item']=$this->notice_model->get_notice("SELECT * FROM Notice INNER JOIN USER ON Notice.Author_ID = User.ID WHERE Notice.ID=$ID");
+  			if (empty($data['notice_item']))
+  			{
+    			$data = "None";
+  			}
+  			//$this->load->header(string);
+  			$this->load->view('NoticePage/view', $data);
+		}
+
+		//发布公告
+		public function create()
+		{
+			//表单辅助函数和表单验证库
+			$this->load->helper('form');
+			$this->load->library('form_validation');
+
+			//验证规则：不为空
+			$this->form_validation->set_rules('title','标题不能为空','required');
+			$this->form_validation->set_rules('content','内容不能为空','required');
+
+			if($this->form_validation->run()===FALSE)
+			{
+				//如果表单不符合，重新载入
+				$this->load->view('NoticePage/create');
+			}
+			else
+			{
+				$this->notice_model->insert_notice();
+				//显示插入成功
+				$this->load->view('NoticePage/success');
+			}
+		}
+
+	}
 
 
-class NoticePage extends CI_Controller {
-  public function __construct()
-  {
-    parent::__construct();
-    
-    //构造函数时载入数据的model类，对应models目录下的news_model.php
-    //首页上会包括功公告，所以会有
-    //
-   //$this->load->model('notice_model');
-   $this->load->helper('url');
-  }
-
-  public function Index()
-  {
-   // $data['news'] = $this->news_model->get_news();
-    $data['title'] = 'NoticePage';
-   // $this->load->view('templates/header', $data);
-    $this->load->view('NoticePage/Index', $data);
-  //  $this->load->view('templates/footer');
-  }
-  
-  public function Detail($noticeid)
-  {
-	$id=intval($noticeid);  
-	 $data['title'] = $id;
-	 //应该跳转到其他链接
-	 $this->load->view('NoticePage/Index', $data);
-
-	
-  }
-
-
-}
+?>
