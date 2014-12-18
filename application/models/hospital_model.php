@@ -1,5 +1,6 @@
 <?php
-	class Hospital_model extends CI_Model{
+	require_once('base_model.php');
+	class Hospital_model extends base_model{
 
 		function __construct()
 		{
@@ -22,17 +23,10 @@
 			else
 				return NULL;
 		}
-		//获取医院（SQL语句）
+		//获取医院（$data数组）
 		function get_hospital($data)
 		{
-			$query=$this->db->query($data);
-			if($query->num_rows()>0)
-			{
-				return $query->result_array();
-			}
-			else
-				return NULL;
-
+			return $this->getTable('hospital',$data);
 		}
 
 		//表单形式插入医院
