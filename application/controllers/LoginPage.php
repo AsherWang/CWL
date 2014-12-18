@@ -45,6 +45,7 @@ class LoginPage extends base_controller {
 
 	  */
 	  //如果有session，那么跳转到他该去的页面，根据用户类型
+	   $data["reg_result"]=1; 
 	   $this->checkSession();
 	  if(isset($_POST["id_number"])&&isset($_POST["name"])&&isset($_POST["password"])&&isset($_POST["phonenumber"]))
 	  {
@@ -65,6 +66,7 @@ class LoginPage extends base_controller {
 			 else
 			 {
 				$this->putSession($this->user_model->user_login($_POST["id_number"],$_POST["password"]));
+				 $this->checkSession();
 			 }
 		  }
 	  }
