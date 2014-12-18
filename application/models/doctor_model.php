@@ -6,9 +6,9 @@
 			parent::__construct();
 		}
 
-		function get_doctor($hospital,$department)
+		function get_doctor($hospital_id,$department_id)
 		{
-			$query=$this->db->query("SELECT * FROM Doctor WHERE Hospital=$hospital AND $Department=$department");
+			$query=$this->db->query("SELECT * FROM Doctor WHERE Hospital_ID=$hospital_id AND $Department_ID=$department_id");
 			if($query->num_rows()>0)
 			{
 				return $query->result_array();

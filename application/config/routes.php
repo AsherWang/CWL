@@ -55,14 +55,26 @@ $route['HospitalManangerPage'] = "HospitalManangerPage";
 $route['HospitalManangerPage/Index'] = "HospitalManangerPage/Index";
 $route['HospitalManangerPage/Appointment'] = "HospitalManangerPage/Appointment";
 
+
+$route['RegUserPage']="hospital";
+$route['RegUserPage/(:any)']='hospital/view/$1';
+
 $route['RegUserPage']="RegUserPage";
 
 $route['SuperManager'] = "SuperManager";
 //$route['SuperManager/(:any)'] = "SuperManager/Index";
 
 
-$route['hospital']='hospital/index';
-$route['hospital/(:any)']='hospital/view/$1';
+
+$route['Test'] = "TestControl";     
+$route['Test/Index'] = "TestControl/Index";
+
+//用于测试发布公告
+$route['notice/create']='notice/create';
+$route['notice/(:any)']='notice/view/$1';
+
+
+
 //$route['404_override'] = '';
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
