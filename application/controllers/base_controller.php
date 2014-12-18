@@ -86,6 +86,17 @@ class base_controller extends CI_Controller {
 	}
 	
 	
+  	protected function CombineArray($array,$name)
+	{
+		$result=array();
+		$i=0;
+		foreach($array as $key=>$value)
+		{
+			$result[$i]=$value[$name];
+			$i++;
+		}
+		return $result;
+	}
 	
 }
 ?>
