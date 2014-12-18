@@ -25,6 +25,10 @@ class IndexPage extends base_controller {
   //IndexPage/index
   public function Index()
   { 
+  		if(isset($_POST["do"])&&$_POST["do"]=="exit")
+		{
+				$this->destroySession();
+		}
   		$data["login_result"]=0;
   		if(isset($_POST["id_number"])&&isset($_POST["password"]))
 		{
@@ -67,7 +71,10 @@ class IndexPage extends base_controller {
     //医院地址Address,   医院简介/Info,   医院网址/Website  
     //$x=6;//暂定为6
    // $data['hospitals']= $this->hospital_model->getResultFromSqlString("select * from hospital limit 3");    
-   $data['hospitals']= $this->hospital_model->getTableByOrderLimit("hospital",array(),array(),3);
+   $data['hospitals']= $this->hospital_model->getTableByOrderLimit("hospital",array(),array(),6);
+   $data['departments']= $this->hospital_model->getTableByOrderLimit("department",array(),array(),6);
+   
+   
     $this->load->view('IndexPage/Index', $data);
 	
     //$this->load->view('templates/footer');
