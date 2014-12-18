@@ -1,6 +1,5 @@
 <?php
-	require_once('base_model.php');
-	class Hospital_model extends base_model{
+	class Hospital_model extends CI_Model{
 
 		function __construct()
 		{
@@ -26,7 +25,14 @@
 		//
 		function get_hospital($data)
 		{
-			return $this->getTable('hospital',$data);
+			$query=$this->db->query($data);
+			if($query->num_rows()>0)
+			{
+				return $query->result_array();
+			}
+			else
+				return NULL;
+
 		}
 
 		

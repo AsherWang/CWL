@@ -56,6 +56,7 @@ $route['HospitalManangerPage'] = "HospitalManangerPage";
 $route['HospitalManangerPage/Index'] = "HospitalManangerPage/Index";
 
 $route['RegUserPage']="hospital";
+$route['RegUserPage/(:any)']='hospital/view/$1';
 
 $route['SuperManager'] = "SuperManager";
 //$route['SuperManager/(:any)'] = "SuperManager/Index";
@@ -68,8 +69,7 @@ $route['Test/Index'] = "TestControl/Index";
 $route['notice/create']='notice/create';
 $route['notice/(:any)']='notice/view/$1';
 
-$route['hospital']='hospital/index';
-$route['hospital/(:any)']='hospital/view/$1';
+
 //$route['404_override'] = '';
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
