@@ -25,9 +25,9 @@ class IndexPage extends base_controller {
   //IndexPage/index
   public function Index()
   { 
-  		if(isset($_POST["do"])&&$_POST["do"]=="exit")$this->destroySession();
+  		if(isset($_GET["do"])&&$_GET["do"]=="exit")$this->destroySession();  //退出
   		$data["login_result"]=0; //初始化登陆结果
-  		if(isset($_POST["id_number"])&&isset($_POST["password"]))//登陆
+  		if(isset($_POST["id_number"])&&isset($_POST["password"])&&$_POST["id_number"]!=""&&$_POST["password"]!="")//登陆
 		{
 			$logresult=$this->user_model->user_login($_POST["id_number"],$_POST["password"]);
 			if($logresult==-1)
@@ -36,13 +36,24 @@ class IndexPage extends base_controller {
 			}
 			else
 			{	
-				//登陆成功
-				$data["login_result"]=1;
-				$data["user"]=$logresult;
-				$this->putSession($logresult);
+				if($logresult["Autority"]=="4")
+				{
+					$this->putSession($logresult);
+				}
+				else
+				{
+					$data["login_result"]=-1;//登陆失败
+				}
+				
 			}
 		}
-		
+		$tempUser=$this->getLogegUser();
+		if($tempUser!=-1)
+		{
+				//登陆成功
+				$data["login_result"]=1;
+				$data["user"]=$tempUser;
+		}
 		
 	$data['title'] = 'Our System'; //页面标题
 	$data['latest_notices']=$this->hospital_model->getTableByOrderLimit("Notice",array(),array("Date"=>"desc"),0,5); //拉取公告
