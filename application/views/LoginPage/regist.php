@@ -31,7 +31,7 @@
   </nav>
 </div>
    <div id="maincontainer">
-        <form role="form" onSubmit="return check();" action="" method="post" class="form-control form-horizontal" id="regist-form">
+        <form role="form" onSubmit="return check_regist()" action="" method="post" class="form-control form-horizontal" id="regist-form">
             <div class="form-group">
                 <label for="userid" class="col-md-3 control-label">身份证号</label>
                 <div class="col-md-8">
@@ -155,14 +155,21 @@
                   $("#hintinfo").text('');
                 }
               });
-              function check(){
-				  alert("????");
-				  return false;
-                $("#hintinfo").text('不能为空，请重新输入');
-                return true;
-              }
-
             })
+            function check_regist(){
+              var inp1=$("#userid").val();
+              var inp2=$("#truename").val();
+              var inp3=$("#password").val();
+              var inp4=$("#password1").val();
+              var inp5=$("#phonenumber").val();
+
+                if (inp1==''||inp2==''||inp3==''||inp4==''||inp5=='') {
+                  $("#hintinfo").text('不能为空，请输入未填信息');
+                  return false;
+              };
+                
+                  return true;
+              }
         </script>
 
     </div>
