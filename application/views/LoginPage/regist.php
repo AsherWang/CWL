@@ -10,6 +10,28 @@
 </head>
 
 <body>
+   <div id="header">
+   <nav class="navbar navbar-inverse" role="navigation" id="logo">
+   
+     <div class="navbar-header">
+       <a class="navbar-brand" href="">CWL全国统一预约平台</a>
+     </div>
+     
+     <div>
+       <ul class="nav navbar-nav">
+         <li><a href="<?php echo base_url();?>">首页</a></li>
+         <li><a href="<?php echo base_url();?>RegUserPage">预约挂号</a></li>
+         <li><a href="NoticePage">查看公告</a></li>
+       </ul>
+       <ul class="nav navbar-nav navbar-right" id="logo1">
+        
+        <li class="active"><a>注册后才可以预约哦！</a></li>
+      </ul>
+     
+   </div>
+ </nav>
+
+</div>
   
    <div id="maincontainer">
         <form role="form" onSubmit="return check_regist()" action="" method="post" class="form-control form-horizontal" id="regist-form">

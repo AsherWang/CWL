@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * @Author: Asher
  * @Date:   2014-12-01 08:45:30
@@ -25,9 +25,9 @@ class IndexPage extends base_controller {
   //IndexPage/index
   public function Index()
   { 
-  		if(isset($_POST["do"])&&$_POST["do"]=="exit")$this->destroySession();
+  		if(isset($_GET["do"])&&$_GET["do"]=="exit")$this->destroySession();  //退出
   		$data["login_result"]=0; //初始化登陆结果
-  		if(isset($_POST["id_number"])&&isset($_POST["password"]))//登陆
+  		if(isset($_POST["id_number"])&&isset($_POST["password"])&&$_POST["id_number"]!=""&&$_POST["password"]!="")//登陆
 		{
 			$logresult=$this->user_model->user_login($_POST["id_number"],$_POST["password"]);
 			if($logresult==-1)
@@ -36,11 +36,24 @@ class IndexPage extends base_controller {
 			}
 			else
 			{	
+				if($logresult["Autority"]=="4")
+				{
+					$this->putSession($logresult);
+				}
+				else
+				{
+					$data["login_result"]=-1;//登陆失败
+				}
+				
+			}
+		}
+		$tempUser=$this->getLogegUser();
+		if($tempUser!=-1)
+		{
 				//登陆成功
 				$data["login_result"]=1;
-				$data["user"]=$logresult;
-				$this->putSession($logresult);
-			}
+				$data["user"]=$tempUser;
+				if($tempUser["user_type"]!=4)$data["login_result"]=0;
 		}
 		
 		
@@ -48,14 +61,13 @@ class IndexPage extends base_controller {
 	$data['latest_notices']=$this->hospital_model->getTableByOrderLimit("Notice",array(),array("Date"=>"desc"),0,5); //拉取公告
    $data['hospitals']= $this->hospital_model->getTableByOrderLimit("hospital",array(),array(),0,6);//拉取热门医院，= =
    $data['departments']= $this->hospital_model->getTableByOrderLimit("department",array(),array(),0,6);  //拉取科室，  = =
-   $temp=$this->hospital_model->hospital_type();
-   $data["type_list"]=$this->hospital_model->hospital_type();//拉取类型列表
-   $data["area_list"]=$this->hospital_model->hospital_address();//拉取地区列表
+   //$temp=$this->hospital_model->hospital_type();
+   $data["type_list"]=$this->CombineArray($this->hospital_model->hospital_type(),"Type");
+   $data["area_list"]=$this->CombineArray($this->hospital_model->hospital_area(),"Area");//拉取地区列表
 
    
    //载入页面模块
     $this->load->view('IndexPage/Index', $data);
-   // $this->load->view('templates/footer');
   }
 
   //IndexPage/login

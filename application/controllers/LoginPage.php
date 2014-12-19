@@ -8,7 +8,8 @@ class LoginPage extends base_controller {
   }
   public function Index()
   {
-	  $this->checkSession();
+	  $data["error"]="";	
+	  if($this->isSessionExists())$this->jumpSession();
 	  if(isset($_POST["ID"])&&$_POST["ID"]!=""
 	   &&isset($_POST["password"])&&$_POST["password"]!=""
 	   &&isset($_POST["choose"])&&$_POST["choose"]!="")
@@ -46,7 +47,7 @@ class LoginPage extends base_controller {
 	  */
 	  //如果有session，那么跳转到他该去的页面，根据用户类型
 	   $data["reg_result"]=1; 
-	   $this->checkSession();
+	   if($this->isSessionExists())$this->jumpSession();
 	  if(isset($_POST["id_number"])&&isset($_POST["name"])&&isset($_POST["password"])&&isset($_POST["phonenumber"]))
 	  {
 		  if($this->user_model->IsIDnumberExist($_POST["id_number"]))
@@ -56,8 +57,8 @@ class LoginPage extends base_controller {
 		  else
 		  {
 			  $info=array("ID_number"=>$_POST["id_number"],
-			  				"Password"=>$_POST["name"],
-							"Name"=>$_POST["password"],
+			  				"Password"=>$_POST["password"],
+							"Name"=>$_POST["name"],
 							"Phone"=>$_POST["phonenumber"]);
 			$newId=$this->user_model->insert_user($info);
 			 if($newId==-1){
@@ -65,8 +66,9 @@ class LoginPage extends base_controller {
 			 }
 			 else
 			 {
-				$this->putSession($this->user_model->user_login($_POST["id_number"],$_POST["password"]));
-				 $this->checkSession();
+				 $userData=$this->user_model->user_login($_POST["id_number"],$_POST["password"]);
+				 $this->putSession($userData);
+				 $this->jumpSession();
 			 }
 		  }
 	  }

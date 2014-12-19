@@ -13,17 +13,28 @@ class TestControl extends CI_Controller {
     $this->load->helper('url');
 //	$this->load->model('schedule_model');
 //	$this->load->model('order_model');
-//	$this->load->library('session');
+	$this->load->library('session');
 	$this->load->model('hospital_model');
   }
+  	protected function CombineArray($array,$name)
+	{
+		$result=array();
+		$i=0;
+		foreach($array as $key=>$value)
+		{
+			$result[$i]=$value[$name];
+			$i++;
+		}
+		return $result;
+	}
 
   //SuperManagerPage/index
   public function Index()
   {
 	  
-	$temp=$this->hospital_model->hospital_address();
+	$temp=$this->hospital_model->hospital_type();
 	
-	$data["value"]=$temp[0];
+	$data["value"]=$this->session->all_userdata();
      $this->load->view('TestPage/Index', $data);
   }
 }

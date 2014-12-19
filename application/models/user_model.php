@@ -75,6 +75,11 @@
            return $this->getAFiledByNameOfATable($userId,"Valid_Date","user");
        }
 
+
+		public function get_regofficeuser_of_hosiptal($hospital_ID)
+		{
+			return $this->getTable("user",array("Hospital_ID"=>$hospital_ID,"Autority"=>3));
+		}
        //checked
         //用户封禁,参数要求(用户id，封禁时长/天),出错返回-1
         public function MakeUnvalid($userId,$day)
@@ -95,7 +100,7 @@
         {
             if($ID_number==null||$paswd==null)return-1;
 			$re= $this->getTable("user",array("ID_number"=>$ID_number,"Password"=>$paswd));
-			if($re==-1)
+			if($re==-1||count($re)==0)
 			{
 				return -1;
 			}
