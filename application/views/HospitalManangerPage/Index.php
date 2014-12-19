@@ -25,10 +25,9 @@
       </div>
       <div style="float: left">
           <ul style="list-style:none" contenteditable="true">
-              <li><a class="btn btn-primary btn-sm" style="width:400px" href="#">本院人员管理</a></li>
-              <li><a class="btn btn-primary btn-sm" style="width:400px" href="#">医生出诊信息</a></li>
+              <li><a class="btn btn-primary btn-sm" style="width:400px" href="">本院人员管理</a></li>
               <li><a class="btn btn-primary btn-sm" style="width:400px" href="#">医院号源管理</a></li>
-              <li><a class="btn btn-primary btn-sm" style="width:400px" href="#">医院公告管理</a></li>
+              <li><a class="btn btn-primary btn-sm" style="width:400px" href="usermanage">医院公告管理</a></li>
           </ul>
       </div>
   </div>

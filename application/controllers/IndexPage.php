@@ -25,7 +25,6 @@ class IndexPage extends base_controller {
   //IndexPage/index
   public function Index()
   { 
-
   		if(isset($_GET["do"])&&$_GET["do"]=="exit")$this->destroySession();  //退出
   		$data["login_result"]=0; //初始化登陆结果
   		if(isset($_POST["id_number"])&&isset($_POST["password"])&&$_POST["id_number"]!=""&&$_POST["password"]!="")//登陆

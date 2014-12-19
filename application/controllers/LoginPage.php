@@ -8,6 +8,7 @@ class LoginPage extends base_controller {
   }
   public function Index()
   {
+	  $data["error"]="";	
 	  $this->checkSession();
 	  if(isset($_POST["ID"])&&$_POST["ID"]!=""
 	   &&isset($_POST["password"])&&$_POST["password"]!=""
