@@ -1,32 +1,172 @@
 <?php
-/**
- * @Author: Asher
- * @Date:   2014-12-01 08:54:25
- * @Last Modified by:   Asher
- * @Last Modified time: 2014-12-01 16:51:18
- */
-//这里将是首页的位置了
-function PagesFunctions()
-{
-     date_default_timezone_set('Asia/Shanghai'); 
-    return "<div style='border:1px solid #00f'>".
-            date('l dS \of F Y h:i:s A').
-            "<br>Hi~this ia the SuperManagerPage of our system".
-            "<br>页面要实现的功能:<br>".
-            "3.想起来再说<br>".
-            "</div>";
-}
+//管理用户的页面
 ?>
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title><?php echo $title; ?></title>
-    </head>
-    <body>
-    <?php
-         echo PagesFunctions();
-    ?>
-    <br>
-    </body>
-</html>
+<link rel="stylesheet" type="text/css" href='<?php echo base_url().'/res/css/superManager.css'?>'>
+<div class="row">
+    <div id="ManagerTitle">超级管理员，你好</div>
+</div>
+<div class="row">
+    <div class="col-md-2 panel" id="ManagerControlPanel">
+        <div class="PanelItem">
+            <p href="#" class="PanelLink">管理网站用户</p>
+        </div>
+        <div class="PanelItem">
+            <p href="#" class="PanelLink">管理网站医院</p>
+        </div>
+        <div class="PanelItem">
+            <p href="#" class="PanelLink">回到主页面</p>
+        </div>
+    </div>
+    <div class="col-md-7 col-md-offset-1">
+        <div class="row" id="SearchUserDiv">
+            <div class="col-md-2" id="SearchUserLabelCol"><label>查找用户</label></div>
+            <div class="col-md-7">
+                <input type="text" class="form-control" id="SearchUserInput"/>
+            </div>
+            
+        </div>
+        <div class="row" id="UserListDiv">
+            <div class="col-md-3 UserColDiv">
+                <table class="table table-striped">
+                    <tr>
+                        <td>小耿</td>
+                        <td>
+                            <label>x</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>大力</td>
+                        <td>
+                            <label>x</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>话痨</td>
+                        <td>
+                            <label>x</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>小耿</td>
+                        <td>
+                            <label>x</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>大力</td>
+                        <td>
+                            <label>x</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>话痨</td>
+                        <td>
+                            <label>x</label>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-1 UserHrCol">
+                <table class="UserHr">
+                    <tr><td></td></tr>
+                </table>
+            </div>
+            <div class="col-md-3 UserCol">
+                <table class="table table-striped">
+                    <tr>
+                        <td>小耿</td>
+                        <td>
+                            <label>x</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>大力</td>
+                        <td>
+                            <label>x</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>话痨</td>
+                        <td>
+                            <label>x</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>小耿</td>
+                        <td>
+                            <label>x</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>大力</td>
+                        <td>
+                            <label>x</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>话痨</td>
+                        <td>
+                            <label>x</label>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-1 UserHrCol">
+                <table class="UserHr">
+                    <tr><td></td></tr>
+                </table>
+            </div>
+            <div class="col-md-3 UserCol">
+                <table class="table table-striped">
+                    <tr>
+                        <td>小耿</td>
+                        <td>
+                            <label>x</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>大力</td>
+                        <td>
+                            <label>x</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>话痨</td>
+                        <td>
+                            <label>x</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>小耿</td>
+                        <td>
+                            <label>x</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>大力</td>
+                        <td>
+                            <label>x</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>话痨</td>
+                        <td>
+                            <label>x</label>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="row" id="ManagerBtnDiv">
+            <div class="col-md-2 col-md-offset-1 HowToUseText">点击x可以封禁用户</div>
+            
+            <input class="col-md-1 col-md-offset-4 form-contorl btn btn-default ManagerBtn" value="<" id="ManagerPrePageBtn">
+            <input class="col-md-1 form-contorl btn btn-default ManagerBtn" value=">" id="ManagerNextPageBtn">
+            
+        </div>
+        <div class="row" id="ExTextDiv">
+            <div class="col-md-2 col-md-offset-6 HowToUseText" style="margin-right:0px; padding-left:65px">上一页</div>
+            <div class="col-md-2 HowToUseText" style="margin-left:0px; padding-left:32px">下一页</div>
+        </div>
+    </div>
+</div>

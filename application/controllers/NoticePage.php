@@ -63,6 +63,11 @@
 			}
 		}
 
+		public function success()
+		{
+			$this->load->view('NoticePage/success');
+		}
+
 	}
 
 

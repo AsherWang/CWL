@@ -239,11 +239,20 @@
                 <div class="querystyle">
                   <span class="querytitle2">地区</span>
                   <div id="area">
-                    <select name="search_area">
+                    <select name="area">
                       <option value="null">请选择</option>
-                      <?php foreach ($area_list as $key => $value){ ?>
-                          <option value="<?php echo $value ?>"><?php echo $value ?></option>
-                      <?php } ?>
+                      <option value="a1">北京市</option>
+                      <option value="a2">上海市</option>
+                      <option value="a3">天津市</option>
+                      <option value="a4">广州省</option>
+                      <option value="a5">河北省</option>
+                      <option value="a6">福建省</option>
+                      <option value="a7">浙江省</option>
+                      <option value="a8">安徽省</option>
+                      <option value="a9">山西省</option>
+                      <option value="a10">甘肃省</option>
+                      <option value="a11">湖南省</option>
+                      <option value="a12">黑龙江省</option>
                     </select>
                   </div>
                 </div>
@@ -254,12 +263,11 @@
                 <div class="querystyle">
                   <span class="querytitle2">类型</span>
                   <div id="type">
-                    <select name="search_type">
-                       <option value="null">请选择</option>
-                       <?php foreach ($type_list as $key => $value){ ?>
-                          <option value="<?php echo $value ?>"><?php echo $value ?></option>
-                        <?php } ?>
-                     
+                    <select name="type">
+                      <option value="null">请选择</option>
+                      <option value="专科">专科医院</option>
+                      <option value="大型综合">大型综合医院</option>
+                      <option value="卫生部直属">卫生部直属医院</option>
                     </select>
                   </div>
 
@@ -271,18 +279,17 @@
                 <div class="querystyle">
                  <span class="querytitle2">等级</span>
                  <div id="class">
-                  <select name="search_level">
-                     <option value="null">请选择</option>
-                     <option value="一级甲等">一级甲等</option>
-                     <option value="二级甲等">二级甲等</option>
-                     <option value="三级甲等">三级甲等</option>
-                     <option value="一级乙等">一级乙等</option>
-                     <option value="二级乙等">二级乙等</option>
-                     <option value="三级乙等">三级乙等</option>
-                     <option value="一级丙等">一级丙等</option>
-                     <option value="二级丙等">二级丙等</option>
-                     <option value="三级丙等">三级丙等</option>
-                      
+                  <select name="class">
+                    <option value="null">请选择</option>
+                    <option value="1">一级甲等</option>
+                    <option value="2">二级甲等</option>
+                    <option value="3">三级甲等</option>
+                    <option value="4">一级乙等</option>
+                    <option value="5">二级乙等</option>
+                    <option value="6">三级乙等</option>
+                    <option value="7">一级丙等</option>
+                    <option value="8">二级丙等</option>
+                    <option value="9">三级丙等</option>
                   </select>
                 </div>
 
@@ -361,7 +368,7 @@
         <div class="hothospital">
           <img src="<?php echo base_url().'/res/images/hop'."$i".'.jpg'?>" width="128" height="96" /> 
           <strong>
-            <a href="<?php echo base_url()."RegUserPage/hsp_introduction/".$hospital_item['ID'] ?>"><?php echo $hospital_item['Name'] ?>
+            <a href="#"><?php echo $hospital_item['Name'] ?>
               [<?php echo $hospital_item['Level'] ?>]</a></strong>
               <p>电话:<abbr title="hhh"><?php echo $hospital_item['Phone'] ?></abbr><br />
                 地址:<abbr title="<?php echo $hospital_item['Address'] ?>"><?php echo $hospital_item['Address'] ?></abbr><br />
@@ -382,7 +389,7 @@
           <div class="hothospital">
             <img src="<?php echo base_url().'/res/images/hop'."$j".'.jpg'?>" width="128" height="96" /> 
             <strong>
-              <a href="<?php echo base_url()."RegUserPage/hsp_introduction/".$department_item['ID'] ?>"><?php echo $department_item['Name'] ?>
+              <a href="#"><?php echo $department_item['Name'] ?>
                 [<?php echo $department_item['Type'] ?>]</a></strong>
                 <p>
                   详细信息:<?php $Info1 = substr($department_item['Info'],0,90); echo $Info1.'。。。';  ?><br />

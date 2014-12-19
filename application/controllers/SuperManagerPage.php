@@ -5,8 +5,8 @@
  * @Last Modified by:   Asher
  * @Last Modified time: 2014-12-01 16:32:39
  */
-
-class SuperManagerPage extends CI_Controller {
+require_once("base_controller.php");
+class SuperManagerPage extends base_controller {
   public function __construct()
   {
     parent::__construct();
@@ -19,11 +19,13 @@ class SuperManagerPage extends CI_Controller {
   //SuperManagerPage/index
   public function Index()
   {
-   // $data['news'] = $this->news_model->get_news();
+    $userData = $this->getLogegUser();
+    $data['userData'] = $userData;
+
     $data['title'] = 'SuperManagerPage';
-   // $this->load->view('templates/header', $data);
+    $this->load->view('templates/header', $data);
     $this->load->view('SuperManagerPage/Index', $data);
-  //  $this->load->view('templates/footer');
+    $this->load->view('templates/footer');
   }
 
 }?>
