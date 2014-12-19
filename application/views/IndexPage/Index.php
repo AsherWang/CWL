@@ -239,20 +239,11 @@
                 <div class="querystyle">
                   <span class="querytitle2">地区</span>
                   <div id="area">
-                    <select name="area">
+                    <select name="search_area">
                       <option value="null">请选择</option>
-                      <option value="a1">北京市</option>
-                      <option value="a2">上海市</option>
-                      <option value="a3">天津市</option>
-                      <option value="a4">广州省</option>
-                      <option value="a5">河北省</option>
-                      <option value="a6">福建省</option>
-                      <option value="a7">浙江省</option>
-                      <option value="a8">安徽省</option>
-                      <option value="a9">山西省</option>
-                      <option value="a10">甘肃省</option>
-                      <option value="a11">湖南省</option>
-                      <option value="a12">黑龙江省</option>
+                      <?php foreach ($area_list as $area_item){ ?>
+                          <option value="<?php echo $area_item[''] ?>"><?php echo $area_item[''] ?></option>
+                      <?php } ?>
                     </select>
                   </div>
                 </div>
