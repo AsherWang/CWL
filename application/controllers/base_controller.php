@@ -86,7 +86,7 @@ class base_controller extends CI_Controller {
 		  return -1;
 	}
 	
-	
+	 
   	protected function CombineArray($array,$name)
 	{
 		$result=array();
