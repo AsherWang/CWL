@@ -115,7 +115,7 @@
                 <div class="choose_date">请输入图片验证码</div>
                 <div class="row ver_code">
                     <input class="ver_text" type="text"/>
-                    <span style="color:#888888;margin-left:50px;">这里放一个图片验证码(四个字符)</span>
+                    <img src="<?php echo base_url()?>res/images/authcode.php" style="color:#888888;margin-left:50px;"/>
                 </div>
             <!--验证码输入-->
                 <div class="know_confirm">
