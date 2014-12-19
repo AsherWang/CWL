@@ -241,8 +241,8 @@
                   <div id="area">
                     <select name="search_area">
                       <option value="null">请选择</option>
-                      <?php foreach ($area_list as $area_item){ ?>
-                          <option value="<?php echo $area_item['Area'] ?>"><?php echo $area_item['Area'] ?></option>
+                      <?php foreach ($area_list as $key => $value){ ?>
+                          <option value="<?php echo $value ?>"><?php echo $value ?></option>
                       <?php } ?>
                     </select>
                   </div>
@@ -256,8 +256,8 @@
                   <div id="type">
                     <select name="search_type">
                        <option value="null">请选择</option>
-                       <?php foreach ($type_list as $type_item){ ?>
-                          <option value="<?php echo $type_item['Type'] ?>"><?php echo $type_item['Type'] ?></option>
+                       <?php foreach ($type_list as $key => $value){ ?>
+                          <option value="<?php echo $value ?>"><?php echo $value ?></option>
                         <?php } ?>
                      
                     </select>
@@ -273,9 +273,16 @@
                  <div id="class">
                   <select name="search_level">
                      <option value="null">请选择</option>
-                    <?php foreach ($level_list as $level_item){ ?>
-                          <option value="<?php echo $level_item['Level'] ?>"><?php echo $level_item['Level'] ?></option>
-                      <?php } ?>
+                     <option value="一级甲等">一级甲等</option>
+                     <option value="二级甲等">二级甲等</option>
+                     <option value="三级甲等">三级甲等</option>
+                     <option value="一级乙等">一级乙等</option>
+                     <option value="二级乙等">二级乙等</option>
+                     <option value="三级乙等">三级乙等</option>
+                     <option value="一级丙等">一级丙等</option>
+                     <option value="二级丙等">二级丙等</option>
+                     <option value="三级丙等">三级丙等</option>
+                      
                   </select>
                 </div>
 
