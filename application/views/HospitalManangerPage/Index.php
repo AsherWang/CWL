@@ -29,11 +29,11 @@
           </div>
           <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                  <li class="active"><a href="#">医院信息修改</a></li>
+                  <li class="active"><a href="HospitalManangerPage">医院信息修改</a></li>
                   <li class="divider-vertical"></li>
-                  <li><a href="#about">挂号处人员管理</a></li>
-                  <li><a href="#contact">医院公告管理</a></li>
-                  <li><a href="#contact">退出管理</a></li>
+                  <li><a href="HospitalManangerPage/UserManage">挂号处人员管理</a></li>
+                  <li><a href="HospitalManangerPage">医院公告管理</a></li>
+                  <li><a href="?do=exit">退出管理</a></li>
 
               </ul>
 
