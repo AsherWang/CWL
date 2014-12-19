@@ -16,7 +16,7 @@ class HospitalManangerPage extends base_controller {
     //首页上会包括功公告，所以会有
     //
    $this->load->model('notice_model');
-   $this->load->model('order_model');
+   $this->load->model('hospital_model');
    $this->load->model('user_model');
    $this->load->helper('url');
   }
@@ -38,16 +38,20 @@ class HospitalManangerPage extends base_controller {
 	$this->load->view('HospitalManangerPage/Index', $data);
 	   $this->load->view('HospitalManangerPage/notice');
   }
-  public function doctorinfo()
-  {
-	  $data['title'] = '医院管理员-医生管理';
-	  $this->load->view('HospitalManangerPage/Index', $data);
-	  $this->load->view('HospitalManangerPage/doctorinfo');
-  }
-  
+
+  //首页默认的时候医院信息的修改功能
     public function Index()
   {
-	  $data['title'] = '医院管理员-医生管理';
+	 if(isset($_GET["do"])&& $_GET["do"]=="exit")
+	 {
+		 $this->destroySession();
+	 }
+	if(!$this->isSessionExists())redirect("");
+	  
+	  $data['title'] = '医院管理员-医院信息修改';
+	  $loggedUser=$this->getLogegUser();
+	  $data["h_info"]=$this->hospital_model->get_hospital(array("ID"=> $loggedUser["hospital_id"]));
+	  $data["value"]=  $data["h_info"][0];
 	  $this->load->view('HospitalManangerPage/Index', $data);
 	  $this->load->view('HospitalManangerPage/InfoModify');
   }

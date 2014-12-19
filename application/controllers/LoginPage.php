@@ -9,7 +9,7 @@ class LoginPage extends base_controller {
   public function Index()
   {
 	  $data["error"]="";	
-	  $this->checkSession();
+	  if($this->isSessionExists())$this->jumpSession();
 	  if(isset($_POST["ID"])&&$_POST["ID"]!=""
 	   &&isset($_POST["password"])&&$_POST["password"]!=""
 	   &&isset($_POST["choose"])&&$_POST["choose"]!="")
@@ -47,7 +47,7 @@ class LoginPage extends base_controller {
 	  */
 	  //如果有session，那么跳转到他该去的页面，根据用户类型
 	   $data["reg_result"]=1; 
-	   $this->checkSession();
+	   if($this->isSessionExists())$this->jumpSession();
 	  if(isset($_POST["id_number"])&&isset($_POST["name"])&&isset($_POST["password"])&&isset($_POST["phonenumber"]))
 	  {
 		  if($this->user_model->IsIDnumberExist($_POST["id_number"]))

@@ -22,11 +22,12 @@ class base_controller extends CI_Controller {
 		用户ID   id
 		身份证号	id_number
 		是否登陆	is_logged
+		医院的id  hospital_id
 	}
 */
 	
 	//如果已经登录那么就自动跳转到响应界面，如果没有session记录就返回false，根据需要调整重定向的位置
-	protected function checkSession()
+	protected function jumpSession()
 	{
         if($this->session->userdata('is_logged'))
 		{
@@ -51,7 +52,7 @@ class base_controller extends CI_Controller {
 				$this->destroySession();
 			}
         }
-		return false;
+		redirect("");
 	}
 	
 	protected function destroySession()
@@ -71,8 +72,9 @@ class base_controller extends CI_Controller {
 					'user_type'=>$logresult["Autority"],
 					'valid_datetime'=>$validdate,
 					'user_Credit_Rate'=>$logresult["Credit_Rate"],
-					'is_logged'=>1,
-					'is_valid'=> strtotime($currentdate)>=strtotime($validdate)
+					'is_logged'=>true,
+					'is_valid'=> strtotime($currentdate)>=strtotime($validdate),
+					'hospital_id'=>$logresult["Hospital_ID"]
 				);
 		$this->session->set_userdata($sessionDate);		
 	}
@@ -97,6 +99,13 @@ class base_controller extends CI_Controller {
 		}
 		return $result;
 	}
+	
+	protected function isSessionExists()
+	{
+		return 	$this->session->userdata('is_logged');
+	}
+	
+	
 	
 }
 ?>
