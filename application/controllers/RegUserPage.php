@@ -57,11 +57,11 @@ class RegUserPage extends CI_Controller {
     $this->load->view('RegUserPage/search_by_dep', $data);
     $this->load->view('templates/footer');
   }
-  public function Hsp_doctor_list()
+  public function Hsp_doctor_list($h_id=1)
   {
    // $data['news'] = $this->news_model->get_news();
    // $data['department_list'] = $this->hospital_model->get_hospital($search_data);
-    $data['title'] = 'Hsp_doctor_list';
+    $data['title'] = $h_id;
     $this->load->view('templates/header', $data);
     $this->load->view('RegUserPage/Hsp_doctor_list', $data);
     $this->load->view('templates/footer');
