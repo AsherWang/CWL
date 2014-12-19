@@ -20,35 +20,17 @@ class HospitalManangerPage extends base_controller {
    $this->load->model('user_model');
    $this->load->helper('url');
   }
-
-  public function Index()
-  {
-    $data['title'] = '医院管理员-用户管理';
-   // $data['orders_from_patient']= $this->order_model->get_orders_from_patient();
-  //  $data['orders_from_doctor']= $this->order_model->get_orders_from_doctor();
-  //  $data['orders']=$this->order_model->get_orders();
-   // $this->load->view('templates/header', $data);
-
-   //$data['users']= $this->user_model->get_users3();
-
-
-    $this->load->view('HospitalManangerPage/Index', $data);
-   $this->load->view('HospitalManangerPage/usermanage', $data);
-
-  //  $this->load->view('templates/footer');
-//aaaa
-  }
   public function Appointment()
   {
 	  $data['title'] = '医院管理员-订单管理';
 	$this->load->view('HospitalManangerPage/Index', $data);
 	   $this->load->view('HospitalManangerPage/Appointment');
   }
-  public function nummanage()
+  public function UserManagee()
   {
 	  $data['title'] = '医院管理员-号源管理';
 	$this->load->view('HospitalManangerPage/Index', $data);
-	   $this->load->view('HospitalManangerPage/nummanage');
+	   $this->load->view('HospitalManangerPage/usermanage');
   }
   public function notice()
   {
@@ -62,4 +44,13 @@ class HospitalManangerPage extends base_controller {
 	  $this->load->view('HospitalManangerPage/Index', $data);
 	  $this->load->view('HospitalManangerPage/doctorinfo');
   }
+  
+    public function Index()
+  {
+	  $data['title'] = '医院管理员-医生管理';
+	  $this->load->view('HospitalManangerPage/Index', $data);
+	  $this->load->view('HospitalManangerPage/InfoModify');
+  }
+  
+  
 }
