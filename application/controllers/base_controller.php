@@ -61,9 +61,7 @@ class base_controller extends CI_Controller {
 			redirect("");
 	}
 	
-	protected function putSession($logresult)
-	{
-		$this->session->sess_destroy();
+	protected function putSession($logresult){
 		$currentdate=date("y-m-d h:i:s");
 		$validdate=$logresult["Valid_Date"];
 		$sessionDate=array(

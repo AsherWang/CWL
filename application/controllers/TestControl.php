@@ -34,7 +34,7 @@ class TestControl extends CI_Controller {
 	  
 	$temp=$this->hospital_model->hospital_type();
 	
-	$data["value"]=$this->CombineArray($temp,"Type");
+	$data["value"]=$this->session->all_userdata();
      $this->load->view('TestPage/Index', $data);
   }
 }
