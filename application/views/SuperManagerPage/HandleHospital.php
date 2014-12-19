@@ -11,9 +11,11 @@
             <p href="#" class="PanelLink">管理网站用户</p>
         </div>
         <div class="PanelItem" id="PanelToHospitalPage">
-            <p class="PanelLink">管理网站医院</p>
+            <p class="PanelLink">查看所有医院</p>
         </div>
-
+        <div class="PanelItem" id="PanelToAddHospitalPage">
+            <p class="PanelLink">添加新医院</p>
+        </div>
         <div class="PanelItem" id="PanelToHomePage">
             <p href="#" class="PanelLink">回到主页面</p>
         </div>  
@@ -80,9 +82,9 @@
         <div class="row" id="ManagerBtnDiv">
             <div class="col-md-2 col-md-offset-1 HowToUseText">点击x可以封禁用户</div>
             
-            <input class="col-md-1 col-md-offset-3 form-contorl btn btn-default ManagerBtn" value="<" id="ManagerPrePageBtn">
-            <input class="col-md-1 form-contorl btn btn-default ManagerBtn" value=">" id="ManagerNextPageBtn">
-            <input class="col-md-2 btn btn-default AddNewHospitalBtn" value="添加医院" id="ManagerAddHospitalBtn">
+            <input type="button" class="col-md-1 col-md-offset-3 btn btn-default ManagerBtn" value="<" id="ManagerPrePageBtn">
+            <input type="button" class="col-md-1 btn btn-default ManagerBtn" value=">" id="ManagerNextPageBtn">
+            <input type="button" class="col-md-2 btn btn-default AddNewHospitalBtn" value="添加医院" id="ManagerAddHospitalBtn">
             
         </div>
         <div class="row" id="ExTextDiv">
@@ -102,5 +104,27 @@ $("#PanelToUserPage").click(function(){
 
 $("#PanelToHomePage").click(function(){
     location.href = "<?php echo base_url();?>IndexPage/";
+});
+
+$("#MAAddHospitalConfirm").click(function(){
+    var hospitalName = $("#MAHospitalName").val();
+    var hospitalLevel = $("#MAHospitalLevel").val();
+
+    $.ajax({
+        type:"POST",
+        url:"<?php echo base_url();?>SuperManagerPage/CreateHospital",
+        dataType:"html",
+        data:{"hospitalName":hospitalName, "hospitalLevel":hospitalLevel},
+        success:function(data){
+            console.log(data);
+        }
+    });
+});
+
+$("#ManagerAddHospitalBtn").click(function(){
+    location.href = "<?php echo base_url();?>SuperManagerPage/AddNewHospital"
+});
+$("#PanelToAddHospitalPage").click(function(){
+    location.href = "<?php echo base_url();?>SuperManagerPage/AddNewHospital"
 });
 </script>

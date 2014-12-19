@@ -7,10 +7,14 @@
  */
 require_once("base_controller.php");
 class SuperManagerPage extends base_controller {
+
+  public $data;
   public function __construct()
   {
     parent::__construct();
-    
+        
+    $this->data['userData'] = $this->getLogegUser();
+    $this->data['title'] = 'SuperManagerPage';
     //构造函数时载入数据的model类，对应models目录下的news_model
     //s 
    //$this->load->model('notice_model');
@@ -19,22 +23,36 @@ class SuperManagerPage extends base_controller {
   //SuperManagerPage/index
   public function Index()
   {
-    $userData = $this->getLogegUser();
-    $data['userData'] = $userData;
-
-    $data['title'] = 'SuperManagerPage';
-    $this->load->view('templates/header', $data);
+    $this->load->view('templates/header', $this->data);
     $this->load->view('SuperManagerPage/Index', $data);
     $this->load->view('templates/footer');
   }
 
   public function HandleHospital()
   {
-    $data['userData'] = $this->getLogegUser();
-
-    $data['title'] = 'SuperManagerPage';
-    $this->load->view('templates/header', $data);
-    $this->load->view('SuperManagerPage/HandleHospital', $data);
+    $this->load->view('templates/header', $this->data);
+    $this->load->view('SuperManagerPage/HandleHospital', $this->data);
     $this->load->view('templates/footer');
   }
+
+  public function AddNewHospital()
+  {
+    $this->load->view('templates/header', $this->data);
+    $this->load->view('SuperManagerPage/AddNewHospital', $this->data);
+    $this->load->view('templates/footer');
+  }
+
+  public function CreateHospital()
+  {
+    $this->load->library('input');
+    if($hospitalName = $this->input->post('hospitalName'))
+    {
+      $data['title'] = "yes";
+      echo "添加成功";
+    }
+    //$hospitalLevel =$this->input->post('hospitalLevel');
+
+
+  }
+
 }?>

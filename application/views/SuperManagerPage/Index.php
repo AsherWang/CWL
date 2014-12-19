@@ -11,9 +11,11 @@
             <p href="#" class="PanelLink">管理网站用户</p>
         </div>
         <div class="PanelItem" id="PanelToHospitalPage">
-            <p class="PanelLink">管理网站医院</p>
+            <p class="PanelLink">查看所有医院</p>
         </div>
-
+        <div class="PanelItem" id="PanelToAddHospitalPage">
+            <p class="PanelLink">添加新医院</p>
+        </div>
         <div class="PanelItem" id="PanelToHomePage">
             <p href="#" class="PanelLink">回到主页面</p>
         </div>
@@ -182,5 +184,11 @@ $("#PanelToUserPage").click(function(){
 
 $("#PanelToHomePage").click(function(){
     location.href = "<?php echo base_url();?>IndexPage/";
+});
+$("#ManagerAddHospitalBtn").click(function(){
+    location.href = "<?php echo base_url();?>SuperManagerPage/AddNewHospital"
+});
+$("#PanelToAddHospitalPage").click(function(){
+    location.href = "<?php echo base_url();?>SuperManagerPage/AddNewHospital"
 });
 </script>
