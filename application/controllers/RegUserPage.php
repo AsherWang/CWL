@@ -26,7 +26,7 @@ class RegUserPage extends CI_Controller {
    //搜索条件
    $data["search_level"]="";  //约定对应规则
    $data["search_type"]="";
-    $data["search_area"]="";
+   $data["search_area"]="";
    
    if(isset($_GET["search_level"])&&$_GET["search_level"]!="") 
    	$data["search_level"]=$_GET["search_level"];
