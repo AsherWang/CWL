@@ -205,7 +205,7 @@ body{
 /*搜索*/
 #search{
 	position: absolute;
-	top: 350px;
+	top: 400px;
 }
 #searcher{
 	width: 700px;
@@ -243,7 +243,7 @@ body{
 /*快速预约*/
 #visit{
 	position: absolute;
-    top: 520px;
+    top: 570px;
     left: 150px;
 	background-color: #FFDEAD;
 	width: 700px;
@@ -425,7 +425,7 @@ body{
 /*公告*/
 #news{
 	position: absolute;
-    top: 520px;
+    top: 570px;
     left: 870px;
 	
 	width: 320px;
@@ -488,7 +488,7 @@ body{
 	position: absolute;
 	width: 1040px;
 	height: 520px;
-	top: 890px;
+	top: 940px;
     left: 150px;
     overflow: hidden;
     
@@ -594,7 +594,7 @@ body{
 
 #hleft{
 	position: absolute;
-	top: 900px;
+	top: 950px;
 	left: 1040px;
 	width: 30px;
 	height: 30px;
@@ -605,7 +605,7 @@ body{
 }
 #hright{
 	position: absolute;
-	top: 900px;
+	top: 950px;
 	left: 1080px;
 	width: 30px;
 	height: 30px;
@@ -621,7 +621,7 @@ body{
 /*页脚*/
 #footer{
 	position: relative;
-	top: 1020px;
+	top: 0px;
 	width: 100%;
 	height: 50px;
 	background-color: #303a40;

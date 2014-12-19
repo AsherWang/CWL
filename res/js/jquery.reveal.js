@@ -17,10 +17,10 @@
  Listener for data-reveal-id attributes
 ----------------------------*/
 
-	$('a[data-reveal-id]').live('click', function(e) {
+	$(document).on('click','.big-link', function(e) {
 		e.preventDefault();
-		var modalLocation = $(this).attr('data-reveal-id');
-		$('#'+modalLocation).reveal($(this).data());
+		var modalLocation = $(".big-link").attr('data-reveal-id');
+		$('#'+modalLocation).reveal($(".big-link").data());
 	});
 
 /*---------------------------
