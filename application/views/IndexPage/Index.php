@@ -242,7 +242,7 @@
                     <select name="search_area">
                       <option value="null">请选择</option>
                       <?php foreach ($area_list as $area_item){ ?>
-                          <option value="<?php echo $area_item[''] ?>"><?php echo $area_item[''] ?></option>
+                          <option value="<?php echo $area_item['Area'] ?>"><?php echo $area_item['Area'] ?></option>
                       <?php } ?>
                     </select>
                   </div>
@@ -254,11 +254,12 @@
                 <div class="querystyle">
                   <span class="querytitle2">类型</span>
                   <div id="type">
-                    <select name="type">
-                      <option value="null">请选择</option>
-                      <option value="专科">专科医院</option>
-                      <option value="大型综合">大型综合医院</option>
-                      <option value="卫生部直属">卫生部直属医院</option>
+                    <select name="search_type">
+                       <option value="null">请选择</option>
+                       <?php foreach ($type_list as $type_item){ ?>
+                          <option value="<?php echo $type_item['Type'] ?>"><?php echo $type_item['Type'] ?></option>
+                        <?php } ?>
+                     
                     </select>
                   </div>
 
@@ -270,17 +271,11 @@
                 <div class="querystyle">
                  <span class="querytitle2">等级</span>
                  <div id="class">
-                  <select name="class">
-                    <option value="null">请选择</option>
-                    <option value="1">一级甲等</option>
-                    <option value="2">二级甲等</option>
-                    <option value="3">三级甲等</option>
-                    <option value="4">一级乙等</option>
-                    <option value="5">二级乙等</option>
-                    <option value="6">三级乙等</option>
-                    <option value="7">一级丙等</option>
-                    <option value="8">二级丙等</option>
-                    <option value="9">三级丙等</option>
+                  <select name="search_level">
+                     <option value="null">请选择</option>
+                    <?php foreach ($level_list as $level_item){ ?>
+                          <option value="<?php echo $level_item['Level'] ?>"><?php echo $level_item['Level'] ?></option>
+                      <?php } ?>
                   </select>
                 </div>
 
@@ -359,7 +354,7 @@
         <div class="hothospital">
           <img src="<?php echo base_url().'/res/images/hop'."$i".'.jpg'?>" width="128" height="96" /> 
           <strong>
-            <a href="#"><?php echo $hospital_item['Name'] ?>
+            <a href="<?php echo base_url()."RegUserPage/hsp_introduction/".$hospital_item['ID'] ?>"><?php echo $hospital_item['Name'] ?>
               [<?php echo $hospital_item['Level'] ?>]</a></strong>
               <p>电话:<abbr title="hhh"><?php echo $hospital_item['Phone'] ?></abbr><br />
                 地址:<abbr title="<?php echo $hospital_item['Address'] ?>"><?php echo $hospital_item['Address'] ?></abbr><br />
@@ -380,7 +375,7 @@
           <div class="hothospital">
             <img src="<?php echo base_url().'/res/images/hop'."$j".'.jpg'?>" width="128" height="96" /> 
             <strong>
-              <a href="#"><?php echo $department_item['Name'] ?>
+              <a href="<?php echo base_url()."RegUserPage/hsp_introduction/".$department_item['ID'] ?>"><?php echo $department_item['Name'] ?>
                 [<?php echo $department_item['Type'] ?>]</a></strong>
                 <p>
                   详细信息:<?php $Info1 = substr($department_item['Info'],0,90); echo $Info1.'。。。';  ?><br />
