@@ -18,16 +18,18 @@
     </head>
     <body>
         <!--引用的bootstrap的输入框，有待更改调整-->
+        <form action="<?php echo base_url()?>RegUserPage/Index?search_level=<?php echo $search_level?>&search_type=<?php echo $search_type?>"method="get">
         <div class="row">
         <div class="col-md-offset-3 col-md-6 main_search">
             <div class="input-group input-group-lg">
-            <input type="text" class="form-control">
+            <input name="search_box" type="text" class="form-control" value="<?php $search_box?>">
             <span class="input-group-btn">
                 <button class="btn btn-default" type="button">search</button>
             </span>
             </div>
         </div>
         </div>
+        </form>
         <!--引用的bootstrap的输入框，有待更改调整-->
 
         <!--导航条-->
@@ -56,16 +58,36 @@
                 <td class="hsp_title">医院等级</td>
                 <td>
                     <div class="row">
-                        <a class="hsp_lev hsp_lev_choice" href="###">不限</a>
-                        <a class="hsp_lev" href="###">三级甲等</a>
-                        <a class="hsp_lev" href="###">三级乙等</a>
-                        <a class="hsp_lev" href="###">三级丙等</a>
-                        <a class="hsp_lev" href="###">二级甲等</a>
-                        <a class="hsp_lev" href="###">二级乙等</a>
-                        <a class="hsp_lev" href="###">二级丙等</a>
-                        <a class="hsp_lev" href="###">一级甲等</a>
-                        <a class="hsp_lev" href="###">一级乙等</a>
-                        <a class="hsp_lev" href="###">一级丙等</a>
+                        <a class="hsp_lev hsp_lev_choice" name="hsp_level" 
+                            href="<?php echo base_url()?>RegUserPage/Index?search_level=&search_type=<?php echo $search_type?>"
+                            >不限</a>
+                        <a class="hsp_lev" name="hsp_level"
+                            href="<?php echo base_url()?>RegUserPage/Index?search_level=三级甲等&search_type=<?php echo $search_type?>"
+                            >三级甲等</a>
+                        <a class="hsp_lev" name="hsp_level" 
+                            href="<?php echo base_url()?>RegUserPage/Index?search_level=三级乙等&search_type=<?php echo $search_type?>"
+                            >三级乙等</a>
+                        <a class="hsp_lev" name="hsp_level"
+                            href="<?php echo base_url()?>RegUserPage/Index?search_level=三级丙等&search_type=<?php echo $search_type?>"
+                            >三级丙等</a>
+                        <a class="hsp_lev" name="hsp_level"
+                            href="<?php echo base_url()?>RegUserPage/Index?search_level=二级甲等&search_type=<?php echo $search_type?>"
+                            >二级甲等</a>
+                        <a class="hsp_lev" name="hsp_level"
+                            href="<?php echo base_url()?>RegUserPage/Index?search_level=二级乙等&search_type=<?php echo $search_type?>"
+                            >二级乙等</a>
+                        <a class="hsp_lev" name="hsp_level"
+                            href="<?php echo base_url()?>RegUserPage/Index?search_level=二级丙等&search_type=<?php echo $search_type?>"
+                            >二级丙等</a>
+                        <a class="hsp_lev" name="hsp_level"
+                            href="<?php echo base_url()?>RegUserPage/Index?search_level=一级甲等&search_type=<?php echo $search_type?>"
+                            >一级甲等</a>
+                        <a class="hsp_lev" name="hsp_level"
+                            href="<?php echo base_url()?>RegUserPage/Index?search_level=一级乙等&search_type=<?php echo $search_type?>"
+                            >一级乙等</a>
+                        <a class="hsp_lev" name="hsp_level"
+                            href="<?php echo base_url()?>RegUserPage/Index?search_level=一级丙等&search_type=<?php echo $search_type?>"
+                            >一级丙等</a>
                     </div>
                 </td>
             </tr>
@@ -73,33 +95,62 @@
                 <td class="hsp_title">医院类型</td>
                 <td>
                     <div class="row">
-                        <a class="hsp_type hsp_type_choice" href="###">综合医院</a>
-                        <a class="hsp_type" href="###">对外专科</a>
-                        <a class="hsp_type" href="###">妇产科医院</a>
-                        <a class="hsp_type" href="###">皮肤科医院</a>
-                        <a class="hsp_type" href="###">不孕不育医院</a>
-                        <a class="hsp_type" href="###">中医院</a>
-                        <a class="hsp_type" href="###">口腔医院</a>
-                        <a class="hsp_type" href="###">对外综合</a>
-                        <a class="hsp_type" href="###">五官科医院</a>
-                        <a class="hsp_type" href="###">泌尿科医院</a>
-                    </div>
-                    <div class="row">
-                        <a class="hsp_type" href="###">综合医院</a>
-                        <a class="hsp_type" href="###">对外专科</a>
-                        <a class="hsp_type" href="###">妇产科医院</a>
-                        <a class="hsp_type" href="###">皮肤科医院</a>
-                        <a class="hsp_type" href="###">不孕不育医院</a>
-                        <a class="hsp_type" href="###">中医院</a>
-                        <a class="hsp_type" href="###">儿科医院</a>
-                    </div>
-                    <div class="row">
-                        <span class="hsp_type">咱们的医院类型是不是这种？</span>
+                        <a class="hsp_type"name="hsp_type" href="<?php echo base_url()?>RegUserPage/Index?search_level=<?php echo $search_level?>&search_type=">不限</a>
+                        <?php foreach ($search_type_list as $value): 
+                            foreach ($value as$hsp_type_item):?>
+                            <a class = "hsp_type" 
+                                href="<?php echo base_url()?>RegUserPage/Index?search_level=<?php echo $search_level?>&search_type=<?php echo $hsp_type_item?>" 
+                                name="hsp_type"><?php echo $hsp_type_item ?></a>
+                            <?php endforeach?>
+                        <?php endforeach ?>  
                     </div>
                 </td>
             </tr>
         </table>
         <!--选择框-->
+
+
+
+<script language="javascript">
+function markHsp(){
+    var l = document.getElementsByName("hsp_level");
+    var t = document.getElementsByName("hsp_type");
+    
+    if ("<?php echo $search_level ?>" == ""){
+        l[0].className="hsp_lev hsp_lev_choice";
+        for (var i=1; i<l.length; i++)
+            l[i].className="hsp_lev";
+    }else {
+        for (var i=0; i<l.length; i++)
+        {
+            if(l[i].innerHTML == "<?php echo $search_level ?>"){
+            l[i].className="hsp_lev hsp_lev_choice";
+            }
+            else{
+                l[i].className="hsp_lev";
+            }
+        }
+    }
+    if ("<?php echo $search_type ?>" == ""){
+        t[0].className = "hsp_type hsp_type_choice";
+        for (var j=1; j<t.length; j++)
+            t[j].className = "hsp_type";
+    }else{
+        for (var j=0; j<t.length; j++){
+        if(t[j].innerHTML=="<?php echo $search_type ?>"){
+            t[j].className="hsp_type hsp_type_choice";
+            
+        }
+        else{
+            t[j].className="hsp_type";
+            }
+        }
+    }
+}
+window.onload = markHsp;
+</script>
+
+
 
         <!--主体医院列表-->
         <table class="table table-striped table-hover hsp_table">

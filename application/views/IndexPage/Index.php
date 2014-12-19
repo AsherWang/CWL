@@ -6,9 +6,11 @@
  <link rel="stylesheet" type="text/css" href='<?php echo base_url().'/res/css/bootstrap.min.css'?>'>
  <link href='<?php echo base_url().'res/css/mainpagestyle.css'?>' rel="stylesheet" type="text/css" />
  <script src='<?php echo base_url().'res/js/jquery.js'?>'></script>
- <script type="text/javascript" src="<?php echo base_url().'res/js/jquery-1.4.4.min.js'?>"></script> 
+ 
  <script src='<?php echo base_url().'res/js/bootstrap.min.js'?>'></script>
+
  <script type="text/javascript" src="<?php echo base_url().'res/js/jquery.reveal.js'?>"></script>
+
 </head>
 
 <body>
@@ -32,7 +34,7 @@
       </ul>
       <?php } else {?>
       <ul class="nav navbar-nav navbar-right" id="logo1">
-       <li><a>XX先生</a></li>
+       <li><a></a></li>
        <li><a href="<?php echo base_url();?>LoginPage/regist">用户中心</a></li>
      </ul>
 
@@ -135,7 +137,7 @@
           <?php if($login_result==1)  {?>
           <div id="welcome">
            <div id="wtitle">欢迎回来!</div>
-           <div id="wname">X先生/女士</div>
+           <div id="wname"></div>
            <div id="wimg"><img style="width:180px;height:180px;" class="img-circle" src="<?php echo base_url().'res/images/user.jpg'?>"></div>
 
            <div id="wlog"><button id="wbut" onclick="window.location.href='<?php echo base_url();?>?do=exit'" type="button" class="btn btn-primary btn-lg">退出登录</button>
@@ -196,7 +198,7 @@
           <?php } ?>
           </div>
           <?php } ?>
-        
+      </div>
         <script type="text/javascript">
           $(document).ready(function() {
             $("#userid").blur(function(){
@@ -239,20 +241,11 @@
                 <div class="querystyle">
                   <span class="querytitle2">地区</span>
                   <div id="area">
-                    <select name="area">
-                      <option value="null">请选择</option>
-                      <option value="a1">北京市</option>
-                      <option value="a2">上海市</option>
-                      <option value="a3">天津市</option>
-                      <option value="a4">广州省</option>
-                      <option value="a5">河北省</option>
-                      <option value="a6">福建省</option>
-                      <option value="a7">浙江省</option>
-                      <option value="a8">安徽省</option>
-                      <option value="a9">山西省</option>
-                      <option value="a10">甘肃省</option>
-                      <option value="a11">湖南省</option>
-                      <option value="a12">黑龙江省</option>
+                    <select name="search_area">
+                      <option value="">请选择</option>
+                      <?php foreach ($area_list as $key => $value){ ?>
+                          <option value="<?php echo $value ?>"><?php echo $value ?></option>
+                      <?php } ?>
                     </select>
                   </div>
                 </div>
@@ -263,11 +256,11 @@
                 <div class="querystyle">
                   <span class="querytitle2">类型</span>
                   <div id="type">
-                    <select name="type">
-                      <option value="null">请选择</option>
-                      <option value="专科">专科医院</option>
-                      <option value="大型综合">大型综合医院</option>
-                      <option value="卫生部直属">卫生部直属医院</option>
+                    <select name="search_type">
+                       <option value="">请选择</option>
+                       <?php foreach ($type_list as $key => $value){ ?>
+                          <option value="<?php echo $value ?>"><?php echo $value ?></option>
+                        <?php } ?>
                     </select>
                   </div>
 
@@ -279,17 +272,17 @@
                 <div class="querystyle">
                  <span class="querytitle2">等级</span>
                  <div id="class">
-                  <select name="class">
-                    <option value="null">请选择</option>
-                    <option value="1">一级甲等</option>
-                    <option value="2">二级甲等</option>
-                    <option value="3">三级甲等</option>
-                    <option value="4">一级乙等</option>
-                    <option value="5">二级乙等</option>
-                    <option value="6">三级乙等</option>
-                    <option value="7">一级丙等</option>
-                    <option value="8">二级丙等</option>
-                    <option value="9">三级丙等</option>
+                  <select name="search_level">
+                     <option value="">请选择</option>
+                     <option value="一级甲等">一级甲等</option>
+                     <option value="二级甲等">二级甲等</option>
+                     <option value="三级甲等">三级甲等</option>
+                     <option value="一级乙等">一级乙等</option>
+                     <option value="二级乙等">二级乙等</option>
+                     <option value="三级乙等">三级乙等</option>
+                     <option value="一级丙等">一级丙等</option>
+                     <option value="二级丙等">二级丙等</option>
+                     <option value="三级丙等">三级丙等</option>
                   </select>
                 </div>
 
@@ -315,7 +308,7 @@
           <div id="startquery">
             <div class="start"><span>我要</span></div>
             <div class="go"><span>预约</span></div>
-            <div id="queryArrow"><a href="<?php echo base_url().'RegUserPage'?>" onClick="document.form.submit();"><img src="<?php echo base_url().'res/images/arrowone.png'?>" style="width:90px"/></a></div>
+            <div id="queryArrow"><a name="query"><img src="<?php echo base_url().'res/images/arrowone.png'?>" style="width:90px"/></a></div>
           </div>
 
 
@@ -340,6 +333,12 @@
 
 
 </div>
+<script type="text/javascript">
+  $(document).ready(function() {
+            $("a[name='query']").click(function(){$("#quickvisit").submit();})
+  })
+</script>
+
 <div id="myModal" class="reveal-modal">
   <img src="<?php echo base_url().'res/images/myMtitle.png'?>" style="width:600px;margin-left:90px;padding-bottom:20px;"/>        
   <img src="<?php echo base_url().'res/images/liucheng.png'?>" style="width:480px;"/>
@@ -348,12 +347,12 @@
 </div>
 
 <div id="news">
- <div id="nmore"><a href="NoticePage">more..</a></div>
+ <div id="nmore"><a href="<?php echo base_url();?>NoticePage">more..</a></div>
  <div id="firsthotnews">
     <?php foreach ($latest_notices as $notice_item): ?>
       <div class="hotnews" onMouseOver="this.style.background='url(<?php echo base_url().'/res/images/hotlable.png'?>)'" onMouseOut="this.style.background='none'">
       <div class="new">
-        <a href="<?php echo base_url()."NoticePage/".$notice_item['ID'] ?>" target="_blank"><span class="words"><?php echo $notice_item['Title'] ?><span></a>
+        <a href="<?php echo base_url()."NoticePage/view/".$notice_item['ID'] ?>" target="_blank"><span class="words"><?php echo $notice_item['Title'] ?><span></a>
       </div>
       </div>
     <?php endforeach ?>
