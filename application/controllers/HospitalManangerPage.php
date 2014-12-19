@@ -22,39 +22,63 @@ class HospitalManangerPage extends base_controller {
   }
   public function Appointment()
   {
-	  $data['title'] = '医院管理员-订单管理';
+	  $data['title'] = '订单管理';
 	$this->load->view('HospitalManangerPage/Index', $data);
 	   $this->load->view('HospitalManangerPage/Appointment');
   }
   public function UserManagee()
   {
-	  $data['title'] = '医院管理员-号源管理';
-	$this->load->view('HospitalManangerPage/Index', $data);
+	   $data['title'] = '医院管理员-用户管理';
+	  if(!$this->isSessionExists())redirect("");  //检测session
+	    $loggedUser=$this->getLogegUser();
+	   $data["admin_name"]= $loggedUser["username"];
+	  
+	   //获取此医院的挂号处用户
+	   $result=$this->user_model->get_regofficeuser_of_hosiptal( $loggedUser["hospital_id"]);
+	    $data["debug_value"]= $result;
+		$data["user_list"]= $result;
+		
+	   $this->load->view('HospitalManangerPage/Index', $data);
 	   $this->load->view('HospitalManangerPage/usermanage');
   }
   public function notice()
   {
-	  $data['title'] = '医院管理员-公告管理';
-	$this->load->view('HospitalManangerPage/Index', $data);
-	   $this->load->view('HospitalManangerPage/notice');
+	  $data['title'] = '公告管理';
+	  $this->load->view('HospitalManangerPage/Index', $data);
+	  $this->load->view('HospitalManangerPage/notice');
   }
 
   //首页默认的时候医院信息的修改功能
     public function Index()
-  {
-	 if(isset($_GET["do"])&& $_GET["do"]=="exit")
+   {
+	 if(isset($_GET["do"])&& $_GET["do"]=="exit")//检测退出
 	 {
 		 $this->destroySession();
 	 }
-	if(!$this->isSessionExists())redirect("");
-	  
-	  $data['title'] = '医院管理员-医院信息修改';
+	if(!$this->isSessionExists())redirect("");  //检测session
+	
+	 $data["value"]="1";
 	  $loggedUser=$this->getLogegUser();
-	  $data["h_info"]=$this->hospital_model->get_hospital(array("ID"=> $loggedUser["hospital_id"]));
-	  $data["value"]=  $data["h_info"][0];
+	  if(isset($_POST["h_info"])&&$_POST["h_info"]!="")
+	  {
+		  $updata_data=array();
+		  $updata_data["Info"]=$_POST["h_info"];
+		  //以及其他能加的字段...  
+		  $this->hospital_model->update_hospital($loggedUser["hospital_id"],$updata_data);
+		  $data["value"]=$updata_data;
+	  }
+	  $data['title'] = '医院信息修改';
+	  $tempInfo=$this->hospital_model->get_hospital(array("ID"=> $loggedUser["hospital_id"]));
+	  $data["h_info"]=$tempInfo[0];
+	  $data["debug_value"]=$tempInfo[0];
+	  $data["admin_name"]= $loggedUser["username"];
 	  $this->load->view('HospitalManangerPage/Index', $data);
 	  $this->load->view('HospitalManangerPage/InfoModify');
   }
+  
+  
+  
+  
   
   
 }

@@ -53,6 +53,7 @@ class IndexPage extends base_controller {
 				//登陆成功
 				$data["login_result"]=1;
 				$data["user"]=$tempUser;
+				if($tempUser["user_type"]!=4)$data["login_result"]=0;
 		}
 		
 		

@@ -63,6 +63,7 @@ class base_controller extends CI_Controller {
 	
 	protected function putSession($logresult)
 	{
+		$this->session->sess_destroy();
 		$currentdate=date("y-m-d h:i:s");
 		$validdate=$logresult["Valid_Date"];
 		$sessionDate=array(
