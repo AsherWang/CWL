@@ -25,7 +25,6 @@ class IndexPage extends base_controller {
   //IndexPage/index
   public function Index()
   { 
-
   		if(isset($_GET["do"])&&$_GET["do"]=="exit")$this->destroySession();  //退出
   		$data["login_result"]=0; //初始化登陆结果
   		if(isset($_POST["id_number"])&&isset($_POST["password"])&&$_POST["id_number"]!=""&&$_POST["password"]!="")//登陆
@@ -54,6 +53,7 @@ class IndexPage extends base_controller {
 				//登陆成功
 				$data["login_result"]=1;
 				$data["user"]=$tempUser;
+				if($tempUser["user_type"]!=4)$data["login_result"]=0;
 		}
 		
 		
@@ -62,8 +62,8 @@ class IndexPage extends base_controller {
    $data['hospitals']= $this->hospital_model->getTableByOrderLimit("hospital",array(),array(),0,6);//拉取热门医院，= =
    $data['departments']= $this->hospital_model->getTableByOrderLimit("department",array(),array(),0,6);  //拉取科室，  = =
    //$temp=$this->hospital_model->hospital_type();
-  // $data["type_list"]=$this->CombineArray($this->hospital_model->hospital_type(),"Type");
-   //$data["area_list"]=$this->CombineArray($this->hospital_model->hospital_address(),"Address");//拉取地区列表
+   $data["type_list"]=$this->CombineArray($this->hospital_model->hospital_type(),"Type");
+   $data["area_list"]=$this->CombineArray($this->hospital_model->hospital_area(),"Area");//拉取地区列表
 
    
    //载入页面模块

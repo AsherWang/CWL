@@ -34,6 +34,21 @@
 			else
 				return NULL;
 		}
+		
+	   //获取所有医院所在地区
+		function hospital_area()
+		{
+			$query=$this->db->query("SELECT DISTINCT (Area) FROM hospital");
+			if($query->num_rows()>0)
+			{
+				return $query->result_array();
+			}
+			else
+				return NULL;
+		}
+		
+		
+		
 		//根据$data数组返回医院所有信息
 		function get_hospital($data)
 		{
