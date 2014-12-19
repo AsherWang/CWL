@@ -15,6 +15,7 @@ class SuperManagerPage extends base_controller {
         
     $this->data['userData'] = $this->getLogegUser();
     $this->data['title'] = 'SuperManagerPage';
+    $this->load->model('hospital_model');
     //构造函数时载入数据的model类，对应models目录下的news_model
     //s 
    //$this->load->model('notice_model');
@@ -24,7 +25,7 @@ class SuperManagerPage extends base_controller {
   public function Index()
   {
     $this->load->view('templates/header', $this->data);
-    $this->load->view('SuperManagerPage/Index', $data);
+    $this->load->view('SuperManagerPage/Index', $this->data);
     $this->load->view('templates/footer');
   }
 
@@ -45,14 +46,20 @@ class SuperManagerPage extends base_controller {
   public function CreateHospital()
   {
     $this->load->library('input');
-    if($hospitalName = $this->input->post('hospitalName'))
-    {
-      $data['title'] = "yes";
-      echo "添加成功";
-    }
-    //$hospitalLevel =$this->input->post('hospitalLevel');
 
+    $HospitalData=array(
+      'Name'=>$this->input->post('hospitalName'),
+      'Level'=>$this->input->post('hospitalLevel'),
+      'Area'=>$this->input->post('hospitalArea'),
+      'Address'=>$this->input->post('hospitalAddress'),
+      'Phone'=>$this->input->post('hospitalPhone'),
+      'Info'=>$this->input->post('hospitalInfo'),
+      'Website'=>$this->input->post('hospitalWebsite'),
+      'Type'=>"",
+    );
 
+    $this->hospital_model->insert_hospital($HospitalData);
+    echo "添加完成";
   }
 
 }?>

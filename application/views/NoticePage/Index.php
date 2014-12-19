@@ -48,9 +48,9 @@ function createNotice()
                                 <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
                                 <button type="button" class="btn btn-primary">确认发布</button>
                             </div>
-                            </div><!-- /.modal-content -->
-                        </div><!-- /.modal-dialog -->
-                    </div><!-- /.modal -->
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
             <?php }?>
         </div>
     </div>

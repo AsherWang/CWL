@@ -64,20 +64,10 @@
 		}
 
 		//表单形式插入医院
-		function insert_hospital()
+		function insert_hospital($data)
 		{
 			$this->load->helper('url');
-
 			//从表单处获得值
-			$data=array(
-				'Name'=>$this->input->post('name'),
-				'Level'=>$this->input->post('level'),
-				'Address'=>$this->input->post('address'),
-				'Phone'=>$this->input->post('phone'),
-				'Info'=>$this->input->post('info'),
-				'Website'=>$this->input->post('website'),
-				'Type'=>$this->input->post('type')
-				);
 
 			return $this->db->insert('hospital',$data);
 		}

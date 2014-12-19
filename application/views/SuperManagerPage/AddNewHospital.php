@@ -24,18 +24,18 @@
         <div class="row NewHospitalInputDiv" id="NewHospitalNameDiv">
             <label class="col-md-2">医院大名</label>
             <div class="col-md-7">
-                <input type="text" class="form-control" />
+                <input type="text" class="form-control" id="MAHospitalName"/>
             </div>
         </div>
         <div class="row NewHospitalInputDiv" id="NewHospitalNameDiv">
             <label class="col-md-2">医院等级</label>
             <div class="col-md-7">
-                <input type="text" class="form-control" />
+                <input type="text" class="form-control" id="MAHospitalLevel"/>
             </div>
         </div>
         <div class="row NewHospitalInputDiv" id="NewHospitalNameDiv">
             <label class="col-md-2">医院所在区</label>
-            <select class="col-md-2" style="height:30px; margin-left:15px">
+            <select class="col-md-2" style="height:30px; margin-left:15px" id="MAHospitalArea">
                 <option>北京</option>
                 <option>上海</option>
                 <option>广州</option>
@@ -45,28 +45,29 @@
         <div class="row NewHospitalInputDiv" id="NewHospitalNameDiv">
             <label class="col-md-2">医院地址</label>
             <div class="col-md-7">
-                <input type="text" class="form-control" />
+                <input type="text" class="form-control" id="MAHospitalAddress" />
             </div>
         </div>
         <div class="row NewHospitalInputDiv" id="NewHospitalNameDiv">
             <label class="col-md-2">医院电话</label>
             <div class="col-md-7">
-                <input type="text" class="form-control" />
+                <input type="text" class="form-control" id="MAHospitalPhone" />
             </div>
         </div>
         <div class="row NewHospitalInputDiv" id="NewHospitalNameDiv">
             <label class="col-md-2">医院官方网址</label>
             <div class="col-md-7">
-                <input type="text" class="form-control" />
+                <input type="text" class="form-control" id="MAHospitalWebsite" />
             </div>
         </div>
         <div class="row NewHospitalInputDiv" id="NewHospitalNameDiv">
             <label class="col-md-2">医院详细介绍</label>
-            <textarea id="NewHospitalDetailTA"></textarea>
+            <textarea id="MAHospitalInfo"></textarea>
         </div>
         <div class="row NewHospitalInputDiv" id="NewHospitalBtnDiv">
-            <input type="button" class="col-md-2 col-md-offset-5 btn btn-default" value="确认添加" />
+            <input type="button" class="col-md-2 col-md-offset-5 btn btn-default" value="确认添加" id="MAAddHospitalConfirm" />
         </div>
+        <div class="row" id="alert">f</div>
     </div>
 </div>
 <script type="text/javascript">
@@ -83,23 +84,36 @@ $("#PanelToHomePage").click(function(){
 });
 
 $("#MAAddHospitalConfirm").click(function(){
-    var hospitalName = $("#MAHospitalName").val();
-    var hospitalLevel = $("#MAHospitalLevel").val();
+    var Hospital = new Object();
+    Hospital.Name = $("#MAHospitalName").val();
+    Hospital.Level = $("#MAHospitalLevel").val();
+    Hospital.Area = $("#MAHospitalArea").val();
+    Hospital.Address = $("#MAHospitalAddress").val();
+    Hospital.Phone = $("#MAHospitalPhone").val();
+    Hospital.Website = $("#MAHospitalWebsite").val();
+    Hospital.Info = $("#MAHospitalInfo").val();
 
+    //判断数据是否合理
+    //
     $.ajax({
         type:"POST",
         url:"<?php echo base_url();?>SuperManagerPage/CreateHospital",
         dataType:"html",
-        data:{"hospitalName":hospitalName, "hospitalLevel":hospitalLevel},
+        data:{
+                "hospitalName":Hospital.Name, 
+                "hospitalLevel":Hospital.Level,
+                "hospitalAddress":Hospital.Address,
+                "hospitalArea":Hospital.Area,
+                "hospitalWebsite":Hospital.Website,
+                "hospitalPhone":Hospital.Phone,
+                "hospitalInfo":Hospital.Info
+        },
         success:function(data){
-            console.log(data);
+            $("#alert").html(data);
         }
     });
 });
 
-$("#ManagerAddHospitalBtn").click(function(){
-    location.href = "<?php echo base_url();?>SuperManagerPage/AddNewHospital"
-});
 $("#PanelToAddHospitalPage").click(function(){
     location.href = "<?php echo base_url();?>SuperManagerPage/AddNewHospital"
 });

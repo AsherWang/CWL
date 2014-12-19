@@ -106,25 +106,12 @@ $("#PanelToHomePage").click(function(){
     location.href = "<?php echo base_url();?>IndexPage/";
 });
 
-$("#MAAddHospitalConfirm").click(function(){
-    var hospitalName = $("#MAHospitalName").val();
-    var hospitalLevel = $("#MAHospitalLevel").val();
-
-    $.ajax({
-        type:"POST",
-        url:"<?php echo base_url();?>SuperManagerPage/CreateHospital",
-        dataType:"html",
-        data:{"hospitalName":hospitalName, "hospitalLevel":hospitalLevel},
-        success:function(data){
-            console.log(data);
-        }
-    });
-});
 
 $("#ManagerAddHospitalBtn").click(function(){
-    location.href = "<?php echo base_url();?>SuperManagerPage/AddNewHospital"
+    
 });
+
 $("#PanelToAddHospitalPage").click(function(){
-    location.href = "<?php echo base_url();?>SuperManagerPage/AddNewHospital"
+    location.href = "<?php echo base_url();?>SuperManagerPage/AddNewHospital";
 });
 </script>
