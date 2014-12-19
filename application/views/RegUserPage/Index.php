@@ -18,16 +18,18 @@
     </head>
     <body>
         <!--引用的bootstrap的输入框，有待更改调整-->
+        <form action="<?php echo base_url()?>RegUserPage/Index?search_level=<?php echo $search_level?>&search_type=<?php echo $search_type?>"method="get">
         <div class="row">
         <div class="col-md-offset-3 col-md-6 main_search">
             <div class="input-group input-group-lg">
-            <input type="text" class="form-control">
+            <input name="search_box" type="text" class="form-control" value="<?php $search_box?>">
             <span class="input-group-btn">
                 <button class="btn btn-default" type="button">search</button>
             </span>
             </div>
         </div>
         </div>
+        </form>
         <!--引用的bootstrap的输入框，有待更改调整-->
 
         <!--导航条-->
