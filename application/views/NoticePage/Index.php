@@ -18,9 +18,9 @@ function createNotice()
                 <div class="NoticeTagText col-md-2 col-md-offset-6">发布时间</div>
                 <div class="NoticeTagText col-md-1 col-md-offset-1">作者</div>
             </div>
-            <hr />
+            <hr style="margin-top:3px"/>
             <?php foreach ($notice as $notice_item): ?>
-                <div class="row">
+                <div class="row" style="margin-top:20px">
                     <a class="NoticeListTitle col-md-4" style="float:left"  href="http://localhost:8080/CWL/NoticePage/view/<?php echo $notice_item['ID'] ?>"><?php echo $notice_item['Title'] ?></a>
                     <p class="NoticeListDate col-md-3 col-md-offset-3"><?php echo $notice_item['Date']?></p>
                     <p class="NoticeListAuthor col-md-2"><?php echo $notice_item['Name']?></p>
