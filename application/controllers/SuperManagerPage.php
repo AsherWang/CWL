@@ -31,6 +31,8 @@ class SuperManagerPage extends base_controller {
 
   public function HandleHospital()
   {
+    $data['hospitalList'] = $this->hospital_model->get_hospital_list(true, true, false, false, false, false, false, false);
+
     $this->load->view('templates/header', $this->data);
     $this->load->view('SuperManagerPage/HandleHospital', $this->data);
     $this->load->view('templates/footer');

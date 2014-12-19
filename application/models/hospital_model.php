@@ -72,6 +72,28 @@
 			return $this->db->insert('hospital',$data);
 		}
 
+		//该函数的参数均为boolean
+		function get_hospital_list($name, $level, $area, $address, $phone, $website, $info, $type)
+		{
+			$sql = "select ";
+			if($name)$sql = $sql."name, ";
+			if($level)$sql = $sql."level, ";
+			if($area)$sql = $sql."area, ";
+			if($address)$sql = $sql."address, ";
+			if($phone)$sql = $sql."phone, ";
+			if($website)$sql = $sql."website, ";
+			if($info)$sql = $sql."info, ";
+			if($type)$sql = $sql."type, ";
+
+			$sql = substr($sql, 0, strlen($sql)-2);
+			$sql = $sql." ";
+			$sql = $sql."from hospital";
+
+			$query = $this->db->query($sql);
+
+			return $query->result();
+		}
+
 		function delete_hospital($data)
 		{
 			$this->db->delete('hospital',$data);

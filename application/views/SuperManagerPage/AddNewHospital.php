@@ -109,7 +109,7 @@ $("#MAAddHospitalConfirm").click(function(){
                 "hospitalInfo":Hospital.Info
         },
         success:function(data){
-            $("#alert").html(data);
+            alert(data);
         }
     });
 });
