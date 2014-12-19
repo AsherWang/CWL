@@ -26,8 +26,9 @@ class HospitalManangerPage extends base_controller {
 	$this->load->view('HospitalManangerPage/Index', $data);
 	   $this->load->view('HospitalManangerPage/Appointment');
   }
-  public function UserManagee()
+  public function UserManage()
   {
+	   $data["pageIndex"]=2;
 	   $data['title'] = '医院管理员-用户管理';
 	  if(!$this->isSessionExists())redirect("");  //检测session
 	    $loggedUser=$this->getLogegUser();
@@ -51,6 +52,7 @@ class HospitalManangerPage extends base_controller {
   //首页默认的时候医院信息的修改功能
     public function Index()
    {
+	   $data["pageIndex"]=1;
 	 if(isset($_GET["do"])&& $_GET["do"]=="exit")//检测退出
 	 {
 		 $this->destroySession();
@@ -62,7 +64,16 @@ class HospitalManangerPage extends base_controller {
 	  if(isset($_POST["h_info"])&&$_POST["h_info"]!="")
 	  {
 		  $updata_data=array();
-		  $updata_data["Info"]=$_POST["h_info"];
+		  $updata_data["Info"]=trim($_POST["h_info"]);
+		  $updata_data["Type"]=$_POST["h_Type"];
+		  $updata_data["Name"]=$_POST["h_Name"];
+		  $updata_data["Level"]=$_POST["h_Level"];
+		  $updata_data["Area"]=$_POST["h_Area"];
+		  $updata_data["Address"]=$_POST["h_Address"];
+		  $updata_data["Phone"]=$_POST["h_Phone"];
+		  $updata_data["Website"]=$_POST["h_Website"];
+		  $updata_data["Image_Url"]=$_POST["h_Image_Url"];
+		  
 		  //以及其他能加的字段...  
 		  $this->hospital_model->update_hospital($loggedUser["hospital_id"],$updata_data);
 		  $data["value"]=$updata_data;
@@ -73,7 +84,7 @@ class HospitalManangerPage extends base_controller {
 	  $data["debug_value"]=$tempInfo[0];
 	  $data["admin_name"]= $loggedUser["username"];
 	  $this->load->view('HospitalManangerPage/Index', $data);
-	  $this->load->view('HospitalManangerPage/InfoModify');
+	  $this->load->view('HospitalManangerPage/InfoModify',$data);
   }
   
   
