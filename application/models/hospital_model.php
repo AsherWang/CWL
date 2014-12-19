@@ -50,9 +50,17 @@
 		
 		
 		//根据$data数组返回医院所有信息
-		function get_hospital($data)
+		function get_hospital($data,$key_words="")
 		{
-			return $this->getTable('hospital',$data);
+			if(!empty($data))
+			foreach ($data as $key => $value) 
+			 $this->db->where($key,$value);
+			 if($key_words!="")
+			$this->db->like('Name', $key_words, 'both');
+			$this->db->from("hospital");
+			$query = $this->db->get();
+			if($query->num_rows()<0)return -1;
+			return $query->result_array();
 		}
 
 		//表单形式插入医院
