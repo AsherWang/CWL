@@ -67,7 +67,7 @@ class LoginPage extends base_controller {
 			 else
 			 {
 				$this->putSession($this->user_model->user_login($_POST["id_number"],$_POST["password"]));
-				$this->checkSession();
+				$this->jumpSession();
 			 }
 		  }
 	  }
