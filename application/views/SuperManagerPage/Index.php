@@ -7,13 +7,14 @@
 </div>
 <div class="row">
     <div class="col-md-2 panel" id="ManagerControlPanel">
-        <div class="PanelItem">
+        <div class="PanelItem" id="PanelToUserPage">
             <p href="#" class="PanelLink">管理网站用户</p>
         </div>
-        <div class="PanelItem">
-            <p href="#" class="PanelLink">管理网站医院</p>
+        <div class="PanelItem" id="PanelToHospitalPage">
+            <p class="PanelLink">管理网站医院</p>
         </div>
-        <div class="PanelItem">
+
+        <div class="PanelItem" id="PanelToHomePage">
             <p href="#" class="PanelLink">回到主页面</p>
         </div>
     </div>
@@ -170,3 +171,16 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+$("#PanelToHospitalPage").click(function(){
+    location.href = "<?php echo base_url();?>SuperManagerPage/HandleHospital";
+});
+
+$("#PanelToUserPage").click(function(){
+    location.href = "<?php echo base_url();?>SuperManagerPage/Index";
+});
+
+$("#PanelToHomePage").click(function(){
+    location.href = "<?php echo base_url();?>IndexPage/";
+});
+</script>

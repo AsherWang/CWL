@@ -28,4 +28,13 @@ class SuperManagerPage extends base_controller {
     $this->load->view('templates/footer');
   }
 
+  public function HandleHospital()
+  {
+    $data['userData'] = $this->getLogegUser();
+
+    $data['title'] = 'SuperManagerPage';
+    $this->load->view('templates/header', $data);
+    $this->load->view('SuperManagerPage/HandleHospital', $data);
+    $this->load->view('templates/footer');
+  }
 }?>

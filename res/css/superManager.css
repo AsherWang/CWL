@@ -70,3 +70,28 @@ body{
 #ManagerNextPageBtn{
 	margin-left: 10px;
 }
+
+.HospitalHr{
+	border:1px solid #AAAAAA;
+	height:266px;
+	border-left-style:solid; 
+	border-bottom-style:none;
+	border-right-style:none;
+	border-top-style:none;
+}
+
+#SearchHospitalDiv{
+	margin-bottom: 40px;
+}
+
+#SearchHospitalLabelCol{
+	padding:0px;
+	text-align:right;
+	line-height: 30px;
+	font-size: 20px;
+}
+
+#ManagerAddHospitalBtn{
+	margin-left: 30px;
+	padding-left: 10px;
+}
