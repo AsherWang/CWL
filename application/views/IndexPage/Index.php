@@ -242,7 +242,7 @@
                   <span class="querytitle2">地区</span>
                   <div id="area">
                     <select name="search_area">
-                      <option value="null">请选择</option>
+                      <option value="">请选择</option>
                       <?php foreach ($area_list as $key => $value){ ?>
                           <option value="<?php echo $value ?>"><?php echo $value ?></option>
                       <?php } ?>
@@ -257,7 +257,7 @@
                   <span class="querytitle2">类型</span>
                   <div id="type">
                     <select name="search_type">
-                       <option value="null">请选择</option>
+                       <option value="">请选择</option>
                        <?php foreach ($type_list as $key => $value){ ?>
                           <option value="<?php echo $value ?>"><?php echo $value ?></option>
                         <?php } ?>
@@ -274,7 +274,7 @@
                  <span class="querytitle2">等级</span>
                  <div id="class">
                   <select name="search_level">
-                     <option value="null">请选择</option>
+                     <option value="">请选择</option>
                      <option value="一级甲等">一级甲等</option>
                      <option value="二级甲等">二级甲等</option>
                      <option value="三级甲等">三级甲等</option>
