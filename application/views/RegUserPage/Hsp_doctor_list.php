@@ -73,7 +73,7 @@
                     <div class="row">
                         <a class="dep_table_text" name="dep_type">不限</a>
                         <?php foreach ($department_type_list as $department_type):?>
-                            <a class="dep_table_text" name="dep_type">$department_type</a>
+                            <a class="dep_table_text" name="dep_type" href="<?php echo base_url()?>RegUserPage/hsp_doctor_list?search_department_type=<?php echo $search_department_type?>">$department_type</a>
                         <? endforeach?>
 
 <script language="javascript">
