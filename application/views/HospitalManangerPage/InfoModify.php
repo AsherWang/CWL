@@ -20,8 +20,7 @@
     网址<input name="h_Website"  value="<?php echo $h_info["Website"];?>"><br>
     介绍图片(可外链)<input name="h_Image_Url"  value="<?php echo $h_info["Image_Url"];?>"><br>
     医院简介<br />
-	<textarea name="h_info" style="text-wrap:normal; height:100px; width:400px;" >
-    <?php echo $h_info["Info"];?></textarea><br />
+	<textarea name="h_info"  style="text-wrap:normal; height:100px;width:400px; max-width:400px;" ><?php echo $h_info["Info"];?></textarea><br />
     <p>其他字段的修改<p>
     <input type="submit" value="提交更改" />
 </form>
