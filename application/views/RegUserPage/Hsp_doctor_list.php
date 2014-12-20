@@ -83,7 +83,7 @@
 <script language="javascript">
 function dep_search(){
     var d = document.getElementsByName("dep_type");
-    var t = "<?php echo $search_department_type?>";
+    var t = "<?php echo $search_department_type ?>";
     if (t == ""){
         d[0].className="dep_table_text dep_table_text_choice";
         for (var i=1; i<d.length; i++){
