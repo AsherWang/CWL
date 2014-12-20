@@ -1,0 +1,22 @@
+body{
+}
+.HeaderFooterHr{
+	border:#428bca 1px solid;
+	margin:0px;
+}
+
+#HeaderDiv{
+	padding-top: 5px;
+	margin-bottom: 15px;
+	font-family:'Microsoft YaHei';
+	background-color: #FFFFFF;
+}
+
+#FooterDiv{
+	margin-top: 300px;
+	text-align:center;
+	line-height:25px;
+	font-size:15px;
+	font-family:'Microsoft YaHei';
+
+}

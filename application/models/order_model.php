@@ -47,6 +47,14 @@
 		   return  $result=$this->getTable("order_source",array("Doctor_ID"=>$doctor_id));
 		}
 		
+		function get_order($data)
+		{
+			$re=$this->getTable("order",$data);
+			if( $re!=-1 && count($re)>0)
+				return $re;
+			return -1;
+		}
+		
 		//根据id返回号源所有的值
 		//
 		function get_order_source_by_id($id)

@@ -1,0 +1,107 @@
+body{
+}
+
+#ManagerTitle{
+	font-size: 20px;
+	font-weight: 800;
+	margin-left: 20px;
+	margin-bottom: 30px;
+}
+
+.UserHr{
+	border:1px solid #AAAAAA;
+	height:266px;
+	border-left-style:solid; 
+	border-bottom-style:none;
+	border-right-style:none;
+	border-top-style:none;
+}
+
+#SearchUserDiv{
+	margin-bottom: 40px;
+}
+
+#SearchUserLabelCol{
+	padding:0px;
+	text-align:right;
+	line-height: 30px;
+	font-size: 20px;
+}
+
+#ManagerControlPanel{
+	min-height: 100px;
+	background-color: #99ccc0;
+	border-radius: 5px;
+	margin-left: 30px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-right: 0px;
+	padding-left: 0px;
+}
+
+.PanelItem{
+	font-family: "Microsoft YaHei";
+	margin-top: 5px;
+	margin-bottom: 10px;
+	text-align: center;
+}
+.PanelItem:hover{
+	background-color: #909090;
+	cursor: pointer;
+	padding-left: 20px;
+}
+
+.PanelLink{
+	line-height: 50px;
+	font-size: 19px;
+	color:#000000;
+}
+
+.HowToUseText{
+	font-size: 7px;
+	color:#BBBBBB;
+}
+
+.ManagerBtn{
+	font-size: 15px;
+	color:#777777;
+}
+
+#ManagerNextPageBtn{
+	margin-left: 10px;
+}
+
+.HospitalHr{
+	border:1px solid #AAAAAA;
+	height:266px;
+	border-left-style:solid; 
+	border-bottom-style:none;
+	border-right-style:none;
+	border-top-style:none;
+}
+
+#SearchHospitalDiv{
+	margin-bottom: 40px;
+}
+
+#SearchHospitalLabelCol{
+	padding:0px;
+	text-align:right;
+	line-height: 30px;
+	font-size: 20px;
+}
+
+#ManagerAddHospitalBtn{
+	margin-left: 30px;
+	padding-left: 10px;
+}
+
+.NewHospitalInputDiv{
+	margin-top: 20px;
+}
+
+#MAHospitalInfo{
+	margin-left: 15px;
+	width: 400px;
+	height: 230px;
+}

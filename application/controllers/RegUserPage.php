@@ -27,7 +27,10 @@ class RegUserPage extends CI_Controller {
    $data["search_level"]="";  //约定对应规则
    $data["search_type"]="";
    $data["search_area"]="";
+   $data["search_box"]="";
    
+   if(isset($_GET["search_box"])&&$_GET["search_box"]!="") 
+   	$data["search_box"]=$_GET["search_box"];
    if(isset($_GET["search_level"])&&$_GET["search_level"]!="") 
    	$data["search_level"]=$_GET["search_level"];
    if(isset($_GET["search_type"])&&$_GET["search_type"]!="") 
@@ -39,10 +42,10 @@ class RegUserPage extends CI_Controller {
 	$search_data=array();
 	if(	$data["search_type"]!="")$search_data["Type"]=$data["search_type"];
 	if(	$data["search_level"]!="")$search_data["Level"]=$data["search_level"];
-	if(	$data["search_area"]!="")$search_data["Level"]=$data["search_area"];
+	if(	$data["search_area"]!="")$search_data["Area"]=$data["search_area"];
 	
 	//按条件搜索....
-	$data["hospitals"]=$this->hospital_model->get_hospital($search_data);
+	$data["hospitals"]=$this->hospital_model->get_hospital($search_data,$data["search_box"]);
     $data['title'] = 'Index';
 	
     $this->load->view('templates/header', $data); 
