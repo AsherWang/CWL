@@ -76,14 +76,14 @@
 		function get_hospital_list($name, $level, $area, $address, $phone, $website, $info, $type)
 		{
 			$sql = "select ";
-			if($name)$sql = $sql."name, ";
-			if($level)$sql = $sql."level, ";
-			if($area)$sql = $sql."area, ";
-			if($address)$sql = $sql."address, ";
-			if($phone)$sql = $sql."phone, ";
-			if($website)$sql = $sql."website, ";
-			if($info)$sql = $sql."info, ";
-			if($type)$sql = $sql."type, ";
+			if($name)$sql = $sql."Name, ";
+			if($level)$sql = $sql."Level, ";
+			if($area)$sql = $sql."Area, ";
+			if($address)$sql = $sql."Address, ";
+			if($phone)$sql = $sql."Phone, ";
+			if($website)$sql = $sql."Website, ";
+			if($info)$sql = $sql."Info, ";
+			if($type)$sql = $sql."Type, ";
 
 			$sql = substr($sql, 0, strlen($sql)-2);
 			$sql = $sql." ";
@@ -103,6 +103,13 @@
 		{
 			$this->db->where('ID',$ID);
 			$this->db->update('hospital',$data);
+		}
+
+		//模糊匹配名称
+		function getHospitalInfoByName($name)
+		{
+			$sql = "select Name,Level from hospital where Name like '%$name%'";
+			return $this->db->query($sql)->result();
 		}
 	}
 ?>

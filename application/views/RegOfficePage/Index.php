@@ -15,7 +15,6 @@
      <link rel="stylesheet" href='<?php echo base_url().'res/css/bootstrap.css'?>' type="text/css" /> 
 </head> 
   <body>
-  <p>欢迎您，<u><?php echo $admin_name;?></u></p>
   <div class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container">
           <div class="navbar-header">
@@ -25,25 +24,30 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="#">CWL全国统一预约平台</a>
+              <a class="navbar-brand" href="<?php echo base_url()?>RegOfficePage">CWL全国统一预约平台之医院挂号处</a>
           </div>
           <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                  <li <?php if($pageIndex==1)echo "class='active'";?> ><a href="<?php echo base_url()?>RegOfficePage">订单列表</a></li>
+              	  
+                  <li <?php if($pageIndex==1)echo "class='active'";?> ><a href="<?php echo base_url()?>RegOfficePage">订单列表&gt; &gt;</a></li>
                   <li class="divider-vertical"></li>
-                  <li <?php if($pageIndex==2)echo "class='active'";?>><a href="<?php echo base_url()?>RegOfficePage/OrderDetail">订单详情</a></li>
-                  <li <?php if($pageIndex==3)echo "class='active'";?>><a href="<?php echo base_url()?>RegOfficePage">医院公告管理</a></li>
+                  <li <?php if($pageIndex==2)echo "class='active'";?>><a href="">订单详情&gt; &gt;</a></li>
+                   <li <?php if($pageIndex==3)echo "class='active'";?>><a href="<?php echo base_url()?>RegOfficePage/PrintOrder">打印挂号单</a></li>
+                  <li><a>当前登陆者:<b><?php echo $admin_name;?></b></a></li>
                   <li><a href="<?php echo base_url()?>RegOfficePage?do=exit">退出管理</a></li>
               </ul>
-
           </div>
       </div>
   </div>
 
-
-
-
- 
-     
-
-   <div>调试信息<?php var_dump($debug_value);?></div>
+<br><br><br>
+   <?php echo "<p>调试信息</p>";  var_dump($debug_value);?>
+   
+   <?php 
+   		function tansState($value)
+		{
+			if($value==2)return "已支付";
+			return "未支付";
+		}
+   
+   ?>

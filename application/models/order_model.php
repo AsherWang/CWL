@@ -49,8 +49,17 @@
 		
 		function get_order($data)
 		{
-			$re=$this->getTable("order",$data);
-			if( $re!=-1 && count($re)>0)
+
+			$this->db->from("order");
+			$this->db->join('order_source', 'order_source.ID = order.Order_Source_ID'); 
+			if(!empty($data))
+			foreach ($data as $key => $value) 
+			{
+				$this->db->where($key,$value);
+			}
+  			$query = $this->db->get();
+			$re=$query->result_array();
+			if(count($re)>0)
 				return $re;
 			return -1;
 		}
@@ -70,10 +79,10 @@
 			return $this->deleteATable($order_id,"order");
 		}
 		
-		function pay_order($userid)
+		function pay_order($order_id)
 		{
 			return $this->updateTable($order_id,
-			array("State"=>1,"Pay_Time"=>date("y-m-d h:i:s")),"order");
+			array("State"=>2,"Pay_Time"=>date("y-m-d h:i:s")),"order");
 		}
 		
 		
