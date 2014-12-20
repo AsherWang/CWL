@@ -24,9 +24,13 @@ $pageNum = 0;
     </div>
     <div class="col-md-7 col-md-offset-1">
         <div class="row" id="SearchHospitalDiv">
-            <div class="col-md-2" id="SearchHospitalLabelCol"><label>查找医院</label></div>
-            <div class="col-md-7">
-                <input type="text" class="form-control" id="SearchHospitalInput"/>
+            <div class="col-md-8 col-md-offset-1">
+                <div class="input-group input-group-lg" id="SearchDiv">
+                    <input name="search_box" type="text" class="form-control" id="SearchHospitalText">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" id="SearchHospitalBtn">查找医院</button>
+                    </span>
+                </div>
             </div>
             
         </div>
@@ -35,9 +39,9 @@ $pageNum = 0;
                 <table class="table table-striped">
                 <?php for($i=0+$pageNum*10; $i<$hospitalNum&&$i<$pageNum*10+5; $i++){?>
                     <tr>
-                        <td><?php echo $hospitalList[$i]->name; ?></td>
+                        <td><?php echo $hospitalList[$i]->Name; ?></td>
                         <td>
-                            <label><?php echo $hospitalList[$i]->level; ?></label>
+                            <label><?php echo $hospitalList[$i]->Level; ?></label>
                         </td>
                     </tr>
                 <?php $hosNum--; }?>
@@ -52,9 +56,9 @@ $pageNum = 0;
                 <table class="table table-striped">
                 <?php for($i=5+$pageNum*10; $i<$hospitalNum&&$i<$pageNum*10+10; $i++){?>
                     <tr>
-                        <td><?php echo $hospitalList[$i]->name; ?></td>
+                        <td><?php echo $hospitalList[$i]->Name; ?></td>
                         <td>
-                            <label><?php echo $hospitalList[$i]->level; ?></label>
+                            <label><?php echo $hospitalList[$i]->Level; ?></label>
                         </td>
                     </tr>
                 <?php $hosNum--; }?>
@@ -94,5 +98,19 @@ $("#ManagerAddHospitalBtn").click(function(){
 
 $("#PanelToAddHospitalPage").click(function(){
     location.href = "<?php echo base_url();?>SuperManagerPage/AddNewHospital";
+});
+
+$("#SearchHospitalBtn").click(function(){
+    var searchTxt = $("#SearchHospitalText").val();
+
+    $.ajax({
+        url:"<?php echo base_url();?>SuperManagerPage/SearchHospitalBtnClick",
+        type:"POST",
+        datatype:"html",
+        data:{"searchTxt":searchTxt},
+        success:function(data){
+            document.write(data);
+        }
+    });
 });
 </script>
