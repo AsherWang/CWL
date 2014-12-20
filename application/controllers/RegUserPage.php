@@ -1,8 +1,11 @@
 <?php
 require_once("base_controller.php");
 class RegUserPage extends base_controller {
+
+  public $pageData;
   public function __construct()
   {
+
     parent::__construct();
     
     //构造函数时载入数据的model类，对应models目录下的news_model
@@ -14,6 +17,9 @@ class RegUserPage extends base_controller {
    $this->load->library("session");
    
    $this->load->model("department_model");
+
+   $this->pageData['session'] = $this->session;
+   $this->pageData['title'] = "注册用户";
   }
 	private function checkSession()
 	{
@@ -52,7 +58,7 @@ class RegUserPage extends base_controller {
 	$data["hospitals"]=$this->hospital_model->get_hospital($search_data,$data["search_box"]);
     $data['title'] = 'Index';
 	
-    $this->load->view('templates/header', $data); 
+    $this->load->view('templates/header', $this->pageData); 
     $this->load->view('RegUserPage/Index', $data);
     $this->load->view('templates/footer');
   }
@@ -60,7 +66,7 @@ class RegUserPage extends base_controller {
   {
    // $data['news'] = $this->news_model->get_news();
     $data['title'] = 'Search_by_dep';
-    $this->load->view('templates/header', $data);
+    $this->load->view('templates/header', $this->pageData);
     $this->load->view('RegUserPage/search_by_dep', $data);
     $this->load->view('templates/footer');
   }
@@ -91,8 +97,9 @@ class RegUserPage extends base_controller {
     $data["doctor_list"]=$this->doctor_model->get_available_doctors(array(),$data["search_box"]);
    	$hospital_info=$this->hospital_model->get_hospital(array("ID"=>$_GET["hospital_id"]));
     $data['title'] =$hospital_info[0]["Name"]; 
-	 $data['hospital_info']=$hospital_info[0];
-    $this->load->view('templates/header', $data);
+	$data['hospital_info']=$hospital_info[0];
+    $this->load->view('templates/header', $this->pageData);
+
    $this->load->view('RegUserPage/Hsp_doctor_list', $data);
     $this->load->view('templates/footer');
   }
@@ -100,7 +107,7 @@ class RegUserPage extends base_controller {
   {
    // $data['news'] = $this->news_model->get_news();
     $data['title'] = 'Result_of_dep_search';
-    $this->load->view('templates/header', $data);
+    $this->load->view('templates/header', $this->pageData);
     $this->load->view('RegUserPage/result_of_dep_search', $data);
     $this->load->view('templates/footer');
   }
@@ -108,7 +115,7 @@ class RegUserPage extends base_controller {
   {
    // $data['news'] = $this->news_model->get_news();
     $data['title'] = 'Appointment_quickly';
-    $this->load->view('templates/header', $data);
+    $this->load->view('templates/header', $this->pageData);
     $this->load->view('RegUserPage/Appointment_quickly', $data);
     $this->load->view('templates/footer');
   }
@@ -116,7 +123,7 @@ class RegUserPage extends base_controller {
   {
    // $data['news'] = $this->news_model->get_news();
     $data['title'] = 'Hsp_introduction';
-    $this->load->view('templates/header', $data);
+    $this->load->view('templates/header', $this->pageData);
     $this->load->view('RegUserPage/Hsp_introduction', $data);
     $this->load->view('templates/footer');
   }
@@ -124,7 +131,7 @@ class RegUserPage extends base_controller {
   {
    // $data['news'] = $this->news_model->get_news();
     $data['title'] = 'Confirm';
-    $this->load->view('templates/header', $data);
+    $this->load->view('templates/header', $this->pageData);
     $this->load->view('RegUserPage/Confirm', $data);
     $this->load->view('templates/footer');
   }
@@ -132,19 +139,18 @@ class RegUserPage extends base_controller {
   {
 	  if($_POST["ds"])
 	  {
-		  //    $this->load->view('RegUserPage/My_appointment', $data);
-    $this->load->view('templates/footer');
-		  
+		  //$this->load->view('RegUserPage/My_appointment', $data);
+    		$this->load->view('templates/footer');
 	  }
 
-else
-{
-
-}
+	else
+	{
+	
+	}
 	  
    // $data['news'] = $this->news_model->get_news();
     $data['title'] = 'My_appointment';
-    $this->load->view('templates/header', $data);
+    $this->load->view('templates/header', $this->pageData);
     $this->load->view('RegUserPage/My_appointment', $data);
     $this->load->view('templates/footer');
   }
@@ -153,7 +159,7 @@ else
   {
    // $data['news'] = $this->news_model->get_news();
     $data['title'] = 'Personal_message_change';
-    $this->load->view('templates/header', $data);
+    $this->load->view('templates/header', $this->pageData);
     $this->load->view('RegUserPage/personal_message_change', $data);
     $this->load->view('templates/footer');
   }
@@ -161,7 +167,7 @@ else
   {
    // $data['news'] = $this->news_model->get_news();
     $data['title'] = 'Password_change';
-    $this->load->view('templates/header', $data);
+    $this->load->view('templates/header', $this->pageData);
     $this->load->view('RegUserPage/password_change', $data);
     $this->load->view('templates/footer');
   }
@@ -169,7 +175,7 @@ else
   {
    // $data['news'] = $this->news_model->get_news();
     $data['title'] = 'Head_show';
-    $this->load->view('templates/header', $data);
+    $this->load->view('templates/header', $this->pageData);
     $this->load->view('RegUserPage/head_show', $data);
     $this->load->view('templates/footer');
   }
