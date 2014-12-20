@@ -5,6 +5,12 @@
     <div>
     
     	<?php
+		function tansState($value)
+		{
+			if($value==2)return "已支付";
+			return "未支付";
+			
+		}
 		if(empty($order_list))
 		{
 			echo "没有符合条件的订单yo...";
@@ -19,7 +25,7 @@
 			{
 				echo "<tr><td style='border:1px black solid;'>".$value["ID"]."</td>";
 				echo "<td  style='border:1px black solid;'>".$value["Place_Time"]."</td>";
-				echo "<td  style='border:1px black solid;'>".$value["State"]."</td>";
+				echo "<td  style='border:1px black solid;'>".tansState($value["State"])."</td>";
 				echo "<td  style='border:1px black solid;'><a href='".base_url()."RegOfficePage/OrderDetail?id=".($value["ID"]-0)."'>订单详情</a></td>";
 				
 				echo "</tr>";

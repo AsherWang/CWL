@@ -31,8 +31,7 @@
               <ul class="nav navbar-nav">
                   <li <?php if($pageIndex==1)echo "class='active'";?> ><a href="<?php echo base_url()?>RegOfficePage">订单列表</a></li>
                   <li class="divider-vertical"></li>
-                  <li <?php if($pageIndex==2)echo "class='active'";?>><a href="<?php echo base_url()?>RegOfficePage/OrderDetail">订单详情</a></li>
-                  <li <?php if($pageIndex==3)echo "class='active'";?>><a href="<?php echo base_url()?>RegOfficePage">医院公告管理</a></li>
+                  <li <?php if($pageIndex==2)echo "class='active'";?>><a href="">订单详情</a></li>
                   <li><a href="<?php echo base_url()?>RegOfficePage?do=exit">退出管理</a></li>
               </ul>
 

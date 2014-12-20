@@ -19,6 +19,9 @@ class RegOfficePage extends base_controller {
   //RegOfficePage/index
   public function Index()
   {
+	  if(isset($_GET["do"])&&$_GET["do"]=="exit")$this->destroySession();
+	  
+	  
 	  if(!$this->isSessionExists())
 	  {
 		  redirect("");
@@ -29,10 +32,10 @@ class RegOfficePage extends base_controller {
 	  $data["pageIndex"]=1;
 	  $search_data=array();
 	  if(isset($_GET["order_id"])&&$_GET["order_id"]!="")$search_data["ID"]=$_GET["order_id"];
-	  
+	  $search_data["hospital_ID"]=$userData["hospital_id"];
      $data['order_list'] = $this->order_model->get_order($search_data);
 	 if($data['order_list']==-1)$data['order_list']=array();
-	 $data["debug_value"]=$data['order_list'];
+	 $data["debug_value"]=$this->getLogegUser();
      $data['title'] = 'RegOfficePage';
  
     $this->load->view('RegOfficePage/Index', $data);
@@ -42,12 +45,19 @@ class RegOfficePage extends base_controller {
    public function OrderDetail()
    {
 	 $data["pageIndex"]=2;
-	 $data["admin_name"]="挂号处的人儿啊";
+	 if(!$this->isSessionExists())
+	  {
+		  redirect("");
+	  }
+	  $userData=$this->getLogegUser();
+	 $data["admin_name"]=$userData["username"];
 	 if(isset($_GET["id"])&&$_GET["id"]!="")
 	 {
-		 $search_data["ID"]=$_GET["id"];
+		 $search_data["order.ID"]=$_GET["id"];
+		 $search_data["hospital_ID"]=$userData["hospital_id"];
+		 
 		 $data['order_info'] = $this->order_model->get_order($search_data);
-		 $data["debug_value"]=$this->getLogegUser();
+		 $data["debug_value"]=$data['order_info'];
 		 $this->load->view('RegOfficePage/Index', $data);
 	     $this->load->view('RegOfficePage/OrderDetail', $data);
 		 
