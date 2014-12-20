@@ -5,6 +5,7 @@
  * @Last Modified by:   Asher
  * @Last Modified time: 2014-12-09 23:05:05
  */
+ require_once("base_controller.php");
 class TestControl extends CI_Controller {
   public function __construct()
   {
@@ -33,8 +34,9 @@ $this->load->model('doctor_model');
   {
 	  
 	$hospital_info=$this->hospital_model->get_hospital(array("ID"=>2));
-	$temp =$this->department_model->department_type($_GET["hospital_id"]);
-    $data['value']  =$temp;
+$temp= $this->department_model->department_type(2);
+    $data['value'] =$this->CombineArray($temp,"Type");
+   
      $this->load->view('TestPage/Index', $data);
   }
 }

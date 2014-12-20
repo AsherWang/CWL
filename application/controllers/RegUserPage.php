@@ -84,7 +84,6 @@ class RegUserPage extends base_controller {
 	$temp= $this->department_model->department_type($_GET["hospital_id"]);
     $data['department_type_list'] =$this->CombineArray($temp,"Type");
    
-   
    	if(isset($_GET["search_department_type"])){
 		$data["search_department_type"]=$_GET["search_department_type"];
 		$searData["Type"]=$data["search_department_type"];
