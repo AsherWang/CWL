@@ -1,5 +1,6 @@
 <?php
-class RegUserPage extends CI_Controller {
+require_once("base_controller.php");
+class RegUserPage extends base_controller {
   public function __construct()
   {
     parent::__construct();
@@ -9,7 +10,10 @@ class RegUserPage extends CI_Controller {
    //$this->load->model('notice_model');
    $this->load->helper('url');
    $this->load->model('hospital_model');
+   $this->load->model('doctor_model');
    $this->load->library("session");
+   
+   $this->load->model("department_model");
   }
 	private function checkSession()
 	{
@@ -60,14 +64,36 @@ class RegUserPage extends CI_Controller {
     $this->load->view('RegUserPage/search_by_dep', $data);
     $this->load->view('templates/footer');
   }
-  public function Hsp_doctor_list($h_id=1)
+  public function Hsp_doctor_list()
   {
    // $data['news'] = $this->news_model->get_news();
-   // $data['department_list'] = $this->hospital_model->get_hospital($search_data);
-    $data['title'] = $h_id;
+    
+  	if(!(isset($_GET["hospital_id"])&&$_GET["hospital_id"]!=""))
+	{
+		redirect("");
+	}
+	$searData=array();
+	$data["search_box"]="";
+   	$data["search_department_type"]="";
+    $data['department_type_list'] = $this->department_model->department_type($_GET["hospital_id"]);
+   
+   
+   	if(isset($_GET["search_department_type"])){
+		$data["search_department_type"]=$_GET["search_department_type"];
+		$searData["Type"]=$data["search_department_type"];
+	}
+    if(isset($_GET["search_box"]))$data["search_box"]=$_GET["search_box"];
+	
+	//like
+    if($data["search_box"]!="")$searData["Name"]=$data["search_box"];
+   
+    $data["doctor_list"]=$this->doctor_model->get_doctors(array("ID"=>$_GET["hospital_id"]));
+   
+    $data['title'] =$hospital_info[0]["Name"]; 
+	
     $this->load->view('templates/header', $data);
-    $this->load->view('RegUserPage/Hsp_doctor_list', $data);
-    $this->load->view('templates/footer');
+   $this->load->view('RegUserPage/Hsp_doctor_list', $data);
+    //$this->load->view('templates/footer');
   }
   public function Result_of_dep_search()
   {
