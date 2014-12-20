@@ -19,13 +19,19 @@ class RegOfficePage extends base_controller {
   //RegOfficePage/index
   public function Index()
   {
-	  $data["search_id"]="";
+	  if(!$this->isSessionExists())
+	  {
+		  redirect("");
+	  }
+	  $userData=$this->getLogegUser();
+	  $data["admin_name"]=$userData["username"];
+	  $data["order_id"]="";
 	  $data["pageIndex"]=1;
-	  $data["admin_name"]="挂号处的人儿啊";
 	  $search_data=array();
-	  if(isset($_GET["search_id"])&&$_GET["search_id"]!="")$search_data["ID"]=$_GET["search_id"];
+	  if(isset($_GET["order_id"])&&$_GET["order_id"]!="")$search_data["ID"]=$_GET["order_id"];
 	  
      $data['order_list'] = $this->order_model->get_order($search_data);
+	 if($data['order_list']==-1)$data['order_list']=array();
 	 $data["debug_value"]=$data['order_list'];
      $data['title'] = 'RegOfficePage';
  
@@ -33,5 +39,24 @@ class RegOfficePage extends base_controller {
 	$this->load->view('RegOfficePage/OrderList', $data);
 
   }
+   public function OrderDetail()
+   {
+	 $data["pageIndex"]=2;
+	 $data["admin_name"]="挂号处的人儿啊";
+	 if(isset($_GET["id"])&&$_GET["id"]!="")
+	 {
+		 $search_data["ID"]=$_GET["id"];
+		 $data['order_info'] = $this->order_model->get_order($search_data);
+		 $data["debug_value"]=$this->getLogegUser();
+		 $this->load->view('RegOfficePage/Index', $data);
+	     $this->load->view('RegOfficePage/OrderDetail', $data);
+		 
+	 }
+	 else
+	 {
+		redirect("RegOfficePage"); 
+	 }
+   }
+  
 
 }?>
