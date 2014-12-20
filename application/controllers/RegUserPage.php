@@ -72,31 +72,41 @@ class RegUserPage extends base_controller {
   }
   public function Hsp_doctor_list()
   {
-   // $data['news'] = $this->news_model->get_news();
-    
+	
+	//没有传hospital_id就跳回首页
   	if(!(isset($_GET["hospital_id"])&&$_GET["hospital_id"]!=""))
 	{
 		redirect("");
 	}
 	$searData=array();
-	$data["search_box"]="";
-	$data["hospital_id"]=$_GET["hospital_id"];
-   	$data["search_department_type"]="";
+	$data["search_box"]="";  //搜索框的值
+	$data["hospital_id"]=$_GET["hospital_id"];  //医院id
+   	$data["search_department_type"]="";  //目前搜索的科室类型
+	
+	//获取科室类型列表
 	$temp= $this->department_model->department_type($_GET["hospital_id"]);
     $data['department_type_list'] =$this->CombineArray($temp,"Type");
    
+   //获取当前科室类型的值
    	if(isset($_GET["search_department_type"])){
 		$data["search_department_type"]=$_GET["search_department_type"];
 		$searData["Type"]=$data["search_department_type"];
 	}
+	
+	//获取搜索框的值
     if(isset($_GET["search_box"]))$data["search_box"]=$_GET["search_box"];
 	
-	//like
+	//like子句准备
     if($data["search_box"]!="")$searData["Name"]=$data["search_box"];
    
+   	//获取医生列表
     $data["doctor_list"]=$this->doctor_model->get_available_doctors(array(),$data["search_box"]);
+	
+	//获取医院信息
    	$hospital_info=$this->hospital_model->get_hospital(array("ID"=>$_GET["hospital_id"]));
     $this->pageDat['title'] =$hospital_info[0]["Name"]; 
+	
+	
 	$data['hospital_info']=$hospital_info[0];
     $this->load->view('templates/header', $this->pageData);
    $this->load->view('RegUserPage/Hsp_doctor_list', $data);
