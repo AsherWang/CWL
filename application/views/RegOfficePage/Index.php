@@ -29,21 +29,26 @@
           <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
               	  
-                  <li <?php if($pageIndex==1)echo "class='active'";?> ><a href="<?php echo base_url()?>RegOfficePage">订单列表</a></li>
+                  <li <?php if($pageIndex==1)echo "class='active'";?> ><a href="<?php echo base_url()?>RegOfficePage">订单列表&gt; &gt;</a></li>
                   <li class="divider-vertical"></li>
-                  <li <?php if($pageIndex==2)echo "class='active'";?>><a href="">订单详情</a></li>
-                  <li><a>当前登陆者:<?php echo $admin_name;?></a></li>
+                  <li <?php if($pageIndex==2)echo "class='active'";?>><a href="">订单详情&gt; &gt;</a></li>
+                   <li <?php if($pageIndex==3)echo "class='active'";?>><a href="<?php echo base_url()?>RegOfficePage/PrintOrder">打印挂号单</a></li>
+                  <li><a>当前登陆者:<b><?php echo $admin_name;?></b></a></li>
                   <li><a href="<?php echo base_url()?>RegOfficePage?do=exit">退出管理</a></li>
               </ul>
           </div>
       </div>
   </div>
 
-
-
-
- 
-     
 <br><br><br><br>
    <p>调试信息</p>
    <?php var_dump($debug_value);?>
+   
+   <?php 
+   		function tansState($value)
+		{
+			if($value==2)return "已支付";
+			return "未支付";
+		}
+   
+   ?>

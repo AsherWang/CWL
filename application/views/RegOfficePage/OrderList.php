@@ -1,16 +1,10 @@
 
     <form>
-    	<input name="order_id" type="input" placeholder="订单ID" /><input type="submit" value="查询"/>
+    	<input name="order_id" type="input" <?php echo "value='".$order_id."'";?> placeholder="订单ID" /><input type="submit" value="查询"/>
     </form>
     <div>
     
     	<?php
-		function tansState($value)
-		{
-			if($value==2)return "已支付";
-			return "未支付";
-			
-		}
 		if(empty($order_list))
 		{
 			echo "没有符合条件的订单yo...";

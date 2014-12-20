@@ -145,6 +145,13 @@
 		}
 
 
+
+		public function getUserInfoById($id)
+		{
+			$re=$this->getTable("user",array("ID"=>$id));
+			if($re==-1||count($re)<=0)return -1;
+			return $re[0];
+		}
 	}
 
 ?>
