@@ -6,7 +6,12 @@
  * @Last Modified time: 2014-12-15
  */
 //页眉
-$log = ($session->userdata['is_logged'])?1:0;
+$log = 0;
+if(isset($session->userdata['is_logged']))
+{
+  if($session->userdata['is_logged'] == true)
+  $log = 1;
+}
 ?>
 <!DOCTYPE HTML>
 <html>
