@@ -31,6 +31,7 @@ class RegOfficePage extends base_controller {
 		  redirect("");
 	  }
 	  $userData=$this->getLogegUser();
+	  if($userData["user_type"]!=3)$this->jumpSession();
 	  $data["admin_name"]=$userData["username"];
 	  $data["order_id"]="";
 	  $data["title"]="订单列表";
@@ -64,6 +65,7 @@ class RegOfficePage extends base_controller {
 		  redirect("");
 	  }
 	  $userData=$this->getLogegUser();
+	 if($userData["user_type"]!=3)$this->jumpSession();
 	 $data["admin_name"]=$userData["username"];
 	 $data["title"]="订单详情";
 	 if(isset($_GET["id"])&&$_GET["id"]!="")
@@ -106,57 +108,6 @@ class RegOfficePage extends base_controller {
 	 }
    }
   
-  function PrintOrder()
-  {
-	   $data["pageIndex"]=3;
-	   if(!$this->isSessionExists())
-	   {
-		  redirect("");
-	   }
-	  $userData=$this->getLogegUser();
-	  if(isset($_POST["print_id"])&&$_POST["print_id"]!="")
-	  {
-	  		$data["admin_name"]=$userData["username"];
-	  		$data["title"]="挂号单";
-	  		
-	  		
-			 $search_data["order.ID"]=$_POST["print_id"];
-			 $search_data["hospital_ID"]=$userData["hospital_id"];
-			 
-			 $tempData = $this->order_model->get_order($search_data);
-			 $data['order_info']=$tempData[0];
-			
-			 
-			 //获取下单用户信息
-			$data["order_user_info"]=$this->user_model->getUserInfoById($data['order_info']["User_ID"]);
-		
-			//获取对应医院的信息
-			$tempData=$this->hospital_model->get_hospital(array("ID"=>$data['order_info']["Hospital_ID"]));
-			$data["order_hospital_info"]=$tempData[0];
-		
-			
-			
-			//获取医生的信息
-			$tempData=$this->doctor_model->get_doctors(array("ID"=>$data['order_info']["Doctor_ID"]));
-			$data["order_doctor_info"]=$tempData[0];
-			
-			//获取科室的信息
-			$tempData=$this->department_model->get_department(array("ID"=>$data["order_doctor_info"]["Department_ID"]));
-			$data["order_department_info"]=$tempData[0];
-			
-			
-			
-			
-			$data["debug_value"]= $data['order_info'];
-			
-	  		$this->load->view('RegOfficePage/Index', $data);
-	  		$this->load->view('RegOfficePage/PrintOrder', $data);
-	  }
-	  else
-	  {
-		  redirect("RegOfficePage");
-	  }
-  }
   
   public function  PayOrder()
   {
@@ -165,6 +116,7 @@ class RegOfficePage extends base_controller {
 		  redirect("");
 	   }
 	  $userData=$this->getLogegUser();
+	  if($userData["user_type"]!=3)$this->jumpSession();
 	  if(isset($_POST["pay_id"])&&$_POST["pay_id"]!="")
 	  {
 		    //支付完成....
