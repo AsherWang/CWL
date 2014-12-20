@@ -24,7 +24,7 @@
             <div class="input-group input-group-lg">
             <input name="search_box" type="text" class="form-control" value="<?php $search_box?>">
             <span class="input-group-btn">
-                <button class="btn btn-default" type="button">search</button>
+                <button class="btn btn-default" type="submit">search</button>
             </span>
             </div>
         </div>
