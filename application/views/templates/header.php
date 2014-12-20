@@ -26,10 +26,10 @@ if(isset($session->userdata['is_logged']))
 </head>
 <body>
   <div class="row" id="HeaderDiv">
-    <div class="col-md-3" id="HeaderHomeDiv">
-      <a class="HeaderText" href="<?php echo base_url()?>IndexPage"><span class="glyphicon glyphicon-home"></span></a>
-      <span class="HeaderStaticText">首页</span>
-    </div>
+    <a class="col-md-3 HeaderText" id="HeaderHomeDiv" href="<?php echo base_url()?>IndexPage">
+      <span class="glyphicon glyphicon-home HeaderText"></span>
+      <span class="HeaderText" style="font-size:15px">首页</span>
+    </a>
     <div class="col-md-4 col-md-offset-5" id="HeaderRightDiv">
     <?php if(!$log){ ?>
 		  <a class="HeaderText" id="HeaderLoginLink" href="<?php echo base_url()?>IndexPage/Index">登录</a>
