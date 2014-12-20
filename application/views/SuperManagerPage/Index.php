@@ -1,5 +1,8 @@
 <?php
 //管理用户的页面
+//全局变量 $userNum, $pageNum;
+$pageNum = 0;
+$colNum = 0;
 ?>
 <link rel="stylesheet" type="text/css" href='<?php echo base_url().'/res/css/superManager.css'?>'>
 <div class="row">
@@ -31,42 +34,16 @@
         <div class="row" id="UserListDiv">
             <div class="col-md-3 UserColDiv">
                 <table class="table table-striped">
+                <?php 
+                $start=$pageNum*18 + $colNum*6;
+                for($i = 0+$start; $i<6+$start&&$i<$userNum; $i++){ ?>
                     <tr>
-                        <td>小耿</td>
+                        <td><?php echo $userList[$i]->Name ?></td>
                         <td>
                             <label>x</label>
                         </td>
                     </tr>
-                    <tr>
-                        <td>大力</td>
-                        <td>
-                            <label>x</label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>话痨</td>
-                        <td>
-                            <label>x</label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>小耿</td>
-                        <td>
-                            <label>x</label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>大力</td>
-                        <td>
-                            <label>x</label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>话痨</td>
-                        <td>
-                            <label>x</label>
-                        </td>
-                    </tr>
+                <?php }?>
                 </table>
             </div>
             <div class="col-md-1 UserHrCol">
@@ -76,42 +53,17 @@
             </div>
             <div class="col-md-3 UserCol">
                 <table class="table table-striped">
+                <?php 
+                $colNum++;
+                $start=$pageNum*18 + $colNum*6;
+                for($i = 0+$start; $i<6+$start&&$i<$userNum; $i++){ ?>
                     <tr>
-                        <td>小耿</td>
+                        <td><?php echo $userList[$i]->Name ?></td>
                         <td>
                             <label>x</label>
                         </td>
                     </tr>
-                    <tr>
-                        <td>大力</td>
-                        <td>
-                            <label>x</label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>话痨</td>
-                        <td>
-                            <label>x</label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>小耿</td>
-                        <td>
-                            <label>x</label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>大力</td>
-                        <td>
-                            <label>x</label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>话痨</td>
-                        <td>
-                            <label>x</label>
-                        </td>
-                    </tr>
+                <?php }?>
                 </table>
             </div>
             <div class="col-md-1 UserHrCol">
@@ -121,42 +73,17 @@
             </div>
             <div class="col-md-3 UserCol">
                 <table class="table table-striped">
+                <?php 
+                $colNum++;
+                $start=$pageNum*18 + $colNum*6;
+                for($i = 0+$start; $i<6+$start&&$i<$userNum; $i++){ ?>
                     <tr>
-                        <td>小耿</td>
+                        <td><?php echo $userList[$i]->Name ?></td>
                         <td>
                             <label>x</label>
                         </td>
                     </tr>
-                    <tr>
-                        <td>大力</td>
-                        <td>
-                            <label>x</label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>话痨</td>
-                        <td>
-                            <label>x</label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>小耿</td>
-                        <td>
-                            <label>x</label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>大力</td>
-                        <td>
-                            <label>x</label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>话痨</td>
-                        <td>
-                            <label>x</label>
-                        </td>
-                    </tr>
+                <?php }?>
                 </table>
             </div>
         </div>

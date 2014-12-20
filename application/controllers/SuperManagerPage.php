@@ -16,14 +16,32 @@ class SuperManagerPage extends base_controller {
     $this->data['userData'] = $this->getLogegUser();
     $this->data['title'] = 'SuperManagerPage';
     $this->load->model('hospital_model');
+    $this->load->model('user_model');
     //构造函数时载入数据的model类，对应models目录下的news_model
     //s 
    //$this->load->model('notice_model');
   }
 
   //SuperManagerPage/index
+  //默认是管理用户的界面
   public function Index()
   {
+    $cols = array(
+          'ID'=>false, 
+          'Ext_ID'=>false, 
+          'Name'=>true, 
+          'ID_number'=>false, 
+          'Password'=>false,
+          'Authority'=>true,
+          'Credit_Rate'=>true,
+          'Max_Order_Sum'=>true,
+          'Valid_Date'=>true,
+          'Hospital_ID'=>false
+    );
+
+    $this->data['userList'] = $this->user_model->getUserList($cols, "ID", 0);
+    $this->data['userNum'] = $this->user_model->get_user_sum();
+
     $this->load->view('templates/header', $this->data);
     $this->load->view('SuperManagerPage/Index', $this->data);
     $this->load->view('templates/footer');
@@ -31,7 +49,8 @@ class SuperManagerPage extends base_controller {
 
   public function HandleHospital()
   {
-    $data['hospitalList'] = $this->hospital_model->get_hospital_list(true, true, false, false, false, false, false, false);
+    $this->data['hospitalList'] = $this->hospital_model->get_hospital_list(true, true, false, false, false, false, false, false);
+    $this->data['hospitalNum'] = $this->hospital_model->hospital_num();
 
     $this->load->view('templates/header', $this->data);
     $this->load->view('SuperManagerPage/HandleHospital', $this->data);

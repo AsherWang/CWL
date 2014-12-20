@@ -144,6 +144,35 @@
 			return $this->getTable("order",array("User_ID"=>$userId));
 		}
 
+    // 获取用户表
+    // $cols 是一个数组，['Name'=>true, 'ID'=>false...]
+    // $count 表示取多少个 count取0表示全部都要
+    // $order 表示order
+    public function getUserList($cols, $order, $count)
+    {
+      $sql = "select ";
+      if($cols['ID']) $sql = $sql."ID,";
+      if($cols['Ext_ID']) $sql = $sql."Ext_ID,";
+      if($cols['ID_number']) $sql = $sql."ID_number,";
+      if($cols['Password']) $sql = $sql."Password,";
+      if($cols['Name']) $sql = $sql."Name,";
+      if($cols['Authority']) $sql = $sql."Autority,"; //这个怎么拼错了。。
+      if($cols['Credit_Rate']) $sql = $sql."Credit_Rate,";
+      if($cols['Max_Order_Sum']) $sql = $sql."Max_Order_Sum,";
+      if($cols['Valid_Date']) $sql = $sql."Valid_Date,";
+      if($cols['Hospital_ID']) $sql = $sql."Hospital_ID,";
+
+      $sql = substr($sql, 0, strlen($sql)-1);
+      $sql = $sql." ";
+      $sql = $sql."from user order by $order";
+
+      if($count != 0){
+        $sql = $sql." limit ".(string)$count;
+      }
+
+      $query = $this->db->query($sql);
+      return $query->result();
+    }
 
 
 		public function getUserInfoById($id)

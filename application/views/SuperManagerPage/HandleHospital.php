@@ -1,5 +1,7 @@
 <?php
 //管理医院的页面
+$hosNum = $hospitalNum;
+$pageNum = 0;
 ?>
 <link rel="stylesheet" type="text/css" href='<?php echo base_url().'/res/css/superManager.css'?>'>
 <div class="row">
@@ -31,24 +33,14 @@
         <div class="row" id="HospitalListDiv">
             <div class="col-md-5 HospitalColDiv">
                 <table class="table table-striped">
+                <?php for($i=0+$pageNum*10; $i<$hospitalNum&&$i<$pageNum*10+5; $i++){?>
                     <tr>
-                        <td>北京某知名医院</td>
+                        <td><?php echo $hospitalList[$i]->name; ?></td>
                         <td>
-                            <label>三级甲等</label>
+                            <label><?php echo $hospitalList[$i]->level; ?></label>
                         </td>
                     </tr>
-                    <tr>
-                        <td>上海薇薇安妇产科医院</td>
-                        <td>
-                            <label>二级</label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>老王诊所</td>
-                        <td>
-                            <label>一级甲等</label>
-                        </td>
-                    </tr>
+                <?php $hosNum--; }?>
                 </table>
             </div>
             <div class="col-md-1 HospitalHrCol">
@@ -58,31 +50,20 @@
             </div>
             <div class="col-md-5 HospitalCol">
                 <table class="table table-striped">
+                <?php for($i=5+$pageNum*10; $i<$hospitalNum&&$i<$pageNum*10+10; $i++){?>
                     <tr>
-                        <td>北京某知名医院</td>
+                        <td><?php echo $hospitalList[$i]->name; ?></td>
                         <td>
-                            <label>三级甲等</label>
+                            <label><?php echo $hospitalList[$i]->level; ?></label>
                         </td>
                     </tr>
-                    <tr>
-                        <td>上海薇薇安妇产科医院</td>
-                        <td>
-                            <label>二级</label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>老王诊所</td>
-                        <td>
-                            <label>一级甲等</label>
-                        </td>
-                    </tr>
+                <?php $hosNum--; }?>
                 </table>
             </div>
         </div>
         <div class="row" id="ManagerBtnDiv">
-            <div class="col-md-2 col-md-offset-1 HowToUseText">点击x可以封禁用户</div>
-            
-            <input type="button" class="col-md-1 col-md-offset-3 btn btn-default ManagerBtn" value="<" id="ManagerPrePageBtn">
+
+            <input type="button" class="col-md-1 col-md-offset-6 btn btn-default ManagerBtn" value="<" id="ManagerPrePageBtn">
             <input type="button" class="col-md-1 btn btn-default ManagerBtn" value=">" id="ManagerNextPageBtn">
             <input type="button" class="col-md-2 btn btn-default AddNewHospitalBtn" value="添加医院" id="ManagerAddHospitalBtn">
             
