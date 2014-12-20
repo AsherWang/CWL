@@ -174,6 +174,12 @@
       return $query->result();
     }
 
+    //名字模糊匹配
+    public function getUserInfoByName($name)
+    {
+      $sql = "select Name from user where Name like '%$name%'";
+      return $this->db->query($sql)->result();
+    }
 
 		public function getUserInfoById($id)
 		{

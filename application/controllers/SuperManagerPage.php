@@ -83,4 +83,30 @@ class SuperManagerPage extends base_controller {
     echo "添加完成";
   }
 
+  public function SearchUserBtnClick()
+  {
+    $txt = $this->input->post('searchTxt');
+
+    $this->data['userList'] = $this->user_model->getUserInfoByName($txt);
+
+    $this->data['userNum'] = $this->user_model->db->affected_rows();
+
+    $this->load->view('templates/header', $this->data);
+    $this->load->view('SuperManagerPage/Index', $this->data);
+    $this->load->view('templates/footer');
+  }
+
+  public function SearchHospitalBtnClick()
+  {
+    $txt = $this->input->post('searchTxt');
+    $this->data['hospitalList'] = $this->hospital_model->getHospitalInfoByName($txt);
+
+    $this->data['hospitalNum'] = $this->hospital_model->db->affected_rows();
+    $this->load->view('templates/header', $this->data);
+    $this->load->view('SuperManagerPage/HandleHospital', $this->data);
+    $this->load->view('templates/footer');
+
+  }
+
+
 }?>
