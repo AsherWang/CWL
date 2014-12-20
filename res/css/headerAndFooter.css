@@ -5,11 +5,19 @@ body{
 	margin:0px;
 }
 
+#HeaderHr{
+	margin-top:6px;
+}
+
 #HeaderDiv{
 	padding-top: 5px;
 	margin-bottom: 15px;
 	font-family:'Microsoft YaHei';
-	background-color: #FFFFFF;
+	background-color: #428bca;
+}
+
+#HeaderHomeDiv{
+	padding-left: 109px;
 }
 
 #FooterDiv{
@@ -19,4 +27,28 @@ body{
 	font-size:15px;
 	font-family:'Microsoft YaHei';
 
+}
+
+.HeaderText{
+	font-size:14px;
+	color:#FFFFFF;
+}
+.HeaderText:hover{
+	color:#336699;
+	text-decoration: none;
+}
+
+.HeaderStaticText{
+	font-size:15px;
+	color:#FFFFFF;
+}
+
+.HeaderDivide{
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+#HeaderRightDiv{
+	margin-bottom: 8px;
+	margin-top: 3px;
 }
