@@ -75,7 +75,7 @@
                         <a class="dep_table_text" name="dep_type">不限</a>
                         <?php foreach ($department_type_list as $department_type):?>
                             <a class="dep_table_text" name="dep_type" href="<?php echo base_url()?>RegUserPage/hsp_doctor_list?search_department_type=<?php echo $search_department_type?>">$department_type</a>
-                        <? endforeach?>
+                        <?php endforeach?>
                     </div>
                 </td>
             </tr>
@@ -83,7 +83,7 @@
 <script language="javascript">
 function dep_search(){
     var d = document.getElementsByName("dep_type");
-    var t = "<?php echo $search_department_type?>";
+    var t = "<?php echo $search_department_type ?>";
     if (t == ""){
         d[0].className="dep_table_text dep_table_text_choice";
         for (var i=1; i<d.length; i++){
