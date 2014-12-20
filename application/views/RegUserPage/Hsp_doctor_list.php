@@ -74,7 +74,7 @@
                     <div class="row">
                         <a class="dep_table_text" name="dep_type">不限</a>
                         <?php foreach ($department_type_list as $department_type):?>
-                            <a class="dep_table_text" name="dep_type" href="<?php echo base_url()?>RegUserPage/hsp_doctor_list?search_department_type=<?php echo $search_department_type?>">$department_type</a>
+                            <a class="dep_table_text" name="dep_type" href="<?php echo base_url()?>RegUserPage/hsp_doctor_list?search_department_type=<?php echo $search_department_type?>"><?php echo $search_department_type?></a>
                         <?php endforeach?>
                     </div>
                 </td>
@@ -101,30 +101,6 @@ function dep_search(){
 }
 window.onload = dep_search;
 </script>
-                        <!-- <a class="dep_table_text">心脑外科</a>
-                        <a class="dep_table_text">小儿麻痹</a>
-                        <a class="dep_table_text">普通外科</a>
-                        <a class="dep_table_text">肿瘤内科</a>
-                        <a class="dep_table_text">神经病科</a>
-                        <a class="dep_table_text">**科</a>
-                        <a class="dep_table_text">神经病科</a>
-                        <a class="dep_table_text">肿瘤内科</a>
-                        <a class="dep_table_text">普通外科</a>
-                        <a class="dep_table_text">小儿麻痹</a>
-                        <a class="dep_table_text">心脑外科</a> -->
-                    <!-- <div class="row">
-                        <a class="dep_table_text">心脑外科</a>
-                        <a class="dep_table_text">小儿麻痹</a>
-                        <a class="dep_table_text">普通外科</a>
-                        <a class="dep_table_text">肿瘤内科</a>
-                        <a class="dep_table_text">神经病科</a>
-                        <a class="dep_table_text">**科</a>
-                        <a class="dep_table_text">神经病科</a>
-                        <a class="dep_table_text">肿瘤内科</a>
-                        <a class="dep_table_text">普通外科</a>
-                        <a class="dep_table_text">小儿麻痹</a>
-                        <a class="dep_table_text">心脑外科</a>
-                    </div> -->
         <!--医院内部医生筛选-->
         <!--医生列表-->
         <table class="table table-bordered table-hover doctor_list">

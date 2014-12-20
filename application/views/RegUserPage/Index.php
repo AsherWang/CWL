@@ -169,8 +169,7 @@ window.onload = markHsp;
                     </div>
                 </div>
                 <div class="col-md-2 hsp_link">
-                    <a href="<?php echo base_url()?>RegUserPage/Hsp_doctor_list
-                    ">查看号源</a>
+                    <a href="<?php echo base_url()?>RegUserPage/Hsp_doctor_list">查看号源</a>
                 </div>
             </td><tr>
             <?php endforeach ?>
