@@ -63,21 +63,22 @@ a.guide_text_2:hover{
 }
 
 .hsp_lev_choice{
-	background-color:#97B7FC;
+	background-color:#7BC3FF;
+	color:#fff;
 }
 
 .hsp_type{
 	font-size:14px;
 	width:150px;
 	margin-left:25px;
-	cursor:pointer;
 }
 .hsp_type:hover{
 	color:orange;
 }
 
 .hsp_type_choice{
-	background-color:#97B7FC;
+	background-color:#7BC3FF;
+	color:#fff;
 }
 
 .hsp_table{

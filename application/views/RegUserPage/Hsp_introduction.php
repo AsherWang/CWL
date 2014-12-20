@@ -62,7 +62,6 @@
                 <ul class="nav navbar-nav">
                 <li class="active"><a class="navbar-brand" href="<?php echo base_url()?>RegUserPage/hsp_introduction">医院简介</a></li>
                 <li><a href="<?php echo base_url()?>RegUserPage/hsp_doctor_list">预约挂号</a></li>
-                </div>
         </nav>
         <!--医院内部导航条-->
 

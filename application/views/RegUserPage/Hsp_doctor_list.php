@@ -23,7 +23,7 @@
         <div class="row">
         <div class="col-md-offset-3 col-md-6 main_search">
             <div class="input-group input-group-lg">
-            <input type="text" class="form-control">
+            <input type="text" class="form-control"/>
             <span class="input-group-btn">
                 <button class="btn btn-default" type="submit" value="<?php echo $search_department_type?>">search</button>
             </span>
@@ -64,7 +64,6 @@
                 <ul class="nav navbar-nav">
                 <li><a class="navbar-brand" href="<?php echo base_url()?>RegUserPage/hsp_introduction">医院简介</a></li>
                 <li class="active"><a href="<?php echo base_url()?>RegUserPage/hsp_doctor_list">预约挂号</a></li>
-                </div>
         </nav>
         <!--医院内部导航条-->
         <!--医院内部医生筛选-->
@@ -77,7 +76,10 @@
                         <?php foreach ($department_type_list as $department_type):?>
                             <a class="dep_table_text" name="dep_type" href="<?php echo base_url()?>RegUserPage/hsp_doctor_list?search_department_type=<?php echo $search_department_type?>">$department_type</a>
                         <? endforeach?>
-
+                    </div>
+                </td>
+            </tr>
+        </table>
 <script language="javascript">
 function dep_search(){
     var d = document.getElementsByName("dep_type");
@@ -110,7 +112,6 @@ window.onload = dep_search;
                         <a class="dep_table_text">普通外科</a>
                         <a class="dep_table_text">小儿麻痹</a>
                         <a class="dep_table_text">心脑外科</a> -->
-                    </div>
                     <!-- <div class="row">
                         <a class="dep_table_text">心脑外科</a>
                         <a class="dep_table_text">小儿麻痹</a>
@@ -124,9 +125,6 @@ window.onload = dep_search;
                         <a class="dep_table_text">小儿麻痹</a>
                         <a class="dep_table_text">心脑外科</a>
                     </div> -->
-                </td>
-            </tr>
-        </table>
         <!--医院内部医生筛选-->
         <!--医生列表-->
         <table class="table table-bordered table-hover doctor_list">

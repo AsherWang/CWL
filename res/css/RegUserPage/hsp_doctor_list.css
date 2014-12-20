@@ -43,8 +43,12 @@
 	font-size:14px;
 	font-family:'Microsoft YaHei';
 }
+.dep_table_text a:hover{
+	color:orange;
+}
 .dep_table_text_choice{
-	background-color:#428BCA;
+	background-color:#7BC3FF;
+	color:#fff;
 }
 
 .doctor_list{

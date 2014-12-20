@@ -96,9 +96,11 @@
                         <a class="hsp_type"name="hsp_type" href="<?php echo base_url()?>RegUserPage/Index?search_level=<?php echo $search_level?>&search_type=">不限</a>
                         <?php foreach ($search_type_list as $value): 
                             foreach ($value as$hsp_type_item):?>
+                            <span style="line-height:25px">
                             <a class = "hsp_type" 
                                 href="<?php echo base_url()?>RegUserPage/Index?search_level=<?php echo $search_level?>&search_type=<?php echo $hsp_type_item?>" 
                                 name="hsp_type"><?php echo $hsp_type_item ?></a>
+                            </span>
                             <?php endforeach?>
                         <?php endforeach ?>  
                     </div>
