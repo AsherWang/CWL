@@ -3,12 +3,21 @@
 //全局变量 $userNum, $pageNum;
 $pageNum = 0;
 $colNum = 0;
+//echo var_dump($userList[0]);
+function isDateValid($date)//判断date 是否小于当前时间
+{
+    $dateNow = date("y-m-d h:i:s");
+    if(strtotime($date) < strtotime($dateNow)){
+        return true;
+    }
+    return false;
+}
 ?>
 <link rel="stylesheet" type="text/css" href='<?php echo base_url().'/res/css/superManager.css'?>'>
 <div class="row">
     <div id="ManagerTitle">超级管理员，你好</div>
 </div>
-<div class="row">
+<div class="row" id="alert">
     <div class="col-md-2 panel" id="ManagerControlPanel">
         <div class="PanelItem" id="PanelToUserPage">
             <p href="#" class="PanelLink">管理网站用户</p>
@@ -40,11 +49,21 @@ $colNum = 0;
                 <table class="table table-striped">
                 <?php 
                 $start=$pageNum*18 + $colNum*6;
-                for($i = 0+$start; $i<6+$start&&$i<$userNum; $i++){ ?>
-                    <tr>
+                for($i = 0+$start; $i<6+$start&&$i<$userNum; $i++){ $di=$userList[$i]->ID;?>
+                    <tr class="UserListTr" id="<?php echo 'UserListTr'.$di?>">
                         <td><?php echo $userList[$i]->Name ?></td>
-                        <td>
-                            <label>x</label>
+                        <td id="<?php echo 'UserListLabelTd'.$di?>">
+                            <label>
+                            <?php if(isDateValid($userList[$i]->Valid_Date)){?>
+                            <span style="color:green" class="glyphicon glyphicon-ok"></span>
+                            <?php }else{ ?>
+                            <span style="color:red" class="glyphicon glyphicon-remove"></span>
+                            <?php }?>
+                            </label>
+                        </td>
+                        <td id="<?php echo 'UserListHiddenBtnsTd'.$di?>">
+                            <input type="button" value="封" id="<?php echo 'UserListHiddenBtnFeng'.$di?>" />
+                            <input type="button" value="解" id="<?php echo 'UserListHiddenBtnJie'.$di?>" />
                         </td>
                     </tr>
                 <?php }?>
@@ -60,11 +79,21 @@ $colNum = 0;
                 <?php 
                 $colNum++;
                 $start=$pageNum*18 + $colNum*6;
-                for($i = 0+$start; $i<6+$start&&$i<$userNum; $i++){ ?>
-                    <tr>
+                for($i = 0+$start; $i<6+$start&&$i<$userNum; $i++){ $di=$userList[$i]->ID;?>
+                    <tr class="UserListTr" id="<?php echo 'UserListTr'.$di?>">
                         <td><?php echo $userList[$i]->Name ?></td>
-                        <td>
-                            <label>x</label>
+                        <td id="<?php echo 'UserListLabelTd'.$di?>">
+                            <label>
+                            <?php if(isDateValid($userList[$i]->Valid_Date)){ ?>
+                            <span style="color:green" class="glyphicon glyphicon-ok"></span>
+                            <?php }else{ ?>
+                            <span style="color:red" class="glyphicon glyphicon-remove"></span>
+                            <?php }?>
+                            </label>
+                        </td>
+                        <td id="<?php echo 'UserListHiddenBtnsTd'.$di?>">
+                            <input type="button" value="封" id="<?php echo 'UserListHiddenBtnFeng'.$di?>" />
+                            <input type="button" value="解" id="<?php echo 'UserListHiddenBtnJie'.$di?>" />
                         </td>
                     </tr>
                 <?php }?>
@@ -80,11 +109,21 @@ $colNum = 0;
                 <?php 
                 $colNum++;
                 $start=$pageNum*18 + $colNum*6;
-                for($i = 0+$start; $i<6+$start&&$i<$userNum; $i++){ ?>
-                    <tr>
+                for($i = 0+$start; $i<6+$start&&$i<$userNum; $i++){ $di=$userList[$i]->ID;?>
+                    <tr class="UserListTr" id="<?php echo 'UserListTr'.$di?>">
                         <td><?php echo $userList[$i]->Name ?></td>
-                        <td id="alert">
-                            <label>x</label>
+                        <td id="<?php echo 'UserListLabelTd'.$di?>">
+                            <label>
+                            <?php if(isDateValid($userList[$i]->Valid_Date)){?>
+                            <span style="color:green" class="glyphicon glyphicon-ok"></span>
+                            <?php }else{ ?>
+                            <span style="color:red" class="glyphicon glyphicon-remove"></span>
+                            <?php }?>
+                            </label>
+                        </td>
+                        <td id="<?php echo 'UserListHiddenBtnsTd'.$di?>">
+                            <input type="button" value="封" id="<?php echo 'UserListHiddenBtnFeng'.$di?>" />
+                            <input type="button" value="解" id="<?php echo 'UserListHiddenBtnJie'.$di?>" />
                         </td>
                     </tr>
                 <?php }?>
@@ -92,7 +131,10 @@ $colNum = 0;
             </div>
         </div>
         <div class="row" id="ManagerBtnDiv">
-            <div class="col-md-2 col-md-offset-1 HowToUseText">点击x可以封禁用户</div>
+            <div class="col-md-2 col-md-offset-1 HowToUseText">
+                <span style="color:green" class="glyphicon glyphicon-ok"></span>代表有效的用户
+                <span style="color:red" class="glyphicon glyphicon-remove"></span>代表被封的用户
+            </div>
             
             <input type="button" class="col-md-1 col-md-offset-4 form-contorl btn btn-default ManagerBtn" value="<" id="ManagerPrePageBtn">
             <input type="button" class="col-md-1 form-contorl btn btn-default ManagerBtn" value=">" id="ManagerNextPageBtn">
@@ -133,6 +175,65 @@ $("#SearchUserBtn").click(function(){
         data:{"searchTxt":searchTxt},
         success:function(data){
             document.write(data);
+        }
+    });
+});
+
+//首先隐藏封禁按钮们
+hideAllBtns();
+function hideAllBtns()
+{
+    $("[id^='UserListHidden']").each(function(){
+        $(this).hide();
+    });
+    $("[id^='UserListLabelTd']").each(function(){
+        $(this).show(100);
+    });
+}
+
+$("[id^='UserListTr']").click(function(){
+    var fullId = $(this).attr("id");
+    var id = fullId.substr(10, fullId.length-10);
+    
+    hideAllBtns();
+    $("#UserListLabelTd"+id).hide();
+    $("#UserListHiddenBtnsTd"+id).show(100);
+    $("#UserListHiddenBtnFeng"+id).show(100);
+    $("#UserListHiddenBtnJie"+id).show(100);
+    
+});
+
+//忍法奥义*究极夺魄轮回北斗十字花式封印
+$("[id^='UserListHiddenBtnFeng']").click(function(){
+    var fullId = $(this).attr("id");
+    var id = fullId.substr(21, fullId.length-10);
+
+    $.ajax({
+        url:"<?php echo base_url();?>SuperManagerPage/FengFengFeng",
+        type:"POST",
+        datatype:"html",
+        data:{"ID":id},
+        success:function(data){
+            //$("#alert").html(data);
+            alert(data);
+            location.reload();
+        }
+    });
+});
+
+$("[id^='UserListHiddenBtnJie']").click(function(){
+    var fullId = $(this).attr("id");
+    var id = fullId.substr(20, fullId.length-10);
+
+    $.ajax({
+        url:"<?php echo base_url();?>SuperManagerPage/JieJieJie",
+        type:"POST",
+        datatype:"html",
+        data:{"ID":id},
+        success:function(data){
+            //$("#alert").html(data);
+            alert(data);
+            location.reload();
         }
     });
 });

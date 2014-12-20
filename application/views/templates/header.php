@@ -6,12 +6,22 @@
  * @Last Modified time: 2014-12-15
  */
 //页眉
+//是否登陆
 $log = 0;
 if(isset($session->userdata['is_logged']))
 {
   if($session->userdata['is_logged'] == true)
   $log = 1;
 }
+
+//是否是超级管理员
+$isSuper = 0;
+if(isset($session->userdata['user_type']))
+{
+  if($session->userdata['user_type'] == "1")
+  $isSuper= 1;
+}
+
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -40,6 +50,9 @@ if(isset($session->userdata['is_logged']))
       <a class="HeaderText" id="HeaderMyOrderLink" href="<?php echo base_url()?>RegUserPage/My_appointment">我的预约单</a>
       <span class="HeaderStaticText HeaderDivide">|</span>
       <a class="HeaderText" id="HeaderNameLink" href="<?php echo base_url()?>RegUserPage/Personal_message_change"><?php echo $session->userdata['username'];?></a>
+    <?php }?>
+    <?php if($isSuper){ ?>
+      <a class="HeaderText" id="HeaderSuperLink" href="<?php echo base_url()?>SuperManagerPage/Index">权限狗专区</a>
     <?php }?>
     </div>
   	<hr class="HeaderFooterHr" id="HeaderHr"/>

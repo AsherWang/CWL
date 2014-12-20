@@ -109,3 +109,7 @@ body{
 #SearchDiv{
 	height: 40px;
 }
+
+.UserListTr:hover{
+	cursor: pointer;
+}

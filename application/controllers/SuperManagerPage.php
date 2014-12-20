@@ -31,7 +31,7 @@ class SuperManagerPage extends base_controller {
   public function Index()
   {
     $cols = array(
-          'ID'=>false, 
+          'ID'=>true, 
           'Ext_ID'=>false, 
           'Name'=>true, 
           'ID_number'=>false, 
@@ -112,5 +112,20 @@ class SuperManagerPage extends base_controller {
 
   }
 
+  //暂定封禁一周
+  public function FengFengFeng()
+  {
+    $ID = $this->input->post('ID');
+
+    $this->user_model->MakeUnvalid($ID, 7);
+    echo "成功封禁该账号!!";
+  }
+
+  public function JieJieJie()
+  {
+    $ID = $this->input->post('ID');
+    $this->user_model->MakeValid($ID);
+    echo "成功解封该账号!!";
+  }
 
 }?>
