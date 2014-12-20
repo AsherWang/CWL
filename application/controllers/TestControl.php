@@ -34,7 +34,14 @@ class TestControl extends CI_Controller {
 	  
 	$temp=$this->hospital_model->hospital_type();
 	
-	$data["value"]=$this->session->all_userdata();
+	  $data['departments']= $this->hospital_model->getTableByOrderLimit("department",array(),array(),0,1);  //拉取科室，  = =
+   
+   foreach($data['departments'] as $key =>$value)
+   {
+	   $temp=$this->hospital_model->get_hospital(array("ID"=>$value["Hospital_ID"]));
+	   $data['departments'][$key]["Hospital_Name"]=$temp[0]["Name"];
+   }
+   $data["value"]= $data['departments'];
      $this->load->view('TestPage/Index', $data);
   }
 }

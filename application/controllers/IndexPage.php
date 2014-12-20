@@ -61,6 +61,14 @@ class IndexPage extends base_controller {
 	$data['latest_notices']=$this->hospital_model->getTableByOrderLimit("Notice",array(),array("Date"=>"desc"),0,5); //拉取公告
    $data['hospitals']= $this->hospital_model->getTableByOrderLimit("hospital",array(),array(),0,6);//拉取热门医院，= =
    $data['departments']= $this->hospital_model->getTableByOrderLimit("department",array(),array(),0,6);  //拉取科室，  = =
+   
+   foreach($data['departments'] as $key =>$value) //给科室加上医院名字
+   {
+	   $temp=$this->hospital_model->get_hospital(array("ID"=>$value["Hospital_ID"]));
+	   $data['departments'][$key]["Hospital_Name"]=$temp[0]["Name"];
+   }
+   
+
    //$temp=$this->hospital_model->hospital_type();
    $data["type_list"]=$this->CombineArray($this->hospital_model->hospital_type(),"Type");
    $data["area_list"]=$this->CombineArray($this->hospital_model->hospital_area(),"Area");//拉取地区列表

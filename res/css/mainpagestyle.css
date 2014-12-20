@@ -91,7 +91,7 @@ body{
 	font-family: "YueHei";
 	font-size: 20px;
 	color: white;
-	margin-left: 110px;
+	margin-left: 125px;
 }
 #wimg{
 	
@@ -223,20 +223,12 @@ body{
 	font-size: 30px;
 	font-family: "微软雅黑";
 }
-#clicksearch{
-	
-	width: 120px;
-	height: 50px;
-	float: left;
-	font-family: Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", monospace, "造字工房悦黑（非商用）常规体";
-	margin-bottom: auto;
-	
-	margin-right: auto;
-	margin-top: 90px;
-	}
-#selects{
 
-	
+#querybut{
+	position: relative;
+	left: 850px;
+	top: -50px;
+	cursor: pointer;
 }
 /*搜索*/
 

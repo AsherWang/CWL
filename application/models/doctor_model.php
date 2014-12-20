@@ -1,5 +1,6 @@
 <?php
-	class Doctor_model extends CI_Model{
+	class Doctor_model extends CI_Model
+	{
 	
 		function __construct()
 		{
@@ -33,7 +34,7 @@
 			return $this->db->insert('doctor',$data);
 		}
 
-		function delete_doctor($data);
+		function delete_doctor($data)
 		{
 			$this->db->delete('doctor',$data);
 		}
@@ -42,6 +43,19 @@
 		{
 			$this->db->where('ID',$ID);
 			$this->db->update('doctor',$data);
+		}
+		function get_doctors($data)
+		{
+			    //将data数组遍历，取出名字和值,加进where中
+			if(!empty($data))
+			foreach ($data as $key => $value) 
+			{ 
+				$this->db->where($key,$value);
+			}
+			$this->db->from("doctor");
+		  $query = $this->db->get();
+		  if($query->num_rows()<0)return -1;
+		  return $query->result_array();
 		}
 	}
 ?>
