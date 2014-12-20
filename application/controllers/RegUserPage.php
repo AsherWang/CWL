@@ -87,10 +87,11 @@ class RegUserPage extends base_controller {
 	//like
     if($data["search_box"]!="")$searData["Name"]=$data["search_box"];
    
-    $data["doctor_list"]=$this->doctor_model->get_doctors(array("ID"=>$_GET["hospital_id"]));
+    $data["doctor_list"]=$this->doctor_model->get_doctors(array());
    
+   
+   	$hospital_info=$this->hospital_model->get_hospital(array("ID"=>$_GET["hospital_id"]));
     $data['title'] =$hospital_info[0]["Name"]; 
-	
     $this->load->view('templates/header', $data);
    $this->load->view('RegUserPage/Hsp_doctor_list', $data);
     //$this->load->view('templates/footer');
