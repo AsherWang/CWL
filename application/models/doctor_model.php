@@ -47,18 +47,16 @@
 		function get_available_doctors($data,$key_words="")
 		{
 			    //将data数组遍历，取出名字和值,加进where中
+			$this->db->select("doctor.Name as dName,department.Name as tName,doctor.ID as dID,department.ID as tID,Expert");
 			if(!empty($data))
 			foreach ($data as $key => $value) 
-			{ 
+			{
 				$this->db->where($key,$value);
 			}
+			$this->db->join('department', 'department.ID = doctor.Department_ID'); 
 			if($key_words!="")
-				$this->db->like('Name', $key_words, 'both');
+				$this->db->like('doctor.Name', $key_words, 'both');
 			$this->db->from("doctor");
-			
-			
-			
-			
 		  $query = $this->db->get();
 		  if($query->num_rows()<0)return -1;
 		  return $query->result_array();

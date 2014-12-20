@@ -25,6 +25,27 @@
 				return NULL;
 			
 		}
+		
+		//根据医院ID返回本医院所有ID和科室名称的键值对
+		function department_id_type_array($Hospital_ID)
+		{
+			$result=array();
+			
+			$query=$this->db->query("SELECT ID,Type FROM department WHERE Hospital_ID=$Hospital_ID");
+			if($query->num_rows()>0)
+			{
+				foreach($query->result_array() as $value)
+				{
+					$result[$value["ID"]]=$value["Type"];
+				}
+				return $result;
+			}
+			else
+				return array();
+			
+		}
+		
+		
 		//$data数组查找所有科室信息
 		function get_department($data)
 		{

@@ -91,6 +91,7 @@ class base_controller extends CI_Controller {
 	{
 		$result=array();
 		$i=0;
+		if(!is_array($array))return $result;
 		foreach($array as $key=>$value)
 		{
 			$result[$i]=$value[$name];
