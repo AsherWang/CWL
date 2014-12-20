@@ -80,6 +80,7 @@ class RegUserPage extends base_controller {
 	}
 	$searData=array();
 	$data["search_box"]="";
+	$data["hospital_id"]=$_GET["hospital_id"];
    	$data["search_department_type"]="";
 	$temp= $this->department_model->department_type($_GET["hospital_id"]);
     $data['department_type_list'] =$this->CombineArray($temp,"Type");
