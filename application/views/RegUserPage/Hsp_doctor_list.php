@@ -45,9 +45,6 @@
             <a class="col-md-1 guide_text_2 guide_text_3" href="<?php echo base_url()?>RegUserPage/appointment_quickly">
                 快速预约
             </a>
-            <a class="col-md-2 guide_text_2" href="########">
-                预约流程介绍
-            </a>
         </div>
         <!--导航条-->
         <!--医院名称-->
@@ -65,7 +62,6 @@
                 <ul class="nav navbar-nav">
                 <li><a class="navbar-brand" href="<?php echo base_url()?>RegUserPage/hsp_introduction">医院简介</a></li>
                 <li class="active"><a href="<?php echo base_url()?>RegUserPage/hsp_doctor_list">预约挂号</a></li>
-                <li><a href="#">就医经验</a></li>
                 </div>
         </nav>
         <!--医院内部导航条-->
@@ -75,6 +71,45 @@
                 <td class="dep_table_choose">科室筛选</td>
                 <td>
                     <div class="row">
+                        <a class="dep_table_text" name="dep_type">不限</a>
+                        <?php foreach ($department_type_list as $department_type):?>
+                            <a class="dep_table_text" name="dep_type">$department_type</a>
+                        <? endforeach?>
+
+<script language="javascript">
+function dep_search(){
+    var d = document.getElementsByName("dep_type");
+    var t = "<?php echo $search_department_type?>";
+    if (t == ""){
+        d[0].className="dep_table_text dep_table_text_choice";
+        for (var i=1; i<d.length; i++){
+            d[i].className="dep_table_text";
+        }
+    }else{
+        for (var i=0; i<d.length;i++){
+            if (d[i].innerHTML == t){
+                d[i].className="dep_table_text dep_table_text_choice";
+            }else{
+                d[i].className="dep_table_text";
+            }
+        }
+    }
+}
+window.onload = dep_search;
+</script>
+                        <!-- <a class="dep_table_text">心脑外科</a>
+                        <a class="dep_table_text">小儿麻痹</a>
+                        <a class="dep_table_text">普通外科</a>
+                        <a class="dep_table_text">肿瘤内科</a>
+                        <a class="dep_table_text">神经病科</a>
+                        <a class="dep_table_text">**科</a>
+                        <a class="dep_table_text">神经病科</a>
+                        <a class="dep_table_text">肿瘤内科</a>
+                        <a class="dep_table_text">普通外科</a>
+                        <a class="dep_table_text">小儿麻痹</a>
+                        <a class="dep_table_text">心脑外科</a> -->
+                    </div>
+                    <!-- <div class="row">
                         <a class="dep_table_text">心脑外科</a>
                         <a class="dep_table_text">小儿麻痹</a>
                         <a class="dep_table_text">普通外科</a>
@@ -86,39 +121,7 @@
                         <a class="dep_table_text">普通外科</a>
                         <a class="dep_table_text">小儿麻痹</a>
                         <a class="dep_table_text">心脑外科</a>
-                    </div>
-                    <div class="row">
-                        <a class="dep_table_text">心脑外科</a>
-                        <a class="dep_table_text">小儿麻痹</a>
-                        <a class="dep_table_text">普通外科</a>
-                        <a class="dep_table_text">肿瘤内科</a>
-                        <a class="dep_table_text">神经病科</a>
-                        <a class="dep_table_text">**科</a>
-                        <a class="dep_table_text">神经病科</a>
-                        <a class="dep_table_text">肿瘤内科</a>
-                        <a class="dep_table_text">普通外科</a>
-                        <a class="dep_table_text">小儿麻痹</a>
-                        <a class="dep_table_text">心脑外科</a>
-                    </div>
-                    <div class="row">
-                        <span class="dep_table_text">一个医院这么多科室应该够了</span>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td class="dep_table_choose">医生职称</td>
-                <td>
-                    <div class="row">
-                        <a class="dep_table_text">主任医师</a>
-                        <a class="dep_table_text">副主任医师</a>
-                        <a class="dep_table_text">教授</a>
-                        <a class="dep_table_text">副教授</a>
-                        <a class="dep_table_text">专家</a>
-                        <a class="dep_table_text">其他(会有人点这个吗)</a>
-                    </div>
-                    <div class="row">
-                        <a class="dep_table_text">医院里面医生的职称还有还是什么可以放上来的？？？</a>
-                    </div>
+                    </div> -->
                 </td>
             </tr>
         </table>

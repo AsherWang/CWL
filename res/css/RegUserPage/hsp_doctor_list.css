@@ -43,6 +43,9 @@
 	font-size:14px;
 	font-family:'Microsoft YaHei';
 }
+.dep_table_text_choice{
+	background-color:#428BCA;
+}
 
 .doctor_list{
 	width:83%;

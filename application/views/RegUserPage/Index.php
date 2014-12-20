@@ -47,9 +47,6 @@
             <a class="col-md-1 guide_text_2 guide_text_3" href="<?php echo base_url()?>RegUserPage/appointment_quickly">
                 快速预约
             </a>
-            <a class="col-md-2 guide_text_2" href="########">
-                预约流程介绍
-            </a>
         </div>
         <!--导航条-->
 
@@ -155,42 +152,6 @@ window.onload = markHsp;
 
         <!--主体医院列表-->
         <table class="table table-striped table-hover hsp_table">
-            <!-- <tr><td class="row">
-                <img class="col-md-2" src="<?php echo base_url()?>res/images/hsp_picture.png"/>
-                <div class="col-md-8">
-                    <span class="row">小红帽成人医院</span>
-                    <div class="row">
-                        <span>电话：</span>
-                        <span>000-00000000</span>
-                    </div>
-                    <div class="row">
-                        <span>地址：</span>
-                        <span>Please guess</span>
-                    </div>
-                </div>
-                <div class="col-md-2 hsp_link">
-                    <a href="<?php echo base_url()?>RegUserPage/Hsp_doctor_list
-                    ">查看号源</a>
-                </div>
-            </td><tr>
-            <tr><td class="row">
-                <img class="col-md-2" src="<?php echo base_url()?>res/images/hsp_picture.png"/>
-                <div class="col-md-8">
-                    <span class="row">小红帽成人医院</span>
-                    <div class="row">
-                        <span>电话：</span>
-                        <span>000-00000000</span>
-                    </div>
-                    <div class="row">
-                        <span>地址：</span>
-                        <span>Please guess</span>
-                    </div>
-                </div>
-                <div class="col-md-2 hsp_link">
-                    <a href="<?php echo base_url()?>RegUserPage/Hsp_doctor_list
-                    ">查看号源</a>
-                </div>
-            </td><tr> -->
             <?php foreach ($hospitals as $hospital_item): ?>
             <tr><td class="row">
                 <img class="col-md-2" src="<?php echo base_url()?>res/images/hsp_picture.png"/>
