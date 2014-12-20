@@ -29,12 +29,12 @@
        </ul>
        <?php if($login_result==0||$login_result==-1)  {?>
        <ul class="nav navbar-nav navbar-right" id="logo1">
-        <li><a>游客欢迎您</a></li>
+        <li class="active"><a>游客欢迎您</a></li>
         <li><a href="<?php echo base_url();?>LoginPage/regist">请先注册</a></li>
       </ul>
       <?php } else {?>
       <ul class="nav navbar-nav navbar-right" id="logo1">
-       <li><a></a></li>
+       <li class="active"><a><?php echo $user['username'] ?></a></li>
        <li><a href="<?php echo base_url();?>LoginPage/regist">用户中心</a></li>
      </ul>
 
@@ -137,7 +137,7 @@
           <?php if($login_result==1)  {?>
           <div id="welcome">
            <div id="wtitle">欢迎回来!</div>
-           <div id="wname"></div>
+           <div id="wname"><?php echo $user['username'] ?></div>
            <div id="wimg"><img style="width:180px;height:180px;" class="img-circle" src="<?php echo base_url().'res/images/user.jpg'?>"></div>
 
            <div id="wlog"><button id="wbut" onclick="window.location.href='<?php echo base_url();?>?do=exit'" type="button" class="btn btn-primary btn-lg">退出登录</button>
@@ -224,10 +224,13 @@
 
 
         <div id="search">
+        <form action="<?php echo base_url()?>RegUserPage/Index" method="get" id="querydord">
          <div class="input-group" id="searcher">
-           <input type="text" id="searchcontent" class="form-control" placeholder="医院/科室">
+           <input type="text" name="search_box" id="searchcontent" class="form-control" placeholder="医院名称">
          </div>
-         <input type="image" src="<?php echo base_url().'/res/images/button.png'?>" id="clicksearch" ></input>
+         <div id="querybut"><a name="querydordbut"><img style="width:120px;height:50px;" src="<?php echo base_url().'/res/images/button.png'?>"></a></div>
+         </form>
+
        </div>
 
        <div id="visit">
@@ -336,6 +339,7 @@
 <script type="text/javascript">
   $(document).ready(function() {
             $("a[name='query']").click(function(){$("#quickvisit").submit();})
+            $("a[name='querydordbut']").click(function(){$("#querydord").submit();})
   })
 </script>
 
@@ -349,25 +353,25 @@
 <div id="news">
  <div id="nmore"><a href="<?php echo base_url();?>NoticePage">more..</a></div>
  <div id="firsthotnews">
-    <?php foreach ($latest_notices as $notice_item): ?>
+    <?php foreach ($latest_notices as $notice_item){ ?>
       <div class="hotnews" onMouseOver="this.style.background='url(<?php echo base_url().'/res/images/hotlable.png'?>)'" onMouseOut="this.style.background='none'">
       <div class="new">
-        <a href="<?php echo base_url()."NoticePage/view/".$notice_item['ID'] ?>" target="_blank"><span class="words"><?php echo $notice_item['Title'] ?><span></a>
+        <a href="<?php echo base_url().'NoticePage/view/'.$notice_item['ID'] ?>" target="_blank"><span class="words"><?php $smalltitle=substr($notice_item['Title'],0,45); echo $smalltitle ?><span></a>
       </div>
       </div>
-    <?php endforeach ?>
+    <?php } ?>
   </div>
 </div>
 <div id="activehot">
   <div id="hots1" class="hots">
-    <div id="htitle1"><img src="<?php echo base_url().'/res/images/hos.png'?>"></div>
+    <div id="htitle1"><img src="<?php echo base_url().'res/images/hos.png'?>"></div>
     <ul>
       <?php $i=0; foreach ($hospitals as $hospital_item){ $i++;?>
       <li>
         <div class="hothospital">
-          <img src="<?php echo base_url().'/res/images/hop'."$i".'.jpg'?>" width="128" height="96" /> 
+          <img src="<?php echo base_url().'res/images/hop'."$i".'.jpg'?>" width="128" height="96" /> 
           <strong>
-            <a href="#"><?php echo $hospital_item['Name'] ?>
+            <a href="<?php echo base_url().'RegUserPage/Hsp_doctor_list?hospital_id='.$hospital_item['ID'] ?>"><?php echo $hospital_item['Name'] ?>
               [<?php echo $hospital_item['Level'] ?>]</a></strong>
               <p>电话:<abbr title="hhh"><?php echo $hospital_item['Phone'] ?></abbr><br />
                 地址:<abbr title="<?php echo $hospital_item['Address'] ?>"><?php echo $hospital_item['Address'] ?></abbr><br />
@@ -388,7 +392,7 @@
           <div class="hothospital">
             <img src="<?php echo base_url().'/res/images/hop'."$j".'.jpg'?>" width="128" height="96" /> 
             <strong>
-              <a href="#"><?php echo $department_item['Name'] ?>
+              <a href="<?php echo base_url().'RegUserPage/result_of_dep_search?department_id='.$department_item['ID'] ?>"><?php echo $department_item['Name'] ?>
                 [<?php echo $department_item['Type'] ?>]</a></strong>
                 <p>
                   详细信息:<?php $Info1 = substr($department_item['Info'],0,90); echo $Info1.'。。。';  ?><br />
