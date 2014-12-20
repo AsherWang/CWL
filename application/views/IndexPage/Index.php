@@ -396,7 +396,7 @@
                 [<?php echo $department_item['Type'] ?>]</a></strong>
                 <p>
                   详细信息:<?php $Info1 = substr($department_item['Info'],0,90); echo $Info1.'。。。';  ?><br />
-                  所属医院：<?php echo $department_item['Type'] ?>
+                  所属医院：<?php echo $department_item['Hospital_Name'] ?>
                   <div class="clear"></div>
                 </p>
               </div>
