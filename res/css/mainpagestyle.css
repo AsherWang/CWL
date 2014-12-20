@@ -226,6 +226,8 @@ body{
 
 #querybut{
 	position: relative;
+	width: 120px;
+	height: 50px;
 	left: 850px;
 	top: -50px;
 	cursor: pointer;

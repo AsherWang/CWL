@@ -57,7 +57,6 @@ $route['HospitalManangerPage/Appointment'] = "HospitalManangerPage/Appointment";
 
 
 $route['RegUserPage']="RegUserPage";
-$route['RegUserPage/hsp_introduction/(:any)']="RegUserPage/hsp_introduction/$1";
 
 
 $route['SuperManager'] = "SuperManager";

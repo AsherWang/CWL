@@ -45,9 +45,6 @@
             <a class="col-md-1 guide_text_2 guide_text_3" href="<?php echo base_url()?>RegUserPage/appointment_quickly">
                 快速预约
             </a>
-            <a class="col-md-2 guide_text_2" href="########">
-                预约流程介绍
-            </a>
         </div>
         <!--导航条-->
         <!--医院名称-->
@@ -65,8 +62,6 @@
                 <ul class="nav navbar-nav">
                 <li class="active"><a class="navbar-brand" href="<?php echo base_url()?>RegUserPage/hsp_introduction">医院简介</a></li>
                 <li><a href="<?php echo base_url()?>RegUserPage/hsp_doctor_list">预约挂号</a></li>
-                <li><a href="#">就医经验</a></li>
-                </div>
         </nav>
         <!--医院内部导航条-->
 

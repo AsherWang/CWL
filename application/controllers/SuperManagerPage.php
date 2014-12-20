@@ -9,6 +9,7 @@ require_once("base_controller.php");
 class SuperManagerPage extends base_controller {
 
   public $data;
+  public $PageData;
   public function __construct()
   {
     parent::__construct();
@@ -17,6 +18,9 @@ class SuperManagerPage extends base_controller {
     $this->data['title'] = 'SuperManagerPage';
     $this->load->model('hospital_model');
     $this->load->model('user_model');
+
+    $this->PageData['session'] = $this->session;
+    $this->PageData['title'] = "超级管理员界面";
     //构造函数时载入数据的model类，对应models目录下的news_model
     //s 
    //$this->load->model('notice_model');
@@ -42,7 +46,7 @@ class SuperManagerPage extends base_controller {
     $this->data['userList'] = $this->user_model->getUserList($cols, "ID", 0);
     $this->data['userNum'] = $this->user_model->get_user_sum();
 
-    $this->load->view('templates/header', $this->data);
+    $this->load->view('templates/header', $this->PageData);
     $this->load->view('SuperManagerPage/Index', $this->data);
     $this->load->view('templates/footer');
   }
@@ -52,14 +56,14 @@ class SuperManagerPage extends base_controller {
     $this->data['hospitalList'] = $this->hospital_model->get_hospital_list(true, true, false, false, false, false, false, false);
     $this->data['hospitalNum'] = $this->hospital_model->hospital_num();
 
-    $this->load->view('templates/header', $this->data);
+    $this->load->view('templates/header', $this->PageData);
     $this->load->view('SuperManagerPage/HandleHospital', $this->data);
     $this->load->view('templates/footer');
   }
 
   public function AddNewHospital()
   {
-    $this->load->view('templates/header', $this->data);
+    $this->load->view('templates/header', $this->PageData);
     $this->load->view('SuperManagerPage/AddNewHospital', $this->data);
     $this->load->view('templates/footer');
   }
@@ -91,7 +95,7 @@ class SuperManagerPage extends base_controller {
 
     $this->data['userNum'] = $this->user_model->db->affected_rows();
 
-    $this->load->view('templates/header', $this->data);
+    $this->load->view('templates/header', $this->PageData);
     $this->load->view('SuperManagerPage/Index', $this->data);
     $this->load->view('templates/footer');
   }
@@ -102,7 +106,7 @@ class SuperManagerPage extends base_controller {
     $this->data['hospitalList'] = $this->hospital_model->getHospitalInfoByName($txt);
 
     $this->data['hospitalNum'] = $this->hospital_model->db->affected_rows();
-    $this->load->view('templates/header', $this->data);
+    $this->load->view('templates/header', $this->cairo_pattern_get_extend(pattern));
     $this->load->view('SuperManagerPage/HandleHospital', $this->data);
     $this->load->view('templates/footer');
 
