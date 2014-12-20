@@ -17,116 +17,53 @@
                       <legend class="">医院信息修改</legend>
                   </div>
                   <div class="control-group">
-
-                      <!-- Text input-->
                       <label class="control-label" for="input01">医院名称：</label>
-
                           <input style="width: 300px;" name="h_Name" type="text" placeholder="<?php echo $h_info["Name"];?>" class="input-xlarge"/>
-
-
                   </div>
                   <br/>
-
                   <div class="control-group">
-
-                      <!-- Text input-->
                       <label class="control-label" for="input01">医院类型：</label>
-
-                          <input name="h_Type" style="width: 300px;" type="text" placeholder="<?php echo $h_info["Type"];?>" class="input-xlarge">
-
-
+                      <input name="h_Type" style="width: 300px;" type="text" placeholder="<?php echo $h_info["Type"];?>" class="input-xlarge">
                   </div>
                   <br/>
-
-
-
                   <div class="control-group">
-
-                      <!-- Text input-->
                       <label class="control-label" for="input01">医院等级：</label>
-
-                          <input name="h_Level"  style="width: 300px;" type="text" placeholder="<?php echo $h_info["Level"];?>" class="input-xlarge">
-
-
+                      <input name="h_Level"  style="width: 300px;" type="text" placeholder="<?php echo $h_info["Level"];?>" class="input-xlarge">
                   </div>
                   <br/>
-
                   <div class="control-group">
-
-                      <!-- Text input-->
                       <label class="control-label" for="input01">所在地区：</label>
-
-                          <input name="h_Area" style="width: 300px;" type="text" placeholder="<?php echo $h_info["Area"];?>" class="input-xlarge">
-
-
+                      <input name="h_Area" style="width: 300px;" type="text" placeholder="<?php echo $h_info["Area"];?>" class="input-xlarge">
                   </div>
                   <br/>
-
                   <div class="control-group">
-
-                      <!-- Text input-->
                       <label class="control-label" for="input01">详细地址：</label>
-
-                          <input name="h_Address" style="width: 300px;" type="text" placeholder="<?php echo $h_info["Address"];?>" class="input-xlarge">
-
-
+                      <input name="h_Address" style="width: 300px;" type="text" placeholder="<?php echo $h_info["Address"];?>" class="input-xlarge">
                   </div>
                   <br/>
-
                   <div class="control-group">
-
-                      <!-- Text input-->
                       <label class="control-label" for="input01">电　　话：</label>
-
-                          <input name="h_Phone" style="width: 300px;" type="text" placeholder="<?php echo $h_info["Phone"];?>" class="input-xlarge">
-
-
+                      <input name="h_Phone" style="width: 300px;" type="text" placeholder="<?php echo $h_info["Phone"];?>" class="input-xlarge">
                   </div>
                   <br/>
-
                   <div class="control-group">
-
-                      <!-- Text input-->
                       <label class="control-label" for="input01">网　　址：</label>
-
-                          <input name="h_Website"  style="width: 300px;" type="text" placeholder="<?php echo $h_info["Website"];?> " class="input-xlarge">
-
-
+                      <input name="h_Website"  style="width: 300px;" type="text" placeholder="<?php echo $h_info["Website"];?> " class="input-xlarge">
                   </div>
-
-
                   <div class="control-group">
-
-                      <!-- Text input-->
                       <label class="control-label" for="input01">介绍图片：</label>
-
-                          <input name="h_Image_url" style="width: 300px;" type="text" placeholder="<?php echo $h_info["Image_Url"];?>" class="input-xlarge">
-
-
+                      <input name="h_Image_url" style="width: 300px;" type="text" placeholder="<?php echo $h_info["Image_Url"];?>" class="input-xlarge">
                   </div>
-
-
                   <div class="control-group">
-
-                      <!-- Textarea -->
                       <label class="control-label">医院简介：</label>
-
-                          <div class="textarea">
+                      <div class="textarea">
                               <textarea name="h_Info" style="width: 400px;"  type="" class=""> </textarea>
                           </div>
-
                   </div>
-
-
                   <div class="control-group">
-
-
-                      <!-- Button -->
                       <div class="controls">
                           <button class="btn btn-primary">点击提交</button>
                       </div>
-
-
               </fieldset>
           </form>
 
