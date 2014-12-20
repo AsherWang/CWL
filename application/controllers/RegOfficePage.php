@@ -93,10 +93,9 @@ class RegOfficePage extends base_controller {
 		$data["order_department_info"]=$tempData[0];
 		
 		
-		 
-		//获取对应科室信息
-		// $tampData=$this->department_model->get_department(array("ID"=>$data['order_info']["Hospital_ID"]));
-		 $data["debug_value"]= $data["order_department_info"];
+		
+		 $data["debug_value"]= $data['order_info'];
+			
 		 $this->load->view('RegOfficePage/Index', $data);
 	     $this->load->view('RegOfficePage/OrderDetail', $data);
 		 
@@ -119,7 +118,7 @@ class RegOfficePage extends base_controller {
 	  {
 	  		$data["admin_name"]=$userData["username"];
 	  		$data["title"]="挂号单";
-	  		$data["debug_value"]="挂号单";
+	  		
 	  		
 			 $search_data["order.ID"]=$_POST["print_id"];
 			 $search_data["hospital_ID"]=$userData["hospital_id"];
@@ -148,7 +147,7 @@ class RegOfficePage extends base_controller {
 			
 			
 			
-			
+			$data["debug_value"]= $data['order_info'];
 			
 	  		$this->load->view('RegOfficePage/Index', $data);
 	  		$this->load->view('RegOfficePage/PrintOrder', $data);
@@ -161,7 +160,18 @@ class RegOfficePage extends base_controller {
   
   public function  PayOrder()
   {
-	  
+	    if(!$this->isSessionExists())
+	   {
+		  redirect("");
+	   }
+	  $userData=$this->getLogegUser();
+	  if(isset($_POST["pay_id"])&&$_POST["pay_id"]!="")
+	  {
+		    //支付完成....
+		  	$this->order_model->pay_order($_POST["pay_id"]);
+		    redirect("RegOfficePage/OrderDetail?id=".$_POST["pay_id"]);
+	  }
+	  redirect("");
   }
 
 }?>

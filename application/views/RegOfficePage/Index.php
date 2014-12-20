@@ -40,9 +40,8 @@
       </div>
   </div>
 
-<br><br><br><br>
-   <p>调试信息</p>
-   <?php var_dump($debug_value);?>
+<br><br><br>
+   <?php echo "<p>调试信息</p>";  var_dump($debug_value);?>
    
    <?php 
    		function tansState($value)

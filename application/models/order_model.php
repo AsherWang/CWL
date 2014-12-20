@@ -79,7 +79,7 @@
 			return $this->deleteATable($order_id,"order");
 		}
 		
-		function pay_order($userid)
+		function pay_order($order_id)
 		{
 			return $this->updateTable($order_id,
 			array("State"=>2,"Pay_Time"=>date("y-m-d h:i:s")),"order");
