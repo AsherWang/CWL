@@ -44,7 +44,7 @@
 			$this->db->where('ID',$ID);
 			$this->db->update('doctor',$data);
 		}
-		function get_doctors($data,$key_words="")
+		function get_available_doctors($data,$key_words="")
 		{
 			    //将data数组遍历，取出名字和值,加进where中
 			if(!empty($data))
@@ -55,9 +55,38 @@
 			if($key_words!="")
 				$this->db->like('Name', $key_words, 'both');
 			$this->db->from("doctor");
+			
+			
+			
+			
 		  $query = $this->db->get();
 		  if($query->num_rows()<0)return -1;
 		  return $query->result_array();
 		}
+		
+		
+				function get_doctors($data,$key_words="")
+		{
+			    //将data数组遍历，取出名字和值,加进where中
+			if(!empty($data))
+			foreach ($data as $key => $value) 
+			{ 
+				$this->db->where($key,$value);
+			}
+			if($key_words!="")
+				$this->db->like('Name', $key_words, 'both');
+			$this->db->from("doctor");
+			
+			
+			
+			
+		  $query = $this->db->get();
+		  if($query->num_rows()<0)return -1;
+		  return $query->result_array();
+		}
+		
+		
+		
+		
 	}
 ?>

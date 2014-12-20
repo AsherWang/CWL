@@ -11,7 +11,7 @@ class TestControl extends CI_Controller {
     parent::__construct();
 //    $this->load->model('user_model');
     $this->load->helper('url');
-//	$this->load->model('schedule_model');
+$this->load->model('department_model');
 $this->load->model('doctor_model');
 	$this->load->library('session');
 	$this->load->model('hospital_model');
@@ -33,7 +33,8 @@ $this->load->model('doctor_model');
   {
 	  
 	$hospital_info=$this->hospital_model->get_hospital(array("ID"=>2));
-    $data['value'] =$data["doctor_list"]=$this->doctor_model->get_doctors(array());
+	$temp =$this->department_model->department_type($_GET["hospital_id"]);
+    $data['value']  =$temp;
      $this->load->view('TestPage/Index', $data);
   }
 }

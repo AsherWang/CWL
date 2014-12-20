@@ -81,7 +81,8 @@ class RegUserPage extends base_controller {
 	$searData=array();
 	$data["search_box"]="";
    	$data["search_department_type"]="";
-    $data['department_type_list'] = $this->department_model->department_type($_GET["hospital_id"]);
+	$temp= $this->department_model->department_type($_GET["hospital_id"]);
+    $data['department_type_list'] =$this->CombineArray($temp,"Type");
    
    
    	if(isset($_GET["search_department_type"])){
@@ -93,14 +94,14 @@ class RegUserPage extends base_controller {
 	//like
     if($data["search_box"]!="")$searData["Name"]=$data["search_box"];
    
-    $data["doctor_list"]=$this->doctor_model->get_doctors(array());
-   
-   
+    $data["doctor_list"]=$this->doctor_model->get_available_doctors(array(),$data["search_box"]);
    	$hospital_info=$this->hospital_model->get_hospital(array("ID"=>$_GET["hospital_id"]));
     $data['title'] =$hospital_info[0]["Name"]; 
+	$data['hospital_info']=$hospital_info[0];
     $this->load->view('templates/header', $this->pageData);
+
    $this->load->view('RegUserPage/Hsp_doctor_list', $data);
-    //$this->load->view('templates/footer');
+    $this->load->view('templates/footer');
   }
   public function Result_of_dep_search()
   {
@@ -138,15 +139,14 @@ class RegUserPage extends base_controller {
   {
 	  if($_POST["ds"])
 	  {
-		  //    $this->load->view('RegUserPage/My_appointment', $data);
-    $this->load->view('templates/footer');
-		  
+		  //$this->load->view('RegUserPage/My_appointment', $data);
+    		$this->load->view('templates/footer');
 	  }
 
-else
-{
-
-}
+	else
+	{
+	
+	}
 	  
    // $data['news'] = $this->news_model->get_news();
     $data['title'] = 'My_appointment';
