@@ -28,7 +28,7 @@
                 <input style="position:absolute;top:200px;left:124px;" type="radio" value="1" name="choose">
                     <label style="position:absolute;top:200px;left:164px;font-family: '华文隶书';font-size:18px">超级管理员</label>
             <input type="submit" value="登录→" style="position:absolute;top:163px;left:284px;color:red;" class="Login"/>
-          <?php if($error!=""){ ?>> 
+          <?php if($error!=""){ ?>
            <p  style="position:absolute;top:223px;left:54px;color:red;"><?php echo $error;?></p>
 		   <?php } ?>
         </div>

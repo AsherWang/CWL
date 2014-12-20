@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+﻿<?php session_start(); ?>
 <link href='<?php echo base_url().'/res/css/Notice.css'?>' rel="stylesheet" type="text/css" />
 <script src='<?php echo base_url().'/res/js/Notice.js'?>'></script>
 <script>
@@ -18,10 +18,18 @@ function createNotice()
                 <div class="NoticeTagText col-md-2 col-md-offset-6">发布时间</div>
                 <div class="NoticeTagText col-md-1 col-md-offset-1">作者</div>
             </div>
-            <hr />
+            <hr style="margin-top:3px"/>
             <?php foreach ($notice as $notice_item): ?>
-                <div class="row">
-                    <a class="NoticeListTitle col-md-4" style="float:left"  href="http://localhost:8080/CWL/NoticePage/view/<?php echo $notice_item['ID'] ?>"><?php echo $notice_item['Title'] ?></a>
+                <div class="row" style="margin-top:20px">
+                    <a class="NoticeListTitle col-md-4" style="float:left;"  href="http://localhost:8080/CWL/NoticePage/view/<?php echo $notice_item['ID'] ?>">
+                    <?php
+                    $v=$notice_item['Title'];  //以$v代表‘长描述’
+                    mb_internal_encoding('utf-8');//以GBK编码的页面为例
+                    if(mb_strlen($v)>12) //如果内容多余100字
+                        echo mb_substr($v,0,12).'...'; //限制100个字的输出，加上省略号
+                    else //如果不够100字
+                        echo $v;
+                    ?></a>
                     <p class="NoticeListDate col-md-3 col-md-offset-3"><?php echo $notice_item['Date']?></p>
                     <p class="NoticeListAuthor col-md-2"><?php echo $notice_item['Name']?></p>
                 </div>
