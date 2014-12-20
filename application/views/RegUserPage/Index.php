@@ -18,7 +18,7 @@
     </head>
     <body>
         <!--引用的bootstrap的输入框，有待更改调整-->
-        <form action="<?php echo base_url()?>RegUserPage/Index?search_box=<?php echo $search_level?>&search_type=<?php echo $search_type?>"method="get">
+        <form action="<?php echo base_url()?>RegUserPage/Index?search_level=<?php echo $search_level?>&search_type=<?php echo $search_type?>"method="get">
         <div class="row">
         <div class="col-md-offset-3 col-md-6 main_search">
             <div class="input-group input-group-lg">
@@ -169,7 +169,7 @@ window.onload = markHsp;
                     </div>
                 </div>
                 <div class="col-md-2 hsp_link">
-                    <a href="<?php echo base_url()?>RegUserPage/Hsp_doctor_list">查看号源</a>
+                    <a href="<?php echo base_url()?>RegUserPage/Hsp_doctor_list?hospital_id=<?php echo $hospital_item['ID']?>&department_type="">查看号源</a>
                 </div>
             </td><tr>
             <?php endforeach ?>
