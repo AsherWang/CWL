@@ -96,10 +96,9 @@ class RegUserPage extends base_controller {
    
     $data["doctor_list"]=$this->doctor_model->get_available_doctors(array(),$data["search_box"]);
    	$hospital_info=$this->hospital_model->get_hospital(array("ID"=>$_GET["hospital_id"]));
-    $data['title'] =$hospital_info[0]["Name"]; 
+    $this->pageDat['title'] =$hospital_info[0]["Name"]; 
 	$data['hospital_info']=$hospital_info[0];
     $this->load->view('templates/header', $this->pageData);
-
    $this->load->view('RegUserPage/Hsp_doctor_list', $data);
     $this->load->view('templates/footer');
   }
