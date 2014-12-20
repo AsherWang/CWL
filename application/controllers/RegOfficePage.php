@@ -57,6 +57,7 @@ class RegOfficePage extends base_controller {
 		 $search_data["hospital_ID"]=$userData["hospital_id"];
 		 
 		 $data['order_info'] = $this->order_model->get_order($search_data);
+		 $data['order_info']=$data[0];
 		 $data["debug_value"]=$data['order_info'];
 		 $this->load->view('RegOfficePage/Index', $data);
 	     $this->load->view('RegOfficePage/OrderDetail', $data);
