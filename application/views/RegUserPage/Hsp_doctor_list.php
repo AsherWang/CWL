@@ -19,16 +19,18 @@
     </head>
     <body>
         <!--引用的bootstrap的输入框，有待更改调整-->
+        <form action="<?php echo base_url()?>RegUserPage/hsp_doctor_list?search_department_type=<?php echo $search_department_type?>" method="get">
         <div class="row">
         <div class="col-md-offset-3 col-md-6 main_search">
             <div class="input-group input-group-lg">
             <input type="text" class="form-control">
             <span class="input-group-btn">
-                <button class="btn btn-default" type="button">search</button>
+                <button class="btn btn-default" type="submit" value="<?php echo $search_department_type?>">search</button>
             </span>
             </div>
         </div>
         </div>
+        </form>
         <!--引用的bootstrap的输入框，有待更改调整-->
 
         <!--导航条-->
