@@ -12,7 +12,7 @@ class TestControl extends CI_Controller {
 //    $this->load->model('user_model');
     $this->load->helper('url');
 //	$this->load->model('schedule_model');
-//	$this->load->model('order_model');
+$this->load->model('doctor_model');
 	$this->load->library('session');
 	$this->load->model('hospital_model');
   }
@@ -32,16 +32,8 @@ class TestControl extends CI_Controller {
   public function Index()
   {
 	  
-	$temp=$this->hospital_model->hospital_type();
-	
-	  $data['departments']= $this->hospital_model->getTableByOrderLimit("department",array(),array(),0,1);  //拉取科室，  = =
-   
-   foreach($data['departments'] as $key =>$value)
-   {
-	   $temp=$this->hospital_model->get_hospital(array("ID"=>$value["Hospital_ID"]));
-	   $data['departments'][$key]["Hospital_Name"]=$temp[0]["Name"];
-   }
-   $data["value"]= $data['departments'];
+	$hospital_info=$this->hospital_model->get_hospital(array("ID"=>2));
+    $data['value'] =$data["doctor_list"]=$this->doctor_model->get_doctors(array());
      $this->load->view('TestPage/Index', $data);
   }
 }
