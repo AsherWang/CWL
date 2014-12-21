@@ -20,9 +20,22 @@
 			return $this->getTable("order",array("ID"=>$id));
 		}
 		
+		function getAvailableTimes($user_id)
+		{
+			$result=$this->db->query("select Max_Order_Sum-count(order.ID) as num from `user`,`order` where user.ID=".$user_id);
+			$re=$result->result_array();
+			
+			return $re[0]["num"];	
+		}
+		
+		
+		
 		//参照表中的数据日期相关的不用填,返回的是新的订单的id
 		function AddNewOrder($order_source_id,$user_id)
 		{
+			
+			
+			
 			$insertData=array(
 				"Order_Source_ID"=>$order_source_id,
 				"User_ID"=>$user_id
@@ -87,7 +100,7 @@
 		
 		function get_order_source_of_doctor($doctor_id)
 		{
-			$query=$this->db->query("select order_source.ID as sID,Pay,Doctor_ID,Date,Time,Sum_Max,Hospital_ID,count(order.ID) as Cur_Order_Source from `order`,`order_source` where `order`.`Order_Source_ID`=`order_source`.`ID` group by `order_source`.ID");
+			$query=$this->db->query("select order_source.ID as sID,Pay,Doctor_ID,Date,Time,Sum_Max,Hospital_ID,count(order.ID) as Cur_Order_Source from `order`,`order_source` where `order`.`Order_Source_ID`=`order_source`.`ID`  AND order_source.Doctor_ID=".$doctor_id." group by `order_source`.ID");
 		  if($query->num_rows()<0)return -1;
 		  return $query->result_array();
 		}

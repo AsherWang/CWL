@@ -59,18 +59,50 @@
 				 $str = sprintf("￥%.2f",$value);
 				 return $str;
 			}
+			
+			function time_block_trans($TimeValue)
+			{
+				$result=array(
+					"08:00-08:59",
+					"09:00-09:59",
+					"10:00-10:59",
+					"14:00-14:59",
+					"15:00-15:59",
+					"16:00-16:59"
+				);
+				return $result[$TimeValue];
+			}
+			
+			
+			if(isset($error_msg)&&$error_msg!="")
+			{
+				echo "<div class='table-bordered' >";
+				echo $error_msg;
+				echo "</div>";	
+			}
 			?>
+            
+            
             
 			<!--号源列表-->
             <div >
             	<?php foreach($order_source_list as $value):?>
                 <div class="table-bordered">
-                时段：<?php echo $value["Time"];?><br>
+                日期：<?php echo $value["Date"];?><br>
+                时段：<?php echo time_block_trans($value["Time"]);?><br>
                 挂号费：<?php echo money_trans($value["Pay"]);?><br>
                 
                 已经预约数：<?php echo $value["Cur_Order_Source"];?><br>
                 总量：<?php echo $value["Sum_Max"];?><br>
-                状态：<?php if($value["Cur_Order_Source"]>=$value["Sum_Max"])echo "不";echo "可预约"; ?><br></div>
+                状态：<?php if($value["Cur_Order_Source"]>=$value["Sum_Max"])echo "不";echo "可预约"; ?><br>
+                <?php if($value["Cur_Order_Source"]<$value["Sum_Max"]){
+					echo "<form method='post'>";
+					echo "<input name='user_id' type='hidden' value='".$user_info["id"]."' />";
+					echo "<input name='source_order_id' type='hidden' value='".$value["sID"]."' />";
+					echo "<input type='submit' value='我要预约' />";
+					echo "</form>";
+					}?>
+                    </div>
                 <?php endforeach?>
             </div>
             
@@ -79,7 +111,7 @@
 
 
 
-    		<!--选择就诊日期-->
+    		<!--选择就诊日期
     		<div class="choose_date">选择就诊日期</div>
     			<div class="row choose_date_text">
     			<select class="choose_year">
@@ -105,8 +137,8 @@
     			</select>
     			<span>注意这里的时间选项，考虑可进入下一年（月）预约的问题</span>
     			</div>
-            <!--选择就诊日期-->
-            <!--选择就诊时间-->
+            选择就诊日期-->
+            <!--选择就诊时间
                 <div class="choose_date">选择就诊时间</div>
                 <div class="choose_time_radio">
                     <div class="row">
@@ -120,8 +152,8 @@
                         <input type="radio" name="choosetime" />16:00-16:59
                     </div>
                 </div>
-            <!--选择就诊时间-->
-            <!--选择就诊人-->
+            选择就诊时间-->
+            <!--选择就诊人
                 <div class="choose_date">选择就诊人</div>
                 <div class="patient_message">
                     <div class="patient_name">XXX(本人)</div>
@@ -135,22 +167,24 @@
                     </div>
                     <a class="choose_another_patient" href="######">选择其他就诊人</a>
                 </div>
-            <!--选择就诊人-->
+            选择就诊人-->
 
-    		<!--验证码输入-->
+    		<!--验证码输入
                 <div class="choose_date">请输入图片验证码</div>
                 <div class="row ver_code">
                     <input class="ver_text" type="text"/>
                     <img src="<?php echo base_url()?>res/images/authcode.php" style="color:#888888;margin-left:50px;"/>
                 </div>
-            <!--验证码输入-->
+            验证码输入-->
+            <!---
                 <div class="know_confirm">
                 <input type="checkbox"/>我已了解：一切后果此网站概不负责······
                 </div>
-            <!--确认预约-->
+                -->
+            <!--确认预约
                 <div class="confirm_all">
                     <a href="<?php echo base_url()?>RegUserPage/my_appointment">确认预约</a>
                 </div>
-            <!--确认预约-->
+            确认预约-->
     	</div>
     </body>
