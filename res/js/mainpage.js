@@ -1,5 +1,3 @@
-
-
 $(document).ready(function() {
 
 $("#userid").blur(function(){

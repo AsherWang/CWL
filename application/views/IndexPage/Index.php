@@ -2,13 +2,10 @@
 <head>
  <title>全国统一预约平台</title>
  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-
  <link rel="stylesheet" type="text/css" href='<?php echo base_url().'/res/css/bootstrap.min.css'?>'>
  <link href='<?php echo base_url().'res/css/mainpagestyle.css'?>' rel="stylesheet" type="text/css" />
  <script src='<?php echo base_url().'res/js/jquery.js'?>'></script>
- 
  <script src='<?php echo base_url().'res/js/bootstrap.min.js'?>'></script>
-
  <script type="text/javascript" src="<?php echo base_url().'res/js/jquery.reveal.js'?>"></script>
  <script type="text/javascript" src="<?php echo base_url().'res/js/mainpage.js'?>"></script>
 </head>
@@ -16,11 +13,9 @@
 <body>
   <div id="header">
    <nav class="navbar navbar-inverse" role="navigation" id="logo">
-     
      <div class="navbar-header">
        <a class="navbar-brand" href="">CWL全国统一预约平台</a>
-     </div>
-     
+     </div> 
      <div>
        <ul class="nav navbar-nav">
          <li class="active"><a >首页</a></li>
@@ -37,11 +32,9 @@
        <li class="active"><a><?php echo $user['username'] ?></a></li>
        <li><a href="<?php echo base_url();?>RegUserPage/personal_message_change">用户中心</a></li>
      </ul>
-
      <?php } ?>
    </div>
  </nav>
-
 </div>
 <div id="maincontent">
  <div class="wrap">
@@ -136,180 +129,128 @@
 
           <?php if($login_result==1)  {?>
           <div id="welcome">
-           <div id="wtitle">欢迎回来!</div>
-           <div id="wname"><?php echo $user['username'] ?></div>
-           <div id="wimg"><img style="width:180px;height:180px;" class="img-circle" src="<?php echo base_url().'res/images/user.jpg'?>"></div>
-
-           <div id="wlog"><button id="wbut" onclick="window.location.href='<?php echo base_url();?>?do=exit'" type="button" class="btn btn-primary btn-lg">退出登录</button>
-           </div>
-         </div>
-         <?php } else {?>
-
-
-
-
-         <div id="quicklogin">
-          <div id="title">快速登录</div>
-          <form id="loginform"  role="form" action="" method="post">
-
-
-            <div class="container-fluid">
-              <div class="row">
-
-                <div class="form-group input-lg" id="user">
-
-                  <input name="id_number" type="text" class="form-control" placeholder="身份证号" id="userid">
-
-                </div>
-
-                <div class="form-group input-lg" id="pwd">
-
-                  <input name="password" type="password" class="form-control" id="Password" placeholder="密码">
-
-                </div>
-
-                <div class="col-xs-offset-1" id="ckx">
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox"> 记住密码
-                    </label>
-
+            <div id="wtitle">欢迎回来!</div>
+            <div id="wname"><?php echo $user['username'] ?></div>
+            <div id="wimg"><img style="width:180px;height:180px;" class="img-circle" src="<?php echo base_url().'res/images/user.jpg'?>"></div>
+            <div id="wlog"><button id="wbut" onclick="window.location.href='<?php echo base_url();?>?do=exit'" type="button" class="btn btn-primary btn-lg">退出登录</button></div>
+          </div>
+          <?php } else {?>
+          <div id="quicklogin">
+            <div id="title">快速登录</div>
+            <form id="loginform"  role="form" action="" method="post">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="form-group input-lg" id="user">
+                    <input name="id_number" type="text" class="form-control" placeholder="身份证号" id="userid">
                   </div>
-
-
+                  <div class="form-group input-lg" id="pwd">
+                    <input name="password" type="password" class="form-control" id="Password" placeholder="密码">
+                  </div>
+                  <div class="col-xs-offset-1" id="ckx">
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox"> 记住密码
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-xs-offset-1 col-md-10">
+                    <button type="submit"  class="btn btn-warning btn-lg btn-block">登录</button>
+                  </div>
                 </div>
-
-
-                <div class="col-xs-offset-1 col-md-10">
-
-                  <button type="submit"  class="btn btn-warning btn-lg btn-block">登录</button>
-
-
-
-                </div>
-
               </div>
-            </div>
-
-          </form>
-          <div id="hint"></div>
-          <?php if($login_result==-1) {?>
-          <div id="hint">登录失败,密码错误</div>
+            </form>
+            <div id="hint"></div>
+            <?php if($login_result==-1) {?>
+            <div id="hint">登录失败,密码错误</div>
+            <?php } ?>
+          </div>
           <?php } ?>
         </div>
-        <?php } ?>
-      </div>
-      
-
-
-      <div id="search">
-        <form action="<?php echo base_url()?>RegUserPage/Index" method="get" id="querydord">
-         <div class="input-group" id="searcher">
-           <input type="text" name="search_box" id="searchcontent" class="form-control" placeholder="医院名称">
-         </div>
-         <div id="querybut"><a name="querydordbut"><img style="width:120px;height:50px;" src="<?php echo base_url().'/res/images/button.png'?>"></a></div>
-       </form>
-
-     </div>
-
-     <div id="visit">
-      <div id="vtitle"><img src="<?php echo base_url().'/res/images/query.png'?>"></div>
-      <form method="get" action="<?php echo base_url().'/RegUserPage'?>" id="quickvisit">
-        <table id="Querylist">
-          <tr>
-
-            <td>
-
-              <div class="querystyle">
-                <span class="querytitle2">地区</span>
-                <div id="area">
-                  <select name="search_area">
-                    <option value="">请选择</option>
-                    <?php foreach ($area_list as $key => $value){ ?>
-                    <option value="<?php echo $value ?>"><?php echo $value ?></option>
-                    <?php } ?>
-                  </select>
-                </div>
-              </div>
-              
-            </td>
-            <td>
-
-              <div class="querystyle">
-                <span class="querytitle2">类型</span>
-                <div id="type">
-                  <select name="search_type">
-                   <option value="">请选择</option>
-                   <?php foreach ($type_list as $key => $value){ ?>
-                   <option value="<?php echo $value ?>"><?php echo $value ?></option>
-                   <?php } ?>
-                 </select>
-               </div>
-
-             </div>
-
-           </td>
-           <td>
-
-            <div class="querystyle">
-             <span class="querytitle2">等级</span>
-             <div id="class">
-              <select name="search_level">
-               <option value="">请选择</option>
-               <option value="一级甲等">一级甲等</option>
-               <option value="二级甲等">二级甲等</option>
-               <option value="三级甲等">三级甲等</option>
-               <option value="一级乙等">一级乙等</option>
-               <option value="二级乙等">二级乙等</option>
-               <option value="三级乙等">三级乙等</option>
-               <option value="一级丙等">一级丙等</option>
-               <option value="二级丙等">二级丙等</option>
-               <option value="三级丙等">三级丙等</option>
-             </select>
+        
+        <div id="search">
+          <form action="<?php echo base_url()?>RegUserPage/Index" method="get" id="querydord">
+           <div class="input-group" id="searcher">
+             <input type="text" name="search_box" id="searchcontent" class="form-control" placeholder="医院名称">
            </div>
-
-         </div>
-
-       </td>
-     </tr>
-     <tr>
-
-       <td>
-
-        <div id="noticeframe">
-         <div class="start"><span>近期</span></div>
-         <div class="go"><span>公告</span></div>
-         <div id="noticeinfo"><a href="<?php echo base_url();?>NoticePage"><img src="<?php echo base_url().'res/images/noticefree.png'?>" style="width:90px"/></a></div>
+           <div id="querybut"><a name="querydordbut"><img style="width:120px;height:50px;" src="<?php echo base_url().'/res/images/button.png'?>"></a></div>
+         </form>
        </div>
 
-
-     </td>
-
-     <td>
-
-      <div id="startquery">
-        <div class="start"><span>我要</span></div>
-        <div class="go"><span>预约</span></div>
-        <div id="queryArrow"><a name="query"><img src="<?php echo base_url().'res/images/arrowone.png'?>" style="width:90px"/></a></div>
-      </div>
-
-
-    </td>
-
-
-    <td>
-
-      <div id="helpframe">
-        <div class="start"><span>预约</span></div>
-        <div class="go"><span>流程</span></div>
-        <div id="helpinfo"><a class="big-link" data-reveal-id="myModal"><img src="<?php echo base_url().'res/images/help.png'?>" style="width:90px" /></a></div>
-      </div>
-
-
-    </td>
-  </tr>
-
-</table>
+       <div id="visit">
+        <div id="vtitle"><img src="<?php echo base_url().'/res/images/query.png'?>"></div>
+        <form method="get" action="<?php echo base_url().'/RegUserPage'?>" id="quickvisit">
+          <table id="Querylist">
+            <tr>
+              <td>
+                <div class="querystyle">
+                  <span class="querytitle2">地区</span>
+                  <div id="area">
+                    <select name="search_area">
+                      <option value="">请选择</option>
+                      <?php foreach ($area_list as $key => $value){ ?>
+                      <option value="<?php echo $value ?>"><?php echo $value ?></option>
+                      <?php } ?>
+                    </select>
+                  </div>
+                </div>             
+              </td>
+              <td>
+                <div class="querystyle">
+                  <span class="querytitle2">类型</span>
+                  <div id="type">
+                    <select name="search_type">
+                     <option value="">请选择</option>
+                     <?php foreach ($type_list as $key => $value){ ?>
+                     <option value="<?php echo $value ?>"><?php echo $value ?></option>
+                     <?php } ?>
+                   </select>
+                 </div>
+               </div>
+             </td>
+             <td>
+              <div class="querystyle">
+               <span class="querytitle2">等级</span>
+               <div id="class">
+                <select name="search_level">
+                 <option value="">请选择</option>
+                 <option value="一级甲等">一级甲等</option>
+                 <option value="二级甲等">二级甲等</option>
+                 <option value="三级甲等">三级甲等</option>
+                 <option value="一级乙等">一级乙等</option>
+                 <option value="二级乙等">二级乙等</option>
+                 <option value="三级乙等">三级乙等</option>
+                 <option value="一级丙等">一级丙等</option>
+                 <option value="二级丙等">二级丙等</option>
+                 <option value="三级丙等">三级丙等</option>
+               </select>
+             </div>
+           </div>
+         </td>
+       </tr>
+       <tr>
+         <td>
+          <div id="noticeframe">
+           <div class="start"><span>近期</span></div>
+           <div class="go"><span>公告</span></div>
+           <div id="noticeinfo"><a href="<?php echo base_url();?>NoticePage"><img src="<?php echo base_url().'res/images/noticefree.png'?>" style="width:90px"/></a></div>
+         </div>
+       </td>
+       <td>
+        <div id="startquery">
+          <div class="start"><span>我要</span></div>
+          <div class="go"><span>预约</span></div>
+          <div id="queryArrow"><a name="query"><img src="<?php echo base_url().'res/images/arrowone.png'?>" style="width:90px"/></a></div>
+        </div>
+      </td>
+      <td>
+        <div id="helpframe">
+          <div class="start"><span>预约</span></div>
+          <div class="go"><span>流程</span></div>
+          <div id="helpinfo"><a class="big-link" data-reveal-id="myModal"><img src="<?php echo base_url().'res/images/help.png'?>" style="width:90px" /></a></div>
+        </div>
+      </td>
+    </tr>
+  </table>
 </form>
 
 
@@ -318,23 +259,23 @@
 
 
 <div id="myModal" class="reveal-modal">
-  <img src="<?php echo base_url().'res/images/myMtitle.png'?>" style="width:600px;margin-left:90px;padding-bottom:20px;"/>        
-  <img src="<?php echo base_url().'res/images/liucheng.png'?>" style="width:480px;"/>
-  <div style="margin-left:140px;"><label>tips：新用户要先注册呦！</label></div>
-  <a class="close-reveal-modal">&#215;</a>
+ <img src="<?php echo base_url().'res/images/myMtitle.png'?>" style="width:600px;margin-left:90px;padding-bottom:20px;"/>        
+ <img src="<?php echo base_url().'res/images/liucheng.png'?>" style="width:480px;"/>
+ <div style="margin-left:140px;"><label>tips：新用户要先注册呦！</label></div>
+ <a class="close-reveal-modal">&#215;</a>
 </div>
 
 <div id="news">
- <div id="nmore"><a href="<?php echo base_url();?>NoticePage">more..</a></div>
- <div id="firsthotnews">
-  <?php foreach ($latest_notices as $notice_item){ ?>
-  <div class="hotnews" onMouseOver="this.style.background='url(<?php echo base_url().'/res/images/hotlable.png'?>)'" onMouseOut="this.style.background='none'">
-    <div class="new">
-      <a href="<?php echo base_url().'NoticePage/view/'.$notice_item['ID'] ?>" target="_blank"><span class="words"><?php $smalltitle=substr($notice_item['Title'],0,45); echo $smalltitle ?><span></a>
-    </div>
-  </div>
-  <?php } ?>
-</div>
+  <div id="nmore"><a href="<?php echo base_url();?>NoticePage">more..</a></div>
+  <div id="firsthotnews">
+    <?php foreach ($latest_notices as $notice_item){ ?>
+    <div class="hotnews" onMouseOver="this.style.background='url(<?php echo base_url().'/res/images/hotlable.png'?>)'" onMouseOut="this.style.background='none'">
+     <div class="new">
+       <a href="<?php echo base_url().'NoticePage/view/'.$notice_item['ID'] ?>" target="_blank"><span class="words"><?php $smalltitle=substr($notice_item['Title'],0,45); echo $smalltitle ?><span></a>
+     </div>
+   </div>
+   <?php } ?>
+ </div>
 </div>
 <div id="activehot">
   <div id="hots1" class="hots">
