@@ -67,11 +67,13 @@ a.guide_text_2:hover{
 	color:#fff;
 }
 
-.hsp_type{
+.hsp_type,.hsp_area {
 	font-size:14px;
 	width:150px;
 	margin-left:25px;
 }
+
+
 .hsp_type:hover{
 	color:orange;
 }

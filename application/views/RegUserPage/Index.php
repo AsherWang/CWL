@@ -17,7 +17,7 @@
         <title><?php echo $title; ?></title>
     </head>
     <body>
-        <!--导航条-->
+        <!--导航条
         <div class="row guide">
             <span class="col-md-offset-1 col-md-1 guide_text_1">
                 寻医：
@@ -32,62 +32,65 @@
                 快速预约
             </a>
         </div>
-        <!--导航条-->
+        导航条-->
     
     
-        <!--引用的bootstrap的输入框，有待更改调整-->
-        <form action="<?php echo base_url()?>RegUserPage/Index?search_level=<?php echo $search_level?>&search_type=<?php echo $search_type?>"method="get">
-        <div class="row">
-        <div class="col-md-offset-3 col-md-6 main_search">
-            <div class="input-group input-group-lg">
-            <input name="search_box" type="text" class="form-control" value="<?php echo $search_box?>">
-
-            <span class="input-group-btn">
-                <button class="btn btn-default" type="submit">search</button>
-            </span>
-            </div>
-        </div>
-        </div>
-        </form>
-        <!--引用的bootstrap的输入框，有待更改调整-->
 
 
 
         <!--选择框-->
         <table class="table-bordered hsp_choose_table">
+        	<tr>
+             	<td class="hsp_title">医院地区</td>
+                <td>
+                     <div class="row">
+                        <a class="hsp_area" name="hsp_area" href="<?php echo base_url()?>RegUserPage/Index?search_level=<?php echo $search_level?>&search_type=<?php echo $search_type?>&search_box=<?php echo $search_box?>&search_area=">不限</a>
+                        <?php foreach ($search_area_list as $value): 
+                            foreach ($value as $hsp_area_item):?>
+                            <span style="line-height:25px">
+                            <a class = "hsp_area" 
+                                href="<?php echo base_url()?>RegUserPage/Index?search_level=<?php echo $search_level?>&search_type=<?php echo $search_type?>&search_box=<?php echo $search_box?>&search_area=<?php echo $hsp_area_item?>" 
+                                name="hsp_area"><?php echo $hsp_area_item ?></a>
+                            </span>
+                            <?php endforeach?>
+                        <?php endforeach ?>  
+                    </div>
+                
+                </td>
+        	</tr>
             <tr>
                 <td class="hsp_title">医院等级</td>
                 <td>
                     <div class="row">
                         <a class="hsp_lev hsp_lev_choice" name="hsp_level" 
-                            href="<?php echo base_url()?>RegUserPage/Index?search_level=&search_type=<?php echo $search_type?>"
+                            href="<?php echo base_url()?>RegUserPage/Index?search_level=&search_type=<?php echo $search_type?>&search_box=<?php echo $search_box?>&search_area=<?php echo $search_area?>"
                             >不限</a>
                         <a class="hsp_lev" name="hsp_level"
-                            href="<?php echo base_url()?>RegUserPage/Index?search_level=三级甲等&search_type=<?php echo $search_type?>"
+                            href="<?php echo base_url()?>RegUserPage/Index?search_level=三级甲等&search_type=<?php echo $search_type?>&search_box=<?php echo $search_box?>&search_area=<?php echo $search_area?>"
                             >三级甲等</a>
                         <a class="hsp_lev" name="hsp_level" 
-                            href="<?php echo base_url()?>RegUserPage/Index?search_level=三级乙等&search_type=<?php echo $search_type?>"
+                            href="<?php echo base_url()?>RegUserPage/Index?search_level=三级乙等&search_type=<?php echo $search_type?>&search_box=<?php echo $search_box?>&search_area=<?php echo $search_area?>"
                             >三级乙等</a>
                         <a class="hsp_lev" name="hsp_level"
-                            href="<?php echo base_url()?>RegUserPage/Index?search_level=三级丙等&search_type=<?php echo $search_type?>"
+                            href="<?php echo base_url()?>RegUserPage/Index?search_level=三级丙等&search_type=<?php echo $search_type?>&search_box=<?php echo $search_box?>&search_area=<?php echo $search_area?>"
                             >三级丙等</a>
                         <a class="hsp_lev" name="hsp_level"
-                            href="<?php echo base_url()?>RegUserPage/Index?search_level=二级甲等&search_type=<?php echo $search_type?>"
+                            href="<?php echo base_url()?>RegUserPage/Index?search_level=二级甲等&search_type=<?php echo $search_type?>&search_box=<?php echo $search_box?>&search_area=<?php echo $search_area?>"
                             >二级甲等</a>
                         <a class="hsp_lev" name="hsp_level"
-                            href="<?php echo base_url()?>RegUserPage/Index?search_level=二级乙等&search_type=<?php echo $search_type?>"
+                            href="<?php echo base_url()?>RegUserPage/Index?search_level=二级乙等&search_type=<?php echo $search_type?>&search_box=<?php echo $search_box?>&search_area=<?php echo $search_area?>"
                             >二级乙等</a>
                         <a class="hsp_lev" name="hsp_level"
-                            href="<?php echo base_url()?>RegUserPage/Index?search_level=二级丙等&search_type=<?php echo $search_type?>"
+                            href="<?php echo base_url()?>RegUserPage/Index?search_level=二级丙等&search_type=<?php echo $search_type?>&search_box=<?php echo $search_box?>&search_area=<?php echo $search_area?>"
                             >二级丙等</a>
                         <a class="hsp_lev" name="hsp_level"
-                            href="<?php echo base_url()?>RegUserPage/Index?search_level=一级甲等&search_type=<?php echo $search_type?>"
+                            href="<?php echo base_url()?>RegUserPage/Index?search_level=一级甲等&search_type=<?php echo $search_type?>&search_box=<?php echo $search_box?>&search_area=<?php echo $search_area?>"
                             >一级甲等</a>
                         <a class="hsp_lev" name="hsp_level"
-                            href="<?php echo base_url()?>RegUserPage/Index?search_level=一级乙等&search_type=<?php echo $search_type?>"
+                            href="<?php echo base_url()?>RegUserPage/Index?search_level=一级乙等&search_type=<?php echo $search_type?>&search_box=<?php echo $search_box?>&search_area=<?php echo $search_area?>"
                             >一级乙等</a>
                         <a class="hsp_lev" name="hsp_level"
-                            href="<?php echo base_url()?>RegUserPage/Index?search_level=一级丙等&search_type=<?php echo $search_type?>"
+                            href="<?php echo base_url()?>RegUserPage/Index?search_level=一级丙等&search_type=<?php echo $search_type?>&search_box=<?php echo $search_box?>&search_area=<?php echo $search_area?>"
                             >一级丙等</a>
                     </div>
                 </td>
@@ -96,12 +99,12 @@
                 <td class="hsp_title">医院类型</td>
                 <td>
                     <div class="row">
-                        <a class="hsp_type"name="hsp_type" href="<?php echo base_url()?>RegUserPage/Index?search_level=<?php echo $search_level?>&search_type=">不限</a>
+                        <a class="hsp_type" name="hsp_type" href="<?php echo base_url()?>RegUserPage/Index?search_level=<?php echo $search_level?>&search_type=&search_area=<?php echo $search_area?>&search_box=<?php echo $search_box?>">不限</a>
                         <?php foreach ($search_type_list as $value): 
                             foreach ($value as$hsp_type_item):?>
                             <span style="line-height:25px">
                             <a class = "hsp_type" 
-                                href="<?php echo base_url()?>RegUserPage/Index?search_level=<?php echo $search_level?>&search_type=<?php echo $hsp_type_item?>" 
+                                href="<?php echo base_url()?>RegUserPage/Index?search_level=<?php echo $search_level?>&search_type=<?php echo $hsp_type_item?>&search_box=<?php echo $search_box?>&search_area=<?php echo $search_area?>" 
                                 name="hsp_type"><?php echo $hsp_type_item ?></a>
                             </span>
                             <?php endforeach?>
@@ -118,6 +121,7 @@
 function markHsp(){
     var l = document.getElementsByName("hsp_level");
     var t = document.getElementsByName("hsp_type");
+    var a = document.getElementsByName("hsp_area");
     
     if ("<?php echo $search_level ?>" == ""){
         l[0].className="hsp_lev hsp_lev_choice";
@@ -134,6 +138,7 @@ function markHsp(){
             }
         }
     }
+	
     if ("<?php echo $search_type ?>" == ""){
         t[0].className = "hsp_type hsp_type_choice";
         for (var j=1; j<t.length; j++)
@@ -149,9 +154,52 @@ function markHsp(){
             }
         }
     }
+	
+	
+	    if ("<?php echo $search_area ?>" == ""){
+        a[0].className = "hsp_area hsp_type_choice";
+        for (var j=1; j<a.length; j++)
+           a[j].className = "hsp_area";
+    }else{
+        for (var j=0; j<a.length; j++){
+        if(a[j].innerHTML=="<?php echo $search_area ?>"){
+            a[j].className="hsp_area hsp_type_choice";
+            
+        }
+        else{
+            a[j].className="hsp_area";
+            }
+        }
+    }
+	
+	
+	
 }
 window.onload = markHsp;
 </script>
+
+        <!--引用的bootstrap的输入框，有待更改调整-->
+        <form action="<?php echo base_url()?>RegUserPage/Index" method="get">
+        <div class="row">
+        <div class="col-md-offset-3 col-md-6 main_search">
+            <div class="input-group input-group-lg">
+               <input name="search_type" type="hidden" class="form-control" value="<?php echo $search_type?>">
+                          <input name="search_level" type="hidden" class="form-control" value="<?php echo $search_level?>">
+            
+                                      <input name="search_area" type="hidden" class="form-control" value="<?php echo $search_area?>">
+            
+            <input name="search_box" placeholder="医院" type="text" class="form-control" value="<?php echo $search_box?>">
+
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="submit">search</button>
+            </span>
+            </div>
+        </div>
+        </div>
+        </form>
+        <!--引用的bootstrap的输入框，有待更改调整-->
+
+
 
 
 
