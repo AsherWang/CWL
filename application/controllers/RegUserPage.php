@@ -138,8 +138,7 @@ class RegUserPage extends base_controller {
 	}
 	$data['hospital_id'] = $_GET["hospital_id"];
 		//获取医院信息
-   		//获取医院信息
-   	$hospital_info=$this->hospital_model->get_hospital(array("ID"=>2));
+   	$hospital_info=$this->hospital_model->get_hospital(array("ID"=>$_GET["hospital_id"]));
     $this->pageData['title'] =$hospital_info[0]["Name"]; 
 	$data['hospital_info']=$hospital_info[0];
     $this->load->view('templates/header', $this->pageData);
