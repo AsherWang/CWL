@@ -64,8 +64,8 @@
                         <div><span>联系方式：</span><span><?php echo $user_ext_info["Phone"];?></span></div>
                     </div>
                     </div>
-            <!--左侧栏目(用户基本信息)-->
-            <?php var_dump($order_list);?>
+            <!--左侧栏目(用户基本信息) <?php var_dump($order_list);?>-->
+           
             <?php
 			function money_trans($value)
 			{
@@ -93,6 +93,14 @@
 				echo $error_msg;
 				echo "</div>";	
 			}
+			
+			function num_format($num)
+			{
+ 				$temp_num = 10000000;
+ 				$new_num = $num + $temp_num;
+ 				$real_num = "".substr($new_num,4,7); //即截取掉最前面的“1”
+ 				return $real_num;
+			}
 			?>
             <!--右侧栏目(用户预约单)-->
                 <div class="col-md-10 right_container">
@@ -105,6 +113,7 @@
                     <?php foreach($order_list as $key=> $value):?>
                     <tr class="PayPanel"><td>
                     	<div><?php echo $key+1; ?>#</div>
+                        <!--startprint<?php echo num_format($value["odID"]);?>-->
                         <div>
                             <span>挂号医院：</span><span><?php echo $value["hName"];?></span>
                         </div>
@@ -123,18 +132,19 @@
                             <span class="locate_sty_3">支付状态：</span>
                             <span><?php if($value["State"]==2)echo "已支付";else if($value["State"]==0) echo "未支付"; else echo "已过期"; ?></span>
                         </div>
+                        <!--endprint<?php echo num_format($value["odID"]);?>-->
                         <div class="operation_choice">
                             <span>操作：</span>
                             <a href="<?php echo base_url()?>RegUserPage/My_appointment?do=cancel?order_id=<?php echo $value["odID"];?>"><button  >取消预约</button></a>
                             
-                           
-                            <input type="hidden" value="<?php echo $value["odID"];?>" />
                             <?php if($value["State"]==2){
-								echo '<button  class="operation_text">预览挂号单</button>';
+								echo '<button  class="operation_text" onclick="preview(\''.num_format($value["odID"]).'\')">打印预约单</button>';
+								echo ' <input type="hidden" value="'.num_format($value["odID"]).'" />';
 								}
 								else if($value["State"]==0)
 								{
-									 echo '<button  class="operation_text PayBtn" >去支付</button>';
+									 echo '<button  class="operation_text PayBtn" >去支付</button> ';
+									 echo ' <input type="hidden" value="'.$value["odID"].'" />';
 								}
 								
 								?>
@@ -157,6 +167,23 @@
             </form>
         </div>
         <script type="text/javascript">
+		
+  function preview(oper)
+        {
+			
+			
+			
+ 
+            bdhtml=window.document.body.innerHTML;//获取当前页的html代码
+            sprnstr="<!--startprint"+oper+"-->";//设置打印开始区域
+            eprnstr="<!--endprint"+oper+"-->";//设置打印结束区域
+            prnhtml=bdhtml.substring(bdhtml.indexOf(sprnstr)+22); //从开始代码向后取html
+            prnhtml=prnhtml.substring(0,prnhtml.indexOf(eprnstr));//从结束代码向前取html
+            window.document.body.innerHTML="<style type='text/css'>body{text-algin:center;}.printContent{text-algin:left; margin-top:80px; margin-left:auto; margin-right:auto;border:1px black solid;}</style><div class='printContent'>"+prnhtml+"<?php echo "预约者：".$user_info["username"]."<br>证件号：".$user_info["id_number"]."<br>对，就拿着这个破纸条去挂号处那挂号单吧~";?></div>";
+            window.print();
+            window.document.body.innerHTML=bdhtml;
+   
+        }
 			function hideWInd()
 			{
 				$("#PayDiv").hide();
