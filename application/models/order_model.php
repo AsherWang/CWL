@@ -85,6 +85,17 @@
 			array("State"=>2,"Pay_Time"=>date("y-m-d h:i:s")),"order");
 		}
 		
+		function get_order_source_of_doctor($doctor_id)
+		{
+			$this->db->select("order_source.ID as sID,Pay,Doctor_ID,Date,Time,Sum_Max,Hospital_ID,count(order.ID) as Cur_Order_Source");	
+			$this->db->where("order_source.Doctor_ID",$doctor_id);
+			$this->db->from("order_source");
+			$this->db->join('order', 'order.Order_Source_ID = order_source.ID'); ///联表暂时不用
+			//$this->db->orderby("name", "desc");
+		  $query = $this->db->get();
+		  if($query->num_rows()<0)return -1;
+		  return $query->result_array();
+		}
 		
 	}
 	

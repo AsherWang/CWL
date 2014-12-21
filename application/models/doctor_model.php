@@ -17,6 +17,17 @@
 			else
 				return NULL;
 		}
+		
+		function get_doctor_by_id($doctor_id)
+		{
+			  $this->db->where("ID",$doctor_id);
+			  $this->db->from("doctor");
+			  $query = $this->db->get();
+			  if($query->num_rows()<=0)return -1;
+			  $re=$query->result_array();
+			  return $re[0];
+		}
+		
 
 		function insert_doctor()
 		{

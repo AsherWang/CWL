@@ -14,6 +14,7 @@ class RegUserPage extends base_controller {
    $this->load->helper('url');
    $this->load->model('hospital_model');
    $this->load->model('doctor_model');
+   $this->load->model('order_model');
    $this->load->library("session");
    
    $this->load->model("department_model");
@@ -56,7 +57,7 @@ class RegUserPage extends base_controller {
 	
 	//按条件搜索....
 	$data["hospitals"]=$this->hospital_model->get_hospital($search_data,$data["search_box"]);
-    $data['title'] = 'Index';
+    $this->pageData['title'] = '查询医院';
 	
     $this->load->view('templates/header', $this->pageData); 
     $this->load->view('RegUserPage/Index', $data);
@@ -109,12 +110,12 @@ class RegUserPage extends base_controller {
 	
 	$data['hospital_info']=$hospital_info[0];
     $this->load->view('templates/header', $this->pageData);
-   $this->load->view('RegUserPage/Hsp_doctor_list', $data);
+    $this->load->view('RegUserPage/Hsp_doctor_list', $data);
     $this->load->view('templates/footer');
   }
   public function Result_of_dep_search()
   {
-   // $data['news'] = $this->news_model->get_news();
+    //$data['news'] = $this->news_model->get_news();
     $data['title'] = 'Result_of_dep_search';
     $this->load->view('templates/header', $this->pageData);
     $this->load->view('RegUserPage/result_of_dep_search', $data);
@@ -122,7 +123,7 @@ class RegUserPage extends base_controller {
   }
   public function Appointment_quickly()
   {
-   // $data['news'] = $this->news_model->get_news();
+    // $data['news'] = $this->news_model->get_news();
     $data['title'] = 'Appointment_quickly';
     $this->load->view('templates/header', $this->pageData);
     $this->load->view('RegUserPage/Appointment_quickly', $data);
@@ -135,9 +136,6 @@ class RegUserPage extends base_controller {
 	{
 		redirect("");
 	}
-	
-	
-	
 	$data['hospital_id'] = $_GET["hospital_id"];
 		//获取医院信息
    		//获取医院信息
@@ -150,8 +148,20 @@ class RegUserPage extends base_controller {
   }
   public function Confirm()
   {
-   // $data['news'] = $this->news_model->get_news();
-    $data['title'] = 'Confirm';
+    //没有传doctor_id就跳回首页
+  	if(!(isset($_GET["doctor_id"])&&$_GET["doctor_id"]!=""))
+	{
+		redirect("");
+	}
+	$data["doctor_id"]=$_GET["doctor_id"];
+	//获取医生信息
+	$data["doctor_info"]=$this->doctor_model->get_doctor_by_id($_GET["doctor_id"]);
+	
+	//获取号源,  号源基本信息,   总数，可用数
+	$data["order_source_list"]=$this->order_model->get_order_source_of_doctor($_GET["doctor_id"]);
+	
+	
+    $this->pageData['title'] = '预约医生';
     $this->load->view('templates/header', $this->pageData);
     $this->load->view('RegUserPage/Confirm', $data);
     $this->load->view('templates/footer');

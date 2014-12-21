@@ -9,7 +9,11 @@
 //$datetime = new DateTime($value->Valid_Date);
 // echo $value->Valid_Date->format('jS, F Y') . "/n";
 //echo $datetime->format('jS, F Y') . "/n";saasdasdasd
-print_r ($value);
+foreach($value as $tt)
+{
+	print_r($tt);
+	echo "<br>";
+}
 ?>
     </body>
 </html>

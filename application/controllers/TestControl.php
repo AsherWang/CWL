@@ -16,6 +16,8 @@ $this->load->model('department_model');
 $this->load->model('doctor_model');
 	$this->load->library('session');
 	$this->load->model('hospital_model');
+	$this->load->model('order_model');
+	
   }
   	protected function CombineArray($array,$name)
 	{
@@ -33,9 +35,9 @@ $this->load->model('doctor_model');
   public function Index()
   {
 	  
-	$hospital_info=$this->hospital_model->get_hospital(array("ID"=>2));
-$temp= $this->department_model->department_type(2);
-    $data['value'] =$this->CombineArray($temp,"Type");
+	
+	$data["value"]= $this->order_model->get_order_source_of_doctor(2);
+  
    
      $this->load->view('TestPage/Index', $data);
   }
