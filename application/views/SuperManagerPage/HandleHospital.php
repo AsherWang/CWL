@@ -22,6 +22,9 @@ $pageNum = $hospitalListPageNum;
         <div class="PanelItem" id="PanelToHomePage">
             <p href="#" class="PanelLink">回到主页面</p>
         </div>  
+        <div class="PanelItem" id="PanelLogOut">
+            <p href="#" class="PanelLink">退出该账号</p>
+        </div>
     </div>
     <div class="col-md-7 col-md-offset-1">
         <div class="row" id="SearchHospitalDiv">
@@ -147,5 +150,18 @@ $("#SMHospitalPrePageBtn").click(function(){
         var pageIdNow = parseInt(pageId)-1;
         location.href = "<?php echo base_url();?>SuperManagerPage/HandleHospital/"+pageIdNow.toString(); 
     }
+});
+
+$("#PanelLogOut").click(function(){
+    $.ajax({
+        url:"<?php echo base_url();?>SuperManagerPage/LogOutBtnClick",
+        type:"POST",
+        datatype:"html",
+        data:{},
+        success:function(data){
+            alert(data);
+            location.href = "<?php echo base_url();?>IndexPage/Index";
+        }
+    });
 });
 </script>
