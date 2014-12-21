@@ -10,6 +10,7 @@ class SuperManagerPage extends base_controller {
 
   public $data;
   public $PageData;
+
   public function __construct()
   {
     parent::__construct();
@@ -21,15 +22,15 @@ class SuperManagerPage extends base_controller {
 
     $this->PageData['session'] = $this->session;
     $this->PageData['title'] = "超级管理员界面";
-    //构造函数时载入数据的model类，对应models目录下的news_model
-    //s 
-   //$this->load->model('notice_model');
+    
   }
 
   //SuperManagerPage/index
   //默认是管理用户的界面
-  public function Index()
+  public function Index($pageNum=0)
   {
+
+    $this->PageData['userListPageNum'] = $pageNum;
     $cols = array(
           'ID'=>true, 
           'Ext_ID'=>false, 
@@ -51,8 +52,10 @@ class SuperManagerPage extends base_controller {
     $this->load->view('templates/footer');
   }
 
-  public function HandleHospital()
+  public function HandleHospital($hosPageNum=0)
   {
+    $this->PageData['hospitalListPageNum'] = $hosPageNum;
+
     $this->data['hospitalList'] = $this->hospital_model->get_hospital_list(true, true, false, false, false, false, false, false);
     $this->data['hospitalNum'] = $this->hospital_model->hospital_num();
 
@@ -120,7 +123,7 @@ class SuperManagerPage extends base_controller {
     $this->user_model->MakeUnvalid($ID, 7);
     echo "成功封禁该账号!!";
   }
-
+  //解封了
   public function JieJieJie()
   {
     $ID = $this->input->post('ID');
@@ -128,4 +131,31 @@ class SuperManagerPage extends base_controller {
     echo "成功解封该账号!!";
   }
 
+  //用户列表翻页
+  public function FlipUserPage()
+  {
+    $next = $this->input->post('next');
+    if($next == "1"){
+      $this->PageData['userListPageNum']++;
+    }elseif($this->PageData['userListPageNum']>0)
+    {
+      $this->PageData['userListPageNum']--;
+    }
+    echo $this->PageData['userListPageNum'];
+  }
+
+  //医院列表翻页
+  public function FlipHospitalPage()
+  {
+    $next = $this->input->post('next');
+    $pageId =$this->input->post('pageId');
+
+    if($next == "1"){
+      $pageId++;
+    }elseif($pageId>0)
+    {
+      $pageId--;
+    }
+    echo $pageId;
+  }
 }?>

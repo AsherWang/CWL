@@ -1,7 +1,8 @@
 <?php
 //管理医院的页面
 $hosNum = $hospitalNum;
-$pageNum = 0;
+
+$pageNum = $hospitalListPageNum;
 ?>
 <link rel="stylesheet" type="text/css" href='<?php echo base_url().'/res/css/superManager.css'?>'>
 <div class="row">
@@ -67,8 +68,8 @@ $pageNum = 0;
         </div>
         <div class="row" id="ManagerBtnDiv">
 
-            <input type="button" class="col-md-1 col-md-offset-6 btn btn-default ManagerBtn" value="<" id="ManagerPrePageBtn">
-            <input type="button" class="col-md-1 btn btn-default ManagerBtn" value=">" id="ManagerNextPageBtn">
+            <input type="button" class="col-md-1 col-md-offset-6 btn btn-default ManagerBtn" value="<" id="SMHospitalPrePageBtn">
+            <input type="button" class="col-md-1 btn btn-default ManagerBtn" value=">" id="SMHospitalNextPageBtn">
             <input type="button" class="col-md-2 btn btn-default AddNewHospitalBtn" value="添加医院" id="ManagerAddHospitalBtn">
             
         </div>
@@ -93,7 +94,7 @@ $("#PanelToHomePage").click(function(){
 
 
 $("#ManagerAddHospitalBtn").click(function(){
-    
+    location.href = "<?php echo base_url();?>SuperManagerPage/AddNewHospital";
 });
 
 $("#PanelToAddHospitalPage").click(function(){
@@ -112,5 +113,39 @@ $("#SearchHospitalBtn").click(function(){
             document.write(data);
         }
     });
+});
+
+$("#SMHospitalNextPageBtn").click(function(){
+
+    var p = location.href.lastIndexOf("/");
+    var urltmp = location.href.substr(p);
+    var pageId;
+    if(urltmp == "/" || urltmp == "/HandleHospital"){
+        pageId = "0";
+    }else{
+        pageId = urltmp.substr(1);
+    }
+
+    if(pageId != "7"){
+        var pageIdNow = parseInt(pageId)+1;
+        location.href = "<?php echo base_url();?>SuperManagerPage/HandleHospital/"+pageIdNow.toString(); 
+    }
+});
+
+$("#SMHospitalPrePageBtn").click(function(){
+
+    var p = location.href.lastIndexOf("/");
+    var urltmp = location.href.substr(p);
+    var pageId;
+    if(urltmp == "/" || urltmp == "/HandleHospital"){
+        pageId = "0";
+    }else{
+        pageId = urltmp.substr(1);
+    }
+
+    if(pageId != "0"){
+        var pageIdNow = parseInt(pageId)-1;
+        location.href = "<?php echo base_url();?>SuperManagerPage/HandleHospital/"+pageIdNow.toString(); 
+    }
 });
 </script>

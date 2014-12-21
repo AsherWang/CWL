@@ -1,7 +1,8 @@
 <?php
 //管理用户的页面
 //全局变量 $userNum, $pageNum;
-$pageNum = 0;
+$pageNum = $userListPageNum;
+
 $colNum = 0;
 //echo var_dump($userList[0]);
 function isDateValid($date)//判断date 是否小于当前时间
@@ -136,8 +137,8 @@ function isDateValid($date)//判断date 是否小于当前时间
                 <span style="color:red" class="glyphicon glyphicon-remove"></span>代表被封的用户
             </div>
             
-            <input type="button" class="col-md-1 col-md-offset-4 form-contorl btn btn-default ManagerBtn" value="<" id="ManagerPrePageBtn">
-            <input type="button" class="col-md-1 form-contorl btn btn-default ManagerBtn" value=">" id="ManagerNextPageBtn">
+            <input type="button" class="col-md-1 col-md-offset-4 form-contorl btn btn-default ManagerBtn" value="<" id="SMUserPrePageBtn">
+            <input type="button" class="col-md-1 form-contorl btn btn-default ManagerBtn" value=">" id="SMUserNextPageBtn">
             
         </div>
         <div class="row" id="ExTextDiv">
@@ -203,7 +204,7 @@ $("[id^='UserListTr']").click(function(){
     
 });
 
-//忍法奥义*究极夺魄轮回北斗十字花式封印
+//忍法奥义*究极大千轮回北斗十字花式封印
 $("[id^='UserListHiddenBtnFeng']").click(function(){
     var fullId = $(this).attr("id");
     var id = fullId.substr(21, fullId.length-10);
@@ -236,5 +237,37 @@ $("[id^='UserListHiddenBtnJie']").click(function(){
             location.reload();
         }
     });
+});
+
+$("#SMUserNextPageBtn").click(function(){
+    var p = location.href.lastIndexOf("/");
+    var urltmp = location.href.substr(p);
+    var pageId;
+    if(urltmp == "/" || urltmp == "/Index" || urltmp == "/SuperManagerPage"){
+        pageId = "0";
+    }else{
+        pageId = urltmp.substr(1);
+    }
+
+    if(pageId != "7"){
+        var pageIdNow = parseInt(pageId)+1;
+        location.href = "<?php echo base_url();?>SuperManagerPage/Index/"+pageIdNow.toString(); 
+    }
+});
+
+$("#SMUserPrePageBtn").click(function(){
+    var p = location.href.lastIndexOf("/");
+    var urltmp = location.href.substr(p);
+    var pageId;
+    if(urltmp == "/" || urltmp == "/Index" || urltmp == "/SuperManagerPage"){
+        pageId = "0";
+    }else{
+        pageId = urltmp.substr(1);
+    }
+
+    if(pageId != "7"){
+        var pageIdNow = parseInt(pageId)-1;
+        location.href = "<?php echo base_url();?>SuperManagerPage/Index/"+pageIdNow.toString(); 
+    }
 });
 </script>

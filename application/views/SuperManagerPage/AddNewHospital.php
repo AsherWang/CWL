@@ -67,7 +67,6 @@
         <div class="row NewHospitalInputDiv" id="NewHospitalBtnDiv">
             <input type="button" class="col-md-2 col-md-offset-5 btn btn-default" value="确认添加" id="MAAddHospitalConfirm" />
         </div>
-        <div class="row" id="alert">f</div>
     </div>
 </div>
 <script type="text/javascript">
