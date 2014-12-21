@@ -168,7 +168,7 @@ class RegUserPage extends base_controller {
 		  else
 		  {
 		    $new_order_id=$this->order_model->AddNewOrder($_POST["source_order_id"],$_POST["user_id"]);
-		     redirect("");//重定向到已有订列表，貌似还没写吧
+		     redirect("RegUserPage/My_appointment");//重定向到已有订列表，貌似还没写吧
 		  }
 
 	  }

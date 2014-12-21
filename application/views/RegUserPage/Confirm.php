@@ -17,7 +17,7 @@
         <title><?php echo $title; ?></title>
     </head>
     <body>
-    <!--<?php var_dump($order_source_list);?> -->
+    <!-- <?php var_dump($order_source_list);?>-->
     	<div class="container">
     		<div class="title">确认预约订单信息</div>
     		<hr class="dividing_line"/>

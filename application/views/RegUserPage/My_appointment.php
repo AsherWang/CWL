@@ -189,7 +189,7 @@
             eprnstr="<!--endprint"+oper+"-->";//设置打印结束区域
             prnhtml=bdhtml.substring(bdhtml.indexOf(sprnstr)+22); //从开始代码向后取html
             prnhtml=prnhtml.substring(0,prnhtml.indexOf(eprnstr));//从结束代码向前取html
-            window.document.body.innerHTML="<style type='text/css'>body{text-algin:center;}.printContent{text-algin:left; margin-top:80px; margin-left:auto; margin-right:auto;border:1px black solid;}</style><div class='printContent'>"+prnhtml+"<?php echo "预约者：".$user_info["username"]."<br>证件号：".$user_info["id_number"]."<br>对，就拿着这个破纸条去挂号处那挂号单吧~";?></div>";
+            window.document.body.innerHTML="<style type='text/css'>body{text-algin:center;}.printContent{text-algin:left; margin-top:80px; margin-left:auto; margin-right:auto;border:1px black solid;}</style><div class='printContent'>"+prnhtml+"<?php echo "预约者：".$user_info["username"]."<br>证件号：".$user_info["id_number"]."<br>对，就拿着这个破纸条去挂号处那换挂号单吧~";?></div>";
             window.print();
             window.document.body.innerHTML=bdhtml;
    
