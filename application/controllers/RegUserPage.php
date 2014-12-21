@@ -195,7 +195,16 @@ class RegUserPage extends base_controller {
    public function My_appointment()
   {
 
+	$data["hint_value"]="";
 	if(!$this->isSessionExists())redirect("");
+	if(isset($_GET["do"])&&isset($_GET["order_id"])&&$_GET["do"]=="cancel"&&$_GET["order_id"]!="")
+	{
+		$this->order_model->order_cancel($_GET["order_id"]);
+		$data["hint_value"]="订单已退，不会退钱的说";
+		
+	}
+	
+	
 	
 	$data["user_info"]=$this->getLogegUser();
 	if($data["user_info"]["user_type"]!=4)$this->jumpSession();

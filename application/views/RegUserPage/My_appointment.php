@@ -56,16 +56,20 @@
                     <hr class="left_hr_1"/>
                     <div>
                         <span class="user_mes">个人信息</span>
-                        <a class="change_mes" href="<?php echo base_url()?>RegUserPage/personal_message_change">修改</a>
+
                     </div>
                     <hr class="left_hr_2">
                     <div class="detail_mes">
+                        <div><span>姓名：</span><span><?php echo $user_info["username"];?></span></div>
                         <div><span>身份证号：</span><span><?php echo $user_info["id_number"];?></span></div>
                         <div><span>联系方式：</span><span><?php echo $user_ext_info["Phone"];?></span></div>
+                        <div><span>封禁状态：</span><span><?php if($user_info["is_valid"]) echo"未封禁";else echo "被封禁中，解禁日期：".$user_info["valid_datetime"];?></span></div>
+                        
+                    </div><br>
+                    <div style="">&nbsp;&nbsp;&nbsp;<a href="<?php echo base_url()?>RegUserPage/personal_message_change">去修改个人信息</a></div>
                     </div>
-                    </div>
-            <!--左侧栏目(用户基本信息) <?php var_dump($order_list);?>-->
-           
+            <!--左侧栏目(用户基本信
+           息) 
             <?php
 			function money_trans($value)
 			{
@@ -104,12 +108,18 @@
 			?>
             <!--右侧栏目(用户预约单)-->
                 <div class="col-md-10 right_container">
+                	<?php if($hint_value!=""){echo "<div>"; echo ($hint_value);echo "</div>";}?>
                     <div class="appointment_title">
                         我的预约单
                     </div>
                     <hr class="hr_right" />
 					
                     <table class="table appointment_main">
+                    <?php if(empty($order_list)){
+						echo "您还没有预约过呢<br>";
+						echo "<a href='".base_url()."RegUserPage'>去预约</a><br>";
+						}?>
+                    
                     <?php foreach($order_list as $key=> $value):?>
                     <tr class="PayPanel"><td>
                     	<div><?php echo $key+1; ?>#</div>
@@ -135,7 +145,7 @@
                         <!--endprint<?php echo num_format($value["odID"]);?>-->
                         <div class="operation_choice">
                             <span>操作：</span>
-                            <a href="<?php echo base_url()?>RegUserPage/My_appointment?do=cancel?order_id=<?php echo $value["odID"];?>"><button  >取消预约</button></a>
+                            <a href="<?php echo base_url()?>RegUserPage/My_appointment?do=cancel&order_id=<?php echo $value["odID"];?>"><button  >取消预约</button></a>
                             
                             <?php if($value["State"]==2){
 								echo '<button  class="operation_text" onclick="preview(\''.num_format($value["odID"]).'\')">打印预约单</button>';
