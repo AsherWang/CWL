@@ -23,11 +23,11 @@ function createNotice()
                 <div class="row" style="margin-top:20px">
                     <a class="NoticeListTitle col-md-4" style="float:left;"  href="http://localhost:8080/CWL/NoticePage/view/<?php echo $notice_item['ID'] ?>">
                     <?php
-                    $v=$notice_item['Title'];  //以$v代表‘长描述’
-                    mb_internal_encoding('utf-8');//以GBK编码的页面为例
-                    if(mb_strlen($v)>12) //如果内容多余100字
-                        echo mb_substr($v,0,12).'...'; //限制100个字的输出，加上省略号
-                    else //如果不够100字
+                    $v=$notice_item['Title'];
+                    mb_internal_encoding('utf-8');
+                    if(mb_strlen($v)>12)
+                        echo mb_substr($v,0,12).'...';
+                    else
                         echo $v;
                     ?></a>
                     <p class="NoticeListDate col-md-3 col-md-offset-3"><?php echo $notice_item['Date']?></p>
