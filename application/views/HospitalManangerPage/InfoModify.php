@@ -57,7 +57,7 @@
                   <div class="control-group">
                       <label class="control-label">医院简介：</label>
                       <div class="textarea">
-                              <textarea name="h_info" style="width: 400px; height:200px;"  type="" class=""><?php echo $h_info["Info"];?></textarea></div>
+                              <textarea name="h_info" style="width: 400px; max-width:400px; height:200px;"  type="" class=""><?php echo $h_info["Info"];?></textarea></div>
                   </div>
                   <div class="control-group">
                       <div class="controls">
@@ -68,5 +68,3 @@
 
 
           </div>
-</body>
-</html>

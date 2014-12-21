@@ -1,4 +1,4 @@
-﻿<div class="container">
+<div class="container">
     <div style="float: left">
         <h3>出诊信息</h3>
         <form class="form-search">请输入医生姓名：<input class="input-medium search-query" type="text"/><a class="btn btn-primary btn-sm" href="#">查询</a></form>

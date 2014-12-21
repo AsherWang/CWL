@@ -200,7 +200,7 @@ class RegUserPage extends base_controller {
     $this->pageData['title'] = '预约医生';
     $this->load->view('templates/header', $this->pageData);
     $this->load->view('RegUserPage/Confirm', $data);
-    $this->load->view('templates/footer');
+    $this->load->view('templates/hfooter');
   }
    public function My_appointment()
   {

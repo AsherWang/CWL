@@ -1,4 +1,4 @@
-﻿    <div class="container">
+    <div class="container">
     <div>
      <h1 class="page-header">北京协和医院挂号单</h1>
      <table  class="table table-condensed table-bordered table-striped">

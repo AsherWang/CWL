@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * @Author: Asher
  * @Date:   2014-12-01 08:45:44
@@ -40,13 +40,15 @@ class HospitalManangerPage extends base_controller {
 		$data["user_list"]= $result;
 		
 	   $this->load->view('HospitalManangerPage/Index', $data);
-	   $this->load->view('HospitalManangerPage/usermanage');
+	   $this->load->view('HospitalManangerPage/usermanage',$data);
+	   $this->load->view('templates/footer');
   }
   public function notice()
   {
 	  $data['title'] = '公告管理';
 	  $this->load->view('HospitalManangerPage/Index', $data);
 	  $this->load->view('HospitalManangerPage/notice');
+	  $this->load->view('templates/footer');
   }
 
   //首页默认的时候医院信息的修改功能
@@ -85,6 +87,7 @@ class HospitalManangerPage extends base_controller {
 	  $data["admin_name"]= $loggedUser["username"];
 	  $this->load->view('HospitalManangerPage/Index', $data);
 	  $this->load->view('HospitalManangerPage/InfoModify',$data);
+	  $this->load->view('templates/footer');
   }
   
   

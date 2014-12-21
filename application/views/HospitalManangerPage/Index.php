@@ -1,11 +1,11 @@
-﻿<!DOCTYPE html> 
+<!DOCTYPE html> 
 <html> 
 <head> 
 <title><?php echo $title;?></title> 
 	 
      <meta name="keywords" content="keyword1,keyword2,keyword3"> 
      <meta name="description" content="this is my page"> 
-     <meta name="content-type" content="text/html; charset=gbk"> 
+     <meta name="content-type" content="text/html;"  charset="utf-8"> 
      <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
      <script  language="javascript" type="text/javascript" src='<?php echo base_url().'res/js/jquery.js'?>'></script> 
      <script  language="javascript" type="text/javascript" src='<?php echo base_url().'res/js/bootstrap.js'?>'></script> 
@@ -13,6 +13,19 @@
      <link rel="stylesheet" href='<?php echo base_url().'res/css/bootstrap-theme.css'?>' type="text/css" /> 
      <link rel="stylesheet" href='<?php echo base_url().'res/css/bootstrap.min.css'?>' type="text/css" /> 
      <link rel="stylesheet" href='<?php echo base_url().'res/css/bootstrap.css'?>' type="text/css" /> 
+<style type="text/css">
+#FooterDiv{
+	position:absolute;
+	bottom:0px;
+	width:100%;
+	left:0px;
+	background-color:#06C;
+	text-align:center;
+	font-size:15px;
+	font-family:'Microsoft YaHei';
+
+}
+</style>
 </head> 
   <body>
   <p>欢迎您，管理员 <u><?php echo $admin_name;?></u></p>
