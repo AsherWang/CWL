@@ -52,11 +52,5 @@
           </div>
       </div>
   </div>
-
-
-
-
- 
-     
 <!--
    <div>调试信息<?php var_dump($debug_value);?></div>-->
