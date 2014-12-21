@@ -198,7 +198,10 @@ class RegUserPage extends base_controller {
 	if(!$this->isSessionExists())redirect("");
 	$data["user_info"]=$this->getLogegUser();
 	$data["user_ext_info"]=$this->user_model->getUserExtInfo($data["user_info"]["id"]);
-    $data['title'] = 'My_appointment';
+	
+	//订单信息
+	$data["order_list"]=$this->order_model->get_order_of_user($data["user_info"]["id"]);
+    $this->pageData['title'] = '我的预约单';
     $this->load->view('templates/header', $this->pageData);
     $this->load->view('RegUserPage/My_appointment', $data);
     $this->load->view('templates/footer');
@@ -206,8 +209,8 @@ class RegUserPage extends base_controller {
 
   public function Personal_message_change()
   {
-   // $data['news'] = $this->news_model->get_news();
-    $data['title'] = 'Personal_message_change';
+    $data['news']=0;
+    $this->pageData['title'] = '个人信息修改';
     $this->load->view('templates/header', $this->pageData);
     $this->load->view('RegUserPage/personal_message_change', $data);
     $this->load->view('templates/footer');
@@ -215,7 +218,8 @@ class RegUserPage extends base_controller {
   public function Password_change()
   {
    // $data['news'] = $this->news_model->get_news();
-    $data['title'] = 'Password_change';
+   $data['news']=0;
+    $this->pageData['title'] = '密码修改';
     $this->load->view('templates/header', $this->pageData);
     $this->load->view('RegUserPage/password_change', $data);
     $this->load->view('templates/footer');
@@ -223,7 +227,8 @@ class RegUserPage extends base_controller {
   public function Head_show()
   {
    // $data['news'] = $this->news_model->get_news();
-    $data['title'] = 'Head_show';
+     $data['news']=0;
+    $this->pageData['title'] = '头像设置';
     $this->load->view('templates/header', $this->pageData);
     $this->load->view('RegUserPage/head_show', $data);
     $this->load->view('templates/footer');

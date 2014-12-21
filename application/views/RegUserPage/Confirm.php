@@ -56,7 +56,7 @@
             <?php
 			function money_trans($value)
 			{
-				 $str = sprintf("￥%.2f",$value);
+				 $str = sprintf("&yen;%.2f",$value);
 				 return $str;
 			}
 			

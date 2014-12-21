@@ -65,32 +65,63 @@
                     </div>
                     </div>
             <!--左侧栏目(用户基本信息)-->
+            <?php var_dump($order_list);?>
+            <?php
+			function money_trans($value)
+			{
+				 $str = sprintf("&yen;%.2f",$value);
+				 return $str;
+			}
+			
+			function time_block_trans($TimeValue)
+			{
+				$result=array(
+					"08:00-08:59",
+					"09:00-09:59",
+					"10:00-10:59",
+					"14:00-14:59",
+					"15:00-15:59",
+					"16:00-16:59"
+				);
+				return $result[$TimeValue];
+			}
+			
+			
+			if(isset($error_msg)&&$error_msg!="")
+			{
+				echo "<div class='table-bordered' >";
+				echo $error_msg;
+				echo "</div>";	
+			}
+			?>
             <!--右侧栏目(用户预约单)-->
                 <div class="col-md-10 right_container">
                     <div class="appointment_title">
                         我的预约单
                     </div>
                     <hr class="hr_right" />
-
+					
                     <table class="table appointment_main">
+                    <?php foreach($order_list as $key=> $value):?>
                     <tr><td>
+                    	<div><?php echo $key+1; ?>#</div>
                         <div>
-                            <span>挂号医院：</span><span>小红帽成人医院</span>
+                            <span>挂号医院：</span><span><?php echo $value["hName"];?></span>
                         </div>
                         <div>
-                            <span>挂号科室：</span><span>儿童外科</span>
+                            <span>挂号科室：</span><span><?php echo $value["pName"];?></span>
                             <span class="locate_sty_1">挂号医生：</span>
-                            <span>XXX</span>
+                            <span><?php echo $value["dName"];?></span>
                         </div>
                         <div>
-                            <span>门诊时间：</span><span>上午</span>
+                            <span>门诊时间：</span><span><?php echo $value["Date"];?></span>
                             <span class="locate_sty_2">具体时间：</span>
-                            <span>0000.00.00 08:00-08:59</span>
+                            <span><?php echo time_block_trans($value["Time"]);?></span>
                         </div>
                         <div>
-                            <span>挂号费：</span><span>&yen;15.0</span>
+                            <span>挂号费：</span><span><?php echo money_trans($value["Pay"]);?></span>
                             <span class="locate_sty_3">支付状态：</span>
-                            <span>已支付</span>
+                            <span><?php if($value["State"]!=2)echo "未支付";else echo "已支付"; ?></span>
                         </div>
                         <div class="operation_choice">
                             <span>操作：</span>
@@ -99,60 +130,7 @@
                             <a href="###" class="operation_text">去支付</a>
                         </div>
                     </td></tr>
-                    <tr class="interval_sty"><td></td></tr>
-                    <tr><td>
-                        <div>
-                            <span>挂号医院：</span><span>小红帽成人医院</span>
-                        </div>
-                        <div>
-                            <span>挂号科室：</span><span>儿童外科</span>
-                            <span class="locate_sty_1">挂号医生：</span>
-                            <span>XXX</span>
-                        </div>
-                        <div>
-                            <span>门诊时间：</span><span>上午</span>
-                            <span class="locate_sty_2">具体时间：</span>
-                            <span>0000.00.00 08:00-08:59</span>
-                        </div>
-                        <div>
-                            <span>挂号费：</span><span>&yen;15.0</span>
-                            <span class="locate_sty_3">支付状态：</span>
-                            <span>已支付</span>
-                        </div>
-                        <div class="operation_choice">
-                            <span>操作：</span>
-                            <a href="###">取消预约</a>
-                            <a href="###" class="operation_text">预览挂号单</a>
-                            <a href="###" class="operation_text">去支付</a>
-                        </div>
-                    </td></tr>
-                    <tr class="interval_sty"><td></td></tr>
-                    <tr><td>
-                        <div>
-                            <span>挂号医院：</span><span>小红帽成人医院</span>
-                        </div>
-                        <div>
-                            <span>挂号科室：</span><span>儿童外科</span>
-                            <span class="locate_sty_1">挂号医生：</span>
-                            <span>XXX</span>
-                        </div>
-                        <div>
-                            <span>门诊时间：</span><span>上午</span>
-                            <span class="locate_sty_2">具体时间：</span>
-                            <span>0000.00.00 08:00-08:59</span>
-                        </div>
-                        <div>
-                            <span>挂号费：</span><span>&yen;15.0</span>
-                            <span class="locate_sty_3">支付状态：</span>
-                            <span>已支付</span>
-                        </div>
-                        <div class="operation_choice">
-                            <span>操作：</span>
-                            <a href="###">取消预约</a>
-                            <a href="###" class="operation_text">预览挂号单</a>
-                            <a href="###" class="operation_text">去支付</a>
-                        </div>
-                    </td></tr>
+                    <?php endforeach?>
                     </table>
                 </div>
             <!--右侧栏目(用户预约单)-->

@@ -19,7 +19,7 @@
         <title><?php echo $title; ?></title>
     </head>
     <body>
-        <!--引用的bootstrap的输入框，有待更改调整-->
+        <!--引用的bootstrap的输入框，有待更改调整
         <div class="row">
         <div class="col-md-offset-3 col-md-6 main_search">
             <div class="input-group input-group-lg">
@@ -30,9 +30,9 @@
             </div>
         </div>
         </div>
-        <!--引用的bootstrap的输入框，有待更改调整-->
+        引用的bootstrap的输入框，有待更改调整-->
 
-        <!--导航条-->
+        <!--导航条
         <div class="row guide">
             <span class="col-md-offset-1 col-md-1 guide_text_1">
                 寻医：
@@ -47,7 +47,7 @@
                 快速预约
             </a>
         </div>
-        <!--导航条-->
+        导航条-->
 
         <!--main container-->
         <div class="container main_container">
