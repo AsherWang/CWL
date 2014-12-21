@@ -87,16 +87,7 @@
 		
 		function get_order_source_of_doctor($doctor_id)
 		{
-			$this->db->select("order_source.ID as sID,Pay,Doctor_ID,Date,Time,Sum_Max,Hospital_ID,count(order.ID) as Cur_Order_Source");	
-			$this->db->where("order_source.Doctor_ID",$doctor_id);
-			
-			$this->db->from("order_source");
-			$this->db->join('order', 'order.Order_Source_ID = order_source.ID'); ///联表暂时不用
-			
-			
-			$this->db->group_by("order_source.ID");
-			$this->db->order_by("Date", "desc");
-		  $query = $this->db->get();
+			$query=$this->db->query("select order_source.ID as sID,Pay,Doctor_ID,Date,Time,Sum_Max,Hospital_ID,count(order.ID) as Cur_Order_Source from `order`,`order_source` where `order`.`Order_Source_ID`=`order_source`.`ID` group by `order_source`.ID");
 		  if($query->num_rows()<0)return -1;
 		  return $query->result_array();
 		}
