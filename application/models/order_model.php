@@ -105,7 +105,7 @@
 		
 		function get_order_of_user($user_id)
 		{
-		   $query=$this->db->query("select order_source.ID as sID,Pay,Doctor_ID,Date,Time,Sum_Max,doctor.Hospital_ID,State,hospital.Name as hName,department.Name as pName,doctor.Name as dName from `order`,`order_source`,doctor,hospital,department where `order`.`Order_Source_ID`=`order_source`.`ID` AND order_source.Doctor_ID = doctor.ID AND hospital.ID=doctor.Hospital_ID AND department.ID = doctor.Department_ID AND order.User_ID=".$user_id);
+		   $query=$this->db->query("select order.ID as odID, order_source.ID as sID,Pay,Doctor_ID,Date,Time,Sum_Max,doctor.Hospital_ID,State,hospital.Name as hName,department.Name as pName,doctor.Name as dName from `order`,`order_source`,doctor,hospital,department where `order`.`Order_Source_ID`=`order_source`.`ID` AND order_source.Doctor_ID = doctor.ID AND hospital.ID=doctor.Hospital_ID AND department.ID = doctor.Department_ID AND order.User_ID=".$user_id);
 		  if($query->num_rows()<0)return -1;
 		  return $query->result_array();
 		}

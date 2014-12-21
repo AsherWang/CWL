@@ -121,13 +121,13 @@
                         <div>
                             <span>挂号费：</span><span><?php echo money_trans($value["Pay"]);?></span>
                             <span class="locate_sty_3">支付状态：</span>
-                            <span><?php if($value["State"]!=2)echo "未支付";else echo "已支付"; ?></span>
+                            <span><?php if($value["State"]==2)echo "已支付";else if($value["State"]==0) echo "未支付"; else echo "已过期"; ?></span>
                         </div>
                         <div class="operation_choice">
                             <span>操作：</span>
-                            <a href="###">取消预约</a>
-                            <a href="###" class="operation_text">预览挂号单</a>
-                            <a href="###" class="operation_text">去支付</a>
+                            <a href="<?php echo base_url()?>RegUserPage/My_appointment?do=cancel?order_id=<?php echo $value["odID"];?>"><button  >取消预约</button></a>
+                            <button  class="operation_text">预览挂号单</button>
+                            <button  class="operation_text PayBtn" >去支付</button>
                         </div>
                     </td></tr>
                     <?php endforeach?>
@@ -136,3 +136,32 @@
             <!--右侧栏目(用户预约单)-->
             </div>
         </div>
+        <div id="PayDiv" style="border:1px black solid; background-color:#fff; z-index:999; height:400px; width:500px;position:fixed;;left:190px; top:200px;">
+        <div style="height:30px;"><span style="float:right;"><button id="PayBorderExit">关闭</button></span></div>
+            <form method="post" onSubmit="return hideWInd()">
+                <input name="order_id"  value="" type="hidden"/>
+                <input type="submit" value="支付" />
+            </form>
+        </div>
+        <script type="text/javascript">
+			function hideWInd()
+			{
+				$("#PayDiv").hide();
+				return false;
+			}
+		
+			$().ready(function()
+			{
+				$("#PayDiv").hide();
+				$(".PayBtn").click(function(){
+					
+					
+					
+					$("#PayDiv").show();
+					});
+				$("#PayBorderExit").click(function(){
+					$("#PayDiv").hide();
+					});
+			});
+		</script>
+        
