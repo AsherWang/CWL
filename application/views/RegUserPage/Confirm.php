@@ -17,6 +17,7 @@
         <title><?php echo $title; ?></title>
     </head>
     <body>
+    <?php var_dump($order_source_list);?>
     	<div class="container">
     		<div class="title">确认预约订单信息</div>
     		<hr class="dividing_line"/>
@@ -33,25 +34,50 @@
     				<th class="doc_mes_thead">医生信息</th>
     				<th>所属医院</th>
     				<th>门诊类型</th>
-    				<th>挂号费</th>
     			</thead>
     			<tr class="doc_mes_text">
     				<td>
     					<div class="row">
     					<img src="<?php echo base_url()?>res/images/doctor_1.jpg" class="col-md-4 img-circle doctor_img" />
     						<div class="doc_intro">
-    						<span class="doc_name">***</span>
-    						<div class="doc_intro_text">主治医师</div>
-    						<div class="doc_intro_text">小儿外科、门诊外科</div>
+    						<span class="doc_name"><?php echo $doctor_info["Name"];?></span>
+    						<div class="doc_intro_text"><?php echo $department_info["Name"];?></div>
+                            <div class="doc_intro_text"><?php echo $doctor_info["Expert"];?></div>
+    						<div class="doc_intro_text"><?php echo $doctor_info["Info"];?></div>
     						</div>
     					</div>
     				</td>
-    				<td>小红帽成人医院</td>
-    				<td>门诊儿外</td>
-    				<td class="cost">&yen;999999.0</td>
+    				<td><?php echo $hospital_info["Name"];?></td>
+    				<td><?php echo $department_info["Name"];?></td>
+ 
     			</tr>
     		</table>
     		<!--确认医生信息-->
+            <?php
+			function money_trans($value)
+			{
+				 $str = sprintf("￥%.2f",$value);
+				 return $str;
+			}
+			?>
+            
+			<!--号源列表-->
+            <div >
+            	<?php foreach($order_source_list as $value):?>
+                <div class="table-bordered">
+                时段：<?php echo $value["Time"];?><br>
+                挂号费：<?php echo money_trans($value["Pay"]);?><br>
+                
+                已经预约数：<?php echo $value["Cur_Order_Source"];?><br>
+                总量：<?php echo $value["Sum_Max"];?><br>
+                状态：<?php if($value["Cur_Order_Source"]>=$value["Sum_Max"])echo "不";echo "可预约"; ?><br></div>
+                <?php endforeach?>
+            </div>
+            
+            <!--号源列表-->
+            
+
+
 
     		<!--选择就诊日期-->
     		<div class="choose_date">选择就诊日期</div>

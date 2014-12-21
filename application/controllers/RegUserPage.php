@@ -156,8 +156,18 @@ class RegUserPage extends base_controller {
 	//获取医生信息
 	$data["doctor_info"]=$this->doctor_model->get_doctor_by_id($_GET["doctor_id"]);
 	
+	//获取医院信息
+	$temp=$this->hospital_model->get_hospital(array("ID"=>$data["doctor_info"]["Hospital_ID"]));
+	$data["hospital_info"]=$temp[0];
+	
+	//获取科室信息
+	$temp= $this->department_model->get_department(array("ID"=>$data["doctor_info"]["Department_ID"]));
+    $data['department_info'] =$temp[0];
+     
+	
 	//获取号源,  号源基本信息,   总数，可用数
 	$data["order_source_list"]=$this->order_model->get_order_source_of_doctor($_GET["doctor_id"]);
+	//$data["order_source_list"]=$this->order_model->get_order_source_of_doctor($_GET["doctor_id"]);
 	
 	
     $this->pageData['title'] = '预约医生';
