@@ -18,25 +18,9 @@
         <title><?php echo $title; ?></title>
     </head>
     <body>
-        <!--引用的bootstrap的输入框，有待更改调整-->
-        <form action="<?php echo base_url()?>RegUserPage/hsp_doctor_list" method="get">
-        <div class="row">
-        <div class="col-md-offset-3 col-md-6 main_search">
-            <div class="input-group input-group-lg">
-            <input name="hospital_id" type="hidden" value="<?php echo $hospital_id?>"/>
-            <input name="search_department_type" type="hidden" value="<?php echo $search_department_type?>"/>
-            <input name="search_box" type="text" placeholder="医生名字" value="<?php echo $search_box?>" class="form-control" />
-            <span class="input-group-btn">
-                <button class="btn btn-default" type="submit">search</button>
-            </span>
-            </div>
-        </div>
-        </div>
-        </form>
-        <!--引用的bootstrap的输入框，有待更改调整-->
 
-        <!--导航条-->
-        <!--
+
+        <!--导航条
         <div class="row guide">
             <span class="col-md-offset-1 col-md-1 guide_text_1">
                 寻医：
@@ -72,6 +56,9 @@
                 <li class="active"><a href="">预约挂号</a></li>
         </nav>
         <!--医院内部导航条-->
+        
+
+        
         <!--医院内部医生筛选-->
         <table class="table table-bordered dep_table">
             <tr>
@@ -107,6 +94,27 @@ function dep_search(){
 }
 window.onload = dep_search;
 </script>
+
+                <!--引用的bootstrap的输入框，有待更改调整-->
+        <form action="<?php echo base_url()?>RegUserPage/hsp_doctor_list" method="get">
+        <div class="row">
+        <div class="col-md-offset-3 col-md-6 main_search">
+            <div class="input-group input-group-lg">
+            <input name="hospital_id" type="hidden" value="<?php echo $hospital_id?>"/>
+            <input name="search_department_type" type="hidden" value="<?php echo $search_department_type?>"/>
+            <input name="search_box" type="text" placeholder="医生名字" value="<?php echo $search_box?>" class="form-control" />
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="submit">search</button>
+            </span>
+            </div>
+        </div>
+        </div>
+        </form><br><br>
+        <!--引用的bootstrap的输入框，有待更改调整  -->
+        
+
+
+
         <!--医院内部医生筛选-->
         <!--医生列表-->
         <table class="table table-bordered table-hover doctor_list">

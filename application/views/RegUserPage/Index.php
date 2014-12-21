@@ -17,22 +17,6 @@
         <title><?php echo $title; ?></title>
     </head>
     <body>
-        <!--引用的bootstrap的输入框，有待更改调整-->
-        <form action="<?php echo base_url()?>RegUserPage/Index?search_level=<?php echo $search_level?>&search_type=<?php echo $search_type?>"method="get">
-        <div class="row">
-        <div class="col-md-offset-3 col-md-6 main_search">
-            <div class="input-group input-group-lg">
-            <input name="search_box" type="text" class="form-control" value="<?php echo $search_box?>">
-
-            <span class="input-group-btn">
-                <button class="btn btn-default" type="submit">search</button>
-            </span>
-            </div>
-        </div>
-        </div>
-        </form>
-        <!--引用的bootstrap的输入框，有待更改调整-->
-
         <!--导航条-->
         <div class="row guide">
             <span class="col-md-offset-1 col-md-1 guide_text_1">
@@ -49,6 +33,25 @@
             </a>
         </div>
         <!--导航条-->
+    
+    
+        <!--引用的bootstrap的输入框，有待更改调整-->
+        <form action="<?php echo base_url()?>RegUserPage/Index?search_level=<?php echo $search_level?>&search_type=<?php echo $search_type?>"method="get">
+        <div class="row">
+        <div class="col-md-offset-3 col-md-6 main_search">
+            <div class="input-group input-group-lg">
+            <input name="search_box" type="text" class="form-control" value="<?php echo $search_box?>">
+
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="submit">search</button>
+            </span>
+            </div>
+        </div>
+        </div>
+        </form>
+        <!--引用的bootstrap的输入框，有待更改调整-->
+
+
 
         <!--选择框-->
         <table class="table-bordered hsp_choose_table">

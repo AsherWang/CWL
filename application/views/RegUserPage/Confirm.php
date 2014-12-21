@@ -17,7 +17,7 @@
         <title><?php echo $title; ?></title>
     </head>
     <body>
-    <?php var_dump($order_source_list);?>
+    <!--<?php var_dump($order_source_list);?> -->
     	<div class="container">
     		<div class="title">确认预约订单信息</div>
     		<hr class="dividing_line"/>
@@ -47,8 +47,8 @@
     						</div>
     					</div>
     				</td>
-    				<td><?php echo $hospital_info["Name"];?></td>
-    				<td><?php echo $department_info["Name"];?></td>
+    				<td><?php echo '<a href="'.base_url().'RegUserPage/Hsp_doctor_list?hospital_id='.$hospital_info["ID"].'">'.$hospital_info["Name"].'</a>';?></td>
+                    <td><?php echo '<a href="'.base_url().'RegUserPage/Hsp_doctor_list?hospital_id='.$hospital_info["ID"].'&search_department_type='.$department_info["Name"].'">'.$department_info["Name"].'</a>';?></td>
  
     			</tr>
     		</table>
@@ -86,6 +86,8 @@
             
 			<!--号源列表-->
             <div >
+            <?php if(empty($order_source_list))echo "<div class='table-bordered'><p>暂无号源</p></div>";?>
+            
             	<?php foreach($order_source_list as $value):?>
                 <div class="table-bordered">
                 日期：<?php echo $value["Date"];?><br>
