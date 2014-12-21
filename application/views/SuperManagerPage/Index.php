@@ -32,6 +32,9 @@ function isDateValid($date)//判断date 是否小于当前时间
         <div class="PanelItem" id="PanelToHomePage">
             <p href="#" class="PanelLink">回到主页面</p>
         </div>
+        <div class="PanelItem" id="PanelLogOut">
+            <p href="#" class="PanelLink">退出该账号</p>
+        </div>
     </div>
     <div class="col-md-7 col-md-offset-1">
         <div class="row" id="SearchUserDiv">
@@ -164,6 +167,19 @@ $("#ManagerAddHospitalBtn").click(function(){
 });
 $("#PanelToAddHospitalPage").click(function(){
     location.href = "<?php echo base_url();?>SuperManagerPage/AddNewHospital"
+});
+
+$("#PanelLogOut").click(function(){
+    $.ajax({
+        url:"<?php echo base_url();?>SuperManagerPage/LogOutBtnClick",
+        type:"POST",
+        datatype:"html",
+        data:{},
+        success:function(data){
+            alert(data);
+            location.href = "<?php echo base_url();?>IndexPage/Index";
+        }
+    });
 });
 
 $("#SearchUserBtn").click(function(){

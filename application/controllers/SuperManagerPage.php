@@ -22,6 +22,11 @@ class SuperManagerPage extends base_controller {
 
     $this->PageData['session'] = $this->session;
     $this->PageData['title'] = "超级管理员界面";
+
+    //如果权限不够的话，无法访问该页面
+    if($this->session->userdata['user_type'] != "1"){
+      Redirect("");
+    }
     
   }
 
@@ -113,6 +118,13 @@ class SuperManagerPage extends base_controller {
     $this->load->view('SuperManagerPage/HandleHospital', $this->data);
     $this->load->view('templates/footer');
 
+  }
+
+  public function LogOutBtnClick()
+  {
+    //$this->destroySession();
+    $this->session->sess_destroy();
+    echo "注销成功";
   }
 
   //暂定封禁一周
