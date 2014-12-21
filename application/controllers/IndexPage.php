@@ -25,6 +25,11 @@ class IndexPage extends base_controller {
   //IndexPage/index
   public function Index()
   { 
+		$temp=$this->session->flashdata('pre_link');
+		if($temp)
+		{
+			$this->session->keep_flashdata('pre_link');
+		}
   		if(isset($_GET["do"])&&$_GET["do"]=="exit")$this->destroySession();  //退出
   		$data["login_result"]=0; //初始化登陆结果
   		if(isset($_POST["id_number"])&&isset($_POST["password"])&&$_POST["id_number"]!=""&&$_POST["password"]!="")//登陆
@@ -54,6 +59,14 @@ class IndexPage extends base_controller {
 				$data["login_result"]=1;
 				$data["user"]=$tempUser;
 				if($tempUser["user_type"]!=4)$data["login_result"]=0;
+				$temp=$this->session->flashdata('pre_link');
+				if($temp!="")
+				{
+					redirect($temp);
+				}
+
+				
+				
 		}
 		
 		

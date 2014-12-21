@@ -39,6 +39,7 @@ class RegUserPage extends base_controller {
    $data["search_type"]="";
    $data["search_area"]="";
    $data["search_box"]="";
+   $data["need_log"]="0";
 
    
    if(isset($_GET["search_box"])&&$_GET["search_box"]!="") 
@@ -52,12 +53,9 @@ class RegUserPage extends base_controller {
    
    
       if(!$this->isSessionExists()){
-	   $this->session->set_flashdata('link',base_url()."RegUserPage?search_box=".$data["search_box"]."&search_type=".$data["search_type"]."&search_level=".$data["search_level"]);
-   }
-   
-   
-   
-   
+	   $this->session->set_flashdata('pre_link',"RegUserPage?search_box=".$data["search_box"]."&search_type=".$data["search_type"]."&search_level=".$data["search_level"]."&search_area=".$data["search_area"]);
+	   $data["need_log"]="1";
+     }
     //$data["search_type_list"]=getlist();  //待定
 	$data["search_type_list"]=$this->hospital_model->hospital_type();
 	$data["search_area_list"]=$this->hospital_model->hospital_area();

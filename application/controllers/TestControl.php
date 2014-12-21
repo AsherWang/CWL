@@ -37,8 +37,6 @@ $this->load->model('doctor_model');
 	  
 	
 	$data["value"]= $this->order_model->get_order_source_of_doctor(2);
-  
-   
      $this->load->view('TestPage/Index', $data);
   }
 }

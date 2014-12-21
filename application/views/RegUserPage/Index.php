@@ -220,7 +220,14 @@ window.onload = markHsp;
                     </div>
                 </div>
                 <div class="col-md-2 hsp_link">
-                    <a href="<?php echo base_url()?>RegUserPage/Hsp_doctor_list?hospital_id=<?php echo $hospital_item['ID']?>&department_type="">查看号源</a>
+                	<?php if($need_log=="1"):?>
+						<a href="<?php echo base_url()?>">先登录吧亲</a>
+					<?php elseif($need_log=="0"): ?>						
+	<a href="<?php echo base_url()?>RegUserPage/Hsp_doctor_list?hospital_id=<?php echo $hospital_item['ID']?>&department_type="">去医院瞅瞅</a>
+                	<?php endif?>
+
+                    
+                    
                 </div>
             </td><tr>
             <?php endforeach ?>
