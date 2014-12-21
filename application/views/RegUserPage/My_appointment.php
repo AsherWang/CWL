@@ -206,7 +206,6 @@
 				$(".PayBtn").click(function(){
 					$("#order_id_container").val($(this).next().val());
 					$("#PayDiv").show();
-					
 					});
 				$("#PayBorderExit").click(function(){
 					$("#PayDiv").hide();
