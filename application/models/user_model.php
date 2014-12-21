@@ -30,6 +30,15 @@
 			return $extId;
 		}
 		
+		
+		public function getUserExtInfo($user_id)
+		{
+			$data=array();
+			$data["ID"]=$this->getExtId($user_id);
+			$temp=$this->getTable("user_ext",$data);
+			return $temp[0];
+		}
+		
         //这个.....删号，checked
         public function delete_user($userId)
         {
@@ -156,7 +165,7 @@
       if($cols['ID_number']) $sql = $sql."ID_number,";
       if($cols['Password']) $sql = $sql."Password,";
       if($cols['Name']) $sql = $sql."Name,";
-      if($cols['Authority']) $sql = $sql."Autority,"; //这个怎么拼错了。。
+      if($cols['Authority']) $sql = $sql."Autority,"; //这个怎么拼错了。。,= =要问数据库的建表始祖宗战亲了
       if($cols['Credit_Rate']) $sql = $sql."Credit_Rate,";
       if($cols['Max_Order_Sum']) $sql = $sql."Max_Order_Sum,";
       if($cols['Valid_Date']) $sql = $sql."Valid_Date,";

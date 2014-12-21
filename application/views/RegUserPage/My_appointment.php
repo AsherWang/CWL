@@ -18,7 +18,7 @@
         <title><?php echo $title; ?></title>
     </head>
     <body>
-        <!--引用的bootstrap的输入框，有待更改调整-->
+        <!--引用的bootstrap的输入框，有待更改调整
         <div class="row">
         <div class="col-md-offset-3 col-md-6 main_search">
             <div class="input-group input-group-lg">
@@ -29,9 +29,9 @@
             </div>
         </div>
         </div>
-        <!--引用的bootstrap的输入框，有待更改调整-->
+        引用的bootstrap的输入框，有待更改调整-->
 
-        <!--导航条-->
+        <!--导航条
         <div class="row guide">
             <span class="col-md-offset-1 col-md-1 guide_text_1">
                 寻医：
@@ -46,13 +46,13 @@
                 快速预约
             </a>
         </div>
-        <!--导航条-->
+        导航条-->
         <div class="container main_container">
             <div class="row">
             <!--左侧栏目(用户基本信息)-->
                 <div class="col-md-2 left_container">
                     <img class="user_img img-circle" src="<?php echo base_url()?>res/images/doctor_1.jpg">
-                    <div class="user_name">XXX</div>
+                    <div class="user_name"><?php echo $user_info["username"];?></div>
                     <hr class="left_hr_1"/>
                     <div>
                         <span class="user_mes">个人信息</span>
@@ -60,11 +60,8 @@
                     </div>
                     <hr class="left_hr_2">
                     <div class="detail_mes">
-                        <div><span>性别：</span><span>女</span></div>
-                        <div><span>出生日期：</span><span>0000-00-00</span></div>
-                        <div><span>身份证号：</span><span>1111111(duoshaoweie)</span></div>
-                        <div><span>联系方式：</span><span>000-000 bunengshuo</span></div>
-                        <div><span>email：</span><span>000@buaa.edu.cn</span></div>
+                        <div><span>身份证号：</span><span><?php echo $user_info["id_number"];?></span></div>
+                        <div><span>联系方式：</span><span><?php echo $user_ext_info["Phone"];?></span></div>
                     </div>
                     </div>
             <!--左侧栏目(用户基本信息)-->

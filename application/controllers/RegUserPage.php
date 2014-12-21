@@ -10,7 +10,7 @@ class RegUserPage extends base_controller {
     
     //构造函数时载入数据的model类，对应models目录下的news_model
     //s 
-   //$this->load->model('notice_model');
+   $this->load->model('user_model');
    $this->load->helper('url');
    $this->load->model('hospital_model');
    $this->load->model('doctor_model');
@@ -194,18 +194,10 @@ class RegUserPage extends base_controller {
   }
    public function My_appointment()
   {
-	  if($_POST["ds"])
-	  {
-		  //$this->load->view('RegUserPage/My_appointment', $data);
-    		$this->load->view('templates/footer');
-	  }
 
-	else
-	{
-	
-	}
-	  
-   // $data['news'] = $this->news_model->get_news();
+	if(!$this->isSessionExists())redirect("");
+	$data["user_info"]=$this->getLogegUser();
+	$data["user_ext_info"]=$this->user_model->getUserExtInfo($data["user_info"]["id"]);
     $data['title'] = 'My_appointment';
     $this->load->view('templates/header', $this->pageData);
     $this->load->view('RegUserPage/My_appointment', $data);
