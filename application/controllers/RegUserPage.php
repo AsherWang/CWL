@@ -196,8 +196,16 @@ class RegUserPage extends base_controller {
   {
 
 	if(!$this->isSessionExists())redirect("");
+	
 	$data["user_info"]=$this->getLogegUser();
+	if($data["user_info"]["user_type"]!=4)$this->jumpSession();
 	$data["user_ext_info"]=$this->user_model->getUserExtInfo($data["user_info"]["id"]);
+	
+	if(isset($_POST["pay"])&&$_POST["pay"]=="pay"&&isset($_POST["order_id"])&&$_POST["order_id"]!="")
+	{
+		$this->order_model->pay_order($_POST["order_id"]);
+	}
+	
 	
 	//订单信息
 	$data["order_list"]=$this->order_model->get_order_of_user($data["user_info"]["id"]);

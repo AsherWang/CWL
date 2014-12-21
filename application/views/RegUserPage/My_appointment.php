@@ -103,7 +103,7 @@
 					
                     <table class="table appointment_main">
                     <?php foreach($order_list as $key=> $value):?>
-                    <tr><td>
+                    <tr class="PayPanel"><td>
                     	<div><?php echo $key+1; ?>#</div>
                         <div>
                             <span>挂号医院：</span><span><?php echo $value["hName"];?></span>
@@ -126,8 +126,19 @@
                         <div class="operation_choice">
                             <span>操作：</span>
                             <a href="<?php echo base_url()?>RegUserPage/My_appointment?do=cancel?order_id=<?php echo $value["odID"];?>"><button  >取消预约</button></a>
-                            <button  class="operation_text">预览挂号单</button>
-                            <button  class="operation_text PayBtn" >去支付</button>
+                            
+                           
+                            <input type="hidden" value="<?php echo $value["odID"];?>" />
+                            <?php if($value["State"]==2){
+								echo '<button  class="operation_text">预览挂号单</button>';
+								}
+								else if($value["State"]==0)
+								{
+									 echo '<button  class="operation_text PayBtn" >去支付</button>';
+								}
+								
+								?>
+                            
                         </div>
                     </td></tr>
                     <?php endforeach?>
@@ -136,28 +147,29 @@
             <!--右侧栏目(用户预约单)-->
             </div>
         </div>
-        <div id="PayDiv" style="border:1px black solid; background-color:#fff; z-index:999; height:400px; width:500px;position:fixed;;left:190px; top:200px;">
+        <div id="PayDiv" style="border:1px black solid; border:2px thick #987; border-radius:3px; background-color:#fff; z-index:999; height:200px; width:500px;position:fixed;;left:190px; top:200px;">
         <div style="height:30px;"><span style="float:right;"><button id="PayBorderExit">关闭</button></span></div>
+        <div><p>反正又不是真付钱，就点了确定吧  =。=</p></div>
             <form method="post" onSubmit="return hideWInd()">
-                <input name="order_id"  value="" type="hidden"/>
-                <input type="submit" value="支付" />
+                <input name="pay"  value="pay" type="hidden"/>
+                <input name="order_id" id="order_id_container" type="hidden"/>
+                <input style="height:100px; width:230px; margin-left:132px;" type="submit" value="支付" />
             </form>
         </div>
         <script type="text/javascript">
 			function hideWInd()
 			{
 				$("#PayDiv").hide();
-				return false;
+				return true;
 			}
 		
 			$().ready(function()
 			{
 				$("#PayDiv").hide();
 				$(".PayBtn").click(function(){
-					
-					
-					
+					$("#order_id_container").val($(this).next().val());
 					$("#PayDiv").show();
+					
 					});
 				$("#PayBorderExit").click(function(){
 					$("#PayDiv").hide();
