@@ -103,21 +103,17 @@ class HospitalManangerPage extends base_controller {
 	  
 	  //处理添加号源的表单
 	  if(isset($_GET["do"])&&$_GET["do"]=="add")
+	  if(isset($_POST["add_hospital_id"])&&$_POST["add_hospital_id"]!="")
+	  if(isset($_POST["add_doctor_id"])&&$_POST["add_doctor_id"]!="")
+	  if(isset($_POST["add_Date"])&&$_POST["add_Date"]!="")
+	  if(isset($_POST["add_Time"])&&$_POST["add_Time"]!="")
+	  if(isset($_POST["add_Max_Sum"])&&$_POST["add_Max_Sum"]!="")
 	  {
-		  if(isset($_POST["add_hospital_id"])&&$_POST["add_hospital_id"]!="")
-		  if(isset($_POST["add_doctor_id"])&&$_POST["add_doctor_id"]!="")
-		  if(isset($_POST["add_hospital_id"])&&$_POST["add_hospital_id"]!="")
-		  if(isset($_POST["add_hospital_id"])&&$_POST["add_hospital_id"]!="")
-		  if(isset($_POST["add_hospital_id"])&&$_POST["add_hospital_id"]!="")
-		  if(isset($_POST["add_hospital_id"])&&$_POST["add_hospital_id"]!="")
-		  
-		  {
-			  
-		  }
-		  
-		  
+		  //添加新的号源
 		  
 	  }
+		  
+		  
 	  
 	  
 	  
