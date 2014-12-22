@@ -9,12 +9,11 @@ function createNotice()
 </script>
 <div class="row">
     <div class="col-md-3" id="NoticeHeadImgCol">
-        <img class="" id = "NoticeHeadImg" src= "<?php echo base_url().'res/images/NoticePage/NoticeMark.png'?>">
+        <img id = "NoticeHeadImg" src= "<?php echo base_url().'res/images/NoticePage/NoticeMark.png'?>">
     </div>
     <div class="col-md-8" id="NoticeListCol">
         <div class="row" id="NoticeList">
             <div class="row">
-
                 <div class="NoticeTagText col-md-1">标题</div>
                 <div class="NoticeTagText col-md-2 col-md-offset-6">发布时间</div>
                 <div class="NoticeTagText col-md-1 col-md-offset-1">作者</div>

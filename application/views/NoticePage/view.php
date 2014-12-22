@@ -2,7 +2,7 @@
 <link href='<?php echo base_url().'/res/css/Notice.css'?>' rel="stylesheet" type="text/css" />
 <div class="row" id="OneNoticePageContent">
 	<div class="col-md-4 NoticeImgCol">
-		<img src="<?php echo base_url().'res/images/NoticePage/NoticeMark.png'?>">
+		<img style="position:absolute;top:20px;" src="<?php echo base_url().'res/images/NoticePage/NoticeMark.png'?>">
 	</div>
 	<div class="col-md-6 col-md-offset-1" id="NoticeInfoCol">
 		<h2 class="row NoticeText" id="NoticeTitle">
@@ -14,7 +14,7 @@
 			<?php echo $notice['Name']?>
 		</div>
 		<div class="row NoticeText" id="NoticeContent">
-			<?php echo $notice['Content']?>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $notice['Content']?>
 		</div>
 	</div>
 </div>
