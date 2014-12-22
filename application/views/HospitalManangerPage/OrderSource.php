@@ -78,7 +78,7 @@
         <input onClick="return hideForm()" type="button"  value="关闭" />
         </td></tr>
        </tbody></table>
-            </form>
+       </form>
 </div>
 <script type="text/jscript">
 $("#addForm").hide();
