@@ -7,8 +7,10 @@ function money_trans($value)
 }
 
 
- echo"订单详情啊";?><br>
+ ?><br>
+ <div id="maincontainer">
    <!--startprint1-->
+
 <div class="printContent" style="width:500px; border:1px  black solid;">
 订单ID：<?php echo $order_info["ID"];?><br>
 订单价格：<?php echo money_trans($order_info["Pay"]);?><br>
@@ -25,7 +27,9 @@ function money_trans($value)
 </div>
  <!--endprint1-->
 <?php if($order_info["State"]==2){?>
+ <div id="print">
  <input type="button" onclick="preview(1)" value="打印挂号单"/>
+ </div>
 <?php }else{?>
 	<form method="post" action="<?php echo base_url();?>RegOfficePage/PayOrder">
 	<input name="pay_id" value="<?php echo $order_info["ID"];?>" type="hidden" />
@@ -33,6 +37,8 @@ function money_trans($value)
 </form>
 <?php 
 } ?>
+
+</div>
 <style type='text/css'>
 body{text-algin:center;}
 .printContent{text-algin:left; margin-top:80px; margin-left:auto; margin-right:auto;border:1px black solid;}

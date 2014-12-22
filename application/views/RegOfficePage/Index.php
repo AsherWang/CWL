@@ -13,6 +13,7 @@
      <link rel="stylesheet" href='<?php echo base_url().'res/css/bootstrap-theme.css'?>' type="text/css" /> 
      <link rel="stylesheet" href='<?php echo base_url().'res/css/bootstrap.min.css'?>' type="text/css" /> 
      <link rel="stylesheet" href='<?php echo base_url().'res/css/bootstrap.css'?>' type="text/css" /> 
+     <link rel="stylesheet" href='<?php echo base_url().'res/css/regoffice/regoffice.css'?>' type="text/css" />
 </head> 
   <body>
   <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -32,7 +33,7 @@
                   <li <?php if($pageIndex==1)echo "class='active'";?> ><a href="<?php echo base_url()?>RegOfficePage">订单列表&gt; &gt;</a></li>
                   <li class="divider-vertical"></li>
                   <li <?php if($pageIndex==2)echo "class='active'";?>><a href="">订单详情&gt; &gt;</a></li>
-                  <li><a>当前登陆者:<b><?php echo $admin_name;?></b></a></li>
+                  <li style="margin-left:320px;"><a>当前登陆者:<b><?php echo $admin_name;?></b></a></li>
                   <li><a href="<?php echo base_url()?>RegOfficePage?do=exit">退出管理</a></li>
               </ul>
           </div>
@@ -40,7 +41,7 @@
   </div>
 
 <br><br><br>
-   <?php echo "<p>调试信息</p>";  var_dump($debug_value);?>
+   
    
    <?php 
    		function tansState($value)
@@ -50,3 +51,7 @@
 		}
    
    ?>
+
+<div id="welcome">
+  <img src="<?php echo base_url().'res/images/regoffice/welcome.png'?>">
+</div>
