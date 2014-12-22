@@ -45,13 +45,13 @@ function time_block_trans($TimeValue)
  <div id="print">
  <input type="button" onclick="preview(1)" value="打印挂号单"/>
  </div>
+
 <?php }else{?>
 	<form method="post" action="<?php echo base_url();?>RegOfficePage/PayOrder">
 	<input name="pay_id" value="<?php echo $order_info["ID"];?>" type="hidden" />
-    <input type="submit" value="确认支付"/>
-</form>
-<?php 
-} ?>
+    <div id="queren"><input type="submit" value="确认支付"/></div>
+    </form>
+<?php } ?>
 
 </div>
 <style type='text/css'>

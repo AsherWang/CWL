@@ -19,6 +19,10 @@
 			return $newId;
 		}
 		
+		public function add_user($data)
+		{
+			return $this->db->insert('user',$data);
+		}
 		
 		//获取扩展表的id，-1表示没有或者出错
 		public function getExtId($userId)
@@ -186,8 +190,8 @@
     //名字模糊匹配
     public function getUserInfoByName($name)
     {
-      $sql = "select Name from user where Name like '%$name%'";
-      return $this->db->query($sql)->result();
+      $sql = "select * from user where Name like '%$name%'";
+      return $this->db->query($sql)->result_array();
     }
 
 		public function getUserInfoById($id)
