@@ -43,7 +43,7 @@
 	color:#fff;
 }
 
-#addForm  td,th
+#addForm  td,#addForm  th
 {
     border:1px solid #000;
 	text-align:center;
