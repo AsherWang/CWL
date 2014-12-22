@@ -32,22 +32,14 @@
             
 
         ?>
+        <tr><td colspan="8"><button class="btn btn-success" onClick="show()">添加</button></td></tr>
         </table>
-        <div  style="text-align: center">
-            <ul class="pagination">
-                <li><a href="#">&laquo;</a></li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">&raquo;</a></li>
-            </ul>
-        </div>
+       
     </div>
 
+
     
-    <div style="float: right">
+    <div id="addworker" style="float: right">
         <form class="form-horizontal" method="post">
             <fieldset>
                 <div id="legend" class="">
@@ -75,10 +67,26 @@
                 <div class="control-group">
                     <div class="controls">
                     	<input class="btn btn-primary" type="submit" name="submit" value="添加"/>
+                        <input class="btn btn-danger" onClick="return hideForm()" type="button"  value="关闭" />
                     </div>
             </fieldset>
         </form>
         </div>
+
+        <script type="text/jscript">
+            $("#addworker").hide();
+            function show()
+            {
+                $("#addworker").show();
+            }
+            function hideForm()
+            {
+                $("#addworker").hide();
+                return false;
+            }
+
+           
+        </script>
 
 </div>
 </body>

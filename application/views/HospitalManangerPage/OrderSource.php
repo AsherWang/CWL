@@ -1,5 +1,13 @@
 <div>
+     <div style="margin-left:130px;">
+         <h1 class="page-header">
+             CWL全国统一预约平台<small>----号源管理</small>
+         </h1>
+     </div>
+<div style="margin-left:130px;width:700px;">
 <div>
+<h3>号源列表</h3>
+</div>
 
 <?php
 	function money_trans($value)
@@ -36,14 +44,14 @@
 ?>
 <?php if(!empty($order_list)):?>
 
-	<table class="order_list_table">
+	<table class="table table-hover table-condensed table-bordered table-striped" style="text-align:center">
     	<thead><tr><th>&nbsp;序号&nbsp;</th><th>医生</th><th>科室</th><th>日期</th><th>&nbsp;时段&nbsp;</th><th>&nbsp;最大预约数&nbsp;</th><th>&nbsp;操作&nbsp;</th></tr></thead>
         <tbody>
         	<?php foreach($order_list as $key=> $value): ?>
             <tr><td><?php echo $key+1;?></td><td><?php echo $value["dName"];?></td><td><?php echo $value["pName"];?></td><td><?php echo $value["Date"];?></td><td><?php echo time_block_trans($value["Time"]);?></td><td><?php echo $value["Sum_Max"];?></td><td>
-            <a href="<?php echo base_url();?>HospitalManangerPage/OrderSource?do=delete&order_id=<?php echo $value["ID"];?>">删除</a></td></tr>
+            <a class="btn btn-primary btn-xs" href="<?php echo base_url();?>HospitalManangerPage/OrderSource?do=delete&order_id=<?php echo $value["ID"];?>">删除</a></td></tr>
             <?php endforeach ?>
-            <tr><td colspan="8"><button onClick="show()">添加</button></td></tr>
+            <tr><td colspan="8"><button class="btn btn-success" onClick="show()">添加</button></td></tr>
         </tbody>
     </table>
    
@@ -51,7 +59,7 @@
 	嗯，暂无号源.....
 <?php endif?>
 <br><br>
-<div id="addForm">
+<div style="position:absolute;left:950px;top:180px;" id="addForm">
 	<form action="?do=add" method="post">
     <table>
     <thead><tr><th colspan="2">添加号源</th></tr></thead>
@@ -74,9 +82,9 @@
         <tr><td>挂号费用(元)</td><td><input name="add_Pay" /></td></tr>
         <tr>
             <td>
-            <input onClick="return hideForm()" type="button"  value="关闭" />
+            <input class="btn btn-danger" onClick="return hideForm()" type="button"  value="关闭" />
             </td>
-            <td><input type="submit" value="添加" /></td>
+            <td><input class="btn btn-primary" type="submit" value="添加" /></td>
         </tr>
        </tbody></table>
        </form>
@@ -97,6 +105,8 @@ $(document).ready(function() {
   $("#datepicker").datepicker({dateFormat:"yy-mm-dd"});
 });
 </script>
+
+
 </div>
 </div>
 <div style="height:800px;">

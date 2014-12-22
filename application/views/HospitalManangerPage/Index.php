@@ -29,19 +29,7 @@
 	font-family:'Microsoft YaHei';
 
 }
-.order_list_table{
-	text-align:center;
-	}
-.order_list_table td,.order_list_table th{
-	border:1px solid #000;
-	text-align:center;
-	padding-left:3px;
-	padding-right:3px;
-}
-.order_list_table th{
-	background-color:#39F;
-	color:#fff;
-}
+
 
 #addForm  td,#addForm  th
 {
@@ -87,4 +75,4 @@
       </div>
   </div>
 
-   <div>调试信息<?php var_dump($debug_value);?></div>
+   
