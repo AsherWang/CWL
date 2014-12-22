@@ -31,16 +31,60 @@ class HospitalManangerPage extends base_controller {
   public function UserManage()
   {
 	   $data["pageIndex"]=2;
+	   $data['mark_delete']=0;
+	   $data['mark_update']=0;
 	   $data['title'] = '医院管理员-用户管理';
 	   if(!$this->isSessionExists())redirect("");  //检测session
 	   $data['user_info']=$this->getLogegUser();
 	   if($data['user_info']["user_type"]!=2)$this->jumpSession();
 	  
 	   $data["admin_name"]= $data['user_info']["username"];
-	  
+
+      if(isset($_GET['do'])&&!empty($_GET['do']))
+      {
+      	$do=$_GET['do'];
+	  	$user_id=$_GET['user_id'];
+
+      	if($do=="delete")
+      	{
+      		$this->user_model->delete_user($user_id);
+      		$data['mark_delete']=mysql_affected_rows();
+      	}
+      	if($do=="update")
+      	{
+      		$this->user_model->update_user($user_id);
+      		$data['mark_update']=mysql_affected_rows();
+      	}
+      }
+
+      //获取添加表单内容
+      if(isset($_POST['user_ID_number'])&&!empty($_POST['user_ID_number']))
+      	if(isset($_POST['user_name'])&&!empty($_POST['user_name']))
+      	if(isset($_POST['user_autority'])&&!empty($_POST['user_autority']))
+      	if(isset($_POST['hospital_id'])&&!empty($_POST['hospital_id']))
+      	{
+      		$user=array(
+				'ID_number'=>$_POST['user_ID_number'],
+				'Password'=>"",
+				'Name'=>$_POST['user_name'],
+				'Autority'=>$_POST['user_autority'],
+				'Hospital_ID'=>$_POST['hospital_id']
+				);
+      		 $this->user_model->add_user($user);
+      	}
+
+      
+     
+
+
 	   //获取此医院的挂号处用户
-	   $result=$this->user_model->get_regofficeuser_of_hosiptal( $data['user_info']["hospital_id"]);
-	    $data["debug_value"]= $result;
+      	if(isset($_GET['search_name'])&&!empty($_GET['search_name']))
+      	{
+      		$result=$this->user_model->getUserInfoByName($_GET['search_name']);
+      	}
+      	else
+			$result=$this->user_model->get_regofficeuser_of_hosiptal( $data['user_info']["hospital_id"]);
+	    $data["debug_value"]="";
 		$data["user_list"]= $result;
 		
 	   $this->load->view('HospitalManangerPage/Index', $data);
