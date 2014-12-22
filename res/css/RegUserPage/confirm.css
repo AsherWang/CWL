@@ -48,7 +48,29 @@
 	margin-top:3px;
 }
 
-.cost{
+.order_source_table{
+	margin-left:5%;
+	font-family:'Microsoft YaHei';
+	width:90%;
+	text-align:center;
+	margin-top:80px;
+}
+.order_source_table thead{
+	font-size:15px;
+	line-height:20px;
+}
+.order_source_table td{
+	font-size:14px;
+	line-height:20px;
+}
+.order_source_table form{
+	width:70%;
+	line-height:24px;
+	padding-left:30px;
+}
+
+/*无用代码、该放弃就放弃吧*/
+/*.cost{
 	color:orange;
 }
 
@@ -150,4 +172,4 @@ input[type=checkbox]{
 }
 .confirm_all a{
 	color:#fff;
-}
+}*/

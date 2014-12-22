@@ -49,11 +49,10 @@
     				</td>
     				<td><?php echo '<a href="'.base_url().'RegUserPage/Hsp_doctor_list?hospital_id='.$hospital_info["ID"].'">'.$hospital_info["Name"].'</a>';?></td>
                     <td><?php echo '<a href="'.base_url().'RegUserPage/Hsp_doctor_list?hospital_id='.$hospital_info["ID"].'&search_department_type='.$department_info["Name"].'">'.$department_info["Name"].'</a>';?></td>
- 
     			</tr>
     		</table>
     		<!--确认医生信息-->
-            <?php
+             <?php
 			function money_trans($value)
 			{
 				 $str = sprintf("&yen;%.2f",$value);
@@ -85,29 +84,45 @@
             
             
 			<!--号源列表-->
-            <div >
-            <?php if(empty($order_source_list))echo "<div class='table-bordered'><p>暂无号源</p></div>";?>
-            
-            	<?php foreach($order_source_list as $value):?>
-                <div class="table-bordered">
-                日期：<?php echo $value["Date"];?><br>
-                时段：<?php echo time_block_trans($value["Time"]);?><br>
-                挂号费：<?php echo money_trans($value["Pay"]);?><br>
-                
-                已经预约数：<?php echo $value["Cur_Order_Source"];?><br>
-                总量：<?php echo $value["Sum_Max"];?><br>
-                状态：<?php if($value["Cur_Order_Source"]>=$value["Sum_Max"])echo "不";echo "可预约"; ?><br>
-                <?php if($value["Cur_Order_Source"]<$value["Sum_Max"]){
-					echo "<form method='post'>";
-					echo "<input name='user_id' type='hidden' value='".$user_info["id"]."' />";
-					echo "<input name='source_order_id' type='hidden' value='".$value["sID"]."' />";
-					echo "<input type='submit' value='我要预约' />";
-					echo "</form>";
-					}?>
-                    </div>
-                <?php endforeach?>
-            </div>
-            
+            <?php if(empty($order_source_list)) echo("一边去，这没了")?>
+            <!-- 我想要这里只输出一种——有或没有 -->
+            <table class="table order_source_table">
+                <colgroup>
+                    <col width="20%"></col>
+                    <col width="20%"></col>
+                    <col width="15%"></col>
+                    <col width="15%"></col>
+                    <col width="15%"></col>
+                    <col></col>
+                </colgroup>
+                <thead>
+                    <th style="text-align:center">日期</th>
+                    <th style="text-align:center">时段</th>
+                    <th style="text-align:center">挂号费</th>
+                    <th style="text-align:center">已预约数</th>
+                    <th style="text-align:center">总量</th>
+                    <th style="text-align:center"></th>
+                </thead>
+                <?php foreach ($order_source_list as $order_source):?>
+                    <tr>
+                        <td><?php echo $order_source["Date"]?></td>
+                        <td><?php echo time_block_trans($order_source["Time"])?></td>
+                        <td><?php echo money_trans($order_source["Pay"])?></td>
+                        <td><?php echo $order_source["Cur_Order_Source"]?></td>
+                        <td><?php echo $order_source["Sum_Max"]?></td>
+                        <!-- <td><?php if($order_source["Sum_Max"]<=$order_source["Cur_Order_Source"]) echo("不"); echo("可预约")?></td> -->
+                        <td><?php if($order_source["Sum_Max"]<=$order_source["Cur_Order_Source"]) 
+                                    echo("已无法预约");
+                                  else{
+                                    echo "<form method='post'>";
+                                    echo "<input name='user_id' type='hidden' value='".$user_info["id"]."' />";
+                                    echo "<input name='source_order_id' type='hidden' value='".$order_source["sID"]."' />";
+                                    echo "<input type='submit' value='我要预约' />";
+                                    echo "</form>";
+                                  }?></td>
+                    </tr>
+                <?php endforeach ?>
+            </table>
             <!--号源列表-->
             
 
@@ -190,3 +205,29 @@
             确认预约-->
     	</div>
     </body>
+
+
+
+<!--一大堆无用代码-->
+    <!--             <div >
+            <?php if(empty($order_source_list))echo "<div class='table-bordered'><p>暂无号源</p></div>";?>
+            
+                <?php foreach($order_source_list as $value):?>
+                <div class="table-bordered">
+                日期：<?php echo $value["Date"];?><br>
+                时段：<?php echo time_block_trans($value["Time"]);?><br>
+                挂号费：<?php echo money_trans($value["Pay"]);?><br>
+                
+                已经预约数：<?php echo $value["Cur_Order_Source"];?><br>
+                总量：<?php echo $value["Sum_Max"];?><br>
+                状态：<?php if($value["Cur_Order_Source"]>=$value["Sum_Max"])echo "不";echo "可预约"; ?><br>
+                <?php if($value["Cur_Order_Source"]<$value["Sum_Max"]){
+                    echo "<form method='post'>";
+                    echo "<input name='user_id' type='hidden' value='".$user_info["id"]."' />";
+                    echo "<input name='source_order_id' type='hidden' value='".$value["sID"]."' />";
+                    echo "<input type='submit' value='我要预约' />";
+                    echo "</form>";
+                    }?>
+                    </div>
+                <?php endforeach?>
+            </div> -->
