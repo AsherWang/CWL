@@ -74,9 +74,12 @@
         </select></td></tr>
         <tr><td>最大预约数</td><td><input name="add_Max_Sum" /></td></tr>
         <tr><td>挂号费用(元)</td><td><input name="add_Pay" /></td></tr>
-        <tr><td><input type="submit" value="添加" /></td><td>
-        <input onClick="return hideForm()" type="button"  value="关闭" />
-        </td></tr>
+        <tr>
+            <td>
+            <input onClick="return hideForm()" type="button"  value="关闭" />
+            </td>
+            <td><input type="submit" value="添加" /></td>
+        </tr>
        </tbody></table>
        </form>
 </div>

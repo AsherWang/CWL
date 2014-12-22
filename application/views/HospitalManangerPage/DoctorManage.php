@@ -1,8 +1,4 @@
 <div>
-这里就是传说|
-医生列表|
-删除医生|
-添加医生|修改医生信息
 <?php 
 function utf8Substr($str, $from, $len) 
 { 
@@ -38,6 +34,7 @@ return preg_replace('#^(?:[\x00-\x7F]|[\xC0-\xFF][\x80-\xBF]+){0,'.$from.'}'.
 <option value="<?php echo $key;?>"><?php echo $value;?></option>
 <?php endforeach?>
 </select><br>
+<input name="add_hospital_id" type="hidden" value="<?php echo $user_info["hospital_id"];?>">
 医生姓名<input name="add_doctor_name" type="text" /><br >
 医生专精<input name="add_doctor_expert" type="text" /><br >
 医生简介<textarea name="add_doctor_info"    /></textarea><br>
