@@ -126,9 +126,9 @@ class HospitalManangerPage extends base_controller {
 	   //处理添加号源的表单
 	  if(isset($_GET["do"])&&$_GET["do"]=="delete")
 	  {
-		  if(isset($_POST["order_id"])&&$_POST["order_id"]!="")
+		  if(isset($_GET["order_id"])&&$_GET["order_id"]!="")
 		  {
-			  $this->order_model->delete_order_source($_POST["order_id"]);
+			  $this->order_model->delete_order_source($_GET["order_id"]);
 		  }
 		  
 	  }
@@ -148,6 +148,27 @@ class HospitalManangerPage extends base_controller {
 	  $this->load->view('HospitalManangerPage/Index', $data);
 	  $this->load->view('HospitalManangerPage/OrderSource',$data);
 	  $this->load->view('templates/footer');
+  }
+  
+  function DoctorManage()
+  {
+	  	  if(!$this->isSessionExists())redirect("");  //检测session
+	  
+	  $data['user_info']=$this->getLogegUser();
+	  if($data['user_info']["user_type"]!=2)$this->jumpSession();
+	  
+	  
+	  
+	  
+	  	  $data["title"]="医生信息管理";
+	  $data["pageIndex"]=5;
+	  $data["admin_name"]="临时管理";
+	   $data["debug_value"]= "e ";
+	  
+	  $this->load->view('HospitalManangerPage/Index', $data);
+	  $this->load->view('HospitalManangerPage/DoctorManage',$data);
+	  $this->load->view('templates/footer');
+	  
   }
   
   

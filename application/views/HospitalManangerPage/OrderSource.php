@@ -42,7 +42,8 @@
     	<thead><tr><th>&nbsp;序号&nbsp;</th><th>医生</th><th>科室</th><th>日期</th><th>&nbsp;时段&nbsp;</th><th>&nbsp;最大预约数&nbsp;</th><th>&nbsp;操作&nbsp;</th></tr></thead>
         <tbody>
         	<?php foreach($order_list as $key=> $value): ?>
-            <tr><td><?php echo $key+1;?></td><td><?php echo $value["dName"];?></td><td><?php echo $value["pName"];?></td><td><?php echo $value["Date"];?></td><td><?php echo time_block_trans($value["Time"]);?></td><td><?php echo $value["Sum_Max"];?></td><td><a href="<?php base_url()?>HospitalManangerPage/OrderSource?do=delete&order_id=<?php echo $value["ID"];?>">删除</a></td></tr>
+            <tr><td><?php echo $key+1;?></td><td><?php echo $value["dName"];?></td><td><?php echo $value["pName"];?></td><td><?php echo $value["Date"];?></td><td><?php echo time_block_trans($value["Time"]);?></td><td><?php echo $value["Sum_Max"];?></td><td>
+            <a href="<?php echo base_url();?>HospitalManangerPage/OrderSource?do=delete&order_id=<?php echo $value["ID"];?>">删除</a></td></tr>
             <?php endforeach ?>
             <tr><td colspan="8"><button onClick="show()">添加</button></td></tr>
         </tbody>

@@ -75,6 +75,8 @@
                   <li <?php if($pageIndex==1)echo "class='active'";?> ><a href="<?php echo base_url()?>HospitalManangerPage">医院信息修改</a></li>
                   <li class="divider-vertical"></li>
                   <li <?php if($pageIndex==2)echo "class='active'";?>><a href="<?php echo base_url()?>HospitalManangerPage/UserManage">挂号处人员管理</a></li>
+                                    <li <?php if($pageIndex==5)echo "class='active'";?>><a href="<?php echo base_url()?>HospitalManangerPage/DoctorManage">医生信息管理</a></li>
+                 
                   <li <?php if($pageIndex==4)echo "class='active'";?>><a href="<?php echo base_url()?>HospitalManangerPage/OrderSource">号源管理</a></li>
                                     <li <?php if($pageIndex==3)echo "class='active'";?>><a href="<?php echo base_url()?>NoticePage">医院公告管理</a></li>
                   
