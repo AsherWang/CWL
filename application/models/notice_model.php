@@ -25,18 +25,8 @@
 				return NULL;
 		}
 
-		public function insert_notice()
+		public function insert_notice($data)
 		{
-			$this->load->helper('url');
-
-			$data=array(
-				'Title'=>$this->input->post('title'),
-				'Content'=>$this->input->post('content'),
-				'Date'=>date('Y-m-d H:i:s',time())
-				//获取发布方hospital
-
-				);
-
 			return $this->db->insert('notice',$data);
 		}
 
