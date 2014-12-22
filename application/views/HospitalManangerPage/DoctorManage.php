@@ -40,7 +40,7 @@ return preg_replace('#^(?:[\x00-\x7F]|[\xC0-\xFF][\x80-\xBF]+){0,'.$from.'}'.
 </select><br>
 医生姓名<input name="add_doctor_name" type="text" /><br >
 医生专精<input name="add_doctor_expert" type="text" /><br >
-医生简介<texaarea name="add_doctor_info"   /></textarea><br>
+医生简介<textarea name="add_doctor_info"    /></textarea><br>
 <input type="submit" value="添加" />
 </form>
 </div>
