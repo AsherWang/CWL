@@ -80,8 +80,6 @@ if(isset($session->userdata['user_type']))
         <?php }?>
         <?php if($session->userdata['user_type'] == "3" || $session->userdata['user_type'] == "4"){ ?>
         
-              <a class="HeaderText" id="HeaderToNoticeLink" href="<?php echo base_url()?>NoticePage/index">查看公告</a>
-                <span class="HeaderStaticText HeaderDivide">|</span>
               <a class="HeaderText" id="HeaderMyOrderLink" href="<?php echo base_url()?>RegUserPage/My_appointment">我的预约单</a>
               <span class="HeaderStaticText HeaderDivide">|</span>
               <a class="HeaderText" id="HeaderNameLink" href="#"><?php echo $session->userdata['username'];?></a>

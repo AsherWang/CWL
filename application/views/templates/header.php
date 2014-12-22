@@ -47,12 +47,7 @@ if(isset($session->userdata['user_type']))
   	<?php }else{ ?>
       <a class="HeaderText" id="HeaderToNoticeLink" href="<?php echo base_url()?>NoticePage/index">查看公告</a>
   		<span class="HeaderStaticText HeaderDivide">|</span>
-      <a class="HeaderText" id="HeaderMyOrderLink" href="<?php echo base_url()?>RegUserPage/My_appointment">我的预约单</a>
-      <span class="HeaderStaticText HeaderDivide">|</span>
       <a class="HeaderText" id="HeaderNameLink" href="<?php echo base_url()?>RegUserPage/Personal_message_change"><?php echo $session->userdata['username'];?></a>
-          <?php if($isSuper){ ?>
-      <a class="HeaderText" id="HeaderSuperLink" href="<?php echo base_url()?>SuperManagerPage/Index">权限狗专区</a>
-    <?php }?>
        <span class="HeaderStaticText HeaderDivide">|</span>
               <a class="HeaderText" id="HeaderNameLink" href="<?php echo base_url()?>IndexPage?do=exit">退出</a>
       
