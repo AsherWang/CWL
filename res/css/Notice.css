@@ -18,7 +18,7 @@
 
 .NoticeListTitle
 {
-    font-size:21px;
+    font-size:17px;
 }
 
 .NoticeListDate{
@@ -50,11 +50,12 @@ hr{
 
 .NoticeTagText{
     color:#909090;
-    font-size: 25px;
+    font-size:25px;
 }
 
 .NoticeText{
     font-family: "Microsoft Yahei";
+    width:auto;
 }
 
 #NoticeSubInfo{
@@ -72,8 +73,4 @@ hr{
 #CreateNoticeContentTextarea{
     width: 569px;
     height: 200px;
-}
-
-#CreateNewNoticeBtn{
-    margin-top: 50px;
 }

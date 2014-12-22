@@ -20,6 +20,7 @@ class HospitalManangerPage extends base_controller {
    $this->load->model('order_model');
    $this->load->model('doctor_model');
    $this->load->model('user_model');
+   $this->load->model('department_model');
    $this->load->helper('url');
   }
   public function Appointment()
@@ -108,13 +109,30 @@ class HospitalManangerPage extends base_controller {
 	  if(isset($_POST["add_Date"])&&$_POST["add_Date"]!="")
 	  if(isset($_POST["add_Time"])&&$_POST["add_Time"]!="")
 	  if(isset($_POST["add_Max_Sum"])&&$_POST["add_Max_Sum"]!="")
+	  if(isset($_POST["add_Pay"])&&$_POST["add_Pay"]!="")
 	  {
 		  //添加新的号源
-		  
+		  $this->order_model->add_new_order_source(
+		  	array(
+				"Pay"=>$_POST["add_Pay"],
+				"Doctor_ID"=>$_POST["add_doctor_id"],
+				"Date"=>$_POST["add_Date"],
+				"Time"=>$_POST["add_Time"],
+				"Sum_Max"=>$_POST["add_Max_Sum"],
+				"Hospital_ID"=>$_POST["add_hospital_id"]
+				));
 	  }
 		  
+	    
+	   //处理删除号源的表单
+	  if(isset($_GET["do"])&&$_GET["do"]=="delete")
+	  {
+		  if(isset($_GET["order_id"])&&$_GET["order_id"]!="")
+		  {
+			  $this->order_model->delete_order_source($_GET["order_id"]);
+		  }
 		  
-	  
+	  }
 	  
 	  
 	  
@@ -131,6 +149,66 @@ class HospitalManangerPage extends base_controller {
 	  $this->load->view('HospitalManangerPage/Index', $data);
 	  $this->load->view('HospitalManangerPage/OrderSource',$data);
 	  $this->load->view('templates/footer');
+  }
+  
+  function DoctorManage()
+  {
+	  	  if(!$this->isSessionExists())redirect("");  //检测session
+	  
+	  $data['user_info']=$this->getLogegUser();
+	  if($data['user_info']["user_type"]!=2)$this->jumpSession();
+	  
+	  
+	  	   //处理删除医生的表单
+	  if(isset($_GET["do"])&&$_GET["do"]=="delete")
+	  {
+		  if(isset($_GET["doctor_id"])&&$_GET["doctor_id"]!="")
+		  {
+			  $this->doctor_model->delete_doctor(array("ID"=>$_GET["doctor_id"]));
+		  }
+		  
+	  }
+	  
+	  
+	   //处理添加医生的表单
+	  if(isset($_GET["do"])&&$_GET["do"]=="add")
+	  if(isset($_POST["add_hospital_id"])&&$_POST["add_hospital_id"]!="")
+	  if(isset($_POST["add_doctor_id"])&&$_POST["add_doctor_id"]!="")
+	  if(isset($_POST["add_Date"])&&$_POST["add_Date"]!="")
+	  if(isset($_POST["add_Time"])&&$_POST["add_Time"]!="")
+	  if(isset($_POST["add_Max_Sum"])&&$_POST["add_Max_Sum"]!="")
+	  if(isset($_POST["add_Pay"])&&$_POST["add_Pay"]!="")
+	  {
+		  //添加新的医生
+		  $this->order_model->add_new_order_source(
+		  	array(
+				"Pay"=>$_POST["add_Pay"],
+				"Doctor_ID"=>$_POST["add_doctor_id"],
+				"Date"=>$_POST["add_Date"],
+				"Time"=>$_POST["add_Time"],
+				"Sum_Max"=>$_POST["add_Max_Sum"],
+				"Hospital_ID"=>$_POST["add_hospital_id"]
+				));
+	  }
+		  
+	  
+	  
+	  
+	  
+	  $data["doctor_list"]=$this->doctor_model->get_doctor_list_of_hospital($data['user_info']["hospital_id"]);
+	  
+	  $data["department_id_name"]=$this->department_model->department_id_type_array($data['user_info']["hospital_id"]);
+	  
+	  
+	  $data["title"]="医生信息管理";
+	  $data["pageIndex"]=5;
+	  $data["admin_name"]="临时管理";
+	  $data["debug_value"]= $data["doctor_list"][0];
+	  
+	  $this->load->view('HospitalManangerPage/Index', $data);
+	  $this->load->view('HospitalManangerPage/DoctorManage',$data);
+	  $this->load->view('templates/footer');
+	  
   }
   
   

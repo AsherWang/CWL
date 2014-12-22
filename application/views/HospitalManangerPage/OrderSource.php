@@ -42,7 +42,8 @@
     	<thead><tr><th>&nbsp;序号&nbsp;</th><th>医生</th><th>科室</th><th>日期</th><th>&nbsp;时段&nbsp;</th><th>&nbsp;最大预约数&nbsp;</th><th>&nbsp;操作&nbsp;</th></tr></thead>
         <tbody>
         	<?php foreach($order_list as $key=> $value): ?>
-            <tr><td><?php echo $key+1;?></td><td><?php echo $value["dName"];?></td><td><?php echo $value["pName"];?></td><td><?php echo $value["Date"];?></td><td><?php echo time_block_trans($value["Time"]);?></td><td><?php echo $value["Sum_Max"];?></td><td><a href="<?php base_url()?>HospitalManangerPage/AddOrderSource?do=delete&order_id=<?php echo $value["ID"];?>">删除</a></td></tr>
+            <tr><td><?php echo $key+1;?></td><td><?php echo $value["dName"];?></td><td><?php echo $value["pName"];?></td><td><?php echo $value["Date"];?></td><td><?php echo time_block_trans($value["Time"]);?></td><td><?php echo $value["Sum_Max"];?></td><td>
+            <a href="<?php echo base_url();?>HospitalManangerPage/OrderSource?do=delete&order_id=<?php echo $value["ID"];?>">删除</a></td></tr>
             <?php endforeach ?>
             <tr><td colspan="8"><button onClick="show()">添加</button></td></tr>
         </tbody>
@@ -58,24 +59,26 @@
     <thead><tr><th colspan="2">添加号源</th></tr></thead>
     <tbody><tr><td>
     	<input type="hidden" name="add_hospital_id" value="<?php echo $user_info["hospital_id"];?>"   />
-        医生:</td><td><select name="add_doctor_id">
+        医生</td><td><select name="add_doctor_id">
         <option value="">--选择医生--</option>
         <?php foreach($doctor_id_name as $key=> $value): ?>
         	<option value="<?php echo $value["ID"];?>"><?php echo $value["Name"];?></option>      
         <?php endforeach ?>
         </select></td></tr>
-        <tr><td>日期: </td><td><input name="add_Date" type="text" id="datepicker"></td></tr>
-        <tr><td>时段：</td><td><select name="add_Time" >
+        <tr><td>日期 </td><td><input name="add_Date" type="text" id="datepicker"></td></tr>
+        <tr><td>时段</td><td><select name="add_Time" >
          <option value="">--选择时段--</option>
         <?php foreach(get_time_array() as $key=> $value): ?>
         	<option value="<?php echo $key;?>"><?php echo $value;?></option>      
         <?php endforeach ?>
         </select></td></tr>
         <tr><td>最大预约数</td><td><input name="add_Max_Sum" /></td></tr>
+        <tr><td>挂号费用(元)</td><td><input name="add_Pay" /></td></tr>
         <tr><td><input type="submit" value="添加" /></td><td>
-        <button onClick="return hideForm()">关闭</button></td></tr>
+        <input onClick="return hideForm()" type="button"  value="关闭" />
+        </td></tr>
        </tbody></table>
-            </form>
+       </form>
 </div>
 <script type="text/jscript">
 $("#addForm").hide();
