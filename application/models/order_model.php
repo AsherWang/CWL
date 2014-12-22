@@ -114,6 +114,13 @@
 		  return $query->result_array();
 		}
 		
+		function get_order_of_hospital($hospital_id)
+		{
+		   $query=$this->db->query("select * from order_source left join (select doctor.ID as dID,doctor.Name as dName, department.Name as pName from doctor left join department on department.ID=doctor.Department_ID) as T on order_source.Doctor_ID = T.dID where Hospital_ID=".$hospital_id);
+		  if($query->num_rows()<0)return -1;
+		  return $query->result_array();
+		}
+		
 	}
 	
 ?>

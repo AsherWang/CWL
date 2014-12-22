@@ -8,7 +8,7 @@
 //页脚
 ?>
 <div id="FooterDiv">
-	<hr class="HeaderFooterHr"/>
+	<hr style="border:1px #0033FF solid;"/>
 	<div>&copy;版权所有，翻版必究</div>
 	<div>二次元方程式团队拥有最终解释权</div>
 </div>

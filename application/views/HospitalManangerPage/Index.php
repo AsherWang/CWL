@@ -15,16 +15,31 @@
      <link rel="stylesheet" href='<?php echo base_url().'res/css/bootstrap.css'?>' type="text/css" /> 
 <style type="text/css">
 #FooterDiv{
-	position:absolute;
+	position:fixed;
 	bottom:0px;
 	width:100%;
 	left:0px;
-	background-color:#06C;
+	background-color:#fff;
 	text-align:center;
 	font-size:15px;
 	font-family:'Microsoft YaHei';
 
 }
+.order_list_table{
+	text-align:center;
+	}
+.order_list_table td,th{
+	border:1px solid #000;
+	text-align:center;
+	padding-left:3px;
+	padding-right:3px;
+}
+.order_list_table th{
+	background-color:#39F;
+	color:#fff;
+}
+
+	
 </style>
 </head> 
   <body>
@@ -45,12 +60,16 @@
                   <li <?php if($pageIndex==1)echo "class='active'";?> ><a href="<?php echo base_url()?>HospitalManangerPage">医院信息修改</a></li>
                   <li class="divider-vertical"></li>
                   <li <?php if($pageIndex==2)echo "class='active'";?>><a href="<?php echo base_url()?>HospitalManangerPage/UserManage">挂号处人员管理</a></li>
-                  <li <?php if($pageIndex==3)echo "class='active'";?>><a href="<?php echo base_url()?>NoticePage">医院公告管理</a></li>
+                  
+                  
+                  <li <?php if($pageIndex==4)echo "class='active'";?>><a href="<?php echo base_url()?>HospitalManangerPage/AddOrderSource">号源管理</a></li>
+                                    <li <?php if($pageIndex==3)echo "class='active'";?>><a href="<?php echo base_url()?>NoticePage">医院公告管理</a></li>
+                  
                   <li><a href="<?php echo base_url()?>HospitalManangerPage?do=exit">退出管理</a></li>
               </ul>
 
           </div>
       </div>
   </div>
-<!--
-   <div>调试信息<?php var_dump($debug_value);?></div>-->
+
+   <div>调试信息<?php var_dump($debug_value);?></div>

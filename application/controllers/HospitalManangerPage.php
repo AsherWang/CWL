@@ -17,6 +17,8 @@ class HospitalManangerPage extends base_controller {
     //
    $this->load->model('notice_model');
    $this->load->model('hospital_model');
+   $this->load->model('order_model');
+   $this->load->model('doctor_model');
    $this->load->model('user_model');
    $this->load->helper('url');
   }
@@ -90,6 +92,23 @@ class HospitalManangerPage extends base_controller {
 	  $this->load->view('templates/footer');
   }
   
+  function AddOrderSource()
+  {
+	  
+	  
+	  
+	  $data["title"]="添加号源";
+	  $data["pageIndex"]=4;
+	  $data["admin_name"]="临时管理";
+	  $data["order_list"]=$this->order_model->get_order_of_hospital(2);
+	  
+	  $data["doctor_id_name"]=$this->doctor_model->get_doctor_id_name_of_hospital(2);
+	  $data["debug_value"]= $data["doctor_id_name"];
+	  
+	  $this->load->view('HospitalManangerPage/Index', $data);
+	  $this->load->view('HospitalManangerPage/AddOrderSource',$data);
+	  $this->load->view('templates/footer');
+  }
   
   
   

@@ -28,6 +28,16 @@
 			  return $re[0];
 		}
 		
+		function get_doctor_id_name_of_hospital($hid)
+		{
+			  $this->db->select("ID,Name");
+			  $this->db->where("Hospital_ID",$hid);
+			  $this->db->from("doctor");
+			  $query = $this->db->get();
+			  if($query->num_rows()<=0)return -1;
+			  $re=$query->result_array();
+			  return $re;
+		}
 
 		function insert_doctor()
 		{
