@@ -1,7 +1,7 @@
 <?php $notice = $notice_item[0]; ?>
 <link href='<?php echo base_url().'/res/css/Notice.css'?>' rel="stylesheet" type="text/css" />
 <div class="row" id="OneNoticePageContent">
-	<div class="col-md-4 NoticeImgCol">
+	<div class="col-md-3 NoticeImgCol">
 		<img style="position:absolute;top:20px;" src="<?php echo base_url().'res/images/NoticePage/NoticeMark.png'?>">
 	</div>
 	<div class="col-md-6 col-md-offset-1" id="NoticeInfoCol">
