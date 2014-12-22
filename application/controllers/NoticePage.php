@@ -21,7 +21,7 @@ class NoticePage extends base_controller{
 		$this->load->helper('url');
 		$data['notice']=$this->notice_model->get_notice("SELECT Notice.ID, Notice.Title, Notice.Date, Author_ID, User.Name FROM Notice INNER JOIN USER ON Notice.Author_ID = User.ID ORDER BY Date DESC");
 
-		$this->load->view("templates/header", $this->PageData);
+		$this->load->view("templates/noticeheader", $this->PageData);
 		$this->load->view('NoticePage/index',$data);
 		$this->load->view("templates/footer");
 	}
@@ -37,7 +37,7 @@ class NoticePage extends base_controller{
 			$data = "None";
 			}
 			//$this->load->header(string);
-			$this->load->view("templates/header", $this->PageData);
+			$this->load->view("templates/noticeheader", $this->PageData);
 			$this->load->view('NoticePage/view', $data);
 			$this->load->view("templates/footer");
 	}

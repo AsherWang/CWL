@@ -18,7 +18,7 @@
 
 .NoticeListTitle
 {
-    font-size:21px;
+    font-size:17px;
 }
 
 .NoticeListDate{
@@ -50,11 +50,12 @@ hr{
 
 .NoticeTagText{
     color:#909090;
-    font-size: 25px;
+    font-size:25px;
 }
 
 .NoticeText{
     font-family: "Microsoft Yahei";
+    width:auto;
 }
 
 #NoticeSubInfo{
@@ -74,6 +75,16 @@ hr{
     height: 200px;
 }
 
-#CreateNewNoticeBtn{
-    margin-top: 50px;
+
+.backstyle-title{
+    -webkit-border-radius: 35px;
+    -moz-border-radius: 35px;
+    border-radius:35px;
+}
+
+.backstyle-content{
+    border: 4px solid black;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius:100px;
 }
