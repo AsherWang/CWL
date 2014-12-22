@@ -14,7 +14,8 @@ function createNotice()
     <div class="col-md-8" id="NoticeListCol">
         <div class="row" id="NoticeList">
             <div class="row">
-                <div class="NoticeTagText col-md-1">标题</div>
+
+                <div class="NoticeTagText col-md-1">标 题</div>
                 <div class="NoticeTagText col-md-2 col-md-offset-6">发布时间</div>
                 <div class="NoticeTagText col-md-1 col-md-offset-1">作者</div>
             </div>
