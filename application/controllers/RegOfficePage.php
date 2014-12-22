@@ -71,11 +71,11 @@ class RegOfficePage extends base_controller {
 	 if(isset($_GET["id"])&&$_GET["id"]!="")
 	 {
 		 $search_data["order.ID"]=$_GET["id"];
-		 $search_data["hospital_ID"]=$userData["hospital_id"];
+		// $search_data["hospital_ID"]=$userData["hospital_id"];
 		 
 		 $tempData = $this->order_model->get_order($search_data);
 		 $data['order_info']=$tempData[0];
-		
+		 	
 		 
 		 //获取下单用户信息
 	    $data["order_user_info"]=$this->user_model->getUserInfoById($data['order_info']["User_ID"]);

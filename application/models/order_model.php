@@ -22,7 +22,7 @@
 		
 		function getAvailableTimes($user_id)
 		{
-			$result=$this->db->query("select Max_Order_Sum-count(order.ID) as num from `user`,`order` where user.ID=".$user_id);
+			$result=$this->db->query("select Max_Order_Sum-count(order.ID) as num from `user`,`order` where user.ID=".$user_id." AND State!=3");
 			$re=$result->result_array();
 			
 			return $re[0]["num"];	
@@ -57,9 +57,10 @@
 		   return  $result=$this->getTable("order_source",array("Doctor_ID"=>$doctor_id));
 		}
 		
+		//获得订单
 		function get_order($data)
 		{
-
+			$this->db->select("order.ID as ID,Place_Time,Date,Time,State,User_ID,Hospital_ID,Doctor_ID,Pay");
 			$this->db->from("order");
 			$this->db->join('order_source', 'order_source.ID = order.Order_Source_ID'); 
 			if(!empty($data))
@@ -119,6 +120,16 @@
 		   $query=$this->db->query("select * from order_source left join (select doctor.ID as dID,doctor.Name as dName, department.Name as pName from doctor left join department on department.ID=doctor.Department_ID) as T on order_source.Doctor_ID = T.dID where Hospital_ID=".$hospital_id);
 		  if($query->num_rows()<0)return -1;
 		  return $query->result_array();
+		}
+		
+		function add_new_order_source($data)
+		{
+			return $this->insertToTable($data,"order_source");
+		}
+		
+		function delete_order_source($id)
+		{
+			return $this->deleteATable($id,"order_source");
 		}
 		
 	}

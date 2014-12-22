@@ -38,6 +38,19 @@
 			  $re=$query->result_array();
 			  return $re;
 		}
+		
+		function get_doctor_list_of_hospital($hid)
+		{
+			  $this->db->select("*");
+			  $this->db->where("Hospital_ID",$hid);
+			  $this->db->from("doctor");
+			  $query = $this->db->get();
+			  if($query->num_rows()<=0)return -1;
+			  $re=$query->result_array();
+			  return $re;
+		}
+
+
 
 		function insert_doctor()
 		{
