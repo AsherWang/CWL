@@ -5,10 +5,10 @@
 		<img src="<?php echo base_url().'res/images/NoticePage/NoticeMark.png'?>">
 	</div>
 	<div class="col-md-6 col-md-offset-1" id="NoticeInfoCol">
-		<h2 class="row NoticeText" id="NoticeTitle">
+		<h2 class="row NoticeText" align="center" id="NoticeTitle">
 			<?php echo $notice['Title']?>
 		</h2>
-		<div class="row NoticeText NoticeTagText" id="NoticeSubInfo">
+		<div align="right" class="row NoticeText NoticeTagText" id="NoticeSubInfo">
 			<?php echo $notice['Date']?>
 			&nbsp;&nbsp;&nbsp;发布人：
 			<?php echo $notice['Name']?>
