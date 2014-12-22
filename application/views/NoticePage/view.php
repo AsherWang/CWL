@@ -7,7 +7,7 @@
 	<div class="col-md-6 col-md-offset-1" id="NoticeInfoCol">
 		<h2 class="row NoticeText" id="NoticeTitle">
 			<?php echo $notice['Title']?>
-		</h4>
+		</h2>
 		<div class="row NoticeText NoticeTagText" id="NoticeSubInfo">
 			<?php echo $notice['Date']?>
 			&nbsp;&nbsp;&nbsp;发布人：
