@@ -121,6 +121,16 @@
 		  return $query->result_array();
 		}
 		
+		function add_new_order_source($data)
+		{
+			return $this->insertToTable($data,"order_source");
+		}
+		
+		function delete_order_source($id)
+		{
+			return $this->deleteATable($id,"order_source");
+		}
+		
 	}
 	
 ?>

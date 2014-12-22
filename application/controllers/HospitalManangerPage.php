@@ -108,13 +108,30 @@ class HospitalManangerPage extends base_controller {
 	  if(isset($_POST["add_Date"])&&$_POST["add_Date"]!="")
 	  if(isset($_POST["add_Time"])&&$_POST["add_Time"]!="")
 	  if(isset($_POST["add_Max_Sum"])&&$_POST["add_Max_Sum"]!="")
+	  if(isset($_POST["add_Pay"])&&$_POST["add_Pay"]!="")
 	  {
 		  //添加新的号源
-		  
+		  $this->order_model->add_new_order_source(
+		  	array(
+				"Pay"=>$_POST["add_Pay"],
+				"Doctor_ID"=>$_POST["add_doctor_id"],
+				"Date"=>$_POST["add_Date"],
+				"Time"=>$_POST["add_Time"],
+				"Sum_Max"=>$_POST["add_Max_Sum"],
+				"Hospital_ID"=>$_POST["add_hospital_id"]
+				));
 	  }
 		  
+	    
+	   //处理添加号源的表单
+	  if(isset($_GET["do"])&&$_GET["do"]=="delete")
+	  {
+		  if(isset($_POST["order_id"])&&$_POST["order_id"]!="")
+		  {
+			  $this->order_model->delete_order_source($_POST["order_id"]);
+		  }
 		  
-	  
+	  }
 	  
 	  
 	  
