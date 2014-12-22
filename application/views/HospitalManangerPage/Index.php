@@ -10,9 +10,13 @@
      <script  language="javascript" type="text/javascript" src='<?php echo base_url().'res/js/jquery.js'?>'></script> 
      <script  language="javascript" type="text/javascript" src='<?php echo base_url().'res/js/bootstrap.js'?>'></script> 
      <script  language="javascript" type="text/javascript" src='<?php echo base_url().'res/js/bootstrap.min.js'?>'></script> 
+        <script  language="javascript" type="text/javascript" src='<?php echo base_url().'res/js/jquery-ui.js'?>'></script> 
+     
      <link rel="stylesheet" href='<?php echo base_url().'res/css/bootstrap-theme.css'?>' type="text/css" /> 
      <link rel="stylesheet" href='<?php echo base_url().'res/css/bootstrap.min.css'?>' type="text/css" /> 
      <link rel="stylesheet" href='<?php echo base_url().'res/css/bootstrap.css'?>' type="text/css" /> 
+     <link rel="stylesheet" href='<?php echo base_url().'res/css/jquery-ui.css'?>' type="text/css" /> 
+     
 <style type="text/css">
 #FooterDiv{
 	position:fixed;
@@ -28,7 +32,7 @@
 .order_list_table{
 	text-align:center;
 	}
-.order_list_table td,th{
+.order_list_table td,.order_list_table th{
 	border:1px solid #000;
 	text-align:center;
 	padding-left:3px;
@@ -38,6 +42,17 @@
 	background-color:#39F;
 	color:#fff;
 }
+
+#addForm  td,th
+{
+    border:1px solid #000;
+	text-align:center;
+}
+#addForm input ,#addForm select 
+{
+	width:100%;
+}
+
 
 	
 </style>
@@ -60,8 +75,6 @@
                   <li <?php if($pageIndex==1)echo "class='active'";?> ><a href="<?php echo base_url()?>HospitalManangerPage">医院信息修改</a></li>
                   <li class="divider-vertical"></li>
                   <li <?php if($pageIndex==2)echo "class='active'";?>><a href="<?php echo base_url()?>HospitalManangerPage/UserManage">挂号处人员管理</a></li>
-                  
-                  
                   <li <?php if($pageIndex==4)echo "class='active'";?>><a href="<?php echo base_url()?>HospitalManangerPage/OrderSource">号源管理</a></li>
                                     <li <?php if($pageIndex==3)echo "class='active'";?>><a href="<?php echo base_url()?>NoticePage">医院公告管理</a></li>
                   

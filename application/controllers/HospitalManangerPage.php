@@ -101,16 +101,39 @@ class HospitalManangerPage extends base_controller {
 	  $data['user_info']=$this->getLogegUser();
 	  if($data['user_info']["user_type"]!=2)$this->jumpSession();
 	  
+	  //处理添加号源的表单
+	  if(isset($_GET["do"])&&$_GET["do"]=="add")
+	  {
+		  if(isset($_POST["add_hospital_id"])&&$_POST["add_hospital_id"]!="")
+		  if(isset($_POST["add_doctor_id"])&&$_POST["add_doctor_id"]!="")
+		  if(isset($_POST["add_hospital_id"])&&$_POST["add_hospital_id"]!="")
+		  if(isset($_POST["add_hospital_id"])&&$_POST["add_hospital_id"]!="")
+		  if(isset($_POST["add_hospital_id"])&&$_POST["add_hospital_id"]!="")
+		  if(isset($_POST["add_hospital_id"])&&$_POST["add_hospital_id"]!="")
+		  
+		  {
+			  
+		  }
+		  
+		  
+		  
+	  }
+	  
+	  
+	  
+	  
+	  
+	  
 	  $data["title"]="添加号源";
 	  $data["pageIndex"]=4;
 	  $data["admin_name"]="临时管理";
-	  $data["order_list"]=$this->order_model->get_order_of_hospital(2);
+	  $data["order_list"]=$this->order_model->get_order_of_hospital($data['user_info']["hospital_id"]);
 	  
-	  $data["doctor_id_name"]=$this->doctor_model->get_doctor_id_name_of_hospital(2);
+	  $data["doctor_id_name"]=$this->doctor_model->get_doctor_id_name_of_hospital($data['user_info']["hospital_id"]);
 	  $data["debug_value"]= $data["doctor_id_name"];
 	  
 	  $this->load->view('HospitalManangerPage/Index', $data);
-	  $this->load->view('HospitalManangerPage/AddOrderSource',$data);
+	  $this->load->view('HospitalManangerPage/OrderSource',$data);
 	  $this->load->view('templates/footer');
   }
   
