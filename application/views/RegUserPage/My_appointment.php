@@ -125,6 +125,9 @@
                     	<div><?php echo $key+1; ?>#</div>
                         <!--startprint<?php echo num_format($value["odID"]);?>-->
                         <div>
+                            <span>订单ID：</span><span><?php echo $value["odID"];?></span>
+                        </div>
+                        <div>
                             <span>挂号医院：</span><span><?php echo $value["hName"];?></span>
                         </div>
                         <div>
