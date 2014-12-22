@@ -132,7 +132,11 @@ window.onload = dep_search;
                         <div class="doctor_expert_text"><?php echo $item["Expert"]?></div>
                     </div>
                     <div class="col-md-2 go_next_link">
-                        <a href="<?php echo base_url()?>RegUserPage/Confirm?doctor_id=<?php echo $item["dID"];?>">看看号源</a>
+                    <?php if($need_log=="1"):?>
+                    <a href="<?php echo base_url()?>">先登录吧亲</a>
+                    <?php elseif($need_log=="0"):?>
+                     <a href="<?php echo base_url()?>RegUserPage/Confirm?doctor_id=<?php echo $item["dID"];?>">看看号源</a>
+                    <?php endif ?>
                 </div>
                 </td>
             </tr>

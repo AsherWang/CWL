@@ -32,12 +32,14 @@ class HospitalManangerPage extends base_controller {
   {
 	   $data["pageIndex"]=2;
 	   $data['title'] = '医院管理员-用户管理';
-	  if(!$this->isSessionExists())redirect("");  //检测session
-	    $loggedUser=$this->getLogegUser();
-	   $data["admin_name"]= $loggedUser["username"];
+	   if(!$this->isSessionExists())redirect("");  //检测session
+	   $data['user_info']=$this->getLogegUser();
+	   if($data['user_info']["user_type"]!=2)$this->jumpSession();
+	  
+	   $data["admin_name"]= $data['user_info']["username"];
 	  
 	   //获取此医院的挂号处用户
-	   $result=$this->user_model->get_regofficeuser_of_hosiptal( $loggedUser["hospital_id"]);
+	   $result=$this->user_model->get_regofficeuser_of_hosiptal( $data['user_info']["hospital_id"]);
 	    $data["debug_value"]= $result;
 		$data["user_list"]= $result;
 		
@@ -56,7 +58,7 @@ class HospitalManangerPage extends base_controller {
   //首页默认的时候医院信息的修改功能
     public function Index()
    {
-	   $data["pageIndex"]=1;
+	 $data["pageIndex"]=1;
 	 if(isset($_GET["do"])&& $_GET["do"]=="exit")//检测退出
 	 {
 		 $this->destroySession();
@@ -92,10 +94,12 @@ class HospitalManangerPage extends base_controller {
 	  $this->load->view('templates/footer');
   }
   
-  function AddOrderSource()
+  function OrderSource()
   {
+	  if(!$this->isSessionExists())redirect("");  //检测session
 	  
-	  
+	  $data['user_info']=$this->getLogegUser();
+	  if($data['user_info']["user_type"]!=2)$this->jumpSession();
 	  
 	  $data["title"]="添加号源";
 	  $data["pageIndex"]=4;

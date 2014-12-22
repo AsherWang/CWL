@@ -133,8 +133,8 @@
                             <span><?php echo $value["dName"];?></span>
                         </div>
                         <div>
-                            <span>门诊时间：</span><span><?php echo $value["Date"];?></span>
-                            <span class="locate_sty_2">具体时间：</span>
+                            <span>门诊日期：</span><span><?php echo $value["Date"];?></span>
+                            <span class="locate_sty_2">具体时段：</span>
                             <span><?php echo time_block_trans($value["Time"]);?></span>
                         </div>
                         <div>

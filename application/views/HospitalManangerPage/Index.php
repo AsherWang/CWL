@@ -62,7 +62,7 @@
                   <li <?php if($pageIndex==2)echo "class='active'";?>><a href="<?php echo base_url()?>HospitalManangerPage/UserManage">挂号处人员管理</a></li>
                   
                   
-                  <li <?php if($pageIndex==4)echo "class='active'";?>><a href="<?php echo base_url()?>HospitalManangerPage/AddOrderSource">号源管理</a></li>
+                  <li <?php if($pageIndex==4)echo "class='active'";?>><a href="<?php echo base_url()?>HospitalManangerPage/OrderSource">号源管理</a></li>
                                     <li <?php if($pageIndex==3)echo "class='active'";?>><a href="<?php echo base_url()?>NoticePage">医院公告管理</a></li>
                   
                   <li><a href="<?php echo base_url()?>HospitalManangerPage?do=exit">退出管理</a></li>

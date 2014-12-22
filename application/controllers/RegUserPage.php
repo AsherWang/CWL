@@ -39,7 +39,7 @@ class RegUserPage extends base_controller {
    $data["search_type"]="";
    $data["search_area"]="";
    $data["search_box"]="";
-   $data["need_log"]="0";
+  
 
    
    if(isset($_GET["search_box"])&&$_GET["search_box"]!="") 
@@ -51,11 +51,6 @@ class RegUserPage extends base_controller {
       if(isset($_GET["search_area"])&&$_GET["search_area"]!="") 
    	$data["search_area"]=$_GET["search_area"];
    
-   
-      if(!$this->isSessionExists()){
-	   $this->session->set_flashdata('pre_link',"RegUserPage?search_box=".$data["search_box"]."&search_type=".$data["search_type"]."&search_level=".$data["search_level"]."&search_area=".$data["search_area"]);
-	   $data["need_log"]="1";
-     }
     //$data["search_type_list"]=getlist();  //待定
 	$data["search_type_list"]=$this->hospital_model->hospital_type();
 	$data["search_area_list"]=$this->hospital_model->hospital_area();
@@ -89,6 +84,17 @@ class RegUserPage extends base_controller {
 	{
 		redirect("");
 	}
+	
+	//没登陆会怎样呢..
+	$data["need_log"]="0";
+      if(!$this->isSessionExists()){
+	   $this->session->set_flashdata('pre_link',"RegUserPage/Hsp_doctor_list?hospital_id=".$_GET["hospital_id"]);
+	   $data["need_log"]="1";
+     }
+	
+	
+	
+	
 	$searData=array();
 	$data["search_box"]="";  //搜索框的值
 	$data["hospital_id"]=$_GET["hospital_id"];  //医院id
@@ -157,6 +163,8 @@ class RegUserPage extends base_controller {
   }
   public function Confirm()
   {
+	  
+	  
 	  if(isset($_POST["user_id"])&&isset($_POST["source_order_id"])&&$_POST["user_id"]!=""&&$_POST["source_order_id"]!="")
 	  {
 		  
@@ -204,9 +212,8 @@ class RegUserPage extends base_controller {
   }
    public function My_appointment()
   {
-
+	
 	$data["hint_value"]="";
-	if(!$this->isSessionExists())redirect("");
 	if(isset($_GET["do"])&&isset($_GET["order_id"])&&$_GET["do"]=="cancel"&&$_GET["order_id"]!="")
 	{
 		$this->order_model->order_cancel($_GET["order_id"]);
