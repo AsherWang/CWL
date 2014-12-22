@@ -11,6 +11,7 @@
 	<hr class="HeaderFooterHr"/>
 	<div>&copy;版权所有，翻版必究</div>
 	<div>二次元方程式团队拥有最终解释权</div>
+	<br>
 </div>
 </body>
 </html>
