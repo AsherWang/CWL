@@ -26,14 +26,14 @@
     		<table class="table doc_mes_tab">
     			<colgroup>
     				<col width="35%"></col>
-    				<col width="25%"></col>
+    				<col width="35%"></col>
     				<col width="25%"></col>
     				<col ></col>
     			</colgroup>
     			<thead>
     				<th class="doc_mes_thead">医生信息</th>
-    				<th>所属医院</th>
-    				<th>门诊类型</th>
+    				<th style="text-align:center;">所属医院</th>
+    				<th style="text-align:center;">门诊类型</th>
     			</thead>
     			<tr class="doc_mes_text">
     				<td>
@@ -47,8 +47,8 @@
     						</div>
     					</div>
     				</td>
-    				<td><?php echo '<a href="'.base_url().'RegUserPage/Hsp_doctor_list?hospital_id='.$hospital_info["ID"].'">'.$hospital_info["Name"].'</a>';?></td>
-                    <td><?php echo '<a href="'.base_url().'RegUserPage/Hsp_doctor_list?hospital_id='.$hospital_info["ID"].'&search_department_type='.$department_info["Name"].'">'.$department_info["Name"].'</a>';?></td>
+    				<td style="text-align:center;"><?php echo '<a href="'.base_url().'RegUserPage/Hsp_doctor_list?hospital_id='.$hospital_info["ID"].'">'.$hospital_info["Name"].'</a>';?></td>
+                    <td style="text-align:center;"><?php echo '<a href="'.base_url().'RegUserPage/Hsp_doctor_list?hospital_id='.$hospital_info["ID"].'&search_department_type='.$department_info["Name"].'">'.$department_info["Name"].'</a>';?></td>
     			</tr>
     		</table>
     		<!--确认医生信息-->
