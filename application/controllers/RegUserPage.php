@@ -165,19 +165,30 @@ class RegUserPage extends base_controller {
   {
 	  
 	  
+	  if(!$this->isSessionExists())redirect("");
+	  $data["user_info"]=$this->getLogegUser();
+	  
 	  if(isset($_POST["user_id"])&&isset($_POST["source_order_id"])&&$_POST["user_id"]!=""&&$_POST["source_order_id"]!="")
 	  {
-		  
-		  $sum=$this->order_model->getAvailableTimes($_POST["user_id"]);
-		  if($sum<=0)
+		  if( $data["user_info"]["is_valid"])
 		  {
-			$data["error_msg"]="您可以预约的次数已经用完";  
-		   }
+			   $sum=$this->order_model->getAvailableTimes($_POST["user_id"]);
+			  if($sum<=0)
+			  {
+				$data["error_msg"]="您可以预约的次数已经用完";  
+			   }
+			  else
+			  {
+				$new_order_id=$this->order_model->AddNewOrder($_POST["source_order_id"],$_POST["user_id"]);
+				 redirect("RegUserPage/My_appointment");//重定向到已有订列表，貌似还没写吧
+			  }
+		  }
 		  else
 		  {
-		    $new_order_id=$this->order_model->AddNewOrder($_POST["source_order_id"],$_POST["user_id"]);
-		     redirect("RegUserPage/My_appointment");//重定向到已有订列表，貌似还没写吧
+			  $data["error_msg"]="您目前处于被封禁状态，解禁时间是".$data["user_info"]["valid_datetime"];  
 		  }
+		  
+
 
 	  }
     //没有传doctor_id就跳回首页
@@ -186,7 +197,7 @@ class RegUserPage extends base_controller {
 		redirect("");
 	}
 	
-	$data["user_info"]=$this->getLogegUser();
+	
 	$data["doctor_id"]=$_GET["doctor_id"];
 	//获取医生信息
 	$data["doctor_info"]=$this->doctor_model->get_doctor_by_id($_GET["doctor_id"]);
