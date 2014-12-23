@@ -16,6 +16,7 @@
     <div id="list">
     
     	<?php
+		//var_dump($order_list);
 		if(empty($order_list))
 		{
 			echo "<div id='hint'><label>没有符合条件的订单yo...</label><div>";
@@ -24,7 +25,7 @@
 		{
 			echo "<div id='hint'><label>符合条件的订单结果<br></label><div>";
 			echo "<table class='table table-hover'>";
-			echo "<thead><tr><th  style='border:1px black solid;'>挂号单ID</th><th  style='border:1px black solid;'>下单时间</th><th  style='border:1px black solid;'>订单状态</th><th  style='border:1px black solid;'>查看详情</th></tr></thead>";
+			echo "<thead><tr><th  style='border:1px black solid;'>订单ID</th><th  style='border:1px black solid;'>下单时间</th><th  style='border:1px black solid;'>订单状态</th><th  style='border:1px black solid;'>查看详情</th></tr></thead>";
 			echo "<tbody>";
 			foreach($order_list as $key => $value)
 			{

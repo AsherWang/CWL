@@ -16,7 +16,7 @@ class Base_model extends CI_Model {
      //checked
     //参数data数组应该包括除了id之外的所有字段,嗯，不包括表中有默认值的字段
     //出错的返回值是-1
-    protected function insertToTable($data,$tablename)
+    public function insertToTable($data,$tablename)
     {
         $this->db->insert($tablename, $data);
         if($this->db->affected_rows()!=1)
