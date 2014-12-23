@@ -1,10 +1,10 @@
 <div class="container" style="margin-bottom:150px;">
-     <div >
+     <div style="margin-left:30px;">
          <h1 class="page-header">
              CWL全国统一预约平台<small>----号源管理</small>
          </h1>
      </div>
-<div style="width:700px;">
+<div style="width:700px;margin-left:30px;">
 <div>
 <h3>号源列表</h3>
 </div>

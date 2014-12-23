@@ -1,9 +1,10 @@
 <div class="container"style="margin-bottom:150px;">
-
+    <div style="margin-left:30px;">
     <h1 class="page-header">
         CWL全国统一预约平台<small>----挂号处人员管理</small>
     </h1>
-    <div style="float: left;width:700px;">
+    </div>
+    <div style="float: left;width:700px;margin-left:30px;">
         <h3>挂号处人员列表</h3>
        		<br/>
             <form method="get" class="form-search">
@@ -65,10 +66,11 @@
                 <br/>
                 <br/>
                 <div class="control-group">
-                    <div class="controls">
+                    <div class="controls" style="margin-left:60px;">
                     	<input class="btn btn-primary" type="submit" name="submit" value="添加"/>
                         <input class="btn btn-danger" onClick="return hideForm()" type="button"  value="关闭" />
                     </div>
+                </div>
             </fieldset>
         </form>
         </div>
