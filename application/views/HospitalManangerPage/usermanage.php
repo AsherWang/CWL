@@ -46,12 +46,12 @@
                     <legend class="">添加挂号处人员</legend>
                 </div>
                 <div class="control-group">
-                    <label class="control-label" for="input01">姓名：        </label>
+                    <label class="control-label" for="input01">姓名：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                     <input style="width: 180px;" name="user_name" type="text" class="input-xlarge"/>
                 </div>
                 <br/>
                 <div class="control-group">
-                    <label class="control-label" for="input01">身份证号：    </label>
+                    <label class="control-label" for="input01">身份证号:&nbsp;</label>
                     <input name="user_ID_number" style="width: 180px;" type="text" class="input-xlarge">
                 </div>
                 <br/>
@@ -60,7 +60,7 @@
                     <input name="user_autority"  value=3 style="border-style:none" type="text" readonly="readonly" >
                 </div>
                 <br/> 
-                	<label class="control-label" for="input01">医院ID：        </label>
+                	<label class="control-label" for="input01">医院ID： &nbsp;&nbsp;&nbsp;</label>
                     <input name="hospital_id" value="<?php echo $user_info['hospital_id']?>" style="border-style:none" readonly="readonly" >
                 <br/>
                 <br/>
