@@ -190,8 +190,8 @@
     //名字模糊匹配
     public function getUserInfoByName($name)
     {
-      $sql = "select * from user where Name like '%$name%'";
-      return $this->db->query($sql)->result_array();
+      $sql = "select ID,Name,Valid_Date from user where Name like '%$name%'";
+      return $this->db->query($sql)->result();
     }
 
 		public function getUserInfoById($id)

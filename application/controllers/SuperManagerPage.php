@@ -97,10 +97,10 @@ class SuperManagerPage extends base_controller {
 
   public function SearchUserBtnClick()
   {
+    $this->PageData['userListPageNum'] = 0;
     $txt = $this->input->post('searchTxt');
 
     $this->data['userList'] = $this->user_model->getUserInfoByName($txt);
-
     $this->data['userNum'] = $this->user_model->db->affected_rows();
 
     $this->load->view('templates/header', $this->PageData);
@@ -110,11 +110,12 @@ class SuperManagerPage extends base_controller {
 
   public function SearchHospitalBtnClick()
   {
+    $this->PageData['hospitalListPageNum'] = 0;
     $txt = $this->input->post('searchTxt');
     $this->data['hospitalList'] = $this->hospital_model->getHospitalInfoByName($txt);
 
     $this->data['hospitalNum'] = $this->hospital_model->db->affected_rows();
-    $this->load->view('templates/header', $this->cairo_pattern_get_extend(pattern));
+    $this->load->view('templates/header', $this->PageData);
     $this->load->view('SuperManagerPage/HandleHospital', $this->data);
     $this->load->view('templates/footer');
 
