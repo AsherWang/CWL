@@ -221,7 +221,7 @@ window.onload = markHsp;
                 </div>
                 <div class="col-md-2 hsp_link">
 					
-	<a href="<?php echo base_url()?>RegUserPage/Hsp_doctor_list?hospital_id=<?php echo $hospital_item['ID']?>&department_type="">去医院瞅瞅</a>
+	<a href="<?php echo base_url()?>RegUserPage/Hsp_doctor_list?hospital_id=<?php echo $hospital_item['ID']?>&department_type=""">去医院瞅瞅</a>
       
                     
                     
@@ -230,7 +230,7 @@ window.onload = markHsp;
             <?php endforeach ?>
         </table>
         <!--直接套用的bootstrap的组件-->
-        <nav>
+        <!-- <nav>
             <ul class="pagination pagination-sm page_sty">
             <li class="disabled"><a href="#">&laquo;</a></li>
             <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
@@ -243,5 +243,5 @@ window.onload = markHsp;
             <li><a href="#">8 <span class="sr-only"></span></a></li>
             <li><a href="#">9 <span class="sr-only"></span></a></li>
             <li><a href="#">&raquo;</a></li>
-        </nav>
+        </nav> -->
         <!--主体医院列表-->
