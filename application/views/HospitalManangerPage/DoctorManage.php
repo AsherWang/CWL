@@ -1,5 +1,5 @@
-<div id="doccontainer" >
-     <div style="margin-left:130px;">
+<div id="doccontainer"  class="container" style="margin-bottom:150px;">
+     <div>
          <h1 class="page-header">
              CWL全国统一预约平台<small>----医生信息管理</small>
          </h1>
@@ -13,11 +13,11 @@ return preg_replace('#^(?:[\x00-\x7F]|[\xC0-\xFF][\x80-\xBF]+){0,'.$from.'}'.
 } 
 ?>
 <!--医生列表-->
-<div style="margin-left:130px;">
+<div>
 <h3>医生列表</h3>
 </div>
 
-<div style="width:700px;margin-left:130px;">
+<div style="width:700px;">
 <?php if(!empty($doctor_list)):?>
 <table class="table table-hover table-condensed table-bordered table-striped" style="text-align:center">
 <thead><th>序号</th><th>医生姓名</th><th>所属科室</th><th>擅长</th><th>操作</th></thead>

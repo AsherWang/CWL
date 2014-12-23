@@ -1,9 +1,9 @@
-<div class="container">
+<div class="container"style="margin-bottom:150px;">
 
     <h1 class="page-header">
         CWL全国统一预约平台<small>----挂号处人员管理</small>
     </h1>
-    <div style="float: left">
+    <div style="float: left;width:700px;">
         <h3>挂号处人员列表</h3>
        		<br/>
             <form method="get" class="form-search">

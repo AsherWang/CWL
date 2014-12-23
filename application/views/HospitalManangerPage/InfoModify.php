@@ -1,18 +1,18 @@
-<div id="maincontainer" style="height:980px;"> 
-     <div style="margin-left:130px;">
+<div id="maincontainer" class="container" style="margin-bottom:350px;"> 
+     <div>
          <h1 class="page-header">
              CWL全国统一预约平台<small>----医院信息修改</small>
          </h1>
      </div>
 
-      <div style=" float:left; height:600px; vertical-align:middle; padding-left:130px;padding-right:80px;border-right:1px solid black;" >
+      <div style=" float:left; height:600px; vertical-align:middle; padding-right:80px;border-right:1px solid black;" >
           <div style="float: left; width: 500px;height: 200px;" ><br/><h2>医院简介:</h2><br/>
           <p><?php echo $h_info["Info"];?></p>
               <div style="float: left; width: 500px;height: 200px;"><img width=500px src="<?php echo $h_info["Image_Url"];?>" /></div>
           </div>
 
       </div>
-      <div style="padding-left:100px;float:left; height:600px;width: 600px;padding-top: 60px;" >
+      <div style="padding-left:100px;float:left; height:600px;width: 500px;padding-top: 60px;" >
 
           <form class="form-horizontal" method="post">
               <fieldset>

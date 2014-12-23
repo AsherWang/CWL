@@ -1,10 +1,10 @@
-<div>
-     <div style="margin-left:130px;">
+<div class="container" style="margin-bottom:150px;">
+     <div >
          <h1 class="page-header">
              CWL全国统一预约平台<small>----号源管理</small>
          </h1>
      </div>
-<div style="margin-left:130px;width:700px;">
+<div style="width:700px;">
 <div>
 <h3>号源列表</h3>
 </div>
@@ -59,21 +59,21 @@
 	嗯，暂无号源.....
 <?php endif?>
 <br><br>
-<div style="position:absolute;left:950px;top:180px;" id="addForm">
+<div style="position:absolute;left:870px;top:160px;" id="addForm">
 	<form action="?do=add" method="post">
     <table>
     <thead><tr><th colspan="2">添加号源</th></tr></thead>
     <tbody><tr><td>
     	<input type="hidden" name="add_hospital_id" value="<?php echo $user_info["hospital_id"];?>"   />
         医生</td><td><select name="add_doctor_id">
-        <option value="">--选择医生--</option>
+        <option value="">-------------------选择医生-------------------</option>
         <?php foreach($doctor_id_name as $key=> $value): ?>
         	<option value="<?php echo $value["ID"];?>"><?php echo $value["Name"];?></option>      
         <?php endforeach ?>
         </select></td></tr>
-        <tr><td>日期 </td><td><input name="add_Date" type="text" id="datepicker"></td></tr>
+        <tr><td>日期 </td><td style="width:260px;"><input name="add_Date" type="text" id="datepicker"></td></tr>
         <tr><td>时段</td><td><select name="add_Time" >
-         <option value="">--选择时段--</option>
+         <option value="">-------------------选择时段-------------------</option>
         <?php foreach(get_time_array() as $key=> $value): ?>
         	<option value="<?php echo $key;?>"><?php echo $value;?></option>      
         <?php endforeach ?>
@@ -84,7 +84,7 @@
             <td>
             <input class="btn btn-danger" onClick="return hideForm()" type="button"  value="关闭" />
             </td>
-            <td><input class="btn btn-primary" type="submit" value="添加" /></td>
+            <td><div style="width:100px;margin-left:80px;"><input class="btn btn-primary" type="submit" value="添加" /></td></div>
         </tr>
        </tbody></table>
        </form>
@@ -108,6 +108,4 @@ $(document).ready(function() {
 
 
 </div>
-</div>
-<div style="height:800px;">
 </div>
