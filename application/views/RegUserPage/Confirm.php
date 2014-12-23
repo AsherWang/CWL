@@ -71,21 +71,13 @@
 				);
 				return $result[$TimeValue];
 			}
-			
-			
-			if(isset($error_msg)&&$error_msg!="")
-			{
-				echo "<div class='table-bordered' >";
-				echo $error_msg;
-				echo "</div>";	
-			}
 			?>
             
             
             
 			<!--号源列表-->
-            <?php if(empty($order_source_list)) echo("一边去，这没了")?>
-            <!-- 我想要这里只输出一种——有或没有 -->
+            <?php if(empty($order_source_list)) echo "<span style='color:red;text-align:center;'>一边去，这没了</span>"?>
+            <?php if(!empty($order_source_list)):?>
             <table class="table order_source_table">
                 <colgroup>
                     <col width="20%"></col>
@@ -111,8 +103,14 @@
                         <td><?php echo $order_source["Cur_Order_Source"]?></td>
                         <td><?php echo $order_source["Sum_Max"]?></td>
                         <!-- <td><?php if($order_source["Sum_Max"]<=$order_source["Cur_Order_Source"]) echo("不"); echo("可预约")?></td> -->
-                        <td><?php if($order_source["Sum_Max"]<=$order_source["Cur_Order_Source"]) 
-                                    echo("已无法预约");
+                        <td><?php
+                        if(isset($error_msg)&&$error_msg!="")
+                        {
+                            if($error_msg == "您可以预约的次数已经用完")
+                                echo "<span style='color:red'>预约次数已用完</span>";
+                        }else 
+                            if($order_source["Sum_Max"]<=$order_source["Cur_Order_Source"]) 
+                                    echo"<span style='color:red'>已无法预约</span>";
                                   else{
                                     echo "<form method='post'>";
                                     echo "<input name='user_id' type='hidden' value='".$user_info["id"]."' />";
@@ -123,6 +121,7 @@
                     </tr>
                 <?php endforeach ?>
             </table>
+            <?php endif?>
             <!--号源列表-->
             
 

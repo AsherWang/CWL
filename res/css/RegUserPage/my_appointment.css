@@ -100,3 +100,67 @@
 .interval_sty{
 	background-color:#CCFFFF;
 }
+
+
+.pay_board{
+	border-radius:5px;
+	position:absolute;
+	top:15%;
+	width:80%;
+	margin-left:10%;
+	z-index:999;
+	background-color:#fff;
+	border:1px solid gray;
+}
+.pay_title{
+	background-color:#5A94BB;
+}
+.pay_title_text{
+	margin-left:15px;
+	font-family:'Microsoft YaHei';
+	font-size:16px;
+	line-height:28px;
+	color:#fff;
+}
+.pay_pic{
+	width:50px;
+	height:25px;
+	background-color:red;
+	float:right;
+	text-align:center;
+	cursor:pointer;
+}
+.pay_pic_text{
+	color:#fff;
+	font-size:21px;
+	line-height:25px;
+}
+.pay_tip_1{
+	margin-left:10px;
+	font-size:14px;
+	font-family:'Microsoft YaHei';
+	color:#000;
+}
+.pay_tip_2{
+	font-size:12px;
+	font-family:'Microsoft YaHei';
+	color:#ADADAD;
+}
+.pay_board img{
+	cursor:pointer;
+	margin-left:5px;
+}
+.img_row{
+	text-align:center;
+	margin-top:15px;
+	margin-right:10px;
+}
+.pay_hr{
+	border-color:#467EE0;
+}
+.pay_button{
+	float:right;
+	width:100px;
+	margin-right:50px;
+	margin-bottom:25px;
+}

@@ -167,7 +167,150 @@
             <!--右侧栏目(用户预约单)-->
             </div>
         </div>
-        <div id="PayDiv" style="border:1px black solid; border:2px thick #987; border-radius:3px; background-color:#fff; z-index:999; height:200px; width:500px;position:fixed;;left:190px; top:200px;">
+        <div id="PayDiv" class="pay_board container">
+            <div class="row pay_title">
+                <span class="pay_title_text">付款</span>
+                <div id="PayBorderExit" class="pay_pic"><span class="pay_pic_text">x</span></div>
+            </div>
+            <div style="width:95%; margin-left:2.5%;">
+            <div class="row" style="margin-top:20px">
+                <span class="pay_tip_1">请选择下列银行支付：</span>
+                <span class="pay_tip_2">请确保您的银行卡已开通网上支付功能</span>
+            </div>
+            <div class="row img_row">
+                <div class="col-md-3">
+                <label>
+                    <input type="radio" name="bankChoose" style="margin-top:15px;margin-right:5px;">
+                    <img src="<?php echo base_url()?>res/images/bank_img/gonghang.jpg"/>
+                </label>
+                </div>
+                <div class="col-md-3">
+                <label>
+                    <input type="radio" name="bankChoose"/>
+                    <img src="<?php echo base_url()?>res/images/bank_img/guangfa.jpg"/>
+                </label>
+                </div>
+                <div class="col-md-3">
+                <label>
+                    <input type="radio" name="bankChoose"/>
+                    <img src="<?php echo base_url()?>res/images/bank_img/huaxia.jpg"/>
+                </label>
+                </div>
+                <div class="col-md-3">
+                <label>
+                    <input type="radio" name="bankChoose"/>
+                    <img src="<?php echo base_url()?>res/images/bank_img/fujianxingye.jpg"/>
+                </label>
+                </div>
+            </div>
+            <div class="row img_row">
+                <div class="col-md-3">
+                <label>
+                    <input type="radio" name="bankChoose"/>
+                    <img src="<?php echo base_url()?>res/images/bank_img/guangda.jpg"/>
+                </label>
+                </div>
+                <div class="col-md-3">
+                <label>
+                    <input type="radio" name="bankChoose"/>
+                    <img src="<?php echo base_url()?>res/images/bank_img/nonghang.jpg"/>
+                </label>
+                </div>
+                <div class="col-md-3">
+                <label>
+                    <input type="radio" name="bankChoose"/>
+                    <img src="<?php echo base_url()?>res/images/bank_img/zhaoshang.jpg"/>
+                </label>
+                </div>
+                <div class="col-md-3">
+                <label>
+                    <input type="radio" name="bankChoose"/>
+                    <img src="<?php echo base_url()?>res/images/bank_img/minsheng.jpg"/>
+                </label>
+                </div>
+            </div>
+            <div class="row img_row">
+                <div class="col-md-3">
+                <label>
+                    <input type="radio" name="bankChoose"/>
+                    <img src="<?php echo base_url()?>res/images/bank_img/zhonghang.jpg"/>
+                </label>
+                </div>
+                <div class="col-md-3">
+                <label>
+                    <input type="radio" name="bankChoose"/>
+                    <img src="<?php echo base_url()?>res/images/bank_img/jianhang.jpg"/>
+                </label>
+                </div>
+                <div class="col-md-3">
+                <label>
+                    <input type="radio" name="bankChoose"/>
+                    <img src="<?php echo base_url()?>res/images/bank_img/jiaotong.jpg"/>
+                </label>
+                </div>
+                <div class="col-md-3">
+                <label>
+                    <input type="radio" name="bankChoose"/>
+                    <img src="<?php echo base_url()?>res/images/bank_img/youzheng.jpg"/>
+                </label>
+                </div>
+            </div>
+            <div class="row img_row">
+                <div class="col-md-3">
+                <label>
+                    <input type="radio" name="bankChoose"/>
+                    <img src="<?php echo base_url()?>res/images/bank_img/shanghaiyinhang.jpg"/>
+                </label>
+                </div>
+                <div class="col-md-3">
+                <label>
+                    <input type="radio" name="bankChoose"/>
+                    <img src="<?php echo base_url()?>res/images/bank_img/pufa.jpg"/>
+                </label>
+                </div>
+                <div class="col-md-3">
+                <label>
+                    <input type="radio" name="bankChoose"/>
+                    <img src="<?php echo base_url()?>res/images/bank_img/xinyongshe.jpg"/>
+                </label>
+                </div>
+                <div class="col-md-3">
+                <label>
+                    <input type="radio" name="bankChoose"/>
+                    <img src="<?php echo base_url()?>res/images/bank_img/shiye.jpg"/>
+                </label>
+                </div>
+            </div>
+            <div class="row img_row">
+                <div class="col-md-3">
+                <label>
+                    <input type="radio" name="bankChoose"/>
+                    <img src="<?php echo base_url()?>res/images/bank_img/guangshang.jpg"/>
+                </label>
+                </div>
+                <div class="col-md-3">
+                <label>
+                    <input type="radio" name="bankChoose"/>
+                    <img src="<?php echo base_url()?>res/images/bank_img/shenshang.jpg"/>
+                </label>
+                </div>
+            </div>
+            <hr class="pay_hr"/>
+            <form method="post" onSubmit="return hideWInd()">
+                <input name="pay"  value="pay" type="hidden"/>
+                <input name="order_id" id="order_id_container" type="hidden"/>
+                <input type="submit" value="确认支付" class="btn btn-primary pay_button"/>
+            </form>
+        </div>
+            <!-- <div class="row">
+                <button type="button" class="btn btn-primary pay_button">确认支付</button>
+            </div> -->
+        </div>
+
+
+
+
+        <!-- <div id="PayDiv" style="border:1px black solid; border:2px thick #987; border-radius:3px; background-color:#fff; z-index:999; height:200px; width:500px;position:fixed;;left:190px; top:200px;">
         <div style="height:30px;"><span style="float:right;"><button id="PayBorderExit">关闭</button></span></div>
         <div><p>反正又不是真付钱，就点了确定吧  =。=</p></div>
             <form method="post" onSubmit="return hideWInd()">
@@ -175,15 +318,11 @@
                 <input name="order_id" id="order_id_container" type="hidden"/>
                 <input style="height:100px; width:230px; margin-left:132px;" type="submit" value="支付" />
             </form>
-        </div>
+        </div> -->
         <script type="text/javascript">
 		
   function preview(oper)
         {
-			
-			
-			
- 
             bdhtml=window.document.body.innerHTML;//获取当前页的html代码
             sprnstr="<!--startprint"+oper+"-->";//设置打印开始区域
             eprnstr="<!--endprint"+oper+"-->";//设置打印结束区域
