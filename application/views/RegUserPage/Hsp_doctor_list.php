@@ -147,7 +147,7 @@ window.onload = dep_search;
            
         </table>
          <!--直接套用的bootstrap的组件-->
-        <nav>
+       <!--  <nav>
             <ul class="pagination pagination-sm page_sty">
             <li class="disabled"><a href="#">&laquo;</a></li>
             <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
@@ -160,6 +160,6 @@ window.onload = dep_search;
             <li><a href="#">8 <span class="sr-only"></span></a></li>
             <li><a href="#">9 <span class="sr-only"></span></a></li>
             <li><a href="#">&raquo;</a></li>
-        </nav>
+        </nav> -->
         <!--医生列表-->
     </div>
