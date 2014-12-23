@@ -61,7 +61,6 @@ if(isset($session->userdata['user_type']))
                         </div>
                         <form action="<?php echo base_url();?>NoticePage" method="post">
                         <div class="modal-body">
-                        
                             <p>公告标题：</p>
                             <input type="text" name="Title" class="form-control" id="CreateNoticeTitle" />
                             <p>公告内容: </p>
@@ -75,7 +74,6 @@ if(isset($session->userdata['user_type']))
                     </div><!-- /.modal-content -->
                 </div>
           </div>
-            
           <a class="HeaderText" id="HeaderNameLink" href=""><?php echo "管理员：".$session->userdata['username'];?></a>
         <?php }?>
         <?php if($session->userdata['user_type'] == "3" || $session->userdata['user_type'] == "4"){ ?>

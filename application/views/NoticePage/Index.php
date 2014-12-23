@@ -14,9 +14,9 @@ function createNotice()
     <div class="col-md-8" id="NoticeListCol">
         <div class="row" id="NoticeList">
             <div class="row">
-                <div class="NoticeTagText col-md-1">标题</div>
-                <div class="NoticeTagText col-md-2 col-md-offset-6">发布时间</div>
-                <div class="NoticeTagText col-md-1 col-md-offset-1">作者</div>
+                <div class="NoticeTagText col-md-4">标题</div>
+                <div class="NoticeTagText col-md-2 col-md-offset-1">发布时间</div>
+                <div class="NoticeTagText col-md-2 col-md-offset-1" align="center">作者</div>
             </div>
             <hr style="margin-top:3px"/>
             <?php foreach ($notice as $notice_item): ?>
@@ -30,8 +30,8 @@ function createNotice()
                     else
                         echo $v;
                     ?></a>
-                    <p class="NoticeListDate col-md-3 col-md-offset-3"><?php echo $notice_item['Date']?></p>
-                    <p class="NoticeListAuthor col-md-2"><?php echo $notice_item['Name']?></p>
+                    <p class="NoticeListDate col-md-3 col-md-offset-1"><?php echo $notice_item['Date']?></p>
+                    <p class="NoticeListAuthor col-md-2" align="center"><?php echo $notice_item['Name']?></p>
                 </div>
                 <hr />
             <?php endforeach ?>

@@ -6,7 +6,7 @@
 	</div>
 	<div class="col-md-6 col-md-offset-1" id="NoticeInfoCol">
 		<h2 style="color:red;font-family:华文隶书" class="row NoticeText" align="center" id="NoticeTitle">
-			&nbsp;<?php echo $notice['Title']?>
+			<?php echo $notice['Title']?>
 		</h2>
 		<div align="right" style="font-size:15px;" class="row NoticeText NoticeTagText" id="NoticeSubInfo">
 			<?php echo $notice['Date']?>
