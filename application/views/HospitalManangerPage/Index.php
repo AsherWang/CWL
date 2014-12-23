@@ -19,7 +19,7 @@
      
 <style type="text/css">
 #FooterDiv{
-	position:fixed;
+	
 	bottom:0px;
 	width:100%;
 	left:0px;
@@ -45,7 +45,7 @@
 	
 </style>
 </head> 
-  <body>
+  <body style="background:url('<?php echo base_url().'res/images/bg.png'?>')">
   <p>欢迎您，管理员 <u><?php echo $admin_name;?></u></p>
   <div class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container">
@@ -68,7 +68,7 @@
                   <li <?php if($pageIndex==4)echo "class='active'";?>><a href="<?php echo base_url()?>HospitalManangerPage/OrderSource">号源管理</a></li>
                                     <li <?php if($pageIndex==3)echo "class='active'";?>><a href="<?php echo base_url()?>NoticePage">医院公告管理</a></li>
                   
-                  <li><a href="<?php echo base_url()?>HospitalManangerPage?do=exit">退出管理</a></li>
+                  <li style="margin-left:270px;"><a href="<?php echo base_url()?>HospitalManangerPage?do=exit">退出管理</a></li>
               </ul>
 
           </div>

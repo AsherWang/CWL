@@ -39,7 +39,7 @@
 
 
     
-    <div id="addworker" style="float: right">
+    <div id="addworker" style="float: right;margin-right:50px;">
         <form class="form-horizontal" method="post">
             <fieldset>
                 <div id="legend" class="">

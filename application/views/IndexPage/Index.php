@@ -130,7 +130,7 @@
           <?php if($login_result==1)  {?>
           <div id="welcome">
             <div id="wtitle">欢迎回来!</div>
-            <div id="wname"><?php echo $user['username'] ?></div>
+           
             <div id="wimg"><img style="width:180px;height:180px;" class="img-circle" src="<?php echo base_url().'res/images/user.jpg'?>"></div>
             <div id="wlog"><button id="wbut" onclick="window.location.href='<?php echo base_url();?>?do=exit'" type="button" class="btn btn-primary btn-lg">退出登录</button></div>
           </div>
