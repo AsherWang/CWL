@@ -183,7 +183,7 @@
             <div class="row img_row">
                 <div class="col-md-3">
                 <label>
-                    <input type="radio" name="bankChoose" style="margin-top:15px;margin-right:5px;">
+                    <input type="radio" name="bankChoose" checked="true" style="margin-top:15px;margin-right:5px;">
                     <img src="<?php echo base_url()?>res/images/bank_img/gonghang.jpg"/>
                 </label>
                 </div>
