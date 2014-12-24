@@ -20,11 +20,13 @@ class IndexPage extends base_controller {
    $this->load->model('department_model');
    $this->load->model('hospital_model'); 
    $this->load->model('user_model'); 
+   $this->output->cache(0); 
   }
 
   //IndexPage/index
   public function Index()
   { 
+  		
 		$temp=$this->session->flashdata('pre_link');
 		if($temp)
 		{

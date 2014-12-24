@@ -27,7 +27,7 @@ class SuperManagerPage extends base_controller {
     if($this->session->userdata['user_type'] != "1"){
       Redirect("");
     }
-    
+    $this->output->cache(0); 
   }
 
   //SuperManagerPage/index

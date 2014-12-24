@@ -21,6 +21,7 @@ class RegUserPage extends base_controller {
 
    $this->pageData['session'] = $this->session;
    $this->pageData['title'] = "注册用户";
+    $this->output->cache(0); 
   }
 	private function checkSession()
 	{
@@ -40,7 +41,7 @@ class RegUserPage extends base_controller {
    $data["search_area"]="";
    $data["search_box"]="";
   
-
+$this->output->cache(0); 
    
    if(isset($_GET["search_box"])&&$_GET["search_box"]!="") 
    	$data["search_box"]=$_GET["search_box"];

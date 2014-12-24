@@ -18,7 +18,7 @@ class NoticePage extends base_controller{
 	//显示所有公告
 	public function index()
 	{
-		
+		$this->output->cache(0); //设置页面缓存
 		
 		if($this->isSessionExists())
 		{
@@ -41,6 +41,8 @@ if(isset($_POST["Content"])&&$_POST["Content"]!="")
 	//显示单条详细公告
 	public function view($ID)
 	{
+		
+		$this->output->cache(5); //设置页面缓
 		$this->load->helper('url');
 
 		$data['notice_item']=$this->notice_model->get_notice("SELECT Notice.*, User.Name FROM Notice INNER JOIN USER ON Notice.Author_ID = User.ID WHERE Notice.ID=$ID");

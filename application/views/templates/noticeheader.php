@@ -74,7 +74,7 @@ if(isset($session->userdata['user_type']))
                     </div><!-- /.modal-content -->
                 </div>
           </div>
-          <a class="HeaderText" id="HeaderNameLink" href=""><?php echo "管理员：".$session->userdata['username'];?></a>
+          <a class="HeaderText" id="HeaderNameLink" href="SuperManagerPage/Index"><?php echo "管理员：".$session->userdata['username'];?></a>
         <?php }?>
         <?php if($session->userdata['user_type'] == "3" || $session->userdata['user_type'] == "4"){ ?>
         
@@ -83,9 +83,6 @@ if(isset($session->userdata['user_type']))
               <a class="HeaderText" id="HeaderNameLink" href="#"><?php echo $session->userdata['username'];?></a>
               
         <?php }?>
-         <?php if($isSuper){ ?>
-      <a class="HeaderText" id="HeaderSuperLink" href="<?php echo base_url()?>SuperManagerPage/Index">权限狗专区</a>
-    	<?php }?>
          <span class="HeaderStaticText HeaderDivide">|</span>
               <a class="HeaderText" id="HeaderNameLink" href="<?php base_url()?>IndexPage?do=exit">退出</a>
     <?php }?>

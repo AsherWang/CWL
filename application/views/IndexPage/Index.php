@@ -30,7 +30,7 @@
       <?php } else {?>
       <ul class="nav navbar-nav navbar-right" id="logo1">
        <li class="active"><a><?php echo $user['username'] ?></a></li>
-       <li><a href="<?php echo base_url();?>RegUserPage/personal_message_change">用户中心</a></li>
+       <li><a href="<?php echo base_url();?>RegUserPage/My_appointment">我的订单</a></li>
      </ul>
      <?php } ?>
    </div>
@@ -132,7 +132,7 @@
             <div id="wtitle">欢迎回来!</div>
            
             <div id="wimg"><img style="width:180px;height:180px;" class="img-circle" src="<?php echo base_url().'res/images/user.jpg'?>"></div>
-            <div id="wlog"><button id="wbut" onclick="window.location.href='<?php echo base_url();?>?do=exit'" type="button" class="btn btn-primary btn-lg">退出登录</button></div>
+            <div id="wlog"><button id="wbut" onClick="window.location.href='<?php echo base_url();?>?do=exit'" type="button" class="btn btn-primary btn-lg">退出登录</button></div>
           </div>
           <?php } else {?>
           <div id="quicklogin">
@@ -327,8 +327,8 @@
       
     </div>
 
-    <div id="footer">
-     <a href="<?php echo base_url();?>LoginPage">后台登陆</a>&nbsp;&nbsp;&nbsp;<a>关于我们</a>
+    <div id="footer"  style="text-align:center;"><br>
+     <a href="<?php echo base_url();?>LoginPage">后台登陆</a>&nbsp;&nbsp;<a href="<?php echo base_url();?>RegUserPage">预约挂号</a>&nbsp;&nbsp;<a href="<?php echo base_url();?>NoticePage">查看公告</a>&nbsp;&nbsp;
    </div>
 
  </body>

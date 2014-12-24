@@ -1,0 +1,55 @@
+1419397447TS---><!DOCTYPE HTML>
+<html>
+<head>
+  <title>公告页面</title>
+  <meta charset="utf-8">
+  <script src='http://localhost:8080/CWL//res/js/jquery.js'></script>
+  <script src='http://localhost:8080/CWL/res/js/bootstrap.min.js'></script>
+  <link rel="stylesheet" type="text/css" href='http://localhost:8080/CWL/res/css/bootstrap-theme.css'>
+  <link rel="stylesheet" type="text/css" href='http://localhost:8080/CWL/res/css/bootstrap.min.css'>
+  <link rel="stylesheet" type="text/css" href='http://localhost:8080/CWL/res/css/headerAndFooter.css'>
+  <link rel="stylesheet" type="text/css" href='http://localhost:8080/CWL//res/css/Notice.css' />
+</head>
+<body>
+  <div class="row" id="HeaderDiv">
+    <a class="col-md-3 HeaderText" id="HeaderHomeDiv" href="http://localhost:8080/CWL/IndexPage">
+      <span class="glyphicon glyphicon-home HeaderText"></span>
+      <span class="HeaderText" style="font-size:15px">首页</span>
+    </a>
+    <div class="col-md-4 col-md-offset-5" id="HeaderRightDiv">
+               
+          <a class="HeaderText" id="HeaderToNoticeLink" href="http://localhost:8080/CWL/NoticePage">查看公告</a> 
+          <span class="HeaderStaticText HeaderDivide">|</span>
+      		<a class="HeaderText" id="HeaderLoginLink" href="http://localhost:8080/CWL/IndexPage">登录</a>
+        <a class="HeaderText" id="HeaderRegisterLink" href="http://localhost:8080/CWL/LoginPage/regist">注册</a>
+  	
+    
+    </div>
+  	<hr class="HeaderFooterHr" id="HeaderHr"/>
+  </div><link href='http://localhost:8080/CWL//res/css/Notice.css' rel="stylesheet" type="text/css" />
+<div class="row" id="OneNoticePageContent">
+	<div class="col-md-2 NoticeImgCol">
+		<img src="http://localhost:8080/CWL/res/images/NoticePage/NoticeMark.png">
+	</div>
+	<div class="col-md-6 col-md-offset-1" id="NoticeInfoCol">
+		<h2 style="color:red;font-family:华文隶书" class="row NoticeText" align="center" id="NoticeTitle">
+			关于盖茨基金会创新大挑战资助项目介绍		</h2>
+		<div align="right" style="font-size:15px;" class="row NoticeText NoticeTagText" id="NoticeSubInfo">
+			2014-12-23 00:00:00			&nbsp;&nbsp;&nbsp;发布人：
+			赵晓河		</div>
+		<div class="row NoticeText" id="NoticeContent">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;中国科技部与比尔及梅琳达·盖茨基金会（简称“盖茨基金会”）于2011年签署战略合作备忘录，双方同意共同支持全球健康与现代农业领域的创新性产品研发及生产项目。在此合作框架的基础上，科技部决定将盖茨基金会“科技创新大挑战”（Grand Challenges）这一在全球有着十年成功运行经验的创新资助平台在中国推广，以期为国内科研工作者提供更多的以创新为主题的国际交流与合作的机会，协助中国科学家深度参与全球科技发展进程，分享中国成功案例和最佳实践经验， 推动中国创新解决全球重大发展问题。
+科技创新大挑战（简称“大挑战”）是一个汇聚众多项目与合作伙伴的多元化科研创新项目，旨在寻求面向特定全球健康和发展问题的创新性解决方案。大挑战计划的使命是重点培育创新、把研究引导到能产生最大影响力的地方并且服务最需要帮助的人。自2003年启动以来，该项目已成功吸引政府及非政府部门的资金来催化科技创新。目前大挑战项目已向来自全球80多个国家的将近1700个项目投入了超过10亿美元的资金。
+在中国开展创新大挑战活动，不但能彰显中国在全球科技领域的领导力，也是进一步贯彻落实习总书记今年8月18日讲话精神，实施创新驱动发展战略，扩大开放，全方位加强国际合作，要坚持“引进来”和“走出去”相结合，积极融入全球创新网络，全面提高我国科技创新的国际合作水平。
+盖茨基金会与其他大挑战项目的主办方现已开始征集项目申报书。目前开放接收申请的大挑战题目包括：
+1. 将妇女和女童置于发展的重心  
+性别不平等，以及妇女和女童在需求、角色和发展潜力方面的边缘化，是限制人类发展成果提升的两个关键因素。消除性别不平等并赋予妇女和女童更多权利，能够促进多个社会领域的发展。基金会致力于将消除性别不平等方面的努力与各领域的社会发展成果相联系，根据具体情况将行之有效的举措投入大规模应用，并更加努力地探索更好的方法，以衡量女性赋权措施的效果。我们寻找创新性的解决方案，希望能够有效地接触妇女和女童这一群体，帮助她们获得包括经济收益在内的更好的健康与发展成果。		</div>
+	</div>
+</div><div id="FooterDiv" class="row">
+	<hr class="HeaderFooterHr"/>
+	<div>&copy;版权所有，翻版必究</div>
+	<div>二次元方程式团队拥有最终解释权</div>
+	<br>
+</div>
+</body>
+</html>

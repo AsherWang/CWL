@@ -39,8 +39,7 @@ class Base_model extends CI_Model {
   }
 
 
-  //更新一个表的数据,改
-    //$data是array
+  //更新一个表的数据
   protected function updateTable($ID,$data,$tablename)
   {
      $where = "ID = $ID"; 

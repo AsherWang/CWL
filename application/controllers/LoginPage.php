@@ -5,6 +5,7 @@ class LoginPage extends base_controller {
   {
     parent::__construct();
     $this->load->model('user_model');
+	$this->output->cache(0); 
   }
   public function Index()
   {

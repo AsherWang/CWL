@@ -22,15 +22,18 @@ class HospitalManangerPage extends base_controller {
    $this->load->model('user_model');
    $this->load->model('department_model');
    $this->load->helper('url');
+   $this->output->cache(0); 
   }
   public function Appointment()
   {
 	  $data['title'] = '订单管理';
+	  $this->output->cache(0); 
 	$this->load->view('HospitalManangerPage/Index', $data);
 	   $this->load->view('HospitalManangerPage/Appointment');
   }
   public function UserManage()
   {
+	  $this->output->cache(0); 
 	   $data["pageIndex"]=2;
 	   $data['mark_delete']=0;
 	   $data['mark_update']=0;
@@ -103,6 +106,7 @@ class HospitalManangerPage extends base_controller {
   //首页默认的时候医院信息的修改功能
     public function Index()
    {
+	   $this->output->cache(0); 
 	 $data["pageIndex"]=1;
 	 if(isset($_GET["do"])&& $_GET["do"]=="exit")//检测退出
 	 {
@@ -141,6 +145,7 @@ class HospitalManangerPage extends base_controller {
   
   function OrderSource()
   {
+	  $this->output->cache(0); 
 	  if(!$this->isSessionExists())redirect("");  //检测session
 	  
 	  $data['user_info']=$this->getLogegUser();
@@ -197,6 +202,7 @@ class HospitalManangerPage extends base_controller {
   
   function DoctorManage()
   {
+	  $this->output->cache(0); 
 	  	  if(!$this->isSessionExists())redirect("");  //检测session
 	  
 	  $data['user_info']=$this->getLogegUser();

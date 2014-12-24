@@ -18,7 +18,7 @@ class RegOfficePage extends base_controller {
    $this->load->model('hospital_model');
    $this->load->model('department_model');
    $this->load->model('doctor_model');
-   
+   $this->output->cache(0); 
    
   }
 
